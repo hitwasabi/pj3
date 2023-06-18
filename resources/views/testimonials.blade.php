@@ -167,9 +167,9 @@
                                                     <div class="col-xl-4 column">
                                                         <ul>
                                                             <li><h4>Pages</h4></li>
-                                                            <li><a href="about.blade.php">About Us</a></li>
+                                                            <li><a href="client/about.blade.php">About Us</a></li>
                                                             <li><a href="services.blade.php">Our Services</a></li>
-                                                            <li><a href="faq.blade.php">Faq's Page</a></li>
+                                                            <li><a href="client/faq.blade.php">Faq's Page</a></li>
                                                             <li><a href="pricing.blade.php">Pricing Table</a></li>
                                                             <li><a href="compare-roperties.html">Compare Properties</a></li>
                                                             <li><a href="categories.html">Categories Page</a></li>
