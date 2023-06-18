@@ -1,5 +1,3 @@
-<!-- xong -->
-
 <!DOCTYPE html>
 <html lang="en">
 

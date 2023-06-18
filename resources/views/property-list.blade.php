@@ -323,7 +323,7 @@
                 <div class="content-box clearfix">
                     <h1>Danh sách phòng trọ</h1>
                     <ul class="bread-crumb clearfix">
-                        <li><a href="client/home.blade.php">Trang chủ</a></li>
+                        <li><a href="index.blade.php">Trang chủ</a></li>
                         <li>Danh sách phòng trọ</li>
                     </ul>
                 </div>
