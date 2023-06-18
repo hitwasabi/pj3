@@ -17,3 +17,9 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::get('/signin',function (){
+    return view('signin');
+});
+
+Route::get('/login',[\App\Http\Controllers\LoginCotroller::class,'viewLogin']);
+Route::post('/login',[\App\Http\Controllers\LoginCotroller::class,'login']);
