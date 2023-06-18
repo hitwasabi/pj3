@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from azim.commonsupport.com/Realshed/faq.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Jun 2023 14:59:43 GMT -->
+<!-- Mirrored from azim.commonsupport.com/Realshed/about.blade.php by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Jun 2023 14:59:42 GMT -->
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -71,7 +71,7 @@
                                 d
                             </span>
                         </div>
-                    </div>  
+                    </div>
                 </div>
             </div>
         </div>
@@ -103,7 +103,7 @@
                             <a href="javascript: void(0)" data-theme="orange" class="orange-color"></a>
                         </li>
                     </ul>
-                </div> 
+                </div>
             </div>
         </div>
         <!-- end switcher menu -->
@@ -130,7 +130,7 @@
                             <li><a href="index-2.html"><i class="fab fa-vimeo-v"></i></a></li>
                         </ul>
                         <div class="sign-box">
-                            <a href="signin.html"><i class="fas fa-user"></i>Sign In</a>
+                            <a href="signin.blade.php"><i class="fas fa-user"></i>Sign In</a>
                         </div>
                     </div>
                 </div>
@@ -172,20 +172,20 @@
                                         </li>
                                         <li class="dropdown"><a href="index-2.html"><span>Listing</span></a>
                                             <ul>
-                                                <li><a href="agents-list.html">Agents List</a></li>
+                                                <li><a href="agents-list.blade.php">Agents List</a></li>
                                                 <li><a href="agents-grid.html">Agents Grid</a></li>
-                                                <li><a href="agents-details.html">Agent Details</a></li>
+                                                <li><a href="agents-details.blade.php">Agent Details</a></li>
                                             </ul>
-                                        </li> 
+                                        </li>
                                         <li class="dropdown"><a href="index-2.html"><span>Property</span></a>
                                             <ul>
-                                                <li><a href="property-list.html">Property List</a></li>
+                                                <li><a href="property-list.blade.php">Property List</a></li>
                                                 <li><a href="property-grid.html">Property Grid</a></li>
                                                 <li><a href="property-list-2.html">Property List Full View</a></li>
                                                 <li><a href="property-grid-2.html">Property Grid Full View</a></li>
                                                 <li><a href="property-list-3.html">Property List Half View</a></li>
                                                 <li><a href="property-grid-3.html">Property Grid Half View</a></li>
-                                                <li><a href="property-details.html">Property Details 01</a></li>
+                                                <li><a href="property-details.blade.php">Property Details 01</a></li>
                                                 <li><a href="property-details-2.html">Property Details 02</a></li>
                                                 <li><a href="property-details-3.html">Property Details 03</a></li>
                                                 <li><a href="property-details-4.html">Property Details 04</a></li>
@@ -198,26 +198,26 @@
                                                         <ul>
                                                             <li><h4>Pages</h4></li>
                                                             <li><a href="about.html">About Us</a></li>
-                                                            <li><a href="services.html">Our Services</a></li>
-                                                            <li><a href="faq.html">Faq's Page</a></li>
-                                                            <li><a href="pricing.html">Pricing Table</a></li>
+                                                            <li><a href="services.blade.php">Our Services</a></li>
+                                                            <li><a href="faq.blade.php">Faq's Page</a></li>
+                                                            <li><a href="pricing.blade.php">Pricing Table</a></li>
                                                             <li><a href="compare-roperties.html">Compare Properties</a></li>
                                                             <li><a href="categories.html">Categories Page</a></li>
                                                             <li><a href="career.html">Career Opportunity</a></li>
-                                                            <li><a href="testimonials.html">Testimonials</a></li>
+                                                            <li><a href="testimonials.blade.php">Testimonials</a></li>
                                                         </ul>
                                                     </div>
                                                     <div class="col-xl-4 column">
                                                         <ul>
                                                             <li><h4>Pages</h4></li>
-                                                            <li><a href="gallery.html">Our Gallery</a></li>
+                                                            <li><a href="gallery.blade.php">Our Gallery</a></li>
                                                             <li><a href="profile.html">My Profile</a></li>
-                                                            <li><a href="signin.html">Sign In</a></li>
-                                                            <li><a href="signup.html">Sign Up</a></li>
-                                                            <li><a href="error.html">404</a></li>
-                                                            <li><a href="agents-list.html">Agents List</a></li>
+                                                            <li><a href="signin.blade.php">Sign In</a></li>
+                                                            <li><a href="signup.blade.php">Sign Up</a></li>
+                                                            <li><a href="error.blade.php">404</a></li>
+                                                            <li><a href="agents-list.blade.php">Agents List</a></li>
                                                             <li><a href="agents-grid.html">Agents Grid</a></li>
-                                                            <li><a href="agents-details.html">Agent Details</a></li>
+                                                            <li><a href="agents-details.blade.php">Agent Details</a></li>
                                                         </ul>
                                                     </div>
                                                     <div class="col-xl-4 column">
@@ -225,17 +225,17 @@
                                                             <li><h4>Pages</h4></li>
                                                             <li><a href="blog-1.html">Blog 01</a></li>
                                                             <li><a href="blog-2.html">Blog 02</a></li>
-                                                            <li><a href="blog-3.html">Blog 03</a></li>
-                                                            <li><a href="blog-details.html">Blog Details</a></li>
+                                                            <li><a href="blog-3.blade.php">Blog 03</a></li>
+                                                            <li><a href="blog-details.blade.php">Blog Details</a></li>
                                                             <li><a href="agency-list.html">Agency List</a></li>
                                                             <li><a href="agency-grid.html">Agency Grid</a></li>
                                                             <li><a href="agency-details.html">Agency Details</a></li>
-                                                            <li><a href="contact.html">Contact Us</a></li>
+                                                            <li><a href="contact.blade.php">Contact Us</a></li>
                                                         </ul>
-                                                    </div>                                   
-                                                </div>                                        
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </li> 
+                                        </li>
                                         <li class="dropdown"><a href="index-2.html"><span>Agency</span></a>
                                             <ul>
                                                 <li><a href="agency-list.html">Agency List</a></li>
@@ -247,11 +247,11 @@
                                             <ul>
                                                 <li><a href="blog-1.html">Blog 01</a></li>
                                                 <li><a href="blog-2.html">Blog 02</a></li>
-                                                <li><a href="blog-3.html">Blog 03</a></li>
-                                                <li><a href="blog-details.html">Blog Details</a></li>
+                                                <li><a href="blog-3.blade.php">Blog 03</a></li>
+                                                <li><a href="blog-details.blade.php">Blog Details</a></li>
                                             </ul>
-                                        </li>  
-                                        <li><a href="contact.html"><span>Contact</span></a></li>   
+                                        </li>
+                                        <li><a href="contact.blade.php"><span>Contact</span></a></li>
                                     </ul>
                                 </div>
                             </nav>
@@ -288,7 +288,7 @@
         <div class="mobile-menu">
             <div class="menu-backdrop"></div>
             <div class="close-btn"><i class="fas fa-times"></i></div>
-            
+
             <nav class="menu-box">
                 <div class="nav-logo"><a href="index-2.html"><img src="assets/images/logo-2.png" alt="" title=""></a></div>
                 <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
@@ -314,13 +314,13 @@
 
 
         <!--Page Title-->
-        <section class="page-title centred" style="background-image: url(assets/images/background/page-title-4.jpg);">
+        <section class="page-title centred" style="background-image: url(assets/images/background/page-title-3.jpg);">
             <div class="auto-container">
                 <div class="content-box clearfix">
-                    <h1>Các câu hỏi thường gặp</h1>
+                    <h1>Về chúng tôi</h1>
                     <ul class="bread-crumb clearfix">
                         <li><a href="index-2.html">Trang chủ</a></li>
-                        <li>Các câu hỏi thường gặp</li>
+                        <li>Về chúng tôi</li>
                     </ul>
                 </div>
             </div>
@@ -328,62 +328,176 @@
         <!--End Page Title-->
 
 
-        <!-- faq-page-section -->
-        <section class="faq-page-section sec-pad">
+        <!-- about-section -->
+        <section class="about-section about-page pb-0">
+            <div class="auto-container">
+                <div class="inner-container">
+                    <div class="row align-items-center clearfix">
+                        <div class="col-lg-6 col-md-12 col-sm-12 image-column">
+                            <div class="image_block_2">
+                                <div class="image-box">
+                                    <figure class="image"><img src="assets/images/resource/about-1.jpg" alt=""></figure>
+                                    <div class="text wow fadeInLeft animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                                        <h2>20</h2>
+                                        <h4>Năm  <br />Kinh nghiệm</h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-12 col-sm-12 content-column">
+                            <div class="content_block_3">
+                                <div class="content-box">
+                                    <div class="sec-title">
+                                        <h5>Về chúng tôi</h5>
+                                        <h2>Xin chào, tôi là Anh Tú</h2>
+                                    </div>
+                                    <div class="text">
+                                        <p>Dolor sit amet consectetur elit sed do eiusmod tempor incididunt labore et dolore magna aliqua enim ad minim veniam quis nostrud exercitation ullamco laboris aliquip ex ea commodo consequat duis aute irure.</p>
+                                        <p>dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat.</p>
+                                    </div>
+                                    <ul class="list clearfix">
+                                        <li>consectetur elit sed do eius</li>
+                                        <li>consectetur elit sed</li>
+                                    </ul>
+                                    <div class="btn-box">
+                                        <a href="contact.blade.php" class="theme-btn btn-one">Hãy liên lạc cho tôi</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- about-section end -->
+
+
+        <!-- feature-style-three -->
+        <section class="feature-style-three centred pb-110">
+            <div class="auto-container">
+                <div class="sec-title">
+                    <h5>Dịch vụ của chúng tôi</h5>
+                    <h2>Dịch vụ cho thuê</h2>
+                </div>
+                <div class="three-item-carousel owl-carousel owl-theme owl-nav-none dots-style-one">
+                    <div class="feature-block-two">
+                        <div class="inner-box">
+                            <div class="icon-box"><i class="icon-1"></i></div>
+                            <h4>Danh tiếng xuất sắc</h4>
+                            <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
+                        </div>
+                    </div>
+                    <div class="feature-block-two">
+                        <div class="inner-box">
+                            <div class="icon-box"><i class="icon-26"></i></div>
+                            <h4>Đại lý cho thuê tốt</h4>
+                            <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
+                        </div>
+                    </div>
+                    <div class="feature-block-two">
+                        <div class="inner-box">
+                            <div class="icon-box"><i class="icon-21"></i></div>
+                            <h4>Dịch vụ cá nhân</h4>
+                            <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
+                        </div>
+                    </div>
+                    <div class="feature-block-two">
+                        <div class="inner-box">
+                            <div class="icon-box"><i class="icon-1"></i></div>
+                            <h4>Danh tiếng xuất sắc</h4>
+                            <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
+                        </div>
+                    </div>
+                    <div class="feature-block-two">
+                        <div class="inner-box">
+                            <div class="icon-box"><i class="icon-26"></i></div>
+                            <h4>Đại lý cho thuê tốt</h4>
+                            <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
+                        </div>
+                    </div>
+                    <div class="feature-block-two">
+                        <div class="inner-box">
+                            <div class="icon-box"><i class="icon-21"></i></div>
+                            <h4>Dịch vụ cá nhân</h4>
+                            <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
+                        </div>
+                    </div>
+                    <div class="feature-block-two">
+                        <div class="inner-box">
+                            <div class="icon-box"><i class="icon-1"></i></div>
+                            <h4>Danh tiếng xuất sắc</h4>
+                            <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
+                        </div>
+                    </div>
+                    <div class="feature-block-two">
+                        <div class="inner-box">
+                            <div class="icon-box"><i class="icon-26"></i></div>
+                            <h4>Đại lý cho thuê tốt</h4>
+                            <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
+                        </div>
+                    </div>
+                    <div class="feature-block-two">
+                        <div class="inner-box">
+                            <div class="icon-box"><i class="icon-21"></i></div>
+                            <h4>Dịch vụ cá nhân</h4>
+                            <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- feature-style-three end -->
+
+
+        <!-- cta-section -->
+        <section class="cta-section alternate-2 pb-240 centred" style="background-image: url(assets/images/background/cta-1.jpg);">
+            <div class="auto-container">
+                <div class="inner-box clearfix">
+                    <div class="text">
+                        <h2>Tìm kiếm để thuê phòng trọ hoặc <br />Đăng bài cho thuê?</h2>
+                    </div>
+                    <div class="btn-box">
+                        <a href="property-details.blade.php" class="theme-btn btn-three">Danh mục các phòng</a>
+                        <a href="index-2.html" class="theme-btn btn-one">Đăng bài</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- cta-section end -->
+
+
+
+
+
+
+        <!-- clients-section -->
+        <section class="clients-section bg-color-1">
+            <div class="pattern-layer" style="background-image: url(assets/images/shape/shape-1.png);"></div>
             <div class="auto-container">
                 <div class="row clearfix">
-                    <div class="col-lg-8 col-md-12 col-sm-12 content-column">
-                        <div class="faq-content-side">
-                            <div class="sec-title">
-                                <h5>FAQ’S</h5>
-                                <h2>Các câu hỏi thường gặp</h2>
-                                <p>Lorem ipsum dolor sit amet consectetur adipisicing do eumod tempor.</p>
-                            </div>
-                            <ul class="accordion-box">
-                                <li class="accordion block active-block">
-                                    <div class="acc-btn active">
-                                        <div class="icon-outer"><i class="fas fa-angle-down"></i></div>
-                                        <h5>Một ngôi nhà có thể mất giá trị?</h5>
-                                    </div>
-                                    <div class="acc-content current">
-                                        <div class="content-box">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing do eumod tempor incidunt labore dolore magna aliqua enim minim veniam. quis nostrud exercitation  laboris nis aliquip ex ea comodo consequat duis aute irure.</p>
-                                            <ul class="list-style-one clearfix">
-                                                <li>consectetur elit sed do eius</li>
-                                                <li>consectetur elit sed</li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12 title-column">
+                        <div class="sec-title">
+                            <h5>Đối tác của chúng tôi</h5>
+                            <h2>Chúng tôi sẽ trở thành đối tác lâu dài.</h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-12 col-sm-12 inner-column">
+                        <div class="clients-logo">
+                            <ul class="logo-list clearfix">
+                                <li>
+                                    <figure class="logo"><a href="index-3.html"><img src="assets/images/clients/clients-1.png" alt=""></a></figure>
                                 </li>
-                                <li class="accordion block">
-                                    <div class="acc-btn">
-                                        <div class="icon-outer"><i class="fas fa-angle-down"></i></div>
-                                        <h5>Một ngôi nhà cũ có thể có giá trị tốt như một ngôi nhà mới?</h5>
-                                    </div>
-                                    <div class="acc-content">
-                                        <div class="content-box">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing do eumod tempor incidunt labore dolore magna aliqua enim minim veniam. quis nostrud exercitation  laboris nis aliquip ex ea comodo consequat duis aute irure.</p>
-                                            <ul class="list-style-one clearfix">
-                                                <li>consectetur elit sed do eius</li>
-                                                <li>consectetur elit sed</li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                <li>
+                                    <figure class="logo"><a href="index-3.html"><img src="assets/images/clients/clients-2.png" alt=""></a></figure>
                                 </li>
-                                <li class="accordion block">
-                                     <div class="acc-btn">
-                                        <div class="icon-outer"><i class="fas fa-angle-down"></i></div>
-                                        <h5>Tôi nên trả bao nhiêu cho người bán?</h5>
-                                    </div>
-                                    <div class="acc-content">
-                                        <div class="content-box">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing do eumod tempor incidunt labore dolore magna aliqua enim minim veniam. quis nostrud exercitation  laboris nis aliquip ex ea comodo consequat duis aute irure.</p>
-                                            <ul class="list-style-one clearfix">
-                                                <li>consectetur elit sed do eius</li>
-                                                <li>consectetur elit sed</li>
-                                            </ul>
-                                        </div>
-                                    </div>
+                                <li>
+                                    <figure class="logo"><a href="index-3.html"><img src="assets/images/clients/clients-3.png" alt=""></a></figure>
+                                </li>
+                                <li>
+                                    <figure class="logo"><a href="index-3.html"><img src="assets/images/clients/clients-4.png" alt=""></a></figure>
+                                </li>
+                                <li>
+                                    <figure class="logo"><a href="index-3.html"><img src="assets/images/clients/clients-5.png" alt=""></a></figure>
                                 </li>
                             </ul>
                         </div>
@@ -391,7 +505,76 @@
                 </div>
             </div>
         </section>
-        <!-- faq-page-section end -->
+        <!-- clients-section end -->
+
+
+        <!-- team-section -->
+        <section class="team-section sec-pad centred">
+            <div class="auto-container">
+                <div class="sec-title">
+                    <h5>Our Agents</h5>
+                    <h2>Meet Our Excellent Agents</h2>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-lg-4 col-md-6 col-sm-12 team-block">
+                        <div class="team-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                            <div class="inner-box">
+                                <figure class="image-box"><img src="assets/images/team/team-6.jpg" alt=""></figure>
+                                <div class="lower-content">
+                                    <div class="inner">
+                                        <h4><a href="agents-details.blade.php">Jennifer Lawrence</a></h4>
+                                        <span class="designation">Senior Agent</span>
+                                        <ul class="social-links clearfix">
+                                            <li><a href="index-2.html"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a href="index-2.html"><i class="fab fa-twitter"></i></a></li>
+                                            <li><a href="index-2.html"><i class="fab fa-google-plus-g"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 team-block">
+                        <div class="team-block-one wow fadeInUp animated" data-wow-delay="300ms" data-wow-duration="1500ms">
+                            <div class="inner-box">
+                                <figure class="image-box"><img src="assets/images/team/team-7.jpg" alt=""></figure>
+                                <div class="lower-content">
+                                    <div class="inner">
+                                        <h4><a href="agents-details.blade.php">Benedict Cumberbatch</a></h4>
+                                        <span class="designation">Senior Agent</span>
+                                        <ul class="social-links clearfix">
+                                            <li><a href="index-2.html"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a href="index-2.html"><i class="fab fa-twitter"></i></a></li>
+                                            <li><a href="index-2.html"><i class="fab fa-google-plus-g"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 team-block">
+                        <div class="team-block-one wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms">
+                            <div class="inner-box">
+                                <figure class="image-box"><img src="assets/images/team/team-8.jpg" alt=""></figure>
+                                <div class="lower-content">
+                                    <div class="inner">
+                                        <h4><a href="agents-details.blade.php">Elizabeth Winstead</a></h4>
+                                        <span class="designation">Senior Agent</span>
+                                        <ul class="social-links clearfix">
+                                            <li><a href="index-2.html"><i class="fab fa-facebook-f"></i></a></li>
+                                            <li><a href="index-2.html"><i class="fab fa-twitter"></i></a></li>
+                                            <li><a href="index-2.html"><i class="fab fa-google-plus-g"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- team-section end -->
+
 
 
 
@@ -435,13 +618,13 @@
                                 </div>
                                 <div class="post-inner">
                                     <div class="post">
-                                        <figure class="post-thumb"><a href="blog-details.html"><img src="assets/images/resource/footer-post-1.jpg" alt=""></a></figure>
-                                        <h5><a href="blog-details.html">The Added Value Social Worker</a></h5>
+                                        <figure class="post-thumb"><a href="blog-details.blade.php"><img src="assets/images/resource/footer-post-1.jpg" alt=""></a></figure>
+                                        <h5><a href="blog-details.blade.php">The Added Value Social Worker</a></h5>
                                         <p>Mar 25, 2020</p>
                                     </div>
                                     <div class="post">
-                                        <figure class="post-thumb"><a href="blog-details.html"><img src="assets/images/resource/footer-post-2.jpg" alt=""></a></figure>
-                                        <h5><a href="blog-details.html">Ways to Increase Trust</a></h5>
+                                        <figure class="post-thumb"><a href="blog-details.blade.php"><img src="assets/images/resource/footer-post-2.jpg" alt=""></a></figure>
+                                        <h5><a href="blog-details.blade.php">Ways to Increase Trust</a></h5>
                                         <p>Mar 24, 2020</p>
                                     </div>
                                 </div>
@@ -511,5 +694,5 @@
 
 </body><!-- End of .page_wrapper -->
 
-<!-- Mirrored from azim.commonsupport.com/Realshed/faq.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Jun 2023 14:59:48 GMT -->
+<!-- Mirrored from azim.commonsupport.com/Realshed/about.blade.php by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Jun 2023 14:59:43 GMT -->
 </html>

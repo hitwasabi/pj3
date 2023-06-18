@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from azim.commonsupport.com/Realshed/services.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Jun 2023 14:59:43 GMT -->
+<!-- Mirrored from azim.commonsupport.com/Realshed/blog-3.blade.php by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Jun 2023 15:01:16 GMT -->
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -71,7 +71,7 @@
                                 d
                             </span>
                         </div>
-                    </div>  
+                    </div>
                 </div>
             </div>
         </div>
@@ -103,7 +103,7 @@
                             <a href="javascript: void(0)" data-theme="orange" class="orange-color"></a>
                         </li>
                     </ul>
-                </div> 
+                </div>
             </div>
         </div>
         <!-- end switcher menu -->
@@ -130,7 +130,7 @@
                             <li><a href="index-2.html"><i class="fab fa-vimeo-v"></i></a></li>
                         </ul>
                         <div class="sign-box">
-                            <a href="signin.html"><i class="fas fa-user"></i>Sign In</a>
+                            <a href="signin.blade.php"><i class="fas fa-user"></i>Sign In</a>
                         </div>
                     </div>
                 </div>
@@ -172,52 +172,52 @@
                                         </li>
                                         <li class="dropdown"><a href="index-2.html"><span>Listing</span></a>
                                             <ul>
-                                                <li><a href="agents-list.html">Agents List</a></li>
+                                                <li><a href="agents-list.blade.php">Agents List</a></li>
                                                 <li><a href="agents-grid.html">Agents Grid</a></li>
-                                                <li><a href="agents-details.html">Agent Details</a></li>
+                                                <li><a href="agents-details.blade.php">Agent Details</a></li>
                                             </ul>
-                                        </li> 
+                                        </li>
                                         <li class="dropdown"><a href="index-2.html"><span>Property</span></a>
                                             <ul>
-                                                <li><a href="property-list.html">Property List</a></li>
+                                                <li><a href="property-list.blade.php">Property List</a></li>
                                                 <li><a href="property-grid.html">Property Grid</a></li>
                                                 <li><a href="property-list-2.html">Property List Full View</a></li>
                                                 <li><a href="property-grid-2.html">Property Grid Full View</a></li>
                                                 <li><a href="property-list-3.html">Property List Half View</a></li>
                                                 <li><a href="property-grid-3.html">Property Grid Half View</a></li>
-                                                <li><a href="property-details.html">Property Details 01</a></li>
+                                                <li><a href="property-details.blade.php">Property Details 01</a></li>
                                                 <li><a href="property-details-2.html">Property Details 02</a></li>
                                                 <li><a href="property-details-3.html">Property Details 03</a></li>
                                                 <li><a href="property-details-4.html">Property Details 04</a></li>
                                             </ul>
                                         </li>
-                                        <li class="current dropdown"><a href="index-2.html"><span>Pages</span></a>
+                                        <li class="dropdown"><a href="index-2.html"><span>Pages</span></a>
                                             <div class="megamenu">
                                                 <div class="row clearfix">
                                                     <div class="col-xl-4 column">
                                                         <ul>
                                                             <li><h4>Pages</h4></li>
-                                                            <li><a href="about.html">About Us</a></li>
-                                                            <li><a href="services.html">Our Services</a></li>
-                                                            <li><a href="faq.html">Faq's Page</a></li>
-                                                            <li><a href="pricing.html">Pricing Table</a></li>
+                                                            <li><a href="about.blade.php">About Us</a></li>
+                                                            <li><a href="services.blade.php">Our Services</a></li>
+                                                            <li><a href="faq.blade.php">Faq's Page</a></li>
+                                                            <li><a href="pricing.blade.php">Pricing Table</a></li>
                                                             <li><a href="compare-roperties.html">Compare Properties</a></li>
                                                             <li><a href="categories.html">Categories Page</a></li>
                                                             <li><a href="career.html">Career Opportunity</a></li>
-                                                            <li><a href="testimonials.html">Testimonials</a></li>
+                                                            <li><a href="testimonials.blade.php">Testimonials</a></li>
                                                         </ul>
                                                     </div>
                                                     <div class="col-xl-4 column">
                                                         <ul>
                                                             <li><h4>Pages</h4></li>
-                                                            <li><a href="gallery.html">Our Gallery</a></li>
+                                                            <li><a href="gallery.blade.php">Our Gallery</a></li>
                                                             <li><a href="profile.html">My Profile</a></li>
-                                                            <li><a href="signin.html">Sign In</a></li>
-                                                            <li><a href="signup.html">Sign Up</a></li>
-                                                            <li><a href="error.html">404</a></li>
-                                                            <li><a href="agents-list.html">Agents List</a></li>
+                                                            <li><a href="signin.blade.php">Sign In</a></li>
+                                                            <li><a href="signup.blade.php">Sign Up</a></li>
+                                                            <li><a href="error.blade.php">404</a></li>
+                                                            <li><a href="agents-list.blade.php">Agents List</a></li>
                                                             <li><a href="agents-grid.html">Agents Grid</a></li>
-                                                            <li><a href="agents-details.html">Agent Details</a></li>
+                                                            <li><a href="agents-details.blade.php">Agent Details</a></li>
                                                         </ul>
                                                     </div>
                                                     <div class="col-xl-4 column">
@@ -226,16 +226,16 @@
                                                             <li><a href="blog-1.html">Blog 01</a></li>
                                                             <li><a href="blog-2.html">Blog 02</a></li>
                                                             <li><a href="blog-3.html">Blog 03</a></li>
-                                                            <li><a href="blog-details.html">Blog Details</a></li>
+                                                            <li><a href="blog-details.blade.php">Blog Details</a></li>
                                                             <li><a href="agency-list.html">Agency List</a></li>
                                                             <li><a href="agency-grid.html">Agency Grid</a></li>
                                                             <li><a href="agency-details.html">Agency Details</a></li>
-                                                            <li><a href="contact.html">Contact Us</a></li>
+                                                            <li><a href="contact.blade.php">Contact Us</a></li>
                                                         </ul>
-                                                    </div>                                   
-                                                </div>                                        
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </li> 
+                                        </li>
                                         <li class="dropdown"><a href="index-2.html"><span>Agency</span></a>
                                             <ul>
                                                 <li><a href="agency-list.html">Agency List</a></li>
@@ -243,15 +243,15 @@
                                                 <li><a href="agency-details.html">Agency Details</a></li>
                                             </ul>
                                         </li>
-                                        <li class="dropdown"><a href="index-2.html"><span>Blog</span></a>
+                                        <li class="current dropdown"><a href="index-2.html"><span>Blog</span></a>
                                             <ul>
                                                 <li><a href="blog-1.html">Blog 01</a></li>
                                                 <li><a href="blog-2.html">Blog 02</a></li>
                                                 <li><a href="blog-3.html">Blog 03</a></li>
-                                                <li><a href="blog-details.html">Blog Details</a></li>
+                                                <li><a href="blog-details.blade.php">Blog Details</a></li>
                                             </ul>
-                                        </li>  
-                                        <li><a href="contact.html"><span>Contact</span></a></li>   
+                                        </li>
+                                        <li><a href="contact.blade.php"><span>Contact</span></a></li>
                                     </ul>
                                 </div>
                             </nav>
@@ -288,7 +288,7 @@
         <div class="mobile-menu">
             <div class="menu-backdrop"></div>
             <div class="close-btn"><i class="fas fa-times"></i></div>
-            
+
             <nav class="menu-box">
                 <div class="nav-logo"><a href="index-2.html"><img src="assets/images/logo-2.png" alt="" title=""></a></div>
                 <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
@@ -314,13 +314,13 @@
 
 
         <!--Page Title-->
-        <section class="page-title centred" style="background-image: url(assets/images/background/page-title-3.jpg);">
+        <section class="page-title centred" style="background-image: url(assets/images/background/page-title-5.jpg);">
             <div class="auto-container">
                 <div class="content-box clearfix">
-                    <h1>Dịch vụ của chúng tôi</h1>
+                    <h1>Tin tức</h1>
                     <ul class="bread-crumb clearfix">
                         <li><a href="index-2.html">Trang chủ</a></li>
-                        <li>Dịch vụ của chúng tôi</li>
+                        <li>Tin tức</li>
                     </ul>
                 </div>
             </div>
@@ -328,86 +328,199 @@
         <!--End Page Title-->
 
 
-        <!-- feature-style-three -->
-        <section class="feature-style-three service-page centred">
+        <!-- sidebar-page-container -->
+        <section class="sidebar-page-container blog-standard sec-pad-2">
             <div class="auto-container">
                 <div class="row clearfix">
-                    <div class="col-lg-4 col-md-6 col-sm-12 feature-block">
-                        <div class="feature-block-two wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
-                            <div class="inner-box">
-                                <div class="icon-box"><i class="icon-24"></i></div>
-                                <h4>Dịch vụ kinh doanh</h4>
-                                <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 feature-block">
-                        <div class="feature-block-two wow fadeInUp animated" data-wow-delay="300ms" data-wow-duration="1500ms">
-                            <div class="inner-box">
-                                <div class="icon-box"><i class="icon-25"></i></div>
-                                <h4>Dịch vụ Bất động sản</h4>
-                                <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 feature-block">
-                        <div class="feature-block-two wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms">
-                            <div class="inner-box">
-                                <div class="icon-box"><i class="icon-26"></i></div>
-                                <h4>Dịch vụ cá nhân</h4>
-                                <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 feature-block">
-                        <div class="feature-block-two wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
-                            <div class="inner-box">
-                                <div class="icon-box"><i class="icon-27"></i></div>
-                                <h4>Đại lý đáng tin cậy</h4>
-                                <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 feature-block">
-                        <div class="feature-block-two wow fadeInUp animated" data-wow-delay="300ms" data-wow-duration="1500ms">
-                            <div class="inner-box">
-                                <div class="icon-box"><i class="icon-28"></i></div>
-                                <h4>Cho thuê bất động sản</h4>
-                                <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 feature-block">
-                        <div class="feature-block-two wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms">
-                            <div class="inner-box">
-                                <div class="icon-box"><i class="icon-29"></i></div>
-                                <h4>Bán nhà</h4>
-                                <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- feature-style-three end -->
-
-
-        <!-- testimonial-style-two -->
-        <section class="testimonial-style-two" style="background-image: url(assets/images/background/testimonial-1.jpg);">
-            <div class="auto-container">
-                <div class="row clearfix">
-                    <div class="col-xl-6 col-lg-12 col-md-12 offset-xl-6 inner-column">
-                        <div class="single-item-carousel owl-carousel owl-theme dots-style-one owl-nav-none">
-                            <div class="testimonial-block-two">
+                    <div class="col-lg-8 col-md-12 col-sm-12 content-side">
+                        <div class="blog-standard-content">
+                            <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
                                 <div class="inner-box">
-                                    <div class="icon-box"><i class="icon-18"></i></div>
-                                    <div class="text">
-                                        <h3>“Mục tiêu của chúng tôi mỗi ngày là đảm bảo rằng các nhu cầu của cư dân không chỉ được đáp ứng mà còn tốt hơn thế. Để thực hiện điều đó, chúng tôi cam kết cung cấp một môi trường hiện đại.”</h3>
+                                    <div class="image-box">
+                                        <figure class="image"><a href="blog-details.blade.php"><img src="assets/images/news/news-21.jpg" alt=""></a></figure>
+                                        <span class="category">Featured</span>
                                     </div>
-                                    <div class="author-info">
-                                        <figure class="author-thumb"><img src="assets/images/resource/testimonial-1.jpg" alt=""></figure>
-                                        <h4>Anh Tú</h4>
-                                        <span class="designation">CEO</span>
+                                    <div class="lower-content">
+                                        <h3><a href="blog-details.blade.php">Including Animation In Your Design System.</a></h3>
+                                        <ul class="post-info clearfix">
+                                            <li class="author-box">
+                                                <figure class="author-thumb"><img src="assets/images/news/author-1.jpg" alt=""></figure>
+                                                <h5><a href="blog-details.blade.php">Eva Green</a></h5>
+                                            </li>
+                                            <li>April 10, 2020</li>
+                                        </ul>
+                                        <div class="text">
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing sed do eiusmod tempor incididunt labore dolore magna aliqua enim minim veniam.</p>
+                                        </div>
+                                        <div class="btn-box">
+                                            <a href="blog-details.blade.php" class="theme-btn btn-two">Xem chi tiết</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                                <div class="inner-box">
+                                    <div class="image-box">
+                                        <figure class="image"><a href="blog-details.blade.php"><img src="assets/images/news/news-22.jpg" alt=""></a></figure>
+                                        <span class="category">Featured</span>
+                                    </div>
+                                    <div class="lower-content">
+                                        <h3><a href="blog-details.blade.php">New Font Technologies Will Improve The Web.</a></h3>
+                                        <ul class="post-info clearfix">
+                                            <li class="author-box">
+                                                <figure class="author-thumb"><img src="assets/images/news/author-2.jpg" alt=""></figure>
+                                                <h5><a href="blog-details.blade.php">Eva Green</a></h5>
+                                            </li>
+                                            <li>April 10, 2020</li>
+                                        </ul>
+                                        <div class="text">
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing sed do eiusmod tempor incididunt labore dolore magna aliqua enim minim veniam.</p>
+                                        </div>
+                                        <div class="btn-box">
+                                            <a href="blog-details.blade.php" class="theme-btn btn-two">See Details</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                                <div class="inner-box">
+                                    <div class="image-box">
+                                        <figure class="image"><a href="blog-details.blade.php"><img src="assets/images/news/news-23.jpg" alt=""></a></figure>
+                                        <span class="category">Featured</span>
+                                    </div>
+                                    <div class="lower-content">
+                                        <h3><a href="blog-details.blade.php">Most Inspiring Interior Design For Your Home.</a></h3>
+                                        <ul class="post-info clearfix">
+                                            <li class="author-box">
+                                                <figure class="author-thumb"><img src="assets/images/news/author-3.jpg" alt=""></figure>
+                                                <h5><a href="blog-details.blade.php">Eva Green</a></h5>
+                                            </li>
+                                            <li>April 10, 2020</li>
+                                        </ul>
+                                        <div class="text">
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing sed do eiusmod tempor incididunt labore dolore magna aliqua enim minim veniam.</p>
+                                        </div>
+                                        <div class="btn-box">
+                                            <a href="blog-details.blade.php" class="theme-btn btn-two">See Details</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                                <div class="inner-box">
+                                    <div class="image-box">
+                                        <figure class="image"><a href="blog-details.blade.php"><img src="assets/images/news/news-24.jpg" alt=""></a></figure>
+                                        <span class="category">Featured</span>
+                                    </div>
+                                    <div class="lower-content">
+                                        <h3><a href="blog-details.blade.php">Secret To Totally Rocking Your Real Estate.</a></h3>
+                                        <ul class="post-info clearfix">
+                                            <li class="author-box">
+                                                <figure class="author-thumb"><img src="assets/images/news/author-1.jpg" alt=""></figure>
+                                                <h5><a href="blog-details.blade.php">Eva Green</a></h5>
+                                            </li>
+                                            <li>April 10, 2020</li>
+                                        </ul>
+                                        <div class="text">
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing sed do eiusmod tempor incididunt labore dolore magna aliqua enim minim veniam.</p>
+                                        </div>
+                                        <div class="btn-box">
+                                            <a href="blog-details.blade.php" class="theme-btn btn-two">See Details</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                                <div class="inner-box">
+                                    <div class="image-box">
+                                        <figure class="image"><a href="blog-details.blade.php"><img src="assets/images/news/news-25.jpg" alt=""></a></figure>
+                                        <span class="category">Featured</span>
+                                    </div>
+                                    <div class="lower-content">
+                                        <h3><a href="blog-details.blade.php">Taking The Pattern Library To The Next Level</a></h3>
+                                        <ul class="post-info clearfix">
+                                            <li class="author-box">
+                                                <figure class="author-thumb"><img src="assets/images/news/author-2.jpg" alt=""></figure>
+                                                <h5><a href="blog-details.blade.php">Eva Green</a></h5>
+                                            </li>
+                                            <li>April 10, 2020</li>
+                                        </ul>
+                                        <div class="text">
+                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing sed do eiusmod tempor incididunt labore dolore magna aliqua enim minim veniam.</p>
+                                        </div>
+                                        <div class="btn-box">
+                                            <a href="blog-details.blade.php" class="theme-btn btn-two">See Details</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="pagination-wrapper">
+                                <ul class="pagination clearfix">
+                                    <li><a href="blog-3.html" class="current">1</a></li>
+                                    <li><a href="blog-3.html">2</a></li>
+                                    <li><a href="blog-3.html">3</a></li>
+                                    <li><a href="blog-3.html"><i class="fas fa-angle-right"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
+                        <div class="blog-sidebar">
+                            <div class="sidebar-widget search-widget">
+                                <div class="widget-title">
+                                    <h4>Tìm kiếm</h4>
+                                </div>
+                                <div class="search-inner">
+                                    <form action="http://azim.commonsupport.com/Realshed/blog-3.html" method="post">
+                                        <div class="form-group">
+                                            <input type="search" name="search_field" placeholder="Tìm kiếm" required="">
+                                            <button type="submit"><i class="fas fa-search"></i></button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="sidebar-widget social-widget">
+                                <div class="widget-title">
+                                    <h4>Follow Us On</h4>
+                                </div>
+                                <ul class="social-links clearfix">
+                                    <li><a href="blog-3.html"><i class="fab fa-facebook-f"></i></a></li>
+                                    <li><a href="blog-3.html"><i class="fab fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="sidebar-widget category-widget">
+                                <div class="widget-title">
+                                    <h4>Category</h4>
+                                </div>
+                                <div class="widget-content">
+                                    <ul class="category-list clearfix">
+                                        <li><a href="blog-details.blade.php">Home improvement<span>(9)</span></a></li>
+                                        <li><a href="blog-details.blade.php">Architecture<span>(5)</span></a></li>
+                                        <li><a href="blog-details.blade.php">Tips and advice<span>(2)</span></a></li>
+                                        <li><a href="blog-details.blade.php">Interior<span>(7)</span></a></li>
+                                        <li><a href="blog-details.blade.php">Real Estate<span>(3)</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="sidebar-widget post-widget">
+                                <div class="widget-title">
+                                    <h4>Bài đăng gần đây</h4>
+                                </div>
+                                <div class="post-inner">
+                                    <div class="post">
+                                        <figure class="post-thumb"><a href="blog-details.blade.php"><img src="assets/images/news/post-1.jpg" alt=""></a></figure>
+                                        <h5><a href="blog-details.blade.php">Best interior design idea for your home.</a></h5>
+                                        <span class="post-date">April 10, 2020</span>
+                                    </div>
+                                    <div class="post">
+                                        <figure class="post-thumb"><a href="blog-details.blade.php"><img src="assets/images/news/post-2.jpg" alt=""></a></figure>
+                                        <h5><a href="blog-details.blade.php">A digital prescription for the industry.</a></h5>
+                                        <span class="post-date">April 09, 2020</span>
+                                    </div>
+                                    <div class="post">
+                                        <figure class="post-thumb"><a href="blog-details.blade.php"><img src="assets/images/news/post-3.jpg" alt=""></a></figure>
+                                        <h5><a href="blog-details.blade.php">Strategic & commercial approach with issues.</a></h5>
+                                        <span class="post-date">April 08, 2020</span>
                                     </div>
                                 </div>
                             </div>
@@ -416,48 +529,8 @@
                 </div>
             </div>
         </section>
-        <!-- testimonial-style-two end -->
+        <!-- sidebar-page-container -->
 
-
-      
-
-
-        <!-- clients-section -->
-        <section class="clients-section bg-color-1">
-            <div class="pattern-layer" style="background-image: url(assets/images/shape/shape-1.png);"></div>
-            <div class="auto-container">
-                <div class="row clearfix">
-                    <div class="col-lg-4 col-md-12 col-sm-12 title-column">
-                        <div class="sec-title">
-                            <h5>Đối tác của chúng tôi</h5>
-                            <h2>Chúng tôi sẽ trở thành đối tác lâu dài.</h2>
-                        </div>
-                    </div>
-                    <div class="col-lg-8 col-md-12 col-sm-12 inner-column">
-                        <div class="clients-logo">
-                            <ul class="logo-list clearfix">
-                                <li>
-                                    <figure class="logo"><a href="#"><img src="assets/images/clients/clients-1.png" alt=""></a></figure>
-                                </li>
-                                <li>
-                                    <figure class="logo"><a href="#"><img src="assets/images/clients/clients-2.png" alt=""></a></figure>
-                                </li>
-                                <li>
-                                    <figure class="logo"><a href="#"><img src="assets/images/clients/clients-3.png" alt=""></a></figure>
-                                </li>
-                                <li>
-                                    <figure class="logo"><a href="#"><img src="assets/images/clients/clients-4.png" alt=""></a></figure>
-                                </li>
-                                <li>
-                                    <figure class="logo"><a href="#"><img src="assets/images/clients/clients-5.png" alt=""></a></figure>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- clients-section end -->
 
 
         <!-- main-footer -->
@@ -500,13 +573,13 @@
                                 </div>
                                 <div class="post-inner">
                                     <div class="post">
-                                        <figure class="post-thumb"><a href="blog-details.html"><img src="assets/images/resource/footer-post-1.jpg" alt=""></a></figure>
-                                        <h5><a href="blog-details.html">The Added Value Social Worker</a></h5>
+                                        <figure class="post-thumb"><a href="blog-details.blade.php"><img src="assets/images/resource/footer-post-1.jpg" alt=""></a></figure>
+                                        <h5><a href="blog-details.blade.php">The Added Value Social Worker</a></h5>
                                         <p>Mar 25, 2020</p>
                                     </div>
                                     <div class="post">
-                                        <figure class="post-thumb"><a href="blog-details.html"><img src="assets/images/resource/footer-post-2.jpg" alt=""></a></figure>
-                                        <h5><a href="blog-details.html">Ways to Increase Trust</a></h5>
+                                        <figure class="post-thumb"><a href="blog-details.blade.php"><img src="assets/images/resource/footer-post-2.jpg" alt=""></a></figure>
+                                        <h5><a href="blog-details.blade.php">Ways to Increase Trust</a></h5>
                                         <p>Mar 24, 2020</p>
                                     </div>
                                 </div>
@@ -576,5 +649,5 @@
 
 </body><!-- End of .page_wrapper -->
 
-<!-- Mirrored from azim.commonsupport.com/Realshed/services.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Jun 2023 14:59:43 GMT -->
+<!-- Mirrored from azim.commonsupport.com/Realshed/blog-3.blade.php by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Jun 2023 15:01:35 GMT -->
 </html>

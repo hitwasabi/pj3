@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from azim.commonsupport.com/Realshed/error.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Jun 2023 15:00:38 GMT -->
+<!-- Mirrored from azim.commonsupport.com/Realshed/services.blade.php by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Jun 2023 14:59:43 GMT -->
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -71,7 +71,7 @@
                                 d
                             </span>
                         </div>
-                    </div>  
+                    </div>
                 </div>
             </div>
         </div>
@@ -103,7 +103,7 @@
                             <a href="javascript: void(0)" data-theme="orange" class="orange-color"></a>
                         </li>
                     </ul>
-                </div> 
+                </div>
             </div>
         </div>
         <!-- end switcher menu -->
@@ -130,7 +130,7 @@
                             <li><a href="index-2.html"><i class="fab fa-vimeo-v"></i></a></li>
                         </ul>
                         <div class="sign-box">
-                            <a href="signin.html"><i class="fas fa-user"></i>Sign In</a>
+                            <a href="signin.blade.php"><i class="fas fa-user"></i>Sign In</a>
                         </div>
                     </div>
                 </div>
@@ -172,20 +172,20 @@
                                         </li>
                                         <li class="dropdown"><a href="index-2.html"><span>Listing</span></a>
                                             <ul>
-                                                <li><a href="agents-list.html">Agents List</a></li>
+                                                <li><a href="agents-list.blade.php">Agents List</a></li>
                                                 <li><a href="agents-grid.html">Agents Grid</a></li>
-                                                <li><a href="agents-details.html">Agent Details</a></li>
+                                                <li><a href="agents-details.blade.php">Agent Details</a></li>
                                             </ul>
-                                        </li> 
+                                        </li>
                                         <li class="dropdown"><a href="index-2.html"><span>Property</span></a>
                                             <ul>
-                                                <li><a href="property-list.html">Property List</a></li>
+                                                <li><a href="property-list.blade.php">Property List</a></li>
                                                 <li><a href="property-grid.html">Property Grid</a></li>
                                                 <li><a href="property-list-2.html">Property List Full View</a></li>
                                                 <li><a href="property-grid-2.html">Property Grid Full View</a></li>
                                                 <li><a href="property-list-3.html">Property List Half View</a></li>
                                                 <li><a href="property-grid-3.html">Property Grid Half View</a></li>
-                                                <li><a href="property-details.html">Property Details 01</a></li>
+                                                <li><a href="property-details.blade.php">Property Details 01</a></li>
                                                 <li><a href="property-details-2.html">Property Details 02</a></li>
                                                 <li><a href="property-details-3.html">Property Details 03</a></li>
                                                 <li><a href="property-details-4.html">Property Details 04</a></li>
@@ -197,27 +197,27 @@
                                                     <div class="col-xl-4 column">
                                                         <ul>
                                                             <li><h4>Pages</h4></li>
-                                                            <li><a href="about.html">About Us</a></li>
+                                                            <li><a href="about.blade.php">About Us</a></li>
                                                             <li><a href="services.html">Our Services</a></li>
-                                                            <li><a href="faq.html">Faq's Page</a></li>
-                                                            <li><a href="pricing.html">Pricing Table</a></li>
+                                                            <li><a href="faq.blade.php">Faq's Page</a></li>
+                                                            <li><a href="pricing.blade.php">Pricing Table</a></li>
                                                             <li><a href="compare-roperties.html">Compare Properties</a></li>
                                                             <li><a href="categories.html">Categories Page</a></li>
                                                             <li><a href="career.html">Career Opportunity</a></li>
-                                                            <li><a href="testimonials.html">Testimonials</a></li>
+                                                            <li><a href="testimonials.blade.php">Testimonials</a></li>
                                                         </ul>
                                                     </div>
                                                     <div class="col-xl-4 column">
                                                         <ul>
                                                             <li><h4>Pages</h4></li>
-                                                            <li><a href="gallery.html">Our Gallery</a></li>
+                                                            <li><a href="gallery.blade.php">Our Gallery</a></li>
                                                             <li><a href="profile.html">My Profile</a></li>
-                                                            <li><a href="signin.html">Sign In</a></li>
-                                                            <li><a href="signup.html">Sign Up</a></li>
-                                                            <li><a href="error.html">404</a></li>
-                                                            <li><a href="agents-list.html">Agents List</a></li>
+                                                            <li><a href="signin.blade.php">Sign In</a></li>
+                                                            <li><a href="signup.blade.php">Sign Up</a></li>
+                                                            <li><a href="error.blade.php">404</a></li>
+                                                            <li><a href="agents-list.blade.php">Agents List</a></li>
                                                             <li><a href="agents-grid.html">Agents Grid</a></li>
-                                                            <li><a href="agents-details.html">Agent Details</a></li>
+                                                            <li><a href="agents-details.blade.php">Agent Details</a></li>
                                                         </ul>
                                                     </div>
                                                     <div class="col-xl-4 column">
@@ -225,17 +225,17 @@
                                                             <li><h4>Pages</h4></li>
                                                             <li><a href="blog-1.html">Blog 01</a></li>
                                                             <li><a href="blog-2.html">Blog 02</a></li>
-                                                            <li><a href="blog-3.html">Blog 03</a></li>
-                                                            <li><a href="blog-details.html">Blog Details</a></li>
+                                                            <li><a href="blog-3.blade.php">Blog 03</a></li>
+                                                            <li><a href="blog-details.blade.php">Blog Details</a></li>
                                                             <li><a href="agency-list.html">Agency List</a></li>
                                                             <li><a href="agency-grid.html">Agency Grid</a></li>
                                                             <li><a href="agency-details.html">Agency Details</a></li>
-                                                            <li><a href="contact.html">Contact Us</a></li>
+                                                            <li><a href="contact.blade.php">Contact Us</a></li>
                                                         </ul>
-                                                    </div>                                   
-                                                </div>                                        
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </li> 
+                                        </li>
                                         <li class="dropdown"><a href="index-2.html"><span>Agency</span></a>
                                             <ul>
                                                 <li><a href="agency-list.html">Agency List</a></li>
@@ -247,11 +247,11 @@
                                             <ul>
                                                 <li><a href="blog-1.html">Blog 01</a></li>
                                                 <li><a href="blog-2.html">Blog 02</a></li>
-                                                <li><a href="blog-3.html">Blog 03</a></li>
-                                                <li><a href="blog-details.html">Blog Details</a></li>
+                                                <li><a href="blog-3.blade.php">Blog 03</a></li>
+                                                <li><a href="blog-details.blade.php">Blog Details</a></li>
                                             </ul>
-                                        </li>  
-                                        <li><a href="contact.html"><span>Contact</span></a></li>   
+                                        </li>
+                                        <li><a href="contact.blade.php"><span>Contact</span></a></li>
                                     </ul>
                                 </div>
                             </nav>
@@ -288,7 +288,7 @@
         <div class="mobile-menu">
             <div class="menu-backdrop"></div>
             <div class="close-btn"><i class="fas fa-times"></i></div>
-            
+
             <nav class="menu-box">
                 <div class="nav-logo"><a href="index-2.html"><img src="assets/images/logo-2.png" alt="" title=""></a></div>
                 <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
@@ -314,17 +314,13 @@
 
 
         <!--Page Title-->
-        <section class="page-title-two bg-color-1 centred">
-            <div class="pattern-layer">
-                <div class="pattern-1" style="background-image: url(assets/images/shape/shape-9.png);"></div>
-                <div class="pattern-2" style="background-image: url(assets/images/shape/shape-10.png);"></div>
-            </div>
+        <section class="page-title centred" style="background-image: url(assets/images/background/page-title-3.jpg);">
             <div class="auto-container">
                 <div class="content-box clearfix">
-                    <h1>404</h1>
+                    <h1>Dịch vụ của chúng tôi</h1>
                     <ul class="bread-crumb clearfix">
                         <li><a href="index-2.html">Trang chủ</a></li>
-                        <li>404</li>
+                        <li>Dịch vụ của chúng tôi</li>
                     </ul>
                 </div>
             </div>
@@ -332,20 +328,137 @@
         <!--End Page Title-->
 
 
-        <!-- error-section -->
-        <section class="error-section centred">
+        <!-- feature-style-three -->
+        <section class="feature-style-three service-page centred">
             <div class="auto-container">
-                <div class="inner-box">
-                    <h1>404</h1>
-                    <h2>Không tìm thấy trang. <br />Có thể trang này không tồn tại hoặc đã bị xóa</h2>
-                    <a href="index-2.html" class="theme-btn btn-one">Trở lại trang chủ</a>
+                <div class="row clearfix">
+                    <div class="col-lg-4 col-md-6 col-sm-12 feature-block">
+                        <div class="feature-block-two wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                            <div class="inner-box">
+                                <div class="icon-box"><i class="icon-24"></i></div>
+                                <h4>Dịch vụ kinh doanh</h4>
+                                <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 feature-block">
+                        <div class="feature-block-two wow fadeInUp animated" data-wow-delay="300ms" data-wow-duration="1500ms">
+                            <div class="inner-box">
+                                <div class="icon-box"><i class="icon-25"></i></div>
+                                <h4>Dịch vụ Bất động sản</h4>
+                                <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 feature-block">
+                        <div class="feature-block-two wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms">
+                            <div class="inner-box">
+                                <div class="icon-box"><i class="icon-26"></i></div>
+                                <h4>Dịch vụ cá nhân</h4>
+                                <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 feature-block">
+                        <div class="feature-block-two wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                            <div class="inner-box">
+                                <div class="icon-box"><i class="icon-27"></i></div>
+                                <h4>Đại lý đáng tin cậy</h4>
+                                <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 feature-block">
+                        <div class="feature-block-two wow fadeInUp animated" data-wow-delay="300ms" data-wow-duration="1500ms">
+                            <div class="inner-box">
+                                <div class="icon-box"><i class="icon-28"></i></div>
+                                <h4>Cho thuê bất động sản</h4>
+                                <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 feature-block">
+                        <div class="feature-block-two wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms">
+                            <div class="inner-box">
+                                <div class="icon-box"><i class="icon-29"></i></div>
+                                <h4>Bán nhà</h4>
+                                <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-        <!-- error-section end -->
+        <!-- feature-style-three end -->
 
 
-    
+        <!-- testimonial-style-two -->
+        <section class="testimonial-style-two" style="background-image: url(assets/images/background/testimonial-1.jpg);">
+            <div class="auto-container">
+                <div class="row clearfix">
+                    <div class="col-xl-6 col-lg-12 col-md-12 offset-xl-6 inner-column">
+                        <div class="single-item-carousel owl-carousel owl-theme dots-style-one owl-nav-none">
+                            <div class="testimonial-block-two">
+                                <div class="inner-box">
+                                    <div class="icon-box"><i class="icon-18"></i></div>
+                                    <div class="text">
+                                        <h3>“Mục tiêu của chúng tôi mỗi ngày là đảm bảo rằng các nhu cầu của cư dân không chỉ được đáp ứng mà còn tốt hơn thế. Để thực hiện điều đó, chúng tôi cam kết cung cấp một môi trường hiện đại.”</h3>
+                                    </div>
+                                    <div class="author-info">
+                                        <figure class="author-thumb"><img src="assets/images/resource/testimonial-1.jpg" alt=""></figure>
+                                        <h4>Anh Tú</h4>
+                                        <span class="designation">CEO</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- testimonial-style-two end -->
+
+
+
+
+
+        <!-- clients-section -->
+        <section class="clients-section bg-color-1">
+            <div class="pattern-layer" style="background-image: url(assets/images/shape/shape-1.png);"></div>
+            <div class="auto-container">
+                <div class="row clearfix">
+                    <div class="col-lg-4 col-md-12 col-sm-12 title-column">
+                        <div class="sec-title">
+                            <h5>Đối tác của chúng tôi</h5>
+                            <h2>Chúng tôi sẽ trở thành đối tác lâu dài.</h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-8 col-md-12 col-sm-12 inner-column">
+                        <div class="clients-logo">
+                            <ul class="logo-list clearfix">
+                                <li>
+                                    <figure class="logo"><a href="#"><img src="assets/images/clients/clients-1.png" alt=""></a></figure>
+                                </li>
+                                <li>
+                                    <figure class="logo"><a href="#"><img src="assets/images/clients/clients-2.png" alt=""></a></figure>
+                                </li>
+                                <li>
+                                    <figure class="logo"><a href="#"><img src="assets/images/clients/clients-3.png" alt=""></a></figure>
+                                </li>
+                                <li>
+                                    <figure class="logo"><a href="#"><img src="assets/images/clients/clients-4.png" alt=""></a></figure>
+                                </li>
+                                <li>
+                                    <figure class="logo"><a href="#"><img src="assets/images/clients/clients-5.png" alt=""></a></figure>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- clients-section end -->
+
 
         <!-- main-footer -->
         <footer class="main-footer">
@@ -387,13 +500,13 @@
                                 </div>
                                 <div class="post-inner">
                                     <div class="post">
-                                        <figure class="post-thumb"><a href="blog-details.html"><img src="assets/images/resource/footer-post-1.jpg" alt=""></a></figure>
-                                        <h5><a href="blog-details.html">The Added Value Social Worker</a></h5>
+                                        <figure class="post-thumb"><a href="blog-details.blade.php"><img src="assets/images/resource/footer-post-1.jpg" alt=""></a></figure>
+                                        <h5><a href="blog-details.blade.php">The Added Value Social Worker</a></h5>
                                         <p>Mar 25, 2020</p>
                                     </div>
                                     <div class="post">
-                                        <figure class="post-thumb"><a href="blog-details.html"><img src="assets/images/resource/footer-post-2.jpg" alt=""></a></figure>
-                                        <h5><a href="blog-details.html">Ways to Increase Trust</a></h5>
+                                        <figure class="post-thumb"><a href="blog-details.blade.php"><img src="assets/images/resource/footer-post-2.jpg" alt=""></a></figure>
+                                        <h5><a href="blog-details.blade.php">Ways to Increase Trust</a></h5>
                                         <p>Mar 24, 2020</p>
                                     </div>
                                 </div>
@@ -458,15 +571,10 @@
     <script src="assets/js/jquery-ui.js"></script>
     <script src="assets/js/product-filter.js"></script>
 
-    <!-- map script -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-CE0deH3Jhj6GN4YvdCFZS7DpbXexzGU"></script>
-    <script src="assets/js/gmaps.js"></script>
-    <script src="assets/js/map-helper.js"></script>
-
     <!-- main-js -->
     <script src="assets/js/script.js"></script>
 
 </body><!-- End of .page_wrapper -->
 
-<!-- Mirrored from azim.commonsupport.com/Realshed/error.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Jun 2023 15:00:38 GMT -->
+<!-- Mirrored from azim.commonsupport.com/Realshed/services.blade.php by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Jun 2023 14:59:43 GMT -->
 </html>

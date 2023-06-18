@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from azim.commonsupport.com/Realshed/pricing.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Jun 2023 14:59:48 GMT -->
+<!-- Mirrored from azim.commonsupport.com/Realshed/contact.blade.php by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Jun 2023 15:01:49 GMT -->
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -71,7 +71,7 @@
                                 d
                             </span>
                         </div>
-                    </div>  
+                    </div>
                 </div>
             </div>
         </div>
@@ -103,7 +103,7 @@
                             <a href="javascript: void(0)" data-theme="orange" class="orange-color"></a>
                         </li>
                     </ul>
-                </div> 
+                </div>
             </div>
         </div>
         <!-- end switcher menu -->
@@ -130,7 +130,7 @@
                             <li><a href="index-2.html"><i class="fab fa-vimeo-v"></i></a></li>
                         </ul>
                         <div class="sign-box">
-                            <a href="signin.html"><i class="fas fa-user"></i>Sign In</a>
+                            <a href="signin.blade.php"><i class="fas fa-user"></i>Sign In</a>
                         </div>
                     </div>
                 </div>
@@ -172,52 +172,52 @@
                                         </li>
                                         <li class="dropdown"><a href="index-2.html"><span>Listing</span></a>
                                             <ul>
-                                                <li><a href="agents-list.html">Agents List</a></li>
+                                                <li><a href="agents-list.blade.php">Agents List</a></li>
                                                 <li><a href="agents-grid.html">Agents Grid</a></li>
-                                                <li><a href="agents-details.html">Agent Details</a></li>
+                                                <li><a href="agents-details.blade.php">Agent Details</a></li>
                                             </ul>
-                                        </li> 
+                                        </li>
                                         <li class="dropdown"><a href="index-2.html"><span>Property</span></a>
                                             <ul>
-                                                <li><a href="property-list.html">Property List</a></li>
+                                                <li><a href="property-list.blade.php">Property List</a></li>
                                                 <li><a href="property-grid.html">Property Grid</a></li>
                                                 <li><a href="property-list-2.html">Property List Full View</a></li>
                                                 <li><a href="property-grid-2.html">Property Grid Full View</a></li>
                                                 <li><a href="property-list-3.html">Property List Half View</a></li>
                                                 <li><a href="property-grid-3.html">Property Grid Half View</a></li>
-                                                <li><a href="property-details.html">Property Details 01</a></li>
+                                                <li><a href="property-details.blade.php">Property Details 01</a></li>
                                                 <li><a href="property-details-2.html">Property Details 02</a></li>
                                                 <li><a href="property-details-3.html">Property Details 03</a></li>
                                                 <li><a href="property-details-4.html">Property Details 04</a></li>
                                             </ul>
                                         </li>
-                                        <li class="current dropdown"><a href="index-2.html"><span>Pages</span></a>
+                                        <li class="dropdown"><a href="index-2.html"><span>Pages</span></a>
                                             <div class="megamenu">
                                                 <div class="row clearfix">
                                                     <div class="col-xl-4 column">
                                                         <ul>
                                                             <li><h4>Pages</h4></li>
-                                                            <li><a href="about.html">About Us</a></li>
-                                                            <li><a href="services.html">Our Services</a></li>
-                                                            <li><a href="faq.html">Faq's Page</a></li>
-                                                            <li><a href="pricing.html">Pricing Table</a></li>
+                                                            <li><a href="about.blade.php">About Us</a></li>
+                                                            <li><a href="services.blade.php">Our Services</a></li>
+                                                            <li><a href="faq.blade.php">Faq's Page</a></li>
+                                                            <li><a href="pricing.blade.php">Pricing Table</a></li>
                                                             <li><a href="compare-roperties.html">Compare Properties</a></li>
                                                             <li><a href="categories.html">Categories Page</a></li>
                                                             <li><a href="career.html">Career Opportunity</a></li>
-                                                            <li><a href="testimonials.html">Testimonials</a></li>
+                                                            <li><a href="testimonials.blade.php">Testimonials</a></li>
                                                         </ul>
                                                     </div>
                                                     <div class="col-xl-4 column">
                                                         <ul>
                                                             <li><h4>Pages</h4></li>
-                                                            <li><a href="gallery.html">Our Gallery</a></li>
+                                                            <li><a href="gallery.blade.php">Our Gallery</a></li>
                                                             <li><a href="profile.html">My Profile</a></li>
-                                                            <li><a href="signin.html">Sign In</a></li>
-                                                            <li><a href="signup.html">Sign Up</a></li>
-                                                            <li><a href="error.html">404</a></li>
-                                                            <li><a href="agents-list.html">Agents List</a></li>
+                                                            <li><a href="signin.blade.php">Sign In</a></li>
+                                                            <li><a href="signup.blade.php">Sign Up</a></li>
+                                                            <li><a href="error.blade.php">404</a></li>
+                                                            <li><a href="agents-list.blade.php">Agents List</a></li>
                                                             <li><a href="agents-grid.html">Agents Grid</a></li>
-                                                            <li><a href="agents-details.html">Agent Details</a></li>
+                                                            <li><a href="agents-details.blade.php">Agent Details</a></li>
                                                         </ul>
                                                     </div>
                                                     <div class="col-xl-4 column">
@@ -225,17 +225,17 @@
                                                             <li><h4>Pages</h4></li>
                                                             <li><a href="blog-1.html">Blog 01</a></li>
                                                             <li><a href="blog-2.html">Blog 02</a></li>
-                                                            <li><a href="blog-3.html">Blog 03</a></li>
-                                                            <li><a href="blog-details.html">Blog Details</a></li>
+                                                            <li><a href="blog-3.blade.php">Blog 03</a></li>
+                                                            <li><a href="blog-details.blade.php">Blog Details</a></li>
                                                             <li><a href="agency-list.html">Agency List</a></li>
                                                             <li><a href="agency-grid.html">Agency Grid</a></li>
                                                             <li><a href="agency-details.html">Agency Details</a></li>
                                                             <li><a href="contact.html">Contact Us</a></li>
                                                         </ul>
-                                                    </div>                                   
-                                                </div>                                        
+                                                    </div>
+                                                </div>
                                             </div>
-                                        </li> 
+                                        </li>
                                         <li class="dropdown"><a href="index-2.html"><span>Agency</span></a>
                                             <ul>
                                                 <li><a href="agency-list.html">Agency List</a></li>
@@ -247,11 +247,11 @@
                                             <ul>
                                                 <li><a href="blog-1.html">Blog 01</a></li>
                                                 <li><a href="blog-2.html">Blog 02</a></li>
-                                                <li><a href="blog-3.html">Blog 03</a></li>
-                                                <li><a href="blog-details.html">Blog Details</a></li>
+                                                <li><a href="blog-3.blade.php">Blog 03</a></li>
+                                                <li><a href="blog-details.blade.php">Blog Details</a></li>
                                             </ul>
-                                        </li>  
-                                        <li><a href="contact.html"><span>Contact</span></a></li>   
+                                        </li>
+                                        <li class="current"><a href="contact.html"><span>Contact</span></a></li>
                                     </ul>
                                 </div>
                             </nav>
@@ -288,7 +288,7 @@
         <div class="mobile-menu">
             <div class="menu-backdrop"></div>
             <div class="close-btn"><i class="fas fa-times"></i></div>
-            
+
             <nav class="menu-box">
                 <div class="nav-logo"><a href="index-2.html"><img src="assets/images/logo-2.png" alt="" title=""></a></div>
                 <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
@@ -314,13 +314,13 @@
 
 
         <!--Page Title-->
-        <section class="page-title centred" style="background-image: url(assets/images/background/page-title-4.jpg);">
+        <section class="page-title centred" style="background-image: url(assets/images/background/page-title.jpg);">
             <div class="auto-container">
                 <div class="content-box clearfix">
-                    <h1>Lựa chọn gói đăng bài</h1>
+                    <h1>Liên hệ chúng tôi</h1>
                     <ul class="bread-crumb clearfix">
                         <li><a href="index-2.html">Trang chủ</a></li>
-                        <li>Giá gói đăng bài</li>
+                        <li>Liên hệ chúng tôi</li>
                     </ul>
                 </div>
             </div>
@@ -328,115 +328,47 @@
         <!--End Page Title-->
 
 
-        <!-- pricing-section -->
-        <section class="pricing-section sec-pad centred">
+        <!-- contact-info-section -->
+        <section class="contact-info-section sec-pad centred">
             <div class="auto-container">
-                <div class="tabs-box">
-                    <ul class="tab-btns tab-buttons clearfix">
-                        <li class="tab-btn active-btn" data-tab="#tab-1">Theo tháng</li>
-                        <li class="tab-btn" data-tab="#tab-2">Theo năm</li>
-                    </ul>
-                    <div class="tabs-content">
-                        <div class="tab active-tab" id="tab-1">
-                            <div class="row clearfix">
-                                <div class="col-lg-4 col-md-6 col-sm-12 pricing-block">
-                                    <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="300ms" data-wow-duration="1500ms">
-                                        <div class="pricing-table">
-                                            <div class="table-header">
-                                                <div class="shape-1" style="background-image: url(assets/images/shape/shape-4.png);"></div>
-                                                <div class="shape-2" style="background-image: url(assets/images/shape/shape-5.png);"></div>
-                                                <h4>Gói thường</h4>
-                                                <h2>$49 <span>/ tháng</span></h2>
-                                            </div>
-                                            <div class="table-content">
-                                                <ul class="feature-list clearfix">
-                                                    <li>1 Bathroom Cleaning</li>
-                                                    <li>Up to 3 Bedrooms Cleaning</li>
-                                                    <li>1 Livingroom Cleaning</li>
-                                                    <li>Kitchen Cleaning</li>
-                                                </ul>
-                                            </div>
-                                            <div class="table-footer">
-                                                <a href="pricing.html" class="link-btn">Mua ngay</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 col-md-6 col-sm-12 pricing-block">
-                                    <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms">
-                                        <div class="pricing-table">
-                                            <div class="table-header">
-                                                <div class="shape-1" style="background-image: url(assets/images/shape/shape-4.png);"></div>
-                                                <div class="shape-2" style="background-image: url(assets/images/shape/shape-5.png);"></div>
-                                                <h4>Gói vip</h4>
-                                                <h2>$59 <span>/ tháng</span></h2>
-                                            </div>
-                                            <div class="table-content">
-                                                <ul class="feature-list clearfix">
-                                                    <li>1 Bathroom Cleaning</li>
-                                                    <li>Up to 3 Bedrooms Cleaning</li>
-                                                    <li>1 Livingroom Cleaning</li>
-                                                    <li>Kitchen Cleaning</li>
-                                                </ul>
-                                            </div>
-                                            <div class="table-footer">
-                                                <a href="pricing.html" class="link-btn">Mua ngay</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                <div class="sec-title">
+                    <h5>Liên hệ chúng tôi</h5>
+                    <h2>Giữ liên lạc</h2>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-lg-4 col-md-6 col-sm-12 info-block">
+                        <div class="info-block-one">
+                            <div class="inner-box">
+                                <div class="icon-box"><i class="icon-32"></i></div>
+                                <h4>Địa chỉ Email</h4>
+                                <p>anhnamco9@gmail.com</p>
                             </div>
                         </div>
-                        
                     </div>
-                </div>
-            </div>
-        </section>
-        <!-- pricing-section end -->
-
-
-        <!-- clients-section -->
-        <section class="clients-section bg-color-1">
-            <div class="pattern-layer" style="background-image: url(assets/images/shape/shape-1.png);"></div>
-            <div class="auto-container">
-                <div class="row clearfix">
-                    <div class="col-lg-4 col-md-12 col-sm-12 title-column">
-                        <div class="sec-title">
-                            <h5>Đối tác của chúng tôi</h5>
-                            <h2>Chúng tôi sẽ trở thành đối tác lâu dài.</h2>
+                    <div class="col-lg-4 col-md-6 col-sm-12 info-block">
+                        <div class="info-block-one">
+                            <div class="inner-box">
+                                <div class="icon-box"><i class="icon-33"></i></div>
+                                <h4>Số điện thoại</h4>
+                                <p>0858862720</p>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-lg-8 col-md-12 col-sm-12 inner-column">
-                        <div class="clients-logo">
-                            <ul class="logo-list clearfix">
-                                <li>
-                                    <figure class="logo"><a href="index-3.html"><img src="assets/images/clients/clients-1.png" alt=""></a></figure>
-                                </li>
-                                <li>
-                                    <figure class="logo"><a href="index-3.html"><img src="assets/images/clients/clients-2.png" alt=""></a></figure>
-                                </li>
-                                <li>
-                                    <figure class="logo"><a href="index-3.html"><img src="assets/images/clients/clients-3.png" alt=""></a></figure>
-                                </li>
-                                <li>
-                                    <figure class="logo"><a href="index-3.html"><img src="assets/images/clients/clients-4.png" alt=""></a></figure>
-                                </li>
-                                <li>
-                                    <figure class="logo"><a href="index-3.html"><img src="assets/images/clients/clients-5.png" alt=""></a></figure>
-                                </li>
-                            </ul>
+                    <div class="col-lg-4 col-md-6 col-sm-12 info-block">
+                        <div class="info-block-one">
+                            <div class="inner-box">
+                                <div class="icon-box"><i class="icon-34"></i></div>
+                                <h4>Địa chỉ trụ sở</h4>
+                                <p>Yên Sở City</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!-- clients-section end -->
+        <!-- contact-info-section end -->
 
 
-        
-
-
-        
 
         <!-- main-footer -->
         <footer class="main-footer">
@@ -478,13 +410,13 @@
                                 </div>
                                 <div class="post-inner">
                                     <div class="post">
-                                        <figure class="post-thumb"><a href="blog-details.html"><img src="assets/images/resource/footer-post-1.jpg" alt=""></a></figure>
-                                        <h5><a href="blog-details.html">The Added Value Social Worker</a></h5>
+                                        <figure class="post-thumb"><a href="blog-details.blade.php"><img src="assets/images/resource/footer-post-1.jpg" alt=""></a></figure>
+                                        <h5><a href="blog-details.blade.php">The Added Value Social Worker</a></h5>
                                         <p>Mar 25, 2020</p>
                                     </div>
                                     <div class="post">
-                                        <figure class="post-thumb"><a href="blog-details.html"><img src="assets/images/resource/footer-post-2.jpg" alt=""></a></figure>
-                                        <h5><a href="blog-details.html">Ways to Increase Trust</a></h5>
+                                        <figure class="post-thumb"><a href="blog-details.blade.php"><img src="assets/images/resource/footer-post-2.jpg" alt=""></a></figure>
+                                        <h5><a href="blog-details.blade.php">Ways to Increase Trust</a></h5>
                                         <p>Mar 24, 2020</p>
                                     </div>
                                 </div>
@@ -549,10 +481,15 @@
     <script src="assets/js/jquery-ui.js"></script>
     <script src="assets/js/product-filter.js"></script>
 
+    <!-- map script -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA-CE0deH3Jhj6GN4YvdCFZS7DpbXexzGU"></script>
+    <script src="assets/js/gmaps.js"></script>
+    <script src="assets/js/map-helper.js"></script>
+
     <!-- main-js -->
     <script src="assets/js/script.js"></script>
 
 </body><!-- End of .page_wrapper -->
 
-<!-- Mirrored from azim.commonsupport.com/Realshed/pricing.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Jun 2023 14:59:48 GMT -->
+<!-- Mirrored from azim.commonsupport.com/Realshed/contact.blade.php by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Jun 2023 15:01:49 GMT -->
 </html>
