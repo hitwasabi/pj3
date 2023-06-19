@@ -22,7 +22,7 @@ class LoginController extends Controller
             if($user->isAdmin == 1){
                 return redirect('admin/home');
             }else{
-                return redirect('/home');
+                return redirect('client/home');
             }
         }else{
             dd("Login failed");
