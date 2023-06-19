@@ -51,6 +51,7 @@
     <script src="{{asset('js/jQuery.style.switcher.min.js')}}"></script>
     <script src="{{asset('js/jquery-ui.js')}}"></script>
     <script src="{{asset('js/nav-tool.js')}}"></script>
+    <script src="{{asset('js/product-filter.js')}}"></script>
 
 <!-- main-js -->
 <script src="{{asset('js/script.js')}}"></script>

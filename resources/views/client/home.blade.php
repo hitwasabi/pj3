@@ -201,7 +201,7 @@
                             <div class="category-block-one">
                                 <div class="inner-box">
                                     <div class="icon-box"><i class="icon-1"></i></div>
-                                    <h5><a href="../property-details.blade.php">Nhà trọ riêng</a></h5>
+                                    <h5><a href="{{url('/client/home/property-details')}}">Nhà trọ riêng</a></h5>
                                     <span>52</span>
                                 </div>
                             </div>
@@ -210,13 +210,13 @@
                             <div class="category-block-one">
                                 <div class="inner-box">
                                     <div class="icon-box"><i class="icon-3"></i></div>
-                                    <h5><a href="../property-details.blade.php">Nhà trọ chung cư</a></h5>
+                                    <h5><a href="{{url('/client/home/property-details')}}">Nhà trọ chung cư</a></h5>
                                     <span>35</span>
                                 </div>
                             </div>
                         </li>
                     </ul>
-                    <div class="more-btn"><a href="categories.html" class="theme-btn btn-one">Xem tất cả</a></div>
+                    <div class="more-btn"><a href="{{url('/client/home/property-details')}}" class="theme-btn btn-one">Xem tất cả</a></div>
                 </div>
             </div>
         </section>
@@ -238,14 +238,14 @@
                                         <div class="batch"><i class="icon-11"></i></div>
                                         <span class="category">Đặc sắc</span>
                                         <div class="lower-content">
-                                            <div class="title-text"><h4><a href="../property-details.blade.php">Villa on Grand Avenue</a></h4></div>
+                                            <div class="title-text"><h4><a href="{{url('/client/home/property-details')}}">Villa on Grand Avenue</a></h4></div>
                                             <div class="price-box clearfix">
                                                 <div class="price-info pull-left">
                                                     <h6>Giá khởi điểm</h6>
                                                     <h4>$30,000.00</h4>
                                                 </div>
                                                 <ul class="other-option pull-right clearfix">
-                                                    <li><a href="../property-details.blade.php"><i class="icon-13"></i></a></li>
+                                                    <li><a href="{{url('/client/home/property-details')}}"><i class="icon-13"></i></a></li>
                                                 </ul>
                                             </div>
                                             <p>Lorem ipsum dolor sit amet consectetur adipisicing sed eiusm tempor incididunt labore.</p>
@@ -254,7 +254,7 @@
                                                 <li><i class="icon-15"></i>2 Baths</li>
                                                 <li><i class="icon-16"></i>600 Sq Ft</li>
                                             </ul>
-                                            <div class="btn-box"><a href="../property-details.blade.php" class="theme-btn btn-one">Xem thông tin chi tiết</a></div>
+                                            <div class="btn-box"><a href="{{url('/client/home/property-details')}}" class="theme-btn btn-one">Xem thông tin chi tiết</a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -274,14 +274,14 @@
                                         <div class="batch"><i class="icon-11"></i></div>
                                         <span class="category">Đặc sắc</span>
                                         <div class="lower-content">
-                                            <div class="title-text"><h4><a href="../property-details.blade.php">Contemporary Apartment</a></h4></div>
+                                            <div class="title-text"><h4><a href="{{url('/client/home/property-details')}}">Contemporary Apartment</a></h4></div>
                                             <div class="price-box clearfix">
                                                 <div class="price-info pull-left">
                                                     <h6>Giá khởi điểm</h6>
                                                     <h4>$45,000.00</h4>
                                                 </div>
                                                 <ul class="other-option pull-right clearfix">
-                                                    <li><a href="../property-details.blade.php"><i class="icon-13"></i></a></li>
+                                                    <li><a href="{{url('/client/home/property-details')}}"><i class="icon-13"></i></a></li>
                                                 </ul>
                                             </div>
                                             <p>Lorem ipsum dolor sit amet consectetur adipisicing sed eiusm tempor incididunt labore.</p>
@@ -290,7 +290,7 @@
                                                 <li><i class="icon-15"></i>2 Baths</li>
                                                 <li><i class="icon-16"></i>600 Sq Ft</li>
                                             </ul>
-                                            <div class="btn-box"><a href="../property-details.blade.php" class="theme-btn btn-one">Xem thông tin chi tiết</a></div>
+                                            <div class="btn-box"><a href="{{url('/client/home/property-details')}}" class="theme-btn btn-one">Xem thông tin chi tiết</a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -310,14 +310,14 @@
                                         <div class="batch"><i class="icon-11"></i></div>
                                         <span class="category">Đặc sắc</span>
                                         <div class="lower-content">
-                                            <div class="title-text"><h4><a href="../property-details.blade.php">Luxury Villa With Pool</a></h4></div>
+                                            <div class="title-text"><h4><a href="{{url('/client/home/property-details')}}">Luxury Villa With Pool</a></h4></div>
                                             <div class="price-box clearfix">
                                                 <div class="price-info pull-left">
                                                     <h6>Giá khởi điểm</h6>
                                                     <h4>$63,000.00</h4>
                                                 </div>
                                                 <ul class="other-option pull-right clearfix">
-                                                    <li><a href="../property-details.blade.php"><i class="icon-13"></i></a></li>
+                                                    <li><a href="{{url('/client/home/property-details')}}"><i class="icon-13"></i></a></li>
                                                 </ul>
                                             </div>
                                             <p>Lorem ipsum dolor sit amet consectetur adipisicing sed eiusm tempor incididunt labore.</p>
@@ -326,7 +326,7 @@
                                                 <li><i class="icon-15"></i>2 Baths</li>
                                                 <li><i class="icon-16"></i>600 Sq Ft</li>
                                             </ul>
-                                            <div class="btn-box"><a href="../property-details.blade.php" class="theme-btn btn-one">Xem thông tin chi tiết</a></div>
+                                            <div class="btn-box"><a href="{{url('/client/home/property-details')}}" class="theme-btn btn-one">Xem thông tin chi tiết</a></div>
                                         </div>
                                     </div>
                                 </div>
@@ -366,17 +366,17 @@
                                             <figure class="author-thumb"><img src="{{asset('images/feature/author-1.jpg')}}" alt=""></figure>
                                             <h6>Michael Bean</h6>
                                         </div>
-                                        <div class="buy-btn pull-right"><a href="../property-details.blade.php">For Buy</a></div>
+                                        <div class="buy-btn pull-right"><a href="{{url('/client/home/property-details')}}">For Buy</a></div>
                                     </div>
-                                    <div class="title-text"><h4><a href="../property-details.blade.php">Villa on Grand Avenue</a></h4></div>
+                                    <div class="title-text"><h4><a href="{{url('/client/home/property-details')}}">Villa on Grand Avenue</a></h4></div>
                                     <div class="price-box clearfix">
                                         <div class="price-info pull-left">
                                             <h6>Start From</h6>
                                             <h4>$30,000.00</h4>
                                         </div>
                                         <ul class="other-option pull-right clearfix">
-                                            <li><a href="../property-details.blade.php"><i class="icon-12"></i></a></li>
-                                            <li><a href="../property-details.blade.php"><i class="icon-13"></i></a></li>
+                                            <li><a href="{{url('/client/home/property-details')}}"><i class="icon-12"></i></a></li>
+                                            <li><a href="{{url('/client/home/property-details')}}"><i class="icon-13"></i></a></li>
                                         </ul>
                                     </div>
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing sed.</p>
@@ -385,7 +385,7 @@
                                         <li><i class="icon-15"></i>2 Baths</li>
                                         <li><i class="icon-16"></i>600 Sq Ft</li>
                                     </ul>
-                                    <div class="btn-box"><a href="../property-details.blade.php" class="theme-btn btn-two">See Details</a></div>
+                                    <div class="btn-box"><a href="{{url('/client/home/property-details')}}" class="theme-btn btn-two">See Details</a></div>
                                 </div>
                             </div>
                         </div>
@@ -404,17 +404,17 @@
                                             <figure class="author-thumb"><img src="{{asset('images/feature/author-2.jpg')}}" alt=""></figure>
                                             <h6>Robert Niro</h6>
                                         </div>
-                                        <div class="buy-btn pull-right"><a href="../property-details.blade.php">For Rent</a></div>
+                                        <div class="buy-btn pull-right"><a href="{{url('/client/home/property-details')}}">For Rent</a></div>
                                     </div>
-                                    <div class="title-text"><h4><a href="../property-details.blade.php">Contemporary Apartment</a></h4></div>
+                                    <div class="title-text"><h4><a href="{{url('/client/home/property-details')}}">Contemporary Apartment</a></h4></div>
                                     <div class="price-box clearfix">
                                         <div class="price-info pull-left">
                                             <h6>Start From</h6>
                                             <h4>$45,000.00</h4>
                                         </div>
                                         <ul class="other-option pull-right clearfix">
-                                            <li><a href="../property-details.blade.php"><i class="icon-12"></i></a></li>
-                                            <li><a href="../property-details.blade.php"><i class="icon-13"></i></a></li>
+                                            <li><a href="{{url('/client/home/property-details')}}"><i class="icon-12"></i></a></li>
+                                            <li><a href="{{url('/client/home/property-details')}}"><i class="icon-13"></i></a></li>
                                         </ul>
                                     </div>
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing sed.</p>
@@ -423,7 +423,7 @@
                                         <li><i class="icon-15"></i>2 Baths</li>
                                         <li><i class="icon-16"></i>600 Sq Ft</li>
                                     </ul>
-                                    <div class="btn-box"><a href="../property-details.blade.php" class="theme-btn btn-two">See Details</a></div>
+                                    <div class="btn-box"><a href="{{url('/client/home/property-details')}}" class="theme-btn btn-two">See Details</a></div>
                                 </div>
                             </div>
                         </div>
@@ -442,17 +442,17 @@
                                             <figure class="author-thumb"><img src="{{asset('images/feature/author-3.jpg')}}" alt=""></figure>
                                             <h6>Keira Mel</h6>
                                         </div>
-                                        <div class="buy-btn pull-right"><a href="../property-details.blade.php">Sold Out</a></div>
+                                        <div class="buy-btn pull-right"><a href="{{url('/client/home/property-details')}}">Sold Out</a></div>
                                     </div>
-                                    <div class="title-text"><h4><a href="../property-details.blade.php">Luxury Villa With Pool</a></h4></div>
+                                    <div class="title-text"><h4><a href="{{url('/client/home/property-details')}}">Luxury Villa With Pool</a></h4></div>
                                     <div class="price-box clearfix">
                                         <div class="price-info pull-left">
                                             <h6>Start From</h6>
                                             <h4>$63,000.00</h4>
                                         </div>
                                         <ul class="other-option pull-right clearfix">
-                                            <li><a href="../property-details.blade.php"><i class="icon-12"></i></a></li>
-                                            <li><a href="../property-details.blade.php"><i class="icon-13"></i></a></li>
+                                            <li><a href="{{url('/client/home/property-details')}}"><i class="icon-12"></i></a></li>
+                                            <li><a href="{{url('/client/home/property-details')}}"><i class="icon-13"></i></a></li>
                                         </ul>
                                     </div>
                                     <p>Lorem ipsum dolor sit amet consectetur adipisicing sed.</p>
@@ -461,13 +461,13 @@
                                         <li><i class="icon-15"></i>2 Baths</li>
                                         <li><i class="icon-16"></i>600 Sq Ft</li>
                                     </ul>
-                                    <div class="btn-box"><a href="../property-details.blade.php" class="theme-btn btn-two">See Details</a></div>
+                                    <div class="btn-box"><a href="{{url('/client/home/property-details')}}" class="theme-btn btn-two">See Details</a></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="more-btn centred"><a href="../property-list.blade.php" class="theme-btn btn-one">View All Listing</a></div>
+                <div class="more-btn centred"><a href="{{url('/client/home/property-details')}}" class="theme-btn btn-one">View All Listing</a></div>
             </div>
         </section>
         <!-- feature-section end -->
@@ -487,7 +487,7 @@
                                 <div class="inner-box">
                                     <figure class="image-box"><img src="{{asset('images/resource/Hoan-Kiem.jpg')}}" alt=""></figure>
                                     <div class="text">
-                                        <h4><a href="categories.html">Quận Hoàn Kiếm</a></h4>
+                                        <h4><a href="{{url('/client/home/property-list')}}">Quận Hoàn Kiếm</a></h4>
                                         <p>10 Properties</p>
                                     </div>
                                 </div>
@@ -498,7 +498,7 @@
                                 <div class="inner-box">
                                     <figure class="image-box"><img src="{{asset('images/resource/ho-tay.jpg')}}" alt=""></figure>
                                     <div class="text">
-                                        <h4><a href="categories.html">Quận Tây Hồ</a></h4>
+                                        <h4><a href="{{url('/client/home/property-list')}}">Quận Tây Hồ</a></h4>
                                         <p>08 Properties</p>
                                     </div>
                                 </div>
@@ -509,7 +509,7 @@
                                 <div class="inner-box">
                                     <figure class="image-box"><img src="{{asset('images/resource/2-Ba-Trung.jpg')}}" alt=""></figure>
                                     <div class="text">
-                                        <h4><a href="categories.html">Quận Hai Bà Trưng</a></h4>
+                                        <h4><a href="{{url('/client/home/property-list')}}">Quận Hai Bà Trưng</a></h4>
                                         <p>29 Properties</p>
                                     </div>
                                 </div>
@@ -520,7 +520,7 @@
                                 <div class="inner-box">
                                     <figure class="image-box"><img src="{{asset('images/resource/quan-dong-da.jpg')}}" alt=""></figure>
                                     <div class="text">
-                                        <h4><a href="categories.html">Quận Đống Đa</a></h4>
+                                        <h4><a href="{{url('/client/home/property-list')}}">Quận Đống Đa</a></h4>
                                         <p>05 Properties</p>
                                     </div>
                                 </div>
@@ -547,15 +547,15 @@
                         <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
                             <div class="inner-box">
                                 <div class="image-box">
-                                    <figure class="image"><a href="../blog-details.blade.php"><img src="{{asset('images/news/news-1.jpg')}}" alt=""></a></figure>
+                                    <figure class="image"><a href="{{url('/client/home/blog-details')}}"><img src="{{asset('images/news/news-1.jpg')}}" alt=""></a></figure>
                                     <span class="category">Featured</span>
                                 </div>
                                 <div class="lower-content">
-                                    <h4><a href="../blog-details.blade.php">Including Animation In Your Design System</a></h4>
+                                    <h4><a href="{{url('/client/home/blog-details')}}">Including Animation In Your Design System</a></h4>
                                     <ul class="post-info clearfix">
                                         <li class="author-box">
                                             <figure class="author-thumb"><img src="{{asset('images/news/author-1.jpg')}}" alt=""></figure>
-                                            <h5><a href="../blog-details.blade.php">Eva Green</a></h5>
+                                            <h5><a href="{{url('/client/home/blog-details')}}">Eva Green</a></h5>
                                         </li>
                                         <li>April 10, 2020</li>
                                     </ul>
@@ -563,7 +563,7 @@
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing sed.</p>
                                     </div>
                                     <div class="btn-box">
-                                        <a href="../blog-details.blade.php" class="theme-btn btn-two">See Details</a>
+                                        <a href="{{url('/client/home/blog-details')}}" class="theme-btn btn-two">See Details</a>
                                     </div>
                                 </div>
                             </div>
@@ -573,15 +573,15 @@
                         <div class="news-block-one wow fadeInUp animated" data-wow-delay="300ms" data-wow-duration="1500ms">
                             <div class="inner-box">
                                 <div class="image-box">
-                                    <figure class="image"><a href="../blog-details.blade.php"><img src="{{asset('images/news/news-2.jpg')}}" alt=""></a></figure>
+                                    <figure class="image"><a href="{{url('/client/home/blog-details')}}"><img src="{{asset('images/news/news-2.jpg')}}" alt=""></a></figure>
                                     <span class="category">Featured</span>
                                 </div>
                                 <div class="lower-content">
-                                    <h4><a href="../blog-details.blade.php">Taking The Pattern Library To The Next Level</a></h4>
+                                    <h4><a href="{{url('/client/home/blog-details')}}">Taking The Pattern Library To The Next Level</a></h4>
                                     <ul class="post-info clearfix">
                                         <li class="author-box">
                                             <figure class="author-thumb"><img src="{{asset('images/news/author-2.jpg')}}" alt=""></figure>
-                                            <h5><a href="../blog-details.blade.php">George Clooney</a></h5>
+                                            <h5><a href="{{url('/client/home/blog-details')}}">George Clooney</a></h5>
                                         </li>
                                         <li>April 09, 2020</li>
                                     </ul>
@@ -589,7 +589,7 @@
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing sed.</p>
                                     </div>
                                     <div class="btn-box">
-                                        <a href="../blog-details.blade.php" class="theme-btn btn-two">See Details</a>
+                                        <a href="{{url('/client/home/blog-details')}}" class="theme-btn btn-two">See Details</a>
                                     </div>
                                 </div>
                             </div>
@@ -599,15 +599,15 @@
                         <div class="news-block-one wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms">
                             <div class="inner-box">
                                 <div class="image-box">
-                                    <figure class="image"><a href="../blog-details.blade.php"><img src="{{asset('images/news/news-3.jpg')}}" alt=""></a></figure>
+                                    <figure class="image"><a href="{{url('/client/home/blog-details')}}"><img src="{{asset('images/news/news-3.jpg')}}" alt=""></a></figure>
                                     <span class="category">Featured</span>
                                 </div>
                                 <div class="lower-content">
-                                    <h4><a href="../blog-details.blade.php">How New Font Technologies Will Improve The Web</a></h4>
+                                    <h4><a href="{{url('/client/home/blog-details')}}">How New Font Technologies Will Improve The Web</a></h4>
                                     <ul class="post-info clearfix">
                                         <li class="author-box">
                                             <figure class="author-thumb"><img src="{{'images/news/author-3.jpg'}}" alt=""></figure>
-                                            <h5><a href="../blog-details.blade.php">Simon Baker</a></h5>
+                                            <h5><a href="{{url('/client/home/blog-details')}}">Simon Baker</a></h5>
                                         </li>
                                         <li>April 28, 2020</li>
                                     </ul>
@@ -615,7 +615,7 @@
                                         <p>Lorem ipsum dolor sit amet consectetur adipisicing sed.</p>
                                     </div>
                                     <div class="btn-box">
-                                        <a href="../blog-details.blade.php" class="theme-btn btn-two">See Details</a>
+                                        <a href="{{url('/client/home/blog-details')}}" class="theme-btn btn-two">See Details</a>
                                     </div>
                                 </div>
                             </div>

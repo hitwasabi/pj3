@@ -8,7 +8,7 @@
                     <h2>Lý do bạn nên chọn chúng tôi</h2>
                 </div>
                 <div class="btn-box">
-                    <a href="categories.html" class="theme-btn btn-one">Danh mục phòng trọ</a>
+                    <a href="{{url('/client/home/property-list')}}" class="theme-btn btn-one">Danh mục phòng trọ</a>
                 </div>
             </div>
             <div class="lower-box">

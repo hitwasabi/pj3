@@ -39,58 +39,43 @@
                         <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                             <ul class="navigation clearfix">
                                 <li><a href="{{url('/client/home')}}"><span>Trang chủ</span></a></li>
-                                <li class="dropdown"><a href="index.html"><span>Danh sách phòng</span></a>
-                                    <ul>
-                                        <li><a href="../property-list.blade.php">Property List</a></li>
-                                        <li><a href="property-details-4.html">Property Details 04</a></li>
-                                    </ul>
+                                <li><a href="{{url('client/home/property-list')}}"><span>Danh sách phòng</span></a>
                                 </li>
-                                <li class="dropdown"><a href="index.html"><span>Các trang</span></a>
+                                <li class="dropdown"><a href="{{url('/client/home')}}"><span>Các trang</span></a>
                                     <div class="megamenu">
                                         <div class="row clearfix">
                                             <div class="col-xl-4 column">
                                                 <ul>
                                                     <li><h4>Trang</h4></li>
-                                                    <li><a href="about.blade.php">Về chúng tôi</a></li>
-                                                    <li><a href="../services.blade.php">Dịch vụ của chúng tôi</a></li>
-                                                    <li><a href="faq.blade.php">Các câu hỏi tiêu biểu</a></li>
-                                                    <li><a href="../pricing.blade.php">Giá các gói</a></li>
-                                                    <li><a href="compare-roperties.html">So sánh các phòng</a></li>
-                                                    <li><a href="categories.html">Trang danh mục</a></li>
-                                                    <li><a href="../testimonials.blade.php">Lời chứng thực</a></li>
+                                                    <li><a href="{{url('/client/home/about')}}">Về chúng tôi</a></li>
+                                                    <li><a href="{{url('/client/home/services')}}">Dịch vụ của chúng tôi</a></li>
+                                                    <li><a href="{{url('/client/home/faq')}}">Các câu hỏi tiêu biểu</a></li>
+                                                    <li><a href="{{url('/client/home/pricing')}}">Giá các gói</a></li>
+                                                    <li><a href="{{url('/client/home/testimonials')}}">Lời chứng thực</a></li>
                                                 </ul>
                                             </div>
                                             <div class="col-xl-4 column">
                                                 <ul>
                                                     <li><h4>Pages</h4></li>
-                                                    <li><a href="../gallery.blade.php">Our Gallery</a></li>
                                                     <li><a href="profile.html">My Profile</a></li>
-                                                    <li><a href="../signin.blade.php">Sign In</a></li>
-                                                    <li><a href="../signup.blade.php">Sign Up</a></li>
-                                                    <li><a href="../error.blade.php">404</a></li>
+                                                    <li><a href="{{url('/signin')}}">Sign In</a></li>
+                                                    <li><a href="{{url('/register')}}">Sign Up</a></li>
+                                                    <li><a href="{{url('/client/home/404')}}">404</a></li>
                                                 </ul>
                                             </div>
                                             <div class="col-xl-4 column">
                                                 <ul>
                                                     <li><h4>Tin tức</h4></li>
-                                                    <li><a href="blog-2.html">Blog 02</a></li>
-                                                    <li><a href="../blog-3.blade.php">Blog 03</a></li>
-                                                    <li><a href="../blog-details.blade.php">Blog Details</a></li>
-                                                    <li><a href="../contact.blade.php">Contact Us</a></li>
+                                                    <li><a href="{{url('/client/home/blog')}}">Tin tức</a></li>
+                                                    <li><a href="{{url('/client/home/contact')}}">Liên hệ chúng tôi</a></li>
                                                 </ul>
                                             </div>
                                         </div>
                                     </div>
                                 </li>
-                                <li class="dropdown"><a href="index.html"><span>Blog</span></a>
-                                    <ul>
-                                        <li><a href="blog-1.html">Blog 01</a></li>
-                                        <li><a href="blog-2.html">Blog 02</a></li>
-                                        <li><a href="../blog-3.blade.php">Blog 03</a></li>
-                                        <li><a href="../blog-details.blade.php">Blog Details</a></li>
-                                    </ul>
+                                <li><a href="{{url('/client/home/blog')}}"><span>Tin tức</span></a>
                                 </li>
-                                <li><a href="../contact.blade.php"><span>Liên hệ</span></a></li>
+                                <li><a href="{{url('/client/home/contact')}}"><span>Liên hệ</span></a></li>
                             </ul>
                         </div>
                     </nav>

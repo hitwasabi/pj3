@@ -52,7 +52,7 @@
                                         <li>Đội ngũ giàu kinh nghiệm</li>
                                     </ul>
                                     <div class="btn-box">
-                                        <a href="../contact.blade.php" class="theme-btn btn-one">Hãy liên lạc cho tôi</a>
+                                        <a href="{{url('/client/home/contact')}}" class="theme-btn btn-one">Hãy liên lạc cho tôi</a>
                                     </div>
                                 </div>
                             </div>
@@ -76,63 +76,63 @@
                         <div class="inner-box">
                             <div class="icon-box"><i class="icon-1"></i></div>
                             <h4>Danh tiếng xuất sắc</h4>
-                            <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
+                            <p>Đạt 3.000 số phòng được thuê trong 1 tháng</p>
                         </div>
                     </div>
                     <div class="feature-block-two">
                         <div class="inner-box">
                             <div class="icon-box"><i class="icon-26"></i></div>
                             <h4>Đại lý cho thuê tốt</h4>
-                            <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
+                            <p>Tập hợp đội ngũ cho thuê nhà lớn mạnh, giàu kinh nghiệm</p>
                         </div>
                     </div>
                     <div class="feature-block-two">
                         <div class="inner-box">
                             <div class="icon-box"><i class="icon-21"></i></div>
                             <h4>Dịch vụ cá nhân</h4>
-                            <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
+                            <p>Hỗ trợ , giải đáp thắc mắc tận tình 24/7</p>
                         </div>
                     </div>
                     <div class="feature-block-two">
                         <div class="inner-box">
                             <div class="icon-box"><i class="icon-1"></i></div>
                             <h4>Danh tiếng xuất sắc</h4>
-                            <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
+                            <p>Đạt 3.000 số phòng được thuê trong 1 tháng</p>
                         </div>
                     </div>
                     <div class="feature-block-two">
                         <div class="inner-box">
                             <div class="icon-box"><i class="icon-26"></i></div>
                             <h4>Đại lý cho thuê tốt</h4>
-                            <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
+                            <p>Tập hợp đội ngũ cho thuê nhà lớn mạnh, giàu kinh nghiệm</p>
                         </div>
                     </div>
                     <div class="feature-block-two">
                         <div class="inner-box">
                             <div class="icon-box"><i class="icon-21"></i></div>
                             <h4>Dịch vụ cá nhân</h4>
-                            <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
+                            <p>Hỗ trợ , giải đáp thắc mắc tận tình 24/7</p>
                         </div>
                     </div>
                     <div class="feature-block-two">
                         <div class="inner-box">
                             <div class="icon-box"><i class="icon-1"></i></div>
                             <h4>Danh tiếng xuất sắc</h4>
-                            <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
+                            <p>Đạt 3.000 số phòng được thuê trong 1 tháng</p>
                         </div>
                     </div>
                     <div class="feature-block-two">
                         <div class="inner-box">
                             <div class="icon-box"><i class="icon-26"></i></div>
                             <h4>Đại lý cho thuê tốt</h4>
-                            <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
+                            <p>Tập hợp đội ngũ cho thuê nhà lớn mạnh, giàu kinh nghiệm</p>
                         </div>
                     </div>
                     <div class="feature-block-two">
                         <div class="inner-box">
                             <div class="icon-box"><i class="icon-21"></i></div>
                             <h4>Dịch vụ cá nhân</h4>
-                            <p>Lorem ipsum dolor sit consectetur sed eiusm tempor incididunt dolore magna.</p>
+                            <p>Hỗ trợ , giải đáp thắc mắc tận tình 24/7</p>
                         </div>
                     </div>
                 </div>
@@ -141,40 +141,7 @@
         <!-- feature-style-three end -->
         @include('client.cta')
         <!-- clients-section -->
-        <section class="clients-section bg-color-1">
-            <div class="pattern-layer" style="background-image: url({{asset('images/shape/shape-1.png')}});"></div>
-            <div class="auto-container">
-                <div class="row clearfix">
-                    <div class="col-lg-4 col-md-12 col-sm-12 title-column">
-                        <div class="sec-title">
-                            <h5>Đối tác của chúng tôi</h5>
-                            <h2>Chúng tôi sẽ trở thành đối tác lâu dài.</h2>
-                        </div>
-                    </div>
-                    <div class="col-lg-8 col-md-12 col-sm-12 inner-column">
-                        <div class="clients-logo">
-                            <ul class="logo-list clearfix">
-                                <li>
-                                    <figure class="logo"><a href="#"><img src="{{asset('images/clients/clients-1.png')}}" alt=""></a></figure>
-                                </li>
-                                <li>
-                                    <figure class="logo"><a href="#"><img src="{{asset('images/clients/clients-2.png')}}" alt=""></a></figure>
-                                </li>
-                                <li>
-                                    <figure class="logo"><a href="#"><img src="{{asset('images/clients/clients-3.png')}}" alt=""></a></figure>
-                                </li>
-                                <li>
-                                    <figure class="logo"><a href="#"><img src="{{asset('images/clients/clients-4.png')}}" alt=""></a></figure>
-                                </li>
-                                <li>
-                                    <figure class="logo"><a href="#"><img src="{{asset('images/clients/clients-5.png')}}" alt=""></a></figure>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+        @include('client.section')
         <!-- clients-section end -->
 
 
@@ -182,8 +149,8 @@
         <section class="team-section sec-pad centred">
             <div class="auto-container">
                 <div class="sec-title">
-                    <h5>Our Agents</h5>
-                    <h2>Meet Our Excellent Agents</h2>
+                    <h5>Các Chủ trọ</h5>
+                    <h2>Gặp gỡ các chủ trọ của chúng tôi</h2>
                 </div>
                 <div class="row clearfix">
                     <div class="col-lg-4 col-md-6 col-sm-12 team-block">
@@ -192,13 +159,8 @@
                                 <figure class="image-box"><img src="{{asset('images/team/team-6.jpg')}}" alt=""></figure>
                                 <div class="lower-content">
                                     <div class="inner">
-                                        <h4><a href="../agents-details.blade.php">Jennifer Lawrence</a></h4>
+                                        <h4><a href="{{url('/client/home/agents-details')}}">Jennifer Lawrence</a></h4>
                                         <span class="designation">Senior Agent</span>
-                                        <ul class="social-links clearfix">
-                                            <li><a href="index-2.html"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="index-2.html"><i class="fab fa-twitter"></i></a></li>
-                                            <li><a href="index-2.html"><i class="fab fa-google-plus-g"></i></a></li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -210,13 +172,8 @@
                                 <figure class="image-box"><img src="{{asset('images/team/team-7.jpg')}}" alt=""></figure>
                                 <div class="lower-content">
                                     <div class="inner">
-                                        <h4><a href="../agents-details.blade.php">Benedict Cumberbatch</a></h4>
+                                        <h4><a href="{{url('/client/home/agents-details')}}">Benedict Cumberbatch</a></h4>
                                         <span class="designation">Senior Agent</span>
-                                        <ul class="social-links clearfix">
-                                            <li><a href="index-2.html"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="index-2.html"><i class="fab fa-twitter"></i></a></li>
-                                            <li><a href="index-2.html"><i class="fab fa-google-plus-g"></i></a></li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>
@@ -228,13 +185,8 @@
                                 <figure class="image-box"><img src="{{asset('images/team/team-8.jpg')}}" alt=""></figure>
                                 <div class="lower-content">
                                     <div class="inner">
-                                        <h4><a href="../agents-details.blade.php">Elizabeth Winstead</a></h4>
+                                        <h4><a href="{{url('/client/home/agents-details')}}">Elizabeth Winstead</a></h4>
                                         <span class="designation">Senior Agent</span>
-                                        <ul class="social-links clearfix">
-                                            <li><a href="index-2.html"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="index-2.html"><i class="fab fa-twitter"></i></a></li>
-                                            <li><a href="index-2.html"><i class="fab fa-google-plus-g"></i></a></li>
-                                        </ul>
                                     </div>
                                 </div>
                             </div>

@@ -7,7 +7,7 @@
                 <h2>Tìm kiếm để thuê một phòng trọ hoặc <br />Đăng bài cho thuê ?</h2>
             </div>
             <div class="btn-box pull-right">
-                <a href="../property-details.blade.php" class="theme-btn btn-three">Danh mục phòng </a>
+                <a href="{{url('client/home/property-list')}}" class="theme-btn btn-three">Danh mục phòng </a>
                 <a href="index-2.html" class="theme-btn btn-one">Đăng tin bài</a>
             </div>
         </div>
