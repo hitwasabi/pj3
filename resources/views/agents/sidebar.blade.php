@@ -12,30 +12,6 @@
                     <span class="nav-text">Trang thống kê</span>
                 </a>
             </li>
-            <li><a href="employee.html" class="" aria-expanded="false">
-                    <div class="menu-icon">
-                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M10.986 14.0673C7.4407 14.0673 4.41309 14.6034 4.41309 16.7501C4.41309 18.8969 7.4215 19.4521 10.986 19.4521C14.5313 19.4521 17.5581 18.9152 17.5581 16.7693C17.5581 14.6234 14.5505 14.0673 10.986 14.0673Z" stroke="#888888" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M10.986 11.0054C13.3126 11.0054 15.1983 9.11881 15.1983 6.79223C15.1983 4.46564 13.3126 2.57993 10.986 2.57993C8.65944 2.57993 6.77285 4.46564 6.77285 6.79223C6.76499 9.11096 8.63849 10.9975 10.9563 11.0054H10.986Z" stroke="#888888" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <span class="nav-text">Nhân viên</span>
-                </a>
-            </li>
-
-            <li><a href="blog.html" class="" aria-expanded="false">
-                    <div class="menu-icon">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path fill-rule="evenodd" clip-rule="evenodd" d="M14.7379 2.76181H8.08493C6.00493 2.75381 4.29993 4.41181 4.25093 6.49081V17.2038C4.20493 19.3168 5.87993 21.0678 7.99293 21.1148C8.02393 21.1148 8.05393 21.1158 8.08493 21.1148H16.0739C18.1679 21.0298 19.8179 19.2998 19.8029 17.2038V8.03781L14.7379 2.76181Z" stroke="#888888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M14.4751 2.75V5.659C14.4751 7.079 15.6231 8.23 17.0431 8.234H19.7981" stroke="#888888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M14.2882 15.3585H8.88818" stroke="#888888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M12.2432 11.606H8.88721" stroke="#888888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </div>
-                    <span class="nav-text">Tin tức</span>
-                    <span class="badge badge-danger badge-xs ms-1"></span>
-                </a>
-            </li>
             <li class="menu-title">Các tính năng</li>
             <li><a class="has-arrow " href="javascript:void(0);" aria-expanded="false">
                     <div class="menu-icon">
@@ -51,12 +27,9 @@
                     <span class="nav-text">Ứng dụng<span class="badge badge-danger badge-xs ms-1"></span></span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="customer.html" aria-expanded="false">Quản lý chủ trọ<span class="badge badge-danger badge-xs ms-1"></span></a>
-                    </li>
-                    <li><a href="contacts.blade.php">Liên hệ chủ trọ <span class="badge badge-danger badge-xs ms-1"></span></a></li>
                     <li><a class="has-arrow" href="javascript:void(0);" aria-expanded="false">Phòng trọ</a>
                         <ul aria-expanded="false">
-                            <li><a href="ecom-product-list.html">Danh mục phòng trọ</a></li>
+                            <li><a href="ecom-product-list.html">Danh mục phòng trọ của tôi</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -71,7 +44,7 @@
                     <span class="nav-text">Các trang khác</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="page-login.html">Quản lý tin đăng</a></li>
+                    <li><a href="page-login.html">Đăng bài mới</a></li>
                     <li><a href="page-register.html">Sửa thông tin cá nhân</a></li>
                     <li><a href="page-lock-screen.html">Nạp tiền/Bảng giá</a></li>
                     <li><a href="empty-page.html">Lịch sử nạp tiền</a></li>
