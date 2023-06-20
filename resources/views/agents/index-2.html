@@ -1,8 +1,42 @@
-@extends('layouts.admin_base')
-@section('title',"Trang chủ admin")
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
+<!-- Mirrored from w3crm.dexignzone.com/xhtml/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 20 Jun 2023 01:40:47 GMT -->
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="keywords" content="">
+	<meta name="author" content="">
+	<meta name="robots" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="W3crm:Customer Relationship Management Admin Bootstrap 5 Template">
+	<meta property="og:title" content="W3crm:Customer Relationship Management Admin Bootstrap 5 Template">
+	<meta property="og:description" content="W3crm:Customer Relationship Management Admin Bootstrap 5 Template">
+	<meta property="og:image" content="social-image.png">
+	<meta name="format-detection" content="telephone=no">
 
+	<!-- PAGE TITLE HERE -->
+	<title>W3CRM Customer Relationship Management</title>
+	<!-- FAVICONS ICON -->
+	<link rel="shortcut icon" type="image/png" href="images/favicon.png">
+
+	<link href="vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+	<link href="vendor/swiper/css/swiper-bundle.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" href="../../cdnjs.cloudflare.com/ajax/libs/noUiSlider/14.6.4/nouislider.min.css">
+	<link href="vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+	<link href="vendor/jvmap/jquery-jvectormap.css" rel="stylesheet">
+	<link href="../../cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css" rel="stylesheet">
+	<link href="vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+
+	<!-- tagify-css -->
+	<link href="vendor/tagify/dist/tagify.css" rel="stylesheet">
+
+	<!-- Style css -->
+    <link href="css/style.css" rel="stylesheet">
+
+</head>
+<body data-typography="poppins" data-theme-version="light" data-layout="vertical" data-nav-headerbg="black" data-headerbg="color_1">
 
     <!--*******************
         Preloader start
@@ -819,7 +853,7 @@
 												</div>
 											</div>
 											<div class="card-body px-0 py-2">
-												<a href="app-profile.html" class="dropdown-item ai-icon ">
+												<a href="../admin/app-profile.html" class="dropdown-item ai-icon ">
 													<svg  width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 													<path fill-rule="evenodd" clip-rule="evenodd" d="M11.9848 15.3462C8.11714 15.3462 4.81429 15.931 4.81429 18.2729C4.81429 20.6148 8.09619 21.2205 11.9848 21.2205C15.8524 21.2205 19.1543 20.6348 19.1543 18.2938C19.1543 15.9529 15.8733 15.3462 11.9848 15.3462Z" stroke="var(--primary)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 													<path fill-rule="evenodd" clip-rule="evenodd" d="M11.9848 12.0059C14.5229 12.0059 16.58 9.94779 16.58 7.40969C16.58 4.8716 14.5229 2.81445 11.9848 2.81445C9.44667 2.81445 7.38857 4.8716 7.38857 7.40969C7.38 9.93922 9.42381 11.9973 11.9524 12.0059H11.9848Z" stroke="var(--primary)" stroke-width="1.42857" stroke-linecap="round" stroke-linejoin="round"/>
@@ -827,7 +861,7 @@
 
 													<span class="ms-2">Profile </span>
 												</a>
-												<a href="app-profile.html" class="dropdown-item ai-icon ">
+												<a href="../admin/app-profile.html" class="dropdown-item ai-icon ">
 													<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-pie-chart"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path><path d="M22 12A10 10 0 0 0 12 2v10z"></path></svg>
 
 													<span class="ms-2">My Project</span><span class="badge badge-sm badge-secondary light rounded-circle text-white ms-2">4</span>
@@ -880,7 +914,7 @@
         <!--**********************************
             Sidebar start
         ***********************************-->
-		<div class="deznav">
+       <div class="deznav">
             <div class="deznav-scroll">
 				<ul class="metismenu" id="menu">
 					<li class="menu-title">YOUR COMPANY</li>
@@ -895,7 +929,7 @@
 						</a>
 						<ul aria-expanded="false">
 							<li><a href="index.html">Dashboard Light</a></li>
-							<li><a href="../agents/index-2.html">Dashboard Dark</a></li>
+							<li><a href="index-2.html">Dashboard Dark</a></li>
 						</ul>
 					</li>
 					<li><a href="employee.html" class="" aria-expanded="false">
@@ -990,7 +1024,7 @@
 							<span class="nav-text">Manage Clients</span>
 						</a>
 					</li>
-					<li><a href="blog.html" class="" aria-expanded="false">
+					<li><a href="../admin/blog.html" class="" aria-expanded="false">
 						<div class="menu-icon">
 							<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path fill-rule="evenodd" clip-rule="evenodd" d="M14.7379 2.76181H8.08493C6.00493 2.75381 4.29993 4.41181 4.25093 6.49081V17.2038C4.20493 19.3168 5.87993 21.0678 7.99293 21.1148C8.02393 21.1148 8.05393 21.1158 8.08493 21.1148H16.0739C18.1679 21.0298 19.8179 19.2998 19.8029 17.2038V8.03781L14.7379 2.76181Z" stroke="#888888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1023,22 +1057,22 @@
 							<li><a class="has-arrow" href="javascript:void(0);" aria-expanded="false">Users Manager<span class="badge badge-danger badge-xs ms-1">NEW</span></a>
 								<ul aria-expanded="false">
 									<li><a href="user.html">User</a></li>
-									<li><a href="edit-profile.html">Add User</a></li>
+									<li><a href="../admin/edit-profile.html">Add User</a></li>
 									<li><a href="user-roles.html">Roles Listing </a></li>
 									<li><a href="add-role.html">Add Roles</a></li>
 									<li><a href="app-profile-1.html">Profile 1</a></li>
 									<li><a href="app-profile-2.html">Profile 2 <span class="badge badge-danger badge-xs ms-1">NEW</span></a></li>
-									<li><a href="edit-profile.html">Edit Profile</a></li>
+									<li><a href="../admin/edit-profile.html">Edit Profile</a></li>
 									<li><a href="post-details.html">Post Details</a></li>
 								</ul>
 							</li>
 							<li><a class="has-arrow" href="javascript:void(0);" aria-expanded="false">Customer Manager<span class="badge badge-danger badge-xs ms-1">NEW</span></a>
 								<ul aria-expanded="false">
-									<li><a href="customer.html">Customer</a></li>
-									<li><a href="customer-profile.html">Customer Profile</a></li>
+									<li><a href="../admin/customer.html">Customer</a></li>
+									<li><a href="../admin/customer-profile.html">Customer Profile</a></li>
 								</ul>
 							</li>
-							<li><a href="contacts.html">Contacts <span class="badge badge-danger badge-xs ms-1">NEW</span></a></li>
+							<li><a href="../admin/contacts.html">Contacts <span class="badge badge-danger badge-xs ms-1">NEW</span></a></li>
 							<li><a class="has-arrow" href="javascript:void(0);" aria-expanded="false">Email</a>
 								<ul aria-expanded="false">
 									<li><a href="email-compose.html">Compose</a></li>
@@ -1050,9 +1084,9 @@
 							<li><a class="has-arrow" href="javascript:void(0);" aria-expanded="false">Shop</a>
 								<ul aria-expanded="false">
 									<li><a href="ecom-product-grid.html">Product Grid</a></li>
-									<li><a href="ecom-product-list.html">Product List</a></li>
-									<li><a href="ecom-product-detail.html">Product Details</a></li>
-									<li><a href="ecom-product-order.html">Order</a></li>
+									<li><a href="../admin/ecom-product-list.html">Product List</a></li>
+									<li><a href="../admin/ecom-product-detail.html">Product Details</a></li>
+									<li><a href="../admin/ecom-product-order.html">Order</a></li>
 									<li><a href="ecom-checkout.html">Checkout</a></li>
 									<li><a href="ecom-invoice.html">Invoice</a></li>
 									<li><a href="ecom-customers.html">Customers</a></li>
@@ -1196,13 +1230,13 @@
 								<ul aria-expanded="false">
 									<li><a href="page-error-400.html">Error 400</a></li>
 									<li><a href="page-error-403.html">Error 403</a></li>
-									<li><a href="page-error-404.html">Error 404</a></li>
+									<li><a href="../admin/page-error-404.html">Error 404</a></li>
 									<li><a href="page-error-500.html">Error 500</a></li>
 									<li><a href="page-error-503.html">Error 503</a></li>
 								</ul>
 							</li>
 							<li><a href="page-lock-screen.html">Lock Screen</a></li>
-							<li><a href="empty-page.html">Empty Page</a></li>
+							<li><a href="../admin/empty-page.html">Empty Page</a></li>
 						</ul>
 					</li>
 				</ul>
@@ -3866,4 +3900,51 @@
     <!--**********************************
         Scripts
     ***********************************-->
-@endsection
+    <!-- Required vendors -->
+    <script src="vendor/global/global.min.js"></script>
+	<script src="vendor/chart.js/Chart.bundle.min.js"></script>
+	<script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+	<script src="vendor/apexchart/apexchart.js"></script>
+
+	<!-- Dashboard 1 -->
+	<script src="js/dashboard/dashboard-1.js"></script>
+	<script src="vendor/draggable/draggable.js"></script>
+
+
+	<!-- tagify -->
+	<script src="vendor/tagify/dist/tagify.js"></script>
+
+	<script src="vendor/datatables/js/jquery.dataTables.min.js"></script>
+	<script src="vendor/datatables/js/dataTables.buttons.min.js"></script>
+	<script src="vendor/datatables/js/buttons.html5.min.js"></script>
+	<script src="vendor/datatables/js/jszip.min.js"></script>
+	<script src="js/plugins-init/datatables.init.js"></script>
+
+	<!-- Apex Chart -->
+
+	<script src="vendor/bootstrap-datetimepicker/js/moment.js"></script>
+	<script src="vendor/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js"></script>
+
+
+	<!-- Vectormap -->
+    <script src="vendor/jqvmap/js/jquery.vmap.min.js"></script>
+    <script src="vendor/jqvmap/js/jquery.vmap.world.js"></script>
+    <script src="vendor/jqvmap/js/jquery.vmap.usa.js"></script>
+    <script src="js/custom.js"></script>
+	<script src="js/deznav-init.js"></script>
+	<script src="js/demo.js"></script>
+    <script src="js/styleSwitcher.js"></script>
+	<script>
+		jQuery(document).ready(function(){
+			setTimeout(function(){
+				dzSettingsOptions.version = 'dark';
+				new dzSettings(dzSettingsOptions);
+			},1500)
+		});
+	</script>
+
+
+</body>
+
+<!-- Mirrored from w3crm.dexignzone.com/xhtml/index-2.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 20 Jun 2023 01:40:47 GMT -->
+</html>
