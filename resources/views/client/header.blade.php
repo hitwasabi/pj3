@@ -16,7 +16,7 @@
                     <li><a href="https://www.instagram.com/hitwasabi/"><i class="fab fa-instagram"></i></a></li>
                 </ul>
                 <div class="sign-box">
-                    <a href="{{url('/signin')}}"><i class="fas fa-user"></i>Đăng nhập</a>
+                    <a href="{{url('/login')}}"><i class="fas fa-user"></i>Đăng nhập</a>
                 </div>
             </div>
         </div>

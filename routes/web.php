@@ -72,12 +72,12 @@ Route::get('client/home/property-details', function () {
 
 //Login
 //giao dien dang nhap
-
 Route::get('/login',[\App\Http\Controllers\LoginController::class,'viewLogin']);
 Route::post('/login',[\App\Http\Controllers\LoginController::class,'login']);
 
 //dang ky
-Route::get('/register',[\App\Http\Controllers\RegisterController::class,'register']);
+Route::get('/register',[\App\Http\Controllers\RegisterController::class,'viewRegister']);
+Route::post('/register',[\App\Http\Controllers\RegisterController::class,'saveAccount']);
 
 //Client
 Route::get('/client/home',[ClientController::class,'viewClient']);

@@ -44,28 +44,28 @@
                                 <div class="tab active-tab" id="tab-1">
                                     <div class="inner-box">
                                         <h4>Đăng nhập</h4>
-                                        <form action="http://azim.commonsupport.com/Realshed/signin.html" method="post" class="default-form">
-                                            <div class="form-group">
-                                                <label>Tên Đăng nhập</label>
-                                                <input type="text" name="name" required="">
-                                            </div>
+                                        <form action="" method="post" class="default-form">
+                                            @csrf
                                             <div class="form-group">
                                                 <label>Email</label>
-                                                <input type="email" name="email" required="">
+                                                <input type="email" name="email" placeholder="Email..." required="Hãy nhâp email của bạn">
                                             </div>
                                             <div class="form-group">
                                                 <label>Mật khẩu</label>
-                                                <input type="password" name="name" required="">
+                                                <input type="password" name="password" placeholder="Mật khẩu..." required="Bạn chưa nhập mật khẩu">
                                             </div>
                                             <div class="form-group message-btn">
                                                 <button type="submit" class="theme-btn btn-one">Đăng nhập</button>
                                             </div>
                                         </form>
                                         <div class="othre-text">
-                                            <p>Chưa có tài khoản?<a href="signup.blade.php">Đăng ký</a></p>
+                                            <p>Chưa có tài khoản?<a href="{{url('/register')}}">Đăng ký</a></p>
                                         </div>
                                     </div>
                                 </div>
+
+
+
                                 <div class="tab" id="tab-2">
                                     <div class="inner-box">
                                         <h4>Đăng nhập</h4>

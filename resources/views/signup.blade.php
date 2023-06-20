@@ -44,22 +44,27 @@
                                 <div class="tab active-tab" id="tab-1">
                                     <div class="inner-box">
                                         <h4>Đăng ký</h4>
-                                        <form action="http://azim.commonsupport.com/Realshed/signin.html" method="post" class="default-form">
+                                        <form action="{{url('/saveAccount')}}" method="post" class="default-form">
+                                            @csrf
                                             <div class="form-group">
                                                 <label>Tên đăng nhập</label>
-                                                <input type="text" name="name" required="">
+                                                <input type="text" name="name" required="Nhập tên đăng nhập của bạn">
                                             </div>
                                             <div class="form-group">
                                                 <label>Email</label>
-                                                <input type="email" name="email" required="">
+                                                <input type="email" name="email" required="Nhập email của bạn">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Phone</label>
+                                                <input type="number" name="phone" required="Nhập số điện thoại của bạn">
                                             </div>
                                             <div class="form-group">
                                                 <label>Mật khẩu</label>
-                                                <input type="password" name="name" required="">
+                                                <input type="password" name="password" required="Nhập mật khẩu của bạn">
                                             </div>
                                             <div class="form-group">
                                                 <label>Xác nhận mật khẩu</label>
-                                                <input type="password" name="name" required="">
+                                                <input type="password" name="password" required="Nhập lại mật khẩu của bạn">
                                             </div>
                                             <div class="form-group message-btn">
                                                 <button type="submit" class="theme-btn btn-one">Đăng ký</button>
