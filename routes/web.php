@@ -93,3 +93,9 @@ Route::get('/client/home/agents-list', function () {
 Route::get('/client/home/agents-details', function () {
     return view('/client/agents-details');
 });
+
+
+//admin
+Route::get('admin/index', function () {
+    return view('/admin/index');
+});
