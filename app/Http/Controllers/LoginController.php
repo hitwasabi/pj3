@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -19,7 +20,7 @@ class LoginController extends Controller
         );
         if($rs == true){
             $user = Auth::user();
-            if($user->isAdmin == 1){
+            if($user->isAdmin == 0){
                 return redirect('admin/home');
             }else{
                 return redirect('client/home');
