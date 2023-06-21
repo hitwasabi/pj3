@@ -39,7 +39,7 @@
                                                 <div class="shape-1" style="background-image: url({{asset('images/shape/shape-4.png')}});"></div>
                                                 <div class="shape-2" style="background-image: url({{asset('images/shape/shape-5.png')}});"></div>
                                                 <h4>Gói thường</h4>
-                                                <h2>$49 <span>/ tháng</span></h2>
+                                                <h2>45000 đ <span>/ tháng</span></h2>
                                             </div>
                                             <div class="table-content">
                                                 <ul class="feature-list clearfix">
@@ -62,7 +62,7 @@
                                                 <div class="shape-1" style="background-image: url({{asset('images/shape/shape-4.png')}});"></div>
                                                 <div class="shape-2" style="background-image: url({{asset('images/shape/shape-5.png')}});"></div>
                                                 <h4>Gói vip</h4>
-                                                <h2>$59 <span>/ tháng</span></h2>
+                                                <h2>225000 đ <span>/ tháng</span></h2>
                                             </div>
                                             <div class="table-content">
                                                 <ul class="feature-list clearfix">
