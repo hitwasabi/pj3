@@ -111,8 +111,12 @@
                     <li class="nav-item ps-3">
                         <div class="header-info2 d-flex align-items-center">
                             <div class="header-info">
-                                <h6>Sdt: 0858862720</h6>
-                                <p>Số dư:</p>
+                                <h6>Sdt: {{\Illuminate\Support\Facades\Auth::user()->phone}}</h6>
+                                @if(\Illuminate\Support\Facades\Auth::user()->money == 0)
+                                    <p>Số dư: 0đ</p>
+                                @else
+                                <p>Số dư: {{\Illuminate\Support\Facades\Auth::user()->money}}đ</p>
+                                @endif
                             </div>
                         </div>
                     </li>

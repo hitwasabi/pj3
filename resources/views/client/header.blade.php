@@ -15,9 +15,14 @@
                     <li><a href="https://www.facebook.com/Nhoctuthuoc/"><i class="fab fa-facebook-f"></i></a></li>
                     <li><a href="https://www.instagram.com/hitwasabi/"><i class="fab fa-instagram"></i></a></li>
                 </ul>
+                @if(\Illuminate\Support\Facades\Auth::check() == false)
                 <div class="sign-box">
                     <a href="{{url('/login')}}"><i class="fas fa-user"></i>Đăng nhập</a>
                 </div>
+                @else
+                    <a href="#"><i class="fas fa-user"></i> {{\Illuminate\Support\Facades\Auth::user()->name}}</a>
+                @endif
+
             </div>
         </div>
     </div>
@@ -39,6 +44,9 @@
                         <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
                             <ul class="navigation clearfix">
                                 <li><a href="{{url('/client/home')}}"><span>Trang chủ</span></a></li>
+                                @if(\Illuminate\Support\Facades\Auth::check() == true)
+                                <li><a href="{{url('/agents/index')}}"><span>Quản trị</span></a></li>
+                                @endif
                                 <li><a href="{{url('client/home/property-list')}}"><span>Danh sách phòng</span></a>
                                 </li>
                                 <li class="dropdown"><a href="{{url('/client/home')}}"><span>Các trang</span></a>

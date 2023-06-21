@@ -101,7 +101,7 @@ Route::get('/client/home/agents-details', function () {
 Route::get('/agents/index',[\App\Http\Controllers\AgentController::class,'viewAgent']);
 Route::get('/agents/ecom-product-list',[\App\Http\Controllers\AgentController::class,'viewEcom_product_list']);
 Route::get('/agents/edit-profile',[\App\Http\Controllers\AgentController::class,'viewEdit']);
-Route::get('/agents/add-product',[AgentController::class,'create']);
+Route::get('/agents/add-product',[AgentController::class,'viewAdd']);
 Route::get('/agents/payment-history',[AgentController::class,'viewPayment']);
 Route::get('/agents/agents-profile',[\App\Http\Controllers\AgentController::class,'viewAgentsProfile']);
 //admin
