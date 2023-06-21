@@ -26,7 +26,7 @@ class LoginController extends Controller
                 return redirect('client/home');
             }
         }else{
-            dd("Login failed");
+            return redirect('signin');
         }
     }
 
