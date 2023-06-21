@@ -75,6 +75,9 @@ Route::get('client/home/property-details', function () {
 Route::get('/login',[\App\Http\Controllers\LoginController::class,'viewLogin']);
 Route::post('/login',[\App\Http\Controllers\LoginController::class,'login']);
 
+//Logout
+Route::get('/logout',[\App\Http\Controllers\LoginController::class,'logout']);
+
 //dang ky
 Route::get('/register',[\App\Http\Controllers\RegisterController::class,'viewRegister']);
 Route::post('/register',[\App\Http\Controllers\RegisterController::class,'saveAccount']);
@@ -93,9 +96,14 @@ Route::get('/client/home/agents-list', function () {
 Route::get('/client/home/agents-details', function () {
     return view('/client/agents-details');
 });
-
+Route::get('/agents/index',[\App\Http\Controllers\AgentController::class,'viewAgent']);
+Route::get('/agents/ecom-product-list',[\App\Http\Controllers\AgentController::class,'viewEcom_product_list']);
+Route::get('/agents/edit-profile',[\App\Http\Controllers\AgentController::class,'viewEdit']);
 
 //admin
-Route::get('admin/index', function () {
-    return view('/admin/index');
-});
+Route::get('/admin/index',[\App\Http\Controllers\AdminController::class,'viewAdmin']);
+Route::get('/admin/employee',[\App\Http\Controllers\AdminController::class,'viewEmployee']);
+Route::get('/admin/blog',[\App\Http\Controllers\AdminController::class,'viewBlog']);
+Route::get('/admin/contacts',[\App\Http\Controllers\AdminController::class,'viewContact']);
+Route::get('/admin/ecom-product-list',[\App\Http\Controllers\AdminController::class,'viewEcom_product_list']);
+Route::get('/admin/edit-profile',[\App\Http\Controllers\AdminController::class,'viewEdit']);

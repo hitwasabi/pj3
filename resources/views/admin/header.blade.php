@@ -1,3 +1,4 @@
+
 <!--**********************************
             Nav header start
         ***********************************-->
@@ -267,7 +268,7 @@
 
                         </a>
                     </li>
-                    <li class="nav-item align-items-center header-border"><a href="page-login.html" class="btn btn-primary btn-sm">Logout</a></li>
+                    <li class="nav-item align-items-center header-border"><a href="{{url('/logout')}}" class="btn btn-primary btn-sm">Logout</a></li>
                     <li class="nav-item ps-3">
                         <div class="dropdown header-profile2">
                             <a class="nav-link" href="javascript:void(0);" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -288,7 +289,7 @@
                                         <div class="products">
                                             <img src="images/tab/1.jpg" class="avatar avatar-md" alt="">
                                             <div>
-                                                <h6>Thomas Fleming</h6>
+                                                <h6></h6>
                                                 <span>Web Designer</span>
                                             </div>
                                         </div>

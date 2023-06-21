@@ -2,7 +2,7 @@
     <div class="deznav-scroll">
         <ul class="metismenu" id="menu">
             <li class="menu-title">CHIPHOME</li>
-            <li><a href="index.html" aria-expanded="false">
+            <li><a href="{{url('admin/index')}}" aria-expanded="false">
                     <div class="menu-icon">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M2.5 7.49999L10 1.66666L17.5 7.49999V16.6667C17.5 17.1087 17.3244 17.5326 17.0118 17.8452C16.6993 18.1577 16.2754 18.3333 15.8333 18.3333H4.16667C3.72464 18.3333 3.30072 18.1577 2.98816 17.8452C2.67559 17.5326 2.5 17.1087 2.5 16.6667V7.49999Z" stroke="#888888" stroke-linecap="round" stroke-linejoin="round"/>
@@ -12,7 +12,7 @@
                     <span class="nav-text">Trang thống kê</span>
                 </a>
             </li>
-            <li><a href="employee.html" class="" aria-expanded="false">
+            <li><a href="#" class="" aria-expanded="false">
                     <div class="menu-icon">
                         <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M10.986 14.0673C7.4407 14.0673 4.41309 14.6034 4.41309 16.7501C4.41309 18.8969 7.4215 19.4521 10.986 19.4521C14.5313 19.4521 17.5581 18.9152 17.5581 16.7693C17.5581 14.6234 14.5505 14.0673 10.986 14.0673Z" stroke="#888888" stroke-linecap="round" stroke-linejoin="round"/>
@@ -23,7 +23,7 @@
                 </a>
             </li>
 
-            <li><a href="blog.html" class="" aria-expanded="false">
+            <li><a href="{{url('admin/blog')}}" class="" aria-expanded="false">
                     <div class="menu-icon">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M14.7379 2.76181H8.08493C6.00493 2.75381 4.29993 4.41181 4.25093 6.49081V17.2038C4.20493 19.3168 5.87993 21.0678 7.99293 21.1148C8.02393 21.1148 8.05393 21.1158 8.08493 21.1148H16.0739C18.1679 21.0298 19.8179 19.2998 19.8029 17.2038V8.03781L14.7379 2.76181Z" stroke="#888888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
@@ -51,12 +51,12 @@
                     <span class="nav-text">Ứng dụng<span class="badge badge-danger badge-xs ms-1"></span></span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="customer.html" aria-expanded="false">Quản lý chủ trọ<span class="badge badge-danger badge-xs ms-1"></span></a>
+                    <li><a href="{{url('admin/employee')}}" aria-expanded="false">Quản lý chủ trọ<span class="badge badge-danger badge-xs ms-1"></span></a>
                     </li>
-                    <li><a href="contacts.blade.php">Liên hệ chủ trọ <span class="badge badge-danger badge-xs ms-1"></span></a></li>
+                    <li><a href="{{url('admin/contacts')}}">Liên hệ chủ trọ <span class="badge badge-danger badge-xs ms-1"></span></a></li>
                     <li><a class="has-arrow" href="javascript:void(0);" aria-expanded="false">Phòng trọ</a>
                         <ul aria-expanded="false">
-                            <li><a href="ecom-product-list.html">Danh mục phòng trọ</a></li>
+                            <li><a href="{{url('admin/ecom-product-list')}}">Danh mục phòng trọ</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -72,7 +72,7 @@
                 </a>
                 <ul aria-expanded="false">
                     <li><a href="page-login.html">Quản lý tin đăng</a></li>
-                    <li><a href="page-register.html">Sửa thông tin cá nhân</a></li>
+                    <li><a href="{{url('admin/edit-profile')}}">Sửa thông tin cá nhân</a></li>
                     <li><a href="page-lock-screen.html">Nạp tiền/Bảng giá</a></li>
                     <li><a href="empty-page.html">Lịch sử nạp tiền</a></li>
                 </ul>
