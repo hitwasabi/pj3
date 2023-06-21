@@ -1,4 +1,4 @@
-
+<html>
 <!--**********************************
             Nav header start
         ***********************************-->
@@ -277,8 +277,8 @@
                                         <img src="images/tab/1.jpg" alt="">
                                     </div>
                                     <div class="header-info">
-                                        <h6>Thomas Fleming</h6>
-                                        <p>info@gmail.com</p>
+                                        <h6>{{\Illuminate\Support\Facades\Auth::user()->name}}</h6>
+                                        <p>{{\Illuminate\Support\Facades\Auth::user()->email}}</p>
                                     </div>
 
                                 </div>
@@ -352,3 +352,4 @@
 <!--**********************************
     Header end ti-comment-alt
 ***********************************-->
+</html>
