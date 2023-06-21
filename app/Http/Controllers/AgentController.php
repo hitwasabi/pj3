@@ -17,4 +17,14 @@ class AgentController extends Controller
     public function viewEdit(){
         return view('/agents/edit-profile');
     }
+    public function viewPayment(){
+        return view('/agents/payment-history');
+    }
+    public function create()
+    {
+        return view('agents/add-product');
+    }
+    public function viewAgentsProfile(){
+        return view('/agents/agents-profile');
+    }
 }

@@ -56,6 +56,10 @@
                                             <p class="text-content">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words.</p>
                                         </div>
                                     </div>
+                                    <div class="d-flex">
+                                        <a href="{{url('/admin/edit-blog')}}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
+                                        <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

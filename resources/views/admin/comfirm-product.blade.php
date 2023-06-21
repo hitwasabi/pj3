@@ -1,5 +1,5 @@
 @extends('layouts.admin_base')
-@section('title',"Tin tức")
+@section('title',"Duyệt bài")
 
 @section('content')
 
@@ -30,12 +30,12 @@
                         <thead>
                         <tr>
                             <th></th>
-                            <th>Tên người viết</th>
-                            <th>Department</th>
-                            <th>Gender</th>
-                            <th>Education</th>
-                            <th>Mobile</th>
-                            <th>Email</th>
+                            <th>Tên chủ trọ</th>
+                            <th>Tên bài đăng</th>
+                            <th>Hình ảnh</th>
+                            <th>Thông tin</th>
+                            <th>Vị trí</th>
+                            <th>Diện tích</th>
                             <th>Ngày viết</th>
                             <th>Hàng động</th>
                         </tr>

@@ -10,7 +10,7 @@
     ***********************************-->
     <div id="main-wrapper">
         @include('admin.preloader')
-        @include('admin.header')
+        @include('agents.header')
 
         @include('agents.sidebar')
 

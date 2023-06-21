@@ -10,9 +10,9 @@
 ***********************************-->
     <div id="main-wrapper">
         @include('admin.preloader')
-        @include('admin.header')
+        @include('agents.header')
 
-        @include('admin.sidebar')
+        @include('agents.sidebar')
 
 		<!--**********************************
             Content body start

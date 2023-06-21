@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AgentController;
 use App\Http\Controllers\ClientController;
 use Illuminate\Support\Facades\Route;
 
@@ -99,11 +101,18 @@ Route::get('/client/home/agents-details', function () {
 Route::get('/agents/index',[\App\Http\Controllers\AgentController::class,'viewAgent']);
 Route::get('/agents/ecom-product-list',[\App\Http\Controllers\AgentController::class,'viewEcom_product_list']);
 Route::get('/agents/edit-profile',[\App\Http\Controllers\AgentController::class,'viewEdit']);
-
+Route::get('/agents/add-product',[AgentController::class,'create']);
+Route::get('/agents/payment-history',[AgentController::class,'viewPayment']);
+Route::get('/agents/agents-profile',[\App\Http\Controllers\AgentController::class,'viewAgentsProfile']);
 //admin
 Route::get('/admin/index',[\App\Http\Controllers\AdminController::class,'viewAdmin']);
 Route::get('/admin/employee',[\App\Http\Controllers\AdminController::class,'viewEmployee']);
 Route::get('/admin/blog',[\App\Http\Controllers\AdminController::class,'viewBlog']);
+Route::get('/admin/edit-blog',[\App\Http\Controllers\AdminController::class,'viewEditBlog']);
 Route::get('/admin/contacts',[\App\Http\Controllers\AdminController::class,'viewContact']);
 Route::get('/admin/ecom-product-list',[\App\Http\Controllers\AdminController::class,'viewEcom_product_list']);
 Route::get('/admin/edit-profile',[\App\Http\Controllers\AdminController::class,'viewEdit']);
+Route::get('/admin/payment-history',[AdminController::class,'viewPayment']);
+Route::get('/admin/customer-profile',[\App\Http\Controllers\AdminController::class,'viewEmployeeDetail']);
+Route::get('/admin/comfirm-product',[\App\Http\Controllers\AdminController::class,'comfirm']);
+Route::get('/admin/admin-profile',[\App\Http\Controllers\AdminController::class,'viewAdminProfile']);

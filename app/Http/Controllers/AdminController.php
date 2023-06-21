@@ -17,7 +17,9 @@ class AdminController extends Controller
     public function viewBlog(){
         return view('/admin/blog');
     }
-
+    public function viewEditBlog(){
+        return view('/admin/edit-blog');
+    }
     public function viewContact(){
         return view('/admin/contacts');
     }
@@ -30,4 +32,16 @@ class AdminController extends Controller
         return view('/admin/edit-profile');
     }
 
+    public function viewEmployeeDetail(){
+        return view('/admin/customer-profile');
+    }
+    public function viewPayment(){
+        return view('/admin/payment-history');
+    }
+    public function comfirm(){
+        return view('/admin/comfirm-product');
+    }
+    public function viewAdminProfile(){
+        return view('/admin/admin-profile');
+    }
 }

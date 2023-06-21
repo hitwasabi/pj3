@@ -10,9 +10,9 @@
 ***********************************-->
     <div id="main-wrapper">
         @include('admin.preloader')
-        @include('admin.header')
+        @include('agents.header')
 
-        @include('admin.sidebar')
+        @include('agents.sidebar')
 
         <!--**********************************
             Content body start
@@ -34,7 +34,7 @@
                                     <div class="col-md-5 col-xxl-12">
                                         <div class="new-arrival-product mb-4 mb-xxl-4 mb-md-0">
                                             <div class="new-arrivals-img-contnent">
-                                                <img class="img-fluid" src="images/product/2.jpg" alt="">
+                                                <img class="img-fluid" src="{{asset('admin/images/product/2.jpg')}}" alt="">
                                             </div>
                                         </div>
                                     </div>

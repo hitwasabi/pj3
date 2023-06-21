@@ -44,10 +44,10 @@
                     <span class="nav-text">Các trang khác</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="page-login.html">Đăng bài mới</a></li>
+                    <li><a href="{{url('agents/add-product')}}">Đăng bài mới</a></li>
                     <li><a href="{{url('agents/edit-profile')}}">Sửa thông tin cá nhân</a></li>
-                    <li><a href="page-lock-screen.html">Nạp tiền/Bảng giá</a></li>
-                    <li><a href="empty-page.html">Lịch sử nạp tiền</a></li>
+                    <li><a href="{{url('client/home/pricing')}}">Nạp tiền/Bảng giá</a></li>
+                    <li><a href="{{url('agents/payment-history')}}">Lịch sử nạp tiền</a></li>
                 </ul>
             </li>
         </ul>
