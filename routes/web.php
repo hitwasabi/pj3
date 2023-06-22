@@ -94,6 +94,10 @@ Route::get('/client/home/about',[ClientController::class,'viewAbout']);
 Route::get('/client/home/agents-list', function () {
     return view('/client/agents-list');
 });
+Route::post('/agents/add-product',[\App\Http\Controllers\RoomController::class,'postRoom']);
+
+
+
 //Xem chi tiet chu tro DEMO
 Route::get('/client/home/agents-details', function () {
     return view('/client/agents-details');

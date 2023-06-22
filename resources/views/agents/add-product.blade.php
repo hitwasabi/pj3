@@ -27,6 +27,8 @@
                             <i class="fa-solid fa-xmark"></i>
                         </button>
                     </div>
+                    <form action="{{url('/agents/add-product')}}" method="POST">
+                    @csrf
                     <div class="offcanvas-body">
                         <div class="container-fluid">
                             <div>
@@ -40,21 +42,19 @@
                                             <path d="M27.1666 26.6667L20.4999 20L13.8333 26.6667" stroke="#DADADA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
                                         <div class="fallback">
-                                            <input name="file" type="file" multiple>
+                                            <input name="url" type="file" multiple>
                                         </div>
                                     </form>
                                 </div>
                             </div>
-                            <form action="" method="">
-                                @csrf
                                 <div class="row">
                                     <div class="col-xl-6 mb-3">
                                         <label for="exampleFormControlInput1" class="form-label">Tên phòng trọ<span class="text-danger">*</span></label>
-                                        <input type="text" class="form-control" id="room_name" name="name" placeholder="Nhập tên phòng trọ..." required>
+                                        <input type="text" class="form-control" id="room_name" name="room_name" placeholder="Nhập tên phòng trọ..." required>
                                     </div>
                                     <div class="col-xl-6 mb-3">
                                         <label for="exampleFormControlInput2" class="form-label">Loại phòng cho thuê<span class="text-danger">*</span></label>
-                                        <select class="default-select form-control" name="id">
+                                        <select class="default-select form-control" name="cate_id">
                                             <option  data-display="Select">Hãy chọn</option>
                                         @foreach($cates as $cate)
                                             <option value="{{$cate->id}}">{{$cate->cate_name}}</option>
@@ -63,7 +63,7 @@
                                     </div>
                                     <div class="col-xl-6 mb-3">
                                         <label for="exampleFormControlInput3" class="form-label">Thành phố<span class="text-danger">*</span></label>
-                                        <select class="default-select form-control" name="id">
+                                        <select class="default-select form-control" name="city_id">
                                             <option  data-display="Select">Hãy chọn</option>
                                         @foreach($cities as $city)
                                             <option value="{{$city->cities_id}}">{{$city->city_name}}</option>
@@ -72,16 +72,16 @@
                                     </div>
                                     <div class="col-xl-6 mb-3">
                                         <label for="exampleFormControlInput2" class="form-label">Số người cho thuê<span class="text-danger">*</span></label>
-                                        <select class="default-select form-control" name="id">
+                                        <select class="default-select form-control" name="rent_amountId">
                                             <option  data-display="Select">Hãy chọn</option>
                                             @foreach($amounts as $amount)
-                                                <option value="{{$amount->id}}">{{$amount->amounts}}</option>
+                                                <option value="{{$amount->ram_id}}">{{$amount->amounts}}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                     <div class="col-xl-6 mb-3">
                                         <label class="form-label">Quận<span class="text-danger">*</span></label>
-                                        <select class="default-select form-control" name="id">
+                                        <select class="default-select form-control" name="city_detailId">
                                             <option  data-display="Select">Hãy chọn</option>
                                             @foreach($districts as $district)
                                                 <option value="{{$city->cities_id}}">{{$district->name}}</option>
@@ -90,7 +90,7 @@
                                     </div>
                                     <div class="col-xl-6 mb-3">
                                         <label class="form-label">Số phòng ngủ<span class="text-danger">*</span></label>
-                                        <select class="default-select form-control">
+                                        <select class="default-select form-control" name="bed_room">
                                             <option  data-display="Select">Hãy chọn</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
@@ -101,7 +101,7 @@
                                     </div>
                                     <div class="col-xl-6 mb-3">
                                         <label class="form-label">Đường<span class="text-danger">*</span></label>
-                                        <select class="default-select form-control" name="id">
+                                        <select class="default-select form-control" name="street_id">
                                             <option  data-display="Select">Hãy chọn</option>
                                             @foreach($streets as $street)
                                                 <option value="{{$district->city_detailId}}">{{$street->street_name}}</option>
@@ -110,7 +110,7 @@
                                     </div>
                                     <div class="col-xl-6 mb-3">
                                         <label class="form-label">Số phòng tắm<span class="text-danger">*</span></label>
-                                        <select class="default-select form-control">
+                                        <select class="default-select form-control" name="bath_room">
                                             <option  data-display="Select">Hãy chọn</option>
                                             <option value="1">1</option>
                                             <option value="2">2</option>
@@ -121,26 +121,25 @@
                                     </div>
                                     <div class="col-xl-6 mb-3">
                                         <label class="form-label">Giá cho thuê<span class="text-danger">(vnđ)</span></label>
-                                        <input type="number" class="form-control" id="room_name" name="name" min="100000" placeholder="Nhập giá phòng trọ..." required>
+                                        <input type="number" class="form-control" id="room_name" name="prices" min="100000" placeholder="Nhập giá phòng trọ..." required>
 
                                     </div>
                                     <div class="col-xl-6 mb-3">
                                         <label class="form-label">Diện tích phòng trọ<span class="text-danger">(mét vuông)</span></label>
-                                        <input type="text" class="form-control" id="room_name" name="name" placeholder="Nhập diện tích phòng trọ..." required>
+                                        <input type="text" class="form-control" id="room_name" name="acreage" placeholder="Nhập diện tích phòng trọ..." required>
                                     </div>
 
                                     <div class="col-xl-12 mb-3">
                                         <label class="form-label">Mô tả thêm <span class="text-danger">*</span></label>
-                                        <textarea rows="3" class="form-control"></textarea>
+                                        <textarea rows="3" class="form-control" name="info_detail"></textarea>
                                     </div>
                                 </div>
                                 <div>
-                                    <button class="btn btn-primary me-1">Đăng bài</button>
-                                    <button class="btn btn-danger light ms-1">Hủy đăng </button>
+                                    <button type="submit" class="btn btn-primary me-1">Đăng bài</button>
                                 </div>
-                            </form>
                         </div>
                     </div>
+                    </form>
                 </div>
         </div>
         <!--**********************************

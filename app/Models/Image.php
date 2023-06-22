@@ -5,8 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Rent_amount extends Model
+class Image extends Model
 {
     use HasFactory;
-    protected $primaryKey = 'ram_id';
+    protected $primaryKey = 'image_id';
+    protected $fillable = [
+        'rentRoom_id',
+        'url'
+    ];
 }

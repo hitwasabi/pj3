@@ -41,7 +41,7 @@ class AgentController extends Controller
             ->select('streets.*')
             ->get();
         $amounts = DB::table('rent_amounts')
-            ->select('rent_amounts.id','rent_amounts.amounts')
+            ->select('rent_amounts.ram_id','rent_amounts.amounts')
             ->get();
         return view('agents/add-product',compact('cities','districts','streets','amounts','cates'));
     }
