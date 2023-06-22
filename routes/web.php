@@ -61,15 +61,13 @@ Route::get('client/home/pricing', function () {
     return view('/client/pricing');
 });
 
-//Danh sach phong
-Route::get('client/home/property-list', function () {
-    return view('/client/property-list');
-});
 
-//Chi tiet phong
-Route::get('client/home/property-details', function () {
-    return view('/client/property-details');
-});
+//Xem cac phong o client
+Route::get('client/home/property-list',[\App\Http\Controllers\ClientController::class,'viewAllRoom']);
+//Xem chi tiet cac phong o client
+Route::get('client/home/property-details/{rr_id}',[ClientController::class,'show']);
+//Tim kiem
+Route::get('/client/home/search',[ClientController::class,'searchInfo']);
 
 
 //Login
@@ -103,11 +101,22 @@ Route::get('/client/home/agents-details', function () {
     return view('/client/agents-details');
 });
 Route::get('/agents/index',[\App\Http\Controllers\AgentController::class,'viewAgent']);
+//Xem cac san pham cua agent
 Route::get('/agents/ecom-product-list',[\App\Http\Controllers\AgentController::class,'viewEcom_product_list']);
+//Xem chi tiet san pham agent
+Route::get('/agents/ecom-product-detail/{rr_id}',[AgentController::class,'show']);
+
 Route::get('/agents/edit-profile',[\App\Http\Controllers\AgentController::class,'viewEdit']);
 Route::get('/agents/add-product',[AgentController::class,'viewAdd']);
 Route::get('/agents/payment-history',[AgentController::class,'viewPayment']);
 Route::get('/agents/agents-profile',[\App\Http\Controllers\AgentController::class,'viewAgentsProfile']);
+
+
+
+
+
+
+
 //admin
 Route::get('/admin/index',[\App\Http\Controllers\AdminController::class,'viewAdmin']);
 Route::get('/admin/employee',[\App\Http\Controllers\AdminController::class,'viewEmployee']);

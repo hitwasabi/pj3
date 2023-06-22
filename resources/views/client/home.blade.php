@@ -24,14 +24,14 @@
                                 <div class="tab active-tab" id="tab-1">
                                     <div class="inner-box">
                                         <div class="top-search">
-                                            <form action="http://azim.commonsupport.com/Realshed/index.html" method="post" class="search-form">
+                                            <form action="{{url('client/home/search')}}" method="get" class="search-form">
                                                 <div class="row clearfix">
                                                     <div class="col-lg-4 col-md-12 col-sm-12 column">
                                                         <div class="form-group">
                                                             <label>Tìm kiếm phòng trọ</label>
                                                             <div class="field-input">
                                                                 <i class="fas fa-search"></i>
-                                                                <input type="search" name="search-field" placeholder="Tìm kiếm..." required="">
+                                                                <input type="search" name="keyword_submit" placeholder="Tìm kiếm..." required="">
                                                             </div>
                                                         </div>
                                                     </div>

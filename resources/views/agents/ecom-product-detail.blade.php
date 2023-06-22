@@ -35,16 +35,16 @@
                                         <!-- Tab panes -->
                                         <div class="tab-content" id="myTabContent">
 										  <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-												 <img class="img-fluid rounded  " src="images/product/1.jpg" alt="">
+												 <img class="img-fluid rounded  " src="{{$image->url}}" alt="">
 										  </div>
 										  <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-												<img class="img-fluid rounded " src="images/product/2.jpg" alt="">
+												<img class="img-fluid rounded " src="{{$image->url}}" alt="">
 										  </div>
 										  <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
-											 <img class="img-fluid rounded" src="images/product/3.jpg" alt="">
+											 <img class="img-fluid rounded" src="{{$image->url}}" alt="">
 										  </div>
 										  <div class="tab-pane fade" id="end-tab-pane" role="tabpanel" aria-labelledby="end-tab" tabindex="0">
-											 <img class="img-fluid rounded" src="images/product/3.jpg" alt="">
+											 <img class="img-fluid rounded" src="{{$image->url}}" alt="">
 										  </div>
 
 										</div>
@@ -52,16 +52,16 @@
                                             <!-- Nav tabs -->
                                             <ul class="nav nav-tabs slide-item-list mt-3" id="myTab" role="tablist">
 												  <li class="nav-item" role="presentation">
-													<a href="#first" class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"  role="tab" aria-controls="home-tab-pane" aria-selected="true"><img class="img-fluid me-2 rounded" src="images/tab/1.jpg" alt="" width="80"></a>
+													<a href="#first" class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"  role="tab" aria-controls="home-tab-pane" aria-selected="true"><img class="img-fluid me-2 rounded" src="{{$image->url}}" alt="" width="80"></a>
 												  </li>
 												  <li class="nav-item" role="presentation">
-													<a href="#second" class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"  role="tab" aria-controls="profile-tab-pane" aria-selected="false"><img class="img-fluid me-2 rounded" src="images/tab/2.jpg" alt="" width="80"></a>
+													<a href="#second" class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"  role="tab" aria-controls="profile-tab-pane" aria-selected="false"><img class="img-fluid me-2 rounded" src="{{$image->url}}" alt="" width="80"></a>
 												  </li>
 												  <li class="nav-item" role="presentation">
-													<a href="#third" class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" role="tab" aria-controls="contact-tab-pane" aria-selected="false"><img class="img-fluid me-2 rounded" src="images/tab/3.jpg" alt="" width="80"></a>
+													<a href="#third" class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" role="tab" aria-controls="contact-tab-pane" aria-selected="false"><img class="img-fluid me-2 rounded" src="{{$image->url}}" alt="" width="80"></a>
 												  </li>
 												  <li class="nav-item" role="presentation">
-													<a href="#for" class="nav-link" id="end-tab" data-bs-toggle="tab" data-bs-target="#end-tab-pane"  role="tab" aria-controls="end-tab-pane" aria-selected="false"><img class="img-fluid  rounded" src="images/tab/4.jpg" alt="" width="80"></a>
+													<a href="#for" class="nav-link" id="end-tab" data-bs-toggle="tab" data-bs-target="#end-tab-pane"  role="tab" aria-controls="end-tab-pane" aria-selected="false"><img class="img-fluid  rounded" src="{{$image->url}}" alt="" width="80"></a>
 												  </li>
 
 											</ul>
@@ -72,28 +72,22 @@
                                         <div class="product-detail-content">
                                             <!--Product details-->
                                             <div class="new-arrival-content pr">
-                                                <h4>Tên phòng</h4>
-                                                <div class="comment-review star-rating d-flex">
-													<ul>
-														<li><i class="fa fa-star"></i></li>
-														<li><i class="fa fa-star"></i></li>
-														<li><i class="fa fa-star"></i></li>
-														<li><i class="fa fa-star"></i></li>
-														<li><i class="fa fa-star"></i></li>
-													</ul>
-												</div>
+                                                <h4>{{$rent_room->room_name}}</h4>
 												<div class="d-table mb-2">
-													<p class="price float-start d-block">$325.00</p>
+													<p class="price float-start d-block">{{number_format($rent_room->prices, 0, '.', '.')}}<sup>đ</sup></p>
                                                 </div>
                                                 <p>Tình trạng: <span class="item"> Chưa cho thuê<i
                                                             class="fa fa-shopping-basket"></i></span>
                                                 </p>
-                                                <p>Id phòng: <span class="item">0405689</span> </p>
+                                                <p>Diện tích:{{$rent_room -> acreage}} mét vuông</p>
+                                                <p>Số lượng người tối đa có thể ở: {{$rent_room->amounts}} người</p>
+                                                <p>Số phòng vệ sinh: {{$rent_room->bath_room}} ,Số phòng ngủ: {{$rent_room->bed_room}}  </p>
+                                                <p>Id phòng: <span class="item">{{$rent_room->rr_id}}</span> </p>
+                                                <p>Địa chỉ :{{$rent_room->street_name}} ,{{$rent_room->city_details.name}} ,{{$rent_room->city_name}}  </p>
                                                 <p>Product tags:&nbsp;&nbsp;
                                                     <span class="badge badge-success light">thuê nhà</span>
                                                 </p>
-                                                <p class="text-content">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.
-                                                    If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing.</p>
+                                                <p class="text-content">{{$rent_room->info_detail}}</p>
                                             </div>
                                         </div>
                                     </div>

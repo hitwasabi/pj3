@@ -43,10 +43,9 @@
                                             </div>
                                             <div class="table-content">
                                                 <ul class="feature-list clearfix">
-                                                    <li>1 Bathroom Cleaning</li>
-                                                    <li>Up to 3 Bedrooms Cleaning</li>
-                                                    <li>1 Livingroom Cleaning</li>
-                                                    <li>Kitchen Cleaning</li>
+                                                    <li>Giới hạn 2 bài /ngày</li>
+                                                    <li>Thời gian tồn tại bài đăng 5 ngày</li>
+                                                    <li>Phù hợp tất cả các loại hình tuy nhiên lượng tiếp cận khách hàng thấp hơn </li>
                                                 </ul>
                                             </div>
                                             <div class="table-footer">
@@ -66,14 +65,33 @@
                                             </div>
                                             <div class="table-content">
                                                 <ul class="feature-list clearfix">
-                                                    <li>1 Bathroom Cleaning</li>
-                                                    <li>Up to 3 Bedrooms Cleaning</li>
-                                                    <li>1 Livingroom Cleaning</li>
-                                                    <li>Kitchen Cleaning</li>
+                                                    <li>Giới hạn 5 bài /ngày</li>
+                                                    <li>Thời gian tồn tại bài đăng 10 ngày</li>
+                                                    <li>Phù hợp khách hàng cá nhân/môi giới có lượng căn trống thường xuyên, cần cho thuê nhanh hơn.</li>
                                                 </ul>
                                             </div>
                                             <div class="table-footer">
                                                 <a href="pricing.html" class="link-btn">Mua ngay</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 col-md-6 col-sm-12 pricing-block">
+                                    <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms">
+                                        <div class="pricing-table">
+                                            <div class="table-header">
+                                                <div class="shape-1" style="background-image: url({{asset('images/shape/shape-4.png')}});"></div>
+                                                <div class="shape-2" style="background-image: url({{asset('images/shape/shape-5.png')}});"></div>
+                                                <h4>Gói chúa tể</h4>
+                                                <h2>Sắp ra mắt </h2>
+                                            </div>
+                                            <div class="table-content">
+                                                <ul class="feature-list clearfix">
+
+                                                </ul>
+                                            </div>
+                                            <div class="table-footer">
+
                                             </div>
                                         </div>
                                     </div>

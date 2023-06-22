@@ -14,9 +14,38 @@ class AgentController extends Controller
     }
 
     public function viewEcom_product_list(){
-        return view('/agents/ecom-product-list');
+        $rent_rooms =DB::table('rent_rooms')
+            ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
+            ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
+            ->join('categories','categories.id','=','rent_rooms.cate_id')
+            ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
+            ->join('cities','rent_rooms.city_id','=','cities.cities_id')
+            ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
+            ->join('streets','rent_rooms.street_id','=','streets.street_id')
+            ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*',)->get();
+        return view('/agents/ecom-product-list')->with('rent_rooms',$rent_rooms);
     }
 
+    public function show($rr_id){
+        $rent_room =DB::table('rent_rooms')
+            ->join('categories','categories.id','=','rent_rooms.cate_id')
+            ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
+            ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
+            ->join('cities','rent_rooms.city_id','=','cities.cities_id')
+            ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
+            ->join('streets','rent_rooms.street_id','=','streets.street_id')
+            ->select('rent_rooms.*','room_details.*','cities.*','city_details.*','streets.*','rent_amounts.*')->get()
+            ->where('rr_id',"=",$rr_id)->first();
+        $image = DB::table('images')->where('rentRoom_id',"=",$rr_id)->first();
+        $room_details = DB::table('room_details')->where('rentRoom_id',"=",$rr_id)->first();
+        $rent_rooms =DB::table('categories')
+            ->join('rent_rooms','categories.id','=','rent_rooms.cate_id')
+            ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
+            ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
+            ->where('rent_rooms.rr_id',"!=",$rr_id)
+            ->get();
+        return view('/agents/ecom-product-detail',compact('rent_rooms','image','room_details','rent_room'));
+    }
     public function viewEdit(){
         return view('/agents/edit-profile');
     }

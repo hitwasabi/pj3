@@ -131,96 +131,21 @@
                             </div>
                             <div class="wrapper list">
                                 <div class="deals-list-content list-item">
+                                    @forelse($rent_rooms as $rent_room)
                                     <div class="deals-block-one">
                                         <div class="inner-box">
                                             <div class="image-box">
-                                                <figure class="image"><img src="{{asset('images/resource/deals-3.jpg')}}" alt=""></figure>
-                                                <div class="batch"><i class="icon-11"></i></div>
-                                                <span class="category">Featured</span>
-                                                <div class="buy-btn"><a href="{{url('/client/home/property-details')}}">For Buy</a></div>
-                                            </div>
-                                            <div class="lower-content">
-                                                <div class="title-text"><h4><a href="{{url('/client/home/property-details')}}">Villa on Grand Avenue</a></h4></div>
-                                                <div class="price-box clearfix">
-                                                    <div class="price-info pull-left">
-                                                        <h6>Start From</h6>
-                                                        <h4>$30,000.00</h4>
-                                                    </div>
-                                                    <div class="author-box pull-right">
-                                                        <figure class="author-thumb">
-                                                            <img src="{{asset('images/feature/author-1.jpg')}}" alt="">
-                                                            <span>Michael Bean</span>
-                                                        </figure>
-                                                    </div>
-                                                </div>
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing sed eiusm do tempor incididunt labore.</p>
-                                                <ul class="more-details clearfix">
-                                                    <li><i class="icon-14"></i>3 Beds</li>
-                                                    <li><i class="icon-15"></i>2 Baths</li>
-                                                    <li><i class="icon-16"></i>600 Sq Ft</li>
-                                                </ul>
-                                                <div class="other-info-box clearfix">
-                                                    <div class="btn-box pull-left"><a href="{{url('/client/home/property-details')}}" class="theme-btn btn-two">See Details</a></div>
-                                                    <ul class="other-option pull-right clearfix">
-                                                        <li><a href="{{url('/client/home/property-details')}}"><i class="icon-12"></i></a></li>
-                                                        <li><a href="{{url('/client/home/property-details')}}"><i class="icon-13"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="deals-block-one">
-                                        <div class="inner-box">
-                                            <div class="image-box">
-                                                <figure class="image"><img src="{{asset('images/resource/deals-4.jpg')}}" alt=""></figure>
-                                                <div class="batch"><i class="icon-11"></i></div>
-                                                <span class="category">Featured</span>
-                                                <div class="buy-btn"><a href="{{url('/client/home/property-details')}}">For Buy</a></div>
-                                            </div>
-                                            <div class="lower-content">
-                                                <div class="title-text"><h4><a href="{{url('/client/home/property-details')}}">Contemporary Apartment</a></h4></div>
-                                                <div class="price-box clearfix">
-                                                    <div class="price-info pull-left">
-                                                        <h6>Start From</h6>
-                                                        <h4>$20,000.00</h4>
-                                                    </div>
-                                                    <div class="author-box pull-right">
-                                                        <figure class="author-thumb">
-                                                            <img src="{{asset('images/feature/author-1.jpg')}}" alt="">
-                                                            <span>Michael Bean</span>
-                                                        </figure>
-                                                    </div>
-                                                </div>
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing sed eiusm do tempor incididunt labore.</p>
-                                                <ul class="more-details clearfix">
-                                                    <li><i class="icon-14"></i>3 Beds</li>
-                                                    <li><i class="icon-15"></i>2 Baths</li>
-                                                    <li><i class="icon-16"></i>600 Sq Ft</li>
-                                                </ul>
-                                                <div class="other-info-box clearfix">
-                                                    <div class="btn-box pull-left"><a href="property-details.blade.php" class="theme-btn btn-two">See Details</a></div>
-                                                    <ul class="other-option pull-right clearfix">
-                                                        <li><a href="property-details.blade.php"><i class="icon-12"></i></a></li>
-                                                        <li><a href="property-details.blade.php"><i class="icon-13"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="deals-block-one">
-                                        <div class="inner-box">
-                                            <div class="image-box">
-                                                <figure class="image"><img src="assets/images/resource/deals-5.jpg" alt=""></figure>
+                                                <figure class="image"><img src="{{$rent_room-> url}}" alt=""></figure>
                                                 <div class="batch"><i class="icon-11"></i></div>
                                                 <span class="category">Featured</span>
                                                 <div class="buy-btn"><a href="property-details.blade.php">For Buy</a></div>
                                             </div>
                                             <div class="lower-content">
-                                                <div class="title-text"><h4><a href="property-details.blade.php">Luxury Villa With Pool</a></h4></div>
+                                                <div class="title-text"><h4><a href="{{url('client/home/property-details/'.$rent_room->rr_id)}}">{{$rent_room->room_name}}</a></h4></div>
                                                 <div class="price-box clearfix">
                                                     <div class="price-info pull-left">
-                                                        <h6>Start From</h6>
-                                                        <h4>$35,000.00</h4>
+                                                        <h6>Giá khởi điểm</h6>
+                                                        <h4>{{number_format($rent_room->prices, 0, '.', '.')}}<sup>đ</sup></h4>
                                                     </div>
                                                     <div class="author-box pull-right">
                                                         <figure class="author-thumb">
@@ -229,182 +154,33 @@
                                                         </figure>
                                                     </div>
                                                 </div>
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing sed eiusm do tempor incididunt labore.</p>
+                                                <p>{{$rent_room->info_detail}}</p>
                                                 <ul class="more-details clearfix">
-                                                    <li><i class="icon-14"></i>3 Beds</li>
-                                                    <li><i class="icon-15"></i>2 Baths</li>
-                                                    <li><i class="icon-16"></i>600 Sq Ft</li>
+                                                    <li><i class="icon-14"></i>{{$rent_room->bed_room}} phòng ngủ</li>
+                                                    <li><i class="icon-15"></i>{{$rent_room->bath_room}} phòng vệ sinh </li>
+                                                    <li><i class="icon-16"></i>{{$rent_room -> acreage}}métvuông</li>
                                                 </ul>
                                                 <div class="other-info-box clearfix">
-                                                    <div class="btn-box pull-left"><a href="property-details.blade.php" class="theme-btn btn-two">See Details</a></div>
+                                                    <div class="btn-box pull-left"><a href="{{url('client/home/property-details/'.$rent_room->rr_id)}}" class="theme-btn btn-two">Xem chi tiết</a></div>
                                                     <ul class="other-option pull-right clearfix">
-                                                        <li><a href="property-details.blade.php"><i class="icon-12"></i></a></li>
                                                         <li><a href="property-details.blade.php"><i class="icon-13"></i></a></li>
                                                     </ul>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="deals-block-one">
-                                        <div class="inner-box">
-                                            <div class="image-box">
-                                                <figure class="image"><img src="assets/images/resource/deals-6.jpg" alt=""></figure>
-                                                <div class="batch"><i class="icon-11"></i></div>
-                                                <span class="category">Featured</span>
-                                                <div class="buy-btn"><a href="property-details.blade.php">For Buy</a></div>
-                                            </div>
-                                            <div class="lower-content">
-                                                <div class="title-text"><h4><a href="property-details.blade.php">Apartment in Glasgow</a></h4></div>
-                                                <div class="price-box clearfix">
-                                                    <div class="price-info pull-left">
-                                                        <h6>Start From</h6>
-                                                        <h4>$45,000.00</h4>
-                                                    </div>
-                                                    <div class="author-box pull-right">
-                                                        <figure class="author-thumb">
-                                                            <img src="assets/images/feature/author-1.jpg" alt="">
-                                                            <span>Michael Bean</span>
-                                                        </figure>
-                                                    </div>
-                                                </div>
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing sed eiusm do tempor incididunt labore.</p>
-                                                <ul class="more-details clearfix">
-                                                    <li><i class="icon-14"></i>3 Beds</li>
-                                                    <li><i class="icon-15"></i>2 Baths</li>
-                                                    <li><i class="icon-16"></i>600 Sq Ft</li>
-                                                </ul>
-                                                <div class="other-info-box clearfix">
-                                                    <div class="btn-box pull-left"><a href="property-details.blade.php" class="theme-btn btn-two">See Details</a></div>
-                                                    <ul class="other-option pull-right clearfix">
-                                                        <li><a href="property-details.blade.php"><i class="icon-12"></i></a></li>
-                                                        <li><a href="property-details.blade.php"><i class="icon-13"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="deals-block-one">
-                                        <div class="inner-box">
-                                            <div class="image-box">
-                                                <figure class="image"><img src="assets/images/resource/deals-7.jpg" alt=""></figure>
-                                                <div class="batch"><i class="icon-11"></i></div>
-                                                <span class="category">Featured</span>
-                                                <div class="buy-btn"><a href="property-details.blade.php">For Buy</a></div>
-                                            </div>
-                                            <div class="lower-content">
-                                                <div class="title-text"><h4><a href="property-details.blade.php">Family Home For Sale</a></h4></div>
-                                                <div class="price-box clearfix">
-                                                    <div class="price-info pull-left">
-                                                        <h6>Start From</h6>
-                                                        <h4>$40,000.00</h4>
-                                                    </div>
-                                                    <div class="author-box pull-right">
-                                                        <figure class="author-thumb">
-                                                            <img src="assets/images/feature/author-1.jpg" alt="">
-                                                            <span>Michael Bean</span>
-                                                        </figure>
-                                                    </div>
-                                                </div>
-                                                <p>Lorem ipsum dolor sit amet consectetur adipisicing sed eiusm do tempor incididunt labore.</p>
-                                                <ul class="more-details clearfix">
-                                                    <li><i class="icon-14"></i>3 Beds</li>
-                                                    <li><i class="icon-15"></i>2 Baths</li>
-                                                    <li><i class="icon-16"></i>600 Sq Ft</li>
-                                                </ul>
-                                                <div class="other-info-box clearfix">
-                                                    <div class="btn-box pull-left"><a href="property-details.blade.php" class="theme-btn btn-two">See Details</a></div>
-                                                    <ul class="other-option pull-right clearfix">
-                                                        <li><a href="property-details.blade.php"><i class="icon-12"></i></a></li>
-                                                        <li><a href="property-details.blade.php"><i class="icon-13"></i></a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @empty
+                                        <p>Danh sach rong</p>
+                                    @endforelse
                                 </div>
                                 <div class="deals-grid-content grid-item">
                                     <div class="row clearfix">
+                                        @forelse($rent_rooms as $rent_room)
                                         <div class="col-lg-6 col-md-6 col-sm-12 feature-block">
                                             <div class="feature-block-one">
                                                 <div class="inner-box">
                                                     <div class="image-box">
-                                                        <figure class="image"><img src="assets/images/feature/feature-1.jpg" alt=""></figure>
-                                                        <div class="batch"><i class="icon-11"></i></div>
-                                                        <span class="category">Featured</span>
-                                                    </div>
-                                                    <div class="lower-content">
-                                                        <div class="author-info clearfix">
-                                                            <div class="author pull-left">
-                                                                <figure class="author-thumb"><img src="assets/images/feature/author-1.jpg" alt=""></figure>
-                                                                <h6>Michael Bean</h6>
-                                                            </div>
-                                                            <div class="buy-btn pull-right"><a href="{{url('/client/home/property-details')}}">For Buy</a></div>
-                                                        </div>
-                                                        <div class="title-text"><h4><a href="{{url('/client/home/property-details')}}">Villa on Grand Avenue</a></h4></div>
-                                                        <div class="price-box clearfix">
-                                                            <div class="price-info pull-left">
-                                                                <h6>Start From</h6>
-                                                                <h4>$30,000.00</h4>
-                                                            </div>
-                                                            <ul class="other-option pull-right clearfix">
-                                                                <li><a href="{{url('/client/home/property-details')}}"><i class="icon-12"></i></a></li>
-                                                                <li><a href="{{url('/client/home/property-details')}}"><i class="icon-13"></i></a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing sed.</p>
-                                                        <ul class="more-details clearfix">
-                                                            <li><i class="icon-14"></i>3 Beds</li>
-                                                            <li><i class="icon-15"></i>2 Baths</li>
-                                                            <li><i class="icon-16"></i>600 Sq Ft</li>
-                                                        </ul>
-                                                        <div class="btn-box"><a href="{{url('/client/home/property-details')}}" class="theme-btn btn-two">See Details</a></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12 feature-block">
-                                            <div class="feature-block-one">
-                                                <div class="inner-box">
-                                                    <div class="image-box">
-                                                        <figure class="image"><img src="assets/images/feature/feature-2.jpg" alt=""></figure>
-                                                        <div class="batch"><i class="icon-11"></i></div>
-                                                        <span class="category">Featured</span>
-                                                    </div>
-                                                    <div class="lower-content">
-                                                        <div class="author-info clearfix">
-                                                            <div class="author pull-left">
-                                                                <figure class="author-thumb"><img src="assets/images/feature/author-2.jpg" alt=""></figure>
-                                                                <h6>Robert Niro</h6>
-                                                            </div>
-                                                            <div class="buy-btn pull-right"><a href="property-details.blade.php">For Rent</a></div>
-                                                        </div>
-                                                        <div class="title-text"><h4><a href="property-details.blade.php">Contemporary Apartment</a></h4></div>
-                                                        <div class="price-box clearfix">
-                                                            <div class="price-info pull-left">
-                                                                <h6>Start From</h6>
-                                                                <h4>$45,000.00</h4>
-                                                            </div>
-                                                            <ul class="other-option pull-right clearfix">
-                                                                <li><a href="property-details.blade.php"><i class="icon-12"></i></a></li>
-                                                                <li><a href="property-details.blade.php"><i class="icon-13"></i></a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing sed.</p>
-                                                        <ul class="more-details clearfix">
-                                                            <li><i class="icon-14"></i>3 Beds</li>
-                                                            <li><i class="icon-15"></i>2 Baths</li>
-                                                            <li><i class="icon-16"></i>600 Sq Ft</li>
-                                                        </ul>
-                                                        <div class="btn-box"><a href="property-details.blade.php" class="theme-btn btn-two">See Details</a></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12 feature-block">
-                                            <div class="feature-block-one">
-                                                <div class="inner-box">
-                                                    <div class="image-box">
-                                                        <figure class="image"><img src="assets/images/feature/feature-3.jpg" alt=""></figure>
+                                                        <figure class="image"><img src="{{$rent_room-> url}}" alt=""></figure>
                                                         <div class="batch"><i class="icon-11"></i></div>
                                                         <span class="category">Featured</span>
                                                     </div>
@@ -414,144 +190,31 @@
                                                                 <figure class="author-thumb"><img src="assets/images/feature/author-3.jpg" alt=""></figure>
                                                                 <h6>Keira Mel</h6>
                                                             </div>
-                                                            <div class="buy-btn pull-right"><a href="property-details.blade.php">Sold Out</a></div>
                                                         </div>
-                                                        <div class="title-text"><h4><a href="property-details.blade.php">Luxury Villa With Pool</a></h4></div>
+                                                        <div class="title-text"><h4><a href="{{url('client/home/property-details/'.$rent_room->rr_id)}}">{{$rent_room->room_name}}</a></h4></div>
                                                         <div class="price-box clearfix">
                                                             <div class="price-info pull-left">
-                                                                <h6>Start From</h6>
-                                                                <h4>$63,000.00</h4>
+                                                                <h6>Giá khởi điểm</h6>
+                                                                <h4>{{number_format($rent_room->prices, 0, '.', '.')}}<sup>đ</sup></h4>
                                                             </div>
                                                             <ul class="other-option pull-right clearfix">
-                                                                <li><a href="property-details.blade.php"><i class="icon-12"></i></a></li>
                                                                 <li><a href="property-details.blade.php"><i class="icon-13"></i></a></li>
                                                             </ul>
                                                         </div>
-                                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing sed.</p>
+                                                        <p>{{$rent_room->info_detail}}</p>
                                                         <ul class="more-details clearfix">
-                                                            <li><i class="icon-14"></i>3 Beds</li>
-                                                            <li><i class="icon-15"></i>2 Baths</li>
-                                                            <li><i class="icon-16"></i>600 Sq Ft</li>
+                                                            <li><i class="icon-14"></i>{{$rent_room->bed_room}} phòng ngủ</li>
+                                                            <li><i class="icon-15"></i>{{$rent_room->bath_room}} phòng vệ sinh </li>
+                                                            <li><i class="icon-16"></i>{{$rent_room -> acreage}}métvuông</li>
                                                         </ul>
-                                                        <div class="btn-box"><a href="property-details.blade.php" class="theme-btn btn-two">See Details</a></div>
+                                                        <div class="btn-box"><a href="{{url('client/home/property-details/'.$rent_room->rr_id)}}" class="theme-btn btn-two">Xem chi tiết</a></div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12 feature-block">
-                                            <div class="feature-block-one">
-                                                <div class="inner-box">
-                                                    <div class="image-box">
-                                                        <figure class="image"><img src="assets/images/feature/feature-4.jpg" alt=""></figure>
-                                                        <div class="batch"><i class="icon-11"></i></div>
-                                                        <span class="category">Featured</span>
-                                                    </div>
-                                                    <div class="lower-content">
-                                                        <div class="author-info clearfix">
-                                                            <div class="author pull-left">
-                                                                <figure class="author-thumb"><img src="assets/images/feature/author-1.jpg" alt=""></figure>
-                                                                <h6>Michael Bean</h6>
-                                                            </div>
-                                                            <div class="buy-btn pull-right"><a href="property-details.blade.php">For Buy</a></div>
-                                                        </div>
-                                                        <div class="title-text"><h4><a href="property-details.blade.php">Home in Merrick Way</a></h4></div>
-                                                        <div class="price-box clearfix">
-                                                            <div class="price-info pull-left">
-                                                                <h6>Start From</h6>
-                                                                <h4>$30,000.00</h4>
-                                                            </div>
-                                                            <ul class="other-option pull-right clearfix">
-                                                                <li><a href="property-details.blade.php"><i class="icon-12"></i></a></li>
-                                                                <li><a href="property-details.blade.php"><i class="icon-13"></i></a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing sed.</p>
-                                                        <ul class="more-details clearfix">
-                                                            <li><i class="icon-14"></i>3 Beds</li>
-                                                            <li><i class="icon-15"></i>2 Baths</li>
-                                                            <li><i class="icon-16"></i>600 Sq Ft</li>
-                                                        </ul>
-                                                        <div class="btn-box"><a href="property-details.blade.php" class="theme-btn btn-two">See Details</a></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12 feature-block">
-                                            <div class="feature-block-one">
-                                                <div class="inner-box">
-                                                    <div class="image-box">
-                                                        <figure class="image"><img src="assets/images/feature/feature-5.jpg" alt=""></figure>
-                                                        <div class="batch"><i class="icon-11"></i></div>
-                                                        <span class="category">Featured</span>
-                                                    </div>
-                                                    <div class="lower-content">
-                                                        <div class="author-info clearfix">
-                                                            <div class="author pull-left">
-                                                                <figure class="author-thumb"><img src="assets/images/feature/author-2.jpg" alt=""></figure>
-                                                                <h6>Robert Niro</h6>
-                                                            </div>
-                                                            <div class="buy-btn pull-right"><a href="property-details.blade.php">For Rent</a></div>
-                                                        </div>
-                                                        <div class="title-text"><h4><a href="property-details.blade.php">Apartment in Glasgow</a></h4></div>
-                                                        <div class="price-box clearfix">
-                                                            <div class="price-info pull-left">
-                                                                <h6>Start From</h6>
-                                                                <h4>$45,000.00</h4>
-                                                            </div>
-                                                            <ul class="other-option pull-right clearfix">
-                                                                <li><a href="property-details.blade.php"><i class="icon-12"></i></a></li>
-                                                                <li><a href="property-details.blade.php"><i class="icon-13"></i></a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing sed.</p>
-                                                        <ul class="more-details clearfix">
-                                                            <li><i class="icon-14"></i>3 Beds</li>
-                                                            <li><i class="icon-15"></i>2 Baths</li>
-                                                            <li><i class="icon-16"></i>600 Sq Ft</li>
-                                                        </ul>
-                                                        <div class="btn-box"><a href="property-details.blade.php" class="theme-btn btn-two">See Details</a></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-12 feature-block">
-                                            <div class="feature-block-one">
-                                                <div class="inner-box">
-                                                    <div class="image-box">
-                                                        <figure class="image"><img src="assets/images/feature/feature-6.jpg" alt=""></figure>
-                                                        <div class="batch"><i class="icon-11"></i></div>
-                                                        <span class="category">Featured</span>
-                                                    </div>
-                                                    <div class="lower-content">
-                                                        <div class="author-info clearfix">
-                                                            <div class="author pull-left">
-                                                                <figure class="author-thumb"><img src="assets/images/feature/author-3.jpg" alt=""></figure>
-                                                                <h6>Keira Mel</h6>
-                                                            </div>
-                                                            <div class="buy-btn pull-right"><a href="property-details.blade.php">Sold Out</a></div>
-                                                        </div>
-                                                        <div class="title-text"><h4><a href="property-details.blade.php">Family Home For Sale</a></h4></div>
-                                                        <div class="price-box clearfix">
-                                                            <div class="price-info pull-left">
-                                                                <h6>Start From</h6>
-                                                                <h4>$63,000.00</h4>
-                                                            </div>
-                                                            <ul class="other-option pull-right clearfix">
-                                                                <li><a href="property-details.blade.php"><i class="icon-12"></i></a></li>
-                                                                <li><a href="property-details.blade.php"><i class="icon-13"></i></a></li>
-                                                            </ul>
-                                                        </div>
-                                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing sed.</p>
-                                                        <ul class="more-details clearfix">
-                                                            <li><i class="icon-14"></i>3 Beds</li>
-                                                            <li><i class="icon-15"></i>2 Baths</li>
-                                                            <li><i class="icon-16"></i>600 Sq Ft</li>
-                                                        </ul>
-                                                        <div class="btn-box"><a href="property-details.blade.php" class="theme-btn btn-two">See Details</a></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                                        @empty
+                                            <p>Danh sach rong</p>
+                                        @endforelse
                                     </div>
                                 </div>
                             </div>

@@ -20,4 +20,7 @@ class Rent_room extends Model
         'info_detail',
         'status'
     ];
+    public function category() {
+        return $this->belongsTo(Category::class,'cate_id', 'cate_id');
+    }
 }

@@ -30,11 +30,11 @@
             <div class="auto-container">
                 <div class="top-details clearfix">
                     <div class="left-column pull-left clearfix">
-                        <h3>The Citizen Apartment</h3>
+                        <h3>{{$rent_room->room_name}}</h3>
                         <div class="author-info clearfix">
                             <div class="author-box pull-left">
                                 <figure class="author-thumb"><img src="{{asset('images/feature/author-1.jpg')}}" alt=""></figure>
-                                <h6>Michael Bean</h6>
+                                <h6>{{$rent_room->name}}</h6>
                             </div>
                             <ul class="rating clearfix pull-left">
                                 <li><i class="icon-39"></i></li>
@@ -52,7 +52,7 @@
                                 <li><a href="{{url('/client/home/property-details')}}">Cho thuê</a></li>
                             </ul>
                             <div class="price-box pull-right">
-                                <h3>$30,000.00</h3>
+                                <h3>{{number_format($rent_room->prices, 0, '.', '.')}}<sup>đ</sup></h3>
                             </div>
                         </div>
                         <ul class="other-option pull-right clearfix">
@@ -65,9 +65,9 @@
                         <div class="property-details-content">
                             <div class="carousel-inner">
                                 <div class="single-item-carousel owl-carousel owl-theme owl-dots-none">
-                                    <figure class="image-box"><img src="{{asset('images/resource/property-details-1.jpg')}}" alt=""></figure>
-                                    <figure class="image-box"><img src="{{asset('images/resource/property-details-1.jpg')}}" alt=""></figure>
-                                    <figure class="image-box"><img src="{{asset('images/resource/property-details-1.jpg')}}" alt=""></figure>
+                                    <figure class="image-box"><img src="{{$image->url}}" alt=""></figure>
+                                    <figure class="image-box"><img src="{{$image->url}}" alt=""></figure>
+                                    <figure class="image-box"><img src="{{$image->url}}" alt=""></figure>
                                 </div>
                             </div>
                             <div class="discription-box content-widget">
@@ -75,8 +75,7 @@
                                     <h4>Mô tả phòng</h4>
                                 </div>
                                 <div class="text">
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing sed eiusm tempor incididunt labore dolore magna aliqua enim minim veniam quis nostrud exercitation laboris nisi ut aliquip ea commodo consequat duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur occaecat</p>
-                                    <p>Excepteur sint occaecat cupidatat non proident sunt in culpa qui officia deserunt mollit anim  est laborum. Sed perspiciatis unde omnis iste natus error sit voluptatem accusantium dolore mque laudantium totam rem aperiam.</p>
+                                    <p>{{$rent_room->info_detail}}</p>
                                 </div>
                             </div>
                             <div class="details-box content-widget">
@@ -84,13 +83,12 @@
                                     <h4>Chi tiết phòng</h4>
                                 </div>
                                 <ul class="list clearfix">
-                                    <li>ID: <span>ZOP251C</span></li>
+                                    <li>ID: <span>{{$rent_room->rr_id}}</span></li>
                                     <li>Số phòng: <span>06</span></li>
-                                    <li>Phòng ngủ: <span>04</span></li>
-                                    <li>Năm xây dựng: <span>01 April, 2019</span></li>
-                                    <li>Nhà vệ sinh: <span>03</span></li>
+                                    <li>Phòng ngủ: <span>{{$rent_room->bed_room}}</span></li>
+                                    <li>Nhà vệ sinh: <span>{{$rent_room->bath_room}} </span></li>
                                     <li>Tình trạng: <span>Cho thuê</span></li>
-                                    <li>Diện tích: <span>2024 Sq Ft</span></li>
+                                    <li>Diện tích: <span>{{$rent_room -> acreage}} mét vuông</span></li>
                                 </ul>
                             </div>
 
@@ -100,9 +98,9 @@
                                 </div>
                                 <ul class="info clearfix">
                                     <li><span>Địa chỉ:</span> Virginia temple hills</li>
-                                    <li><span>Thành phố:</span> United State</li>
-                                    <li><span>Quận/huyện:</span> California</li>
-                                    <li><span>Đường/phố:</span> Andersonville</li>
+                                    <li><span>Thành phố:</span> {{$rent_room->city_name}}</li>
+                                    <li><span>Quận/huyện:</span> {{$rent_room->name}}</li>
+                                    <li><span>Đường/phố:</span> {{$rent_room->street_name}}</li>
                                 </ul>
 
                             </div>
@@ -116,13 +114,11 @@
                                 <div class="author-box">
                                     <figure class="author-thumb"><img src="{{asset('images/resource/author-1.jpg')}}" alt=""></figure>
                                     <div class="inner">
-                                        <h4>Michael Bean</h4>
+                                        <h4>{{$rent_room->name}}</h4>
                                         <ul class="info clearfix">
-                                            <li><i class="fas fa-map-marker-alt"></i>84 St. John Wood High Street,
-                                            St Johns Wood</li>
-                                            <li><i class="fas fa-phone"></i><a href="tel:03030571965">030 3057 1965</a></li>
+                                            <li><i class="fas fa-phone"></i><a href="tel:03030571965">{{$rent_room->phone}}</a></li>
                                         </ul>
-                                        <div class="btn-box"><a href="{{url('/client/home/agents-details')}}">View Listing</a></div>
+                                        <div class="btn-box"><a href="{{url('/client/home/agents-details')}}">Xem danh sách phòng</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -134,85 +130,12 @@
                         <h4>Các phòng tương tự</h4>
                     </div>
                     <div class="row clearfix">
-                        <div class="col-lg-4 col-md-6 col-sm-12 feature-block">
-                            <div class="feature-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
-                                <div class="inner-box">
-                                    <div class="image-box">
-                                        <figure class="image"><img src="{{asset('images/feature/feature-1.jpg')}}" alt=""></figure>
-                                        <div class="batch"><i class="icon-11"></i></div>
-                                        <span class="category">Featured</span>
-                                    </div>
-                                    <div class="lower-content">
-                                        <div class="author-info clearfix">
-                                            <div class="author pull-left">
-                                                <figure class="author-thumb"><img src="{{asset('images/feature/author-1.jpg')}}" alt=""></figure>
-                                                <h6>Michael Bean</h6>
-                                            </div>
-                                            <div class="buy-btn pull-right"><a href="{{url('/client/home/property-details')}}">For Buy</a></div>
-                                        </div>
-                                        <div class="title-text"><h4><a href="{{url('/client/home/property-details')}}">Villa on Grand Avenue</a></h4></div>
-                                        <div class="price-box clearfix">
-                                            <div class="price-info pull-left">
-                                                <h6>Start From</h6>
-                                                <h4>$30,000.00</h4>
-                                            </div>
-                                            <ul class="other-option pull-right clearfix">
-                                                <li><a href="{{url('/client/home/property-details')}}"><i class="icon-13"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing sed.</p>
-                                        <ul class="more-details clearfix">
-                                            <li><i class="icon-14"></i>3 Beds</li>
-                                            <li><i class="icon-15"></i>2 Baths</li>
-                                            <li><i class="icon-16"></i>600 Sq Ft</li>
-                                        </ul>
-                                        <div class="btn-box"><a href="{{url('/client/home/property-details')}}" class="theme-btn btn-two">See Details</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6 col-sm-12 feature-block">
-                            <div class="feature-block-one wow fadeInUp animated" data-wow-delay="300ms" data-wow-duration="1500ms">
-                                <div class="inner-box">
-                                    <div class="image-box">
-                                        <figure class="image"><img src="{{asset('images/feature/feature-2.jpg')}}" alt=""></figure>
-                                        <div class="batch"><i class="icon-11"></i></div>
-                                        <span class="category">Featured</span>
-                                    </div>
-                                    <div class="lower-content">
-                                        <div class="author-info clearfix">
-                                            <div class="author pull-left">
-                                                <figure class="author-thumb"><img src="{{asset('images/feature/author-2.jpg')}}" alt=""></figure>
-                                                <h6>Robert Niro</h6>
-                                            </div>
-                                            <div class="buy-btn pull-right"><a href="{{url('/client/home/property-details')}}">For Rent</a></div>
-                                        </div>
-                                        <div class="title-text"><h4><a href="{{url('/client/home/property-details')}}">Contemporary Apartment</a></h4></div>
-                                        <div class="price-box clearfix">
-                                            <div class="price-info pull-left">
-                                                <h6>Start From</h6>
-                                                <h4>$45,000.00</h4>
-                                            </div>
-                                            <ul class="other-option pull-right clearfix">
-                                                <li><a href="{{url('/client/home/property-details')}}"><i class="icon-13"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing sed.</p>
-                                        <ul class="more-details clearfix">
-                                            <li><i class="icon-14"></i>3 Beds</li>
-                                            <li><i class="icon-15"></i>2 Baths</li>
-                                            <li><i class="icon-16"></i>600 Sq Ft</li>
-                                        </ul>
-                                        <div class="btn-box"><a href="property-details.html" class="theme-btn btn-two">See Details</a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @forelse($rent_rooms as $rent_room)
                         <div class="col-lg-4 col-md-6 col-sm-12 feature-block">
                             <div class="feature-block-one wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms">
                                 <div class="inner-box">
                                     <div class="image-box">
-                                        <figure class="image"><img src="assets/images/feature/feature-3.jpg" alt=""></figure>
+                                        <figure class="image"><img src="{{$rent_room-> url}}" alt=""></figure>
                                         <div class="batch"><i class="icon-11"></i></div>
                                         <span class="category">Featured</span>
                                     </div>
@@ -220,32 +143,33 @@
                                         <div class="author-info clearfix">
                                             <div class="author pull-left">
                                                 <figure class="author-thumb"><img src="assets/images/feature/author-3.jpg" alt=""></figure>
-                                                <h6>Keira Mel</h6>
+                                                <h6>{{$rent_room-> name}}</h6>
                                             </div>
                                             <div class="buy-btn pull-right"><a href="property-details.html">Sold Out</a></div>
                                         </div>
-                                        <div class="title-text"><h4><a href="property-details.html">Luxury Villa With Pool</a></h4></div>
+                                        <div class="title-text"><h4><a href="property-details.html">{{$rent_room-> room_name}}</a></h4></div>
                                         <div class="price-box clearfix">
                                             <div class="price-info pull-left">
-                                                <h6>Start From</h6>
-                                                <h4>$63,000.00</h4>
+                                                <h6>Giá khởi điểm</h6>
+                                                <h4>{{number_format($rent_room->prices, 0, '.', '.')}}<sup>đ</sup></h4>
                                             </div>
                                             <ul class="other-option pull-right clearfix">
-                                                <li><a href="property-details.html"><i class="icon-12"></i></a></li>
                                                 <li><a href="property-details.html"><i class="icon-13"></i></a></li>
                                             </ul>
                                         </div>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing sed.</p>
                                         <ul class="more-details clearfix">
-                                            <li><i class="icon-14"></i>3 Beds</li>
-                                            <li><i class="icon-15"></i>2 Baths</li>
-                                            <li><i class="icon-16"></i>600 Sq Ft</li>
+                                            <li><i class="icon-14"></i>{{$rent_room->bed_room}} phòng ngủ</li>
+                                            <li><i class="icon-15"></i>{{$rent_room->bath_room}} phòng vệ sinh </li>
+                                            <li><i class="icon-16"></i>{{$rent_room -> acreage}}métvuông</li>
                                         </ul>
-                                        <div class="btn-box"><a href="property-details.html" class="theme-btn btn-two">See Details</a></div>
+                                        <div class="btn-box"><a href="{{url('client/home/property-details/'.$rent_room->rr_id)}}" class="theme-btn btn-two">See Details</a></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @empty
+                            <div class="empty">Danh sách rỗng</div>
+                        @endforelse
                     </div>
                 </div>
             </div>
