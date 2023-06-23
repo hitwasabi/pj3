@@ -84,7 +84,6 @@ class ClientController extends Controller
             ->where('rent_rooms.rr_id',"!=",$rr_id)
             ->where('categories.id' ,"=",$cate_name)
             ->get();
-        ->select('rent_rooms.*','images.*','room_details.*','users.*')->get();
         return view('client/property-details',compact('rent_rooms','image','room_details','rent_room'));
     }
     public function searchInfo(Request $request){
