@@ -96,6 +96,10 @@ Route::get('/client/home/about',[ClientController::class,'viewAbout']);
 Route::get('/client/home/agents-list', function () {
     return view('/client/agents-list');
 });
+Route::get('/client/home/agents-details',[ClientController::class,'viewAgent']);
+
+
+
 Route::post('/agents/add-product',[\App\Http\Controllers\RoomController::class,'postRoom']);
 
 

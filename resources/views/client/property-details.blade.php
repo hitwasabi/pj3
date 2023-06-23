@@ -162,7 +162,7 @@
                                             <li><i class="icon-15"></i>{{$rent_room->bath_room}} phòng vệ sinh </li>
                                             <li><i class="icon-16"></i>{{$rent_room -> acreage}}métvuông</li>
                                         </ul>
-                                        <div class="btn-box"><a href="{{url('client/home/property-details/'.$rent_room->rr_id)}}" class="theme-btn btn-two">See Details</a></div>
+                                        <div class="btn-box"><a href="{{url('client/home/property-details/'.$rent_room->rr_id)}}" class="theme-btn btn-two">Xem chi tiết</a></div>
                                     </div>
                                 </div>
                             </div>
