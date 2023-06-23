@@ -116,10 +116,10 @@
                                 <div class="right-column pull-right clearfix">
                                     <div class="short-box clearfix">
                                         <div class="select-box">
-                                            <select class="wide">
-                                               <option data-display="Sắp xếp theo:">Mới nhất</option>
-                                               <option value="1">Được yêu thích</option>
-                                               <option value="2">Phổ biến nhất</option>
+                                            <select class="wide" onchange="location = this.value;">
+                                               <option data-display="Sắp xếp theo:" value="{{URL::current()."?sort=id_desc"}}">Mới nhất</option>
+                                               <option value="{{URL::current()."?sort=price_desc"}}"> Giá cao đến thấp</option>
+                                               <option value="{{URL::current()."?sort=price_asc"}}">Giá thấp đến cao</option>
                                             </select>
                                         </div>
                                     </div>
@@ -141,7 +141,7 @@
                                                 <div class="buy-btn"><a href="property-details.blade.php">For Buy</a></div>
                                             </div>
                                             <div class="lower-content">
-                                                <div class="title-text"><h4><a href="{{url('client/home/property-details/'.$rent_room->rr_id)}}">{{$rent_room->room_name}}</a></h4></div>
+                                                <div class="title-text"><h4><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}">{{$rent_room->room_name}}</a></h4></div>
                                                 <div class="price-box clearfix">
                                                     <div class="price-info pull-left">
                                                         <h6>Giá khởi điểm</h6>
@@ -219,12 +219,7 @@
                                 </div>
                             </div>
                             <div class="pagination-wrapper">
-                                <ul class="pagination clearfix">
-                                    <li><a href="property-list.html" class="current">1</a></li>
-                                    <li><a href="property-list.html">2</a></li>
-                                    <li><a href="property-list.html">3</a></li>
-                                    <li><a href="property-list.html"><i class="fas fa-angle-right"></i></a></li>
-                                </ul>
+                                   {{$rent_rooms->links("pagination::bootstrap-4")}}
                             </div>
                         </div>
                     </div>
