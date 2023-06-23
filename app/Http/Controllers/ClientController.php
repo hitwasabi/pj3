@@ -24,7 +24,7 @@ class ClientController extends Controller
             ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*')->get();
         return view('/client/property-list')->with('rent_rooms',$rent_rooms);
     }
-    public function show($rr_id){
+    public function show($rr_id, $cate_id){
         $rent_room =DB::table('rent_rooms')
             ->join('categories','categories.id','=','rent_rooms.cate_id')
             ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
@@ -37,12 +37,13 @@ class ClientController extends Controller
             ->where('rr_id',"=",$rr_id)->first();
         $image = DB::table('images')->where('rentRoom_id',"=",$rr_id)->first();
         $room_details = DB::table('room_details')->where('rentRoom_id',"=",$rr_id)->first();
-        $rent_rooms =DB::table('categories')
+        $rent_rooms = DB::table('categories')
             ->join('rent_rooms','categories.id','=','rent_rooms.cate_id')
             ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
             ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
             ->join('users','users.id','=','rent_rooms.owner_id')
             ->where('rent_rooms.rr_id',"!=",$rr_id)
+            ->where('rent_rooms.cate_id','=',$cate_id)
             ->get();
         return view('client/property-details',compact('rent_rooms','image','room_details','rent_room'));
     }
