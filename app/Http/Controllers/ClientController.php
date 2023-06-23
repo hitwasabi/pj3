@@ -24,8 +24,8 @@ class ClientController extends Controller
             ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*')->get();
         return view('/client/property-list')->with('rent_rooms',$rent_rooms);
     }
-    public function show($rr_id, $cate_id){
-        $rent_room =DB::table('rent_rooms')
+    public function show($rr_id){
+        $rent_room = DB::table('rent_rooms')
             ->join('categories','categories.id','=','rent_rooms.cate_id')
             ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
             ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
@@ -43,8 +43,7 @@ class ClientController extends Controller
             ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
             ->join('users','users.id','=','rent_rooms.owner_id')
             ->where('rent_rooms.rr_id',"!=",$rr_id)
-            ->where('rent_rooms.cate_id','=',$cate_id)
-            ->get();
+        ->select('rent_rooms.*','images.*','room_details.*','users.*')->get();
         return view('client/property-details',compact('rent_rooms','image','room_details','rent_room'));
     }
     public function searchInfo(Request $request){
