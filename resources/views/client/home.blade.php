@@ -160,7 +160,7 @@
                             <div class="category-block-one">
                                 <div class="inner-box">
                                     <div class="icon-box"><i class="icon-1"></i></div>
-                                    <h5><a href="{{url('/client/home/property-list')}}">Nhà trọ riêng</a></h5>
+                                    <h5><a href="{{url('/client/home/category/motel')}}">Nhà trọ riêng</a></h5>
                                     <span>52</span>
                                 </div>
                             </div>
@@ -169,7 +169,7 @@
                             <div class="category-block-one">
                                 <div class="inner-box">
                                     <div class="icon-box"><i class="icon-3"></i></div>
-                                    <h5><a href="{{url('/client/home/property-list')}}">Nhà trọ chung cư</a></h5>
+                                    <h5><a href="{{url('/client/home/category/apartment')}}">Nhà trọ chung cư</a></h5>
                                     <span>35</span>
                                 </div>
                             </div>

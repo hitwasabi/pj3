@@ -64,6 +64,10 @@ Route::get('client/home/pricing', function () {
 
 //Xem cac phong o client
 Route::get('client/home/property-list',[\App\Http\Controllers\ClientController::class,'viewAllRoom']);
+//Xem cac phong nha mat dat o client
+Route::get('/client/home/category/motel',[\App\Http\Controllers\ClientController::class,'viewMotel']);
+//Xem cac phong nha chung cu o client
+Route::get('/client/home/category/apartment',[\App\Http\Controllers\ClientController::class,'viewApartment']);
 //Xem chi tiet cac phong o client
 Route::get('client/home/property-details/{rr_id}/{cate_id}',[ClientController::class,'show']);
 //Tim kiem
