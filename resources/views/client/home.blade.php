@@ -17,7 +17,7 @@
                         <div class="tabs-box">
                             <div class="tab-btn-box">
                                 <ul class="tab-btns tab-buttons centred clearfix">
-                                    <li class="tab-btn" data-tab="#tab-1">RENT</li>
+                                    <li class="tab-btn" data-tab="#tab-1">Thuê</li>
                                 </ul>
                             </div>
                             <div class="tabs-content info-group">
@@ -75,20 +75,6 @@
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-4 col-md-6 col-sm-12 column">
-                                                        <div class="form-group">
-                                                            <label>Loại phòng</label>
-                                                            <div class="select-box">
-                                                                <select class="wide">
-                                                                   <option data-display="Các loại">Đầy đủ các loại</option>
-                                                                   <option value="1">Xịn xò</option>
-                                                                   <option value="2">Bình thường</option>
-                                                                   <option value="3">Cũ</option>
-                                                                   <option value="4">Mới</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
                                                 </div>
                                                 <div class="search-btn">
                                                     <button type="submit"><i class="fas fa-search"></i>Tìm kiếm</button>
@@ -111,33 +97,6 @@
                                                                    <option value="1">Hai phòng ngủ</option>
                                                                    <option value="2">Ba phòng ngủ</option>
                                                                    <option value="3">Bốn phòng ngủ</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-6 col-sm-12 column">
-                                                        <div class="form-group">
-                                                            <label>Sắp xếp theo</label>
-                                                            <div class="select-box">
-                                                                <select class="wide">
-                                                                   <option data-display="Phòng phổ biến">Phòng phổ biến</option>
-                                                                   <option value="1">Phòng được yêu thích</option>
-                                                                   <option value="2">Phòng Mới</option>
-                                                                   <option value="3">Phòng bình thường</option>
-                                                                   <option value="4">Phòng Xịn</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-6 col-sm-12 column">
-                                                        <div class="form-group">
-                                                            <label>Tầng</label>
-                                                            <div class="select-box">
-                                                                <select class="wide">
-                                                                   <option data-display="Lựa chọn số tầng">Lựa chọn số tầng</option>
-                                                                   <option value="1">1 tầng</option>
-                                                                   <option value="2">2 tầng</option>
-                                                                   <option value="3">3 tầng</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -201,7 +160,7 @@
                             <div class="category-block-one">
                                 <div class="inner-box">
                                     <div class="icon-box"><i class="icon-1"></i></div>
-                                    <h5><a href="{{url('/client/home/property-details')}}">Nhà trọ riêng</a></h5>
+                                    <h5><a href="{{url('/client/home/property-list')}}">Nhà trọ riêng</a></h5>
                                     <span>52</span>
                                 </div>
                             </div>
@@ -210,13 +169,13 @@
                             <div class="category-block-one">
                                 <div class="inner-box">
                                     <div class="icon-box"><i class="icon-3"></i></div>
-                                    <h5><a href="{{url('/client/home/property-details')}}">Nhà trọ chung cư</a></h5>
+                                    <h5><a href="{{url('/client/home/property-list')}}">Nhà trọ chung cư</a></h5>
                                     <span>35</span>
                                 </div>
                             </div>
                         </li>
                     </ul>
-                    <div class="more-btn"><a href="{{url('/client/home/property-details')}}" class="theme-btn btn-one">Xem tất cả</a></div>
+                    <div class="more-btn"><a href="{{url('/client/home/property-list')}}" class="theme-btn btn-one">Xem tất cả</a></div>
                 </div>
             </div>
         </section>
@@ -625,13 +584,6 @@
             </div>
         </section>
         <!-- news-section end -->
-
-
-
-
-
-
-
         <!--Scroll to top-->
         <button class="scroll-top scroll-to-target" data-target="html">
             <span class="fal fa-angle-up"></span>

@@ -97,14 +97,6 @@
                                     <div class="price-range-slider"></div>
                                 </div>
                             </div>
-                            <div class="category-widget sidebar-widget">
-                                <div class="widget-title">
-                                    <h5>Trạng thái nhà trọ</h5>
-                                </div>
-                                <ul class="category-list clearfix">
-                                    <li><a href="{{url('/client/home/property-details')}}">Cho thuê <span>(200)</span></a></li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
                     <div class="col-lg-8 col-md-12 col-sm-12 content-side">
@@ -161,7 +153,7 @@
                                                     <li><i class="icon-16"></i>{{$rent_room -> acreage}}métvuông</li>
                                                 </ul>
                                                 <div class="other-info-box clearfix">
-                                                    <div class="btn-box pull-left"><a href="{{url('client/home/property-details/'.$rent_room->rr_id)}}" class="theme-btn btn-two">Xem chi tiết</a></div>
+                                                    <div class="btn-box pull-left"><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}" class="theme-btn btn-two">Xem chi tiết</a></div>
                                                     <ul class="other-option pull-right clearfix">
                                                         <li><a href="property-details.blade.php"><i class="icon-13"></i></a></li>
                                                     </ul>
@@ -191,7 +183,7 @@
                                                                 <h6>Keira Mel</h6>
                                                             </div>
                                                         </div>
-                                                        <div class="title-text"><h4><a href="{{url('client/home/property-details/'.$rent_room->rr_id)}}">{{$rent_room->room_name}}</a></h4></div>
+                                                        <div class="title-text"><h4><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}">{{$rent_room->room_name}}</a></h4></div>
                                                         <div class="price-box clearfix">
                                                             <div class="price-info pull-left">
                                                                 <h6>Giá khởi điểm</h6>
@@ -207,7 +199,7 @@
                                                             <li><i class="icon-15"></i>{{$rent_room->bath_room}} phòng vệ sinh </li>
                                                             <li><i class="icon-16"></i>{{$rent_room -> acreage}}métvuông</li>
                                                         </ul>
-                                                        <div class="btn-box"><a href="{{url('client/home/property-details/'.$rent_room->rr_id)}}" class="theme-btn btn-two">Xem chi tiết</a></div>
+                                                        <div class="btn-box"><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}" class="theme-btn btn-two">Xem chi tiết</a></div>
                                                     </div>
                                                 </div>
                                             </div>
