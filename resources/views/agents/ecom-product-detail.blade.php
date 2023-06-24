@@ -83,7 +83,7 @@
                                                 <p>Số lượng người tối đa có thể ở: {{$rent_room->amounts}} người</p>
                                                 <p>Số phòng vệ sinh: {{$rent_room->bath_room}} ,Số phòng ngủ: {{$rent_room->bed_room}}  </p>
                                                 <p>Id phòng: <span class="item">{{$rent_room->rr_id}}</span> </p>
-                                                <p>Địa chỉ :{{$rent_room->street_name}} ,{{$rent_room->city_details.name}} ,{{$rent_room->city_name}}  </p>
+                                                <p>Địa chỉ :{{$rent_room->street_name}} ,{{$rent_room->name}} ,{{$rent_room->city_name}}  </p>
                                                 <p>Product tags:&nbsp;&nbsp;
                                                     <span class="badge badge-success light">thuê nhà</span>
                                                 </p>
