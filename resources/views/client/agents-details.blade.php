@@ -31,16 +31,16 @@
                             <div class="content-box">
                                 <div class="upper clearfix">
                                     <div class="title-inner pull-left">
-                                        <h4>Michael Bean</h4>
-                                        <span class="designation">Modern House Real Estate Agent</span>
+                                        <h4>{{$users-> name}}</h4>
+                                        <span class="designation">Chủ trọ</span>
                                     </div>
                                 </div>
                                 <div class="text">
-                                    <p>Success isn’t really that difficult. There is a significant portion of the population here in North America, that actually want and need success to be hard! Why? So they then have a built-in excuse.when things don’t go their way! Pretty sad situation, to say the least. Have some fun and hypnotize yourself to be your very own Ghost of Christmas future”</p>
+                                    <p>Cho thuê nhà bằng tình cảm</p>
                                 </div>
                                 <ul class="info clearfix mr-0">
-                                    <li><i class="fab fa fa-envelope"></i><a href="#">bean@realshed.com</a></li>
-                                    <li><i class="fab fa fa-phone"></i><a href="#">030 3057 1965</a></li>
+                                    <li><i class="fab fa fa-envelope"></i><a href="#">{{$users-> email}}</a></li>
+                                    <li><i class="fab fa fa-phone"></i><a href="#">{{$users-> phone}}</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -58,14 +58,15 @@
                     <div class="col-lg-8 col-md-12 col-sm-12 content-side">
                         <div class="agents-content-side tabs-box">
                             <div class="group-title">
-                                <h3>Danh sách bài đăng của Michael Bean</h3>
+                                <h3>Danh sách bài đăng của {{$users-> name}}</h3>
                             </div>
                             <div class="item-shorting clearfix">
                                 <div class="right-column  clearfix">
                                     <div class="select-box">
-                                        <select class="wide">
-                                            <option data-display="Sắp xếp theo: Mới nhất">Mới nhất</option>
-                                            <option value="1">New Arrival</option>
+                                        <select class="wide" onchange="location = this.value;">
+                                            <option data-display="Sắp xếp theo:" value="{{URL::current()."?sort=id_desc"}}">Mới nhất</option>
+                                            <option value="{{URL::current()."?sort=price_desc"}}"> Giá cao đến thấp</option>
+                                            <option value="{{URL::current()."?sort=price_asc"}}">Giá thấp đến cao</option>
                                         </select>
                                     </div>
                                     <div class="short-box clearfix">
