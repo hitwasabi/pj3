@@ -65,9 +65,15 @@
                                             <div class="col-xl-4 column">
                                                 <ul>
                                                     <li><h4>Pages</h4></li>
-                                                    <li><a href="profile.html">My Profile</a></li>
-                                                    <li><a href="{{url('/signin')}}">Sign In</a></li>
-                                                    <li><a href="{{url('/register')}}">Sign Up</a></li>
+                                                    @if(\Illuminate\Support\Facades\Auth::check() == true)
+                                                    @if(\Illuminate\Support\Facades\Auth::user()->isAdmin==1)
+                                                    <li><a href="{{url('/agents/agents-profile')}}">Thông tin của tôi</a></li>
+                                                    @else
+                                                        <li><a href="{{url('/admin/admin-profile')}}">Thông tin của tôi</a></li>
+                                                    @endif
+                                                    @endif
+                                                    <li><a href="{{url('/login')}}">Đăng nhập</a></li>
+                                                    <li><a href="{{url('/register')}}">Đăng kí</a></li>
                                                     <li><a href="{{url('/client/home/404')}}">404</a></li>
                                                 </ul>
                                             </div>
