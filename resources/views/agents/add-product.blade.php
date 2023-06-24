@@ -27,14 +27,14 @@
                             <i class="fa-solid fa-xmark"></i>
                         </button>
                     </div>
-                    <form action="{{url('/agents/add-product')}}" method="POST">
+                    <form action="{{url('/agents/add-product')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="offcanvas-body">
                         <div class="container-fluid">
                             <div>
                                 <label>Ảnh phòng cho thuê</label>
                                 <div class="dz-default dlab-message upload-img mb-3">
-                                    <form action="#" class="dropzone">
+{{--                                    <form action="#" class="dropzone">--}}
                                         <svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path d="M27.1666 26.6667L20.4999 20L13.8333 26.6667" stroke="#DADADA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                             <path d="M20.5 20V35" stroke="#DADADA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -44,7 +44,7 @@
                                         <div class="fallback">
                                             <input name="url" type="file" multiple>
                                         </div>
-                                    </form>
+{{--                                    </form>--}}
                                 </div>
                             </div>
                                 <div class="row">
@@ -84,7 +84,7 @@
                                         <select class="default-select form-control" name="city_detailId">
                                             <option  data-display="Select">Hãy chọn</option>
                                             @foreach($districts as $district)
-                                                <option value="{{$city->cities_id}}">{{$district->name}}</option>
+                                                <option value="{{$city->cities_id}}">{{$district->cd_name}}</option>
                                             @endforeach
                                         </select>
                                     </div>

@@ -6,11 +6,20 @@ use App\Models\Rent_room;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class RoomController extends Controller
 {
     public function postRoom(Request $request){
-        $url = $request->input('url');
+        $request->validate([
+            'url' => 'required'
+        ]);
+        $url = time().'.'.$_FILES['url']['name'];
+//        dd($url);
+//        $url = time().'.'.$request->url->name;
+        // Public Folder
+        $request->url->move(public_path('images/rooms'), $url);
         $room_name = $request->input('room_name');
         $owner_id = Auth::id();
         $cate_id = $request->input('cate_id');
