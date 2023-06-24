@@ -16,9 +16,6 @@ class RoomController extends Controller
             'url' => 'required'
         ]);
         $url = time().'.'.$_FILES['url']['name'];
-//        dd($url);
-//        $url = time().'.'.$request->url->name;
-        // Public Folder
         $request->url->move(public_path('images/rooms'), $url);
         $room_name = $request->input('room_name');
         $owner_id = Auth::id();

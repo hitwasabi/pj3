@@ -65,9 +65,9 @@
                         <div class="property-details-content">
                             <div class="carousel-inner">
                                 <div class="single-item-carousel owl-carousel owl-theme owl-dots-none">
-                                    <figure class="image-box"><img src="{{$image->url}}" alt=""></figure>
-                                    <figure class="image-box"><img src="{{$image->url}}" alt=""></figure>
-                                    <figure class="image-box"><img src="{{$image->url}}" alt=""></figure>
+                                    <figure class="image-box"><img src="{{url('images/rooms/'.$image->url)}}" alt=""></figure>
+                                    <figure class="image-box"><img src="{{url('images/rooms/'.$image->url)}}" alt=""></figure>
+                                    <figure class="image-box"><img src="{{url('images/rooms/'.$image->url)}}" alt=""></figure>
                                 </div>
                             </div>
                             <div class="discription-box content-widget">
