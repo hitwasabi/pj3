@@ -72,7 +72,7 @@ class ClientController extends Controller
             ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
             ->join('users','users.id','=','rent_rooms.owner_id')
             ->join('streets','rent_rooms.street_id','=','streets.street_id')
-            ->select('rent_rooms.*','room_details.*','cities.*','city_details.*','streets.*','rent_amounts.*','users.*')->get()
+            ->select('rent_rooms.*','room_details.*','cities.*','city_details.*','streets.*','rent_amounts.*','users.*','categories.*')->get()
             ->where('rr_id',"=",$rr_id)->first();
         $image = DB::table('images')->where('rentRoom_id',"=",$rr_id)->first();
         $room_details = DB::table('room_details')->where('rentRoom_id',"=",$rr_id)->first();
@@ -571,4 +571,5 @@ class ClientController extends Controller
         $users = DB::table('users')->where('id',"=",$id)->first();
         return view('/client/agents-details',compact('users','rent_rooms'));
     }
+
 }

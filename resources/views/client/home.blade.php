@@ -40,7 +40,7 @@
                                                             <label>Thành phố</label>
                                                             <div class="select-box">
                                                                 <i class="far fa-compass"></i>
-                                                                <select class="wide">
+                                                                <select class="wide" onchange="selectProvince()">
                                                                    <option data-display="Nhập Thành Phố">Hà Nội</option>
                                                                    <option value="1">Hồ Chí Minh</option>
                                                                 </select>
