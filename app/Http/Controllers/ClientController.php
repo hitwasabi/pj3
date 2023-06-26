@@ -204,6 +204,8 @@ class ClientController extends Controller
         }
         return view('/client/category/motel')->with('rent_rooms',$rent_rooms);
     }
+
+
     public function  viewApartment(Request $request){
         //$products = DB::select("SELECT * FROM products INNER JOIN images ON products.product_id = images.product_id INNER JOIN sell_products ON products.product_id = sell_products.product_id");
         $rent_rooms = DB::table('rent_rooms')
@@ -255,6 +257,260 @@ class ClientController extends Controller
         }
         return view('/client/category/apartment')->with('rent_rooms',$rent_rooms);
     }
+
+    //Cac trang phong theo quan
+    public function  viewHoanKiem(Request $request){
+        $rent_rooms = DB::table('rent_rooms')
+            ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
+            ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
+            ->join('categories','categories.id','=','rent_rooms.cate_id')
+            ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
+            ->join('cities','rent_rooms.city_id','=','cities.cities_id')
+            ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
+            ->join('streets','rent_rooms.street_id','=','streets.street_id')
+            ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*')
+            ->where('city_details.name','=','Hoàn Kiếm')
+            ->paginate(3);
+        if($request-> get('sort')=='price_asc'){
+            $rent_rooms =DB::table('rent_rooms')
+                ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
+                ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
+                ->join('categories','categories.id','=','rent_rooms.cate_id')
+                ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
+                ->join('cities','rent_rooms.city_id','=','cities.cities_id')
+                ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
+                ->join('streets','rent_rooms.street_id','=','streets.street_id')
+                ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*')
+                ->where('city_details.name','=','Hoàn Kiếm')
+                ->paginate(3);
+            $rent_rooms->setCollection(
+                $rent_rooms->sortBy('prices')
+            );
+        }
+        if($request-> get('sort')=='price_desc'){
+            $rent_rooms =DB::table('rent_rooms')
+                ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
+                ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
+                ->join('categories','categories.id','=','rent_rooms.cate_id')
+                ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
+                ->join('cities','rent_rooms.city_id','=','cities.cities_id')
+                ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
+                ->join('streets','rent_rooms.street_id','=','streets.street_id')
+                ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*')
+                ->where('city_details.name','=','Hoàn Kiếm')
+                ->paginate(3);
+            $rent_rooms->setCollection(
+                $rent_rooms->sortByDesc('prices')
+            );
+        }
+        if($request-> get('sort')=='id_desc'){
+            $rent_rooms =DB::table('rent_rooms')
+                ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
+                ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
+                ->join('categories','categories.id','=','rent_rooms.cate_id')
+                ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
+                ->join('cities','rent_rooms.city_id','=','cities.cities_id')
+                ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
+                ->join('streets','rent_rooms.street_id','=','streets.street_id')
+                ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*')
+                ->where('city_details.name','=','Hoàn Kiếm')
+                ->paginate(3);
+            $rent_rooms->setCollection(
+                $rent_rooms->sortByDesc('rr_id')
+            );
+        }
+        return view('/client/district/hoanKiem')->with('rent_rooms',$rent_rooms);
+    }
+    public function  viewTayHo(Request $request){
+        //$products = DB::select("SELECT * FROM products INNER JOIN images ON products.product_id = images.product_id INNER JOIN sell_products ON products.product_id = sell_products.product_id");
+        $rent_rooms = DB::table('rent_rooms')
+            ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
+            ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
+            ->join('categories','categories.id','=','rent_rooms.cate_id')
+            ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
+            ->join('cities','rent_rooms.city_id','=','cities.cities_id')
+            ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
+            ->join('streets','rent_rooms.street_id','=','streets.street_id')
+            ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*')
+            ->where('city_details.name','=','Tây Hồ')
+            ->paginate(3);
+        if($request-> get('sort')=='price_asc'){
+            $rent_rooms =DB::table('rent_rooms')
+                ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
+                ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
+                ->join('categories','categories.id','=','rent_rooms.cate_id')
+                ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
+                ->join('cities','rent_rooms.city_id','=','cities.cities_id')
+                ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
+                ->join('streets','rent_rooms.street_id','=','streets.street_id')
+                ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*')
+                ->where('city_details.name','=','Tây Hồ')
+                ->paginate(3);
+            $rent_rooms->setCollection(
+                $rent_rooms->sortBy('prices')
+            );
+        }
+        if($request-> get('sort')=='price_desc'){
+            $rent_rooms =DB::table('rent_rooms')
+                ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
+                ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
+                ->join('categories','categories.id','=','rent_rooms.cate_id')
+                ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
+                ->join('cities','rent_rooms.city_id','=','cities.cities_id')
+                ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
+                ->join('streets','rent_rooms.street_id','=','streets.street_id')
+                ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*')
+                ->where('city_details.name','=','Tây Hồ')
+                ->paginate(3);
+            $rent_rooms->setCollection(
+                $rent_rooms->sortByDesc('prices')
+            );
+        }
+        if($request-> get('sort')=='id_desc'){
+            $rent_rooms =DB::table('rent_rooms')
+                ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
+                ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
+                ->join('categories','categories.id','=','rent_rooms.cate_id')
+                ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
+                ->join('cities','rent_rooms.city_id','=','cities.cities_id')
+                ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
+                ->join('streets','rent_rooms.street_id','=','streets.street_id')
+                ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*')
+                ->where('city_details.name','=','Tây Hồ')
+                ->paginate(3);
+            $rent_rooms->setCollection(
+                $rent_rooms->sortByDesc('rr_id')
+            );
+        }
+        return view('/client/district/tayHo')->with('rent_rooms',$rent_rooms);
+    }
+    public function  viewHaiBaTrung(Request $request){
+        //$products = DB::select("SELECT * FROM products INNER JOIN images ON products.product_id = images.product_id INNER JOIN sell_products ON products.product_id = sell_products.product_id");
+        $rent_rooms = DB::table('rent_rooms')
+            ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
+            ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
+            ->join('categories','categories.id','=','rent_rooms.cate_id')
+            ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
+            ->join('cities','rent_rooms.city_id','=','cities.cities_id')
+            ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
+            ->join('streets','rent_rooms.street_id','=','streets.street_id')
+            ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*')
+            ->where('city_details.name','=','Hai Bà Trưng')
+            ->paginate(3);
+        if($request-> get('sort')=='price_asc'){
+            $rent_rooms =DB::table('rent_rooms')
+                ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
+                ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
+                ->join('categories','categories.id','=','rent_rooms.cate_id')
+                ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
+                ->join('cities','rent_rooms.city_id','=','cities.cities_id')
+                ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
+                ->join('streets','rent_rooms.street_id','=','streets.street_id')
+                ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*')
+                ->where('city_details.name','=','Hai Bà Trưng')
+                ->paginate(3);
+            $rent_rooms->setCollection(
+                $rent_rooms->sortBy('prices')
+            );
+        }
+        if($request-> get('sort')=='price_desc'){
+            $rent_rooms =DB::table('rent_rooms')
+                ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
+                ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
+                ->join('categories','categories.id','=','rent_rooms.cate_id')
+                ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
+                ->join('cities','rent_rooms.city_id','=','cities.cities_id')
+                ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
+                ->join('streets','rent_rooms.street_id','=','streets.street_id')
+                ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*')
+                ->where('city_details.name','=','Hai Bà Trưng')
+                ->paginate(3);
+            $rent_rooms->setCollection(
+                $rent_rooms->sortByDesc('prices')
+            );
+        }
+        if($request-> get('sort')=='id_desc'){
+            $rent_rooms =DB::table('rent_rooms')
+                ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
+                ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
+                ->join('categories','categories.id','=','rent_rooms.cate_id')
+                ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
+                ->join('cities','rent_rooms.city_id','=','cities.cities_id')
+                ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
+                ->join('streets','rent_rooms.street_id','=','streets.street_id')
+                ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*')
+                ->where('city_details.name','=','Hai Bà Trưng')
+                ->paginate(3);
+            $rent_rooms->setCollection(
+                $rent_rooms->sortByDesc('rr_id')
+            );
+        }
+        return view('/client/district/haiBaTrung')->with('rent_rooms',$rent_rooms);
+    }
+    public function  viewDongDa(Request $request){
+        //$products = DB::select("SELECT * FROM products INNER JOIN images ON products.product_id = images.product_id INNER JOIN sell_products ON products.product_id = sell_products.product_id");
+        $rent_rooms = DB::table('rent_rooms')
+            ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
+            ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
+            ->join('categories','categories.id','=','rent_rooms.cate_id')
+            ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
+            ->join('cities','rent_rooms.city_id','=','cities.cities_id')
+            ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
+            ->join('streets','rent_rooms.street_id','=','streets.street_id')
+            ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*')
+            ->where('city_details.name','=','Đống đa')
+            ->paginate(3);
+        if($request-> get('sort')=='price_asc'){
+            $rent_rooms =DB::table('rent_rooms')
+                ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
+                ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
+                ->join('categories','categories.id','=','rent_rooms.cate_id')
+                ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
+                ->join('cities','rent_rooms.city_id','=','cities.cities_id')
+                ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
+                ->join('streets','rent_rooms.street_id','=','streets.street_id')
+                ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*')
+                ->where('city_details.name','=','Đống đa')
+                ->paginate(3);
+            $rent_rooms->setCollection(
+                $rent_rooms->sortBy('prices')
+            );
+        }
+        if($request-> get('sort')=='price_desc'){
+            $rent_rooms =DB::table('rent_rooms')
+                ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
+                ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
+                ->join('categories','categories.id','=','rent_rooms.cate_id')
+                ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
+                ->join('cities','rent_rooms.city_id','=','cities.cities_id')
+                ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
+                ->join('streets','rent_rooms.street_id','=','streets.street_id')
+                ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*')
+                ->where('city_details.name','=','Đống đa')
+                ->paginate(3);
+            $rent_rooms->setCollection(
+                $rent_rooms->sortByDesc('prices')
+            );
+        }
+        if($request-> get('sort')=='id_desc'){
+            $rent_rooms =DB::table('rent_rooms')
+                ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
+                ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
+                ->join('categories','categories.id','=','rent_rooms.cate_id')
+                ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
+                ->join('cities','rent_rooms.city_id','=','cities.cities_id')
+                ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
+                ->join('streets','rent_rooms.street_id','=','streets.street_id')
+                ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*')
+                ->where('city_details.name','=','Đống đa')
+                ->paginate(3);
+            $rent_rooms->setCollection(
+                $rent_rooms->sortByDesc('rr_id')
+            );
+        }
+        return view('/client/district/dongDa')->with('rent_rooms',$rent_rooms);
+    }
+
     public function  viewAgent(Request $request,$id){
         $rent_rooms = DB::table('rent_rooms')
             ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
