@@ -110,7 +110,7 @@
                                         <ul class="info clearfix">
                                             <li><i class="fas fa-phone"></i><a href="tel:03030571965">{{$rent_room->phone}}</a></li>
                                         </ul>
-                                        <div class="btn-box"><a href="{{url('/client/home/agents-details/'.$rent_room->id)}}">Xem danh sách phòng </a></div>
+                                        <div class="btn-box"><a href="{{url('/client/home/agents-details/'.$rent_room->owner_id)}}">Xem danh sách phòng </a></div>
                                     </div>
                                 </div>
                             </div>

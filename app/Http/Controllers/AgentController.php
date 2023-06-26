@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\City;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class AgentController extends Controller
@@ -13,7 +14,8 @@ class AgentController extends Controller
         return view('/agents/index');
     }
 
-    public function viewEcom_product_list(){
+    public function viewEcom_product_list($id){
+        Auth::user()->id==$id;
         $rent_rooms =DB::table('rent_rooms')
             ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
             ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
@@ -23,7 +25,8 @@ class AgentController extends Controller
             ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
             ->join('streets','rent_rooms.street_id','=','streets.street_id')
             ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*',)->get();
-        return view('/agents/ecom-product-list')->with('rent_rooms',$rent_rooms);
+        $users = DB::table('users')->where('id',"=",$id)->first();
+        return view('/agents/ecom-product-list',compact('users','rent_rooms'));
     }
 
     public function show($rr_id){

@@ -514,24 +514,24 @@ class ClientController extends Controller
     public function  viewAgent(Request $request,$id){
         $rent_rooms = DB::table('rent_rooms')
             ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
-            ->join('categories','categories.id','=','rent_rooms.cate_id')
             ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
             ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
             ->join('cities','rent_rooms.city_id','=','cities.cities_id')
             ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
             ->join('streets','rent_rooms.street_id','=','streets.street_id')
             ->select('rent_rooms.*','room_details.*','cities.*','city_details.*','streets.*','rent_amounts.*','images.url')
+            ->where('rent_rooms.owner_id',"=",$id)
             ->paginate(3);
         if($request-> get('sort')=='price_asc'){
             $rent_rooms =DB::table('rent_rooms')
                 ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
-                ->join('categories','categories.id','=','rent_rooms.cate_id')
                 ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
                 ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
                 ->join('cities','rent_rooms.city_id','=','cities.cities_id')
                 ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
                 ->join('streets','rent_rooms.street_id','=','streets.street_id')
                 ->select('rent_rooms.*','room_details.*','cities.*','city_details.*','streets.*','rent_amounts.*','images.url')
+                ->where('rent_rooms.owner_id',"=",$id)
                 ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortBy('prices')
@@ -540,13 +540,13 @@ class ClientController extends Controller
         if($request-> get('sort')=='price_desc'){
             $rent_rooms =DB::table('rent_rooms')
                 ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
-                ->join('categories','categories.id','=','rent_rooms.cate_id')
                 ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
                 ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
                 ->join('cities','rent_rooms.city_id','=','cities.cities_id')
                 ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
                 ->join('streets','rent_rooms.street_id','=','streets.street_id')
                 ->select('rent_rooms.*','room_details.*','cities.*','city_details.*','streets.*','rent_amounts.*','images.url')
+                ->where('rent_rooms.owner_id',"=",$id)
                 ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('prices')
@@ -555,13 +555,13 @@ class ClientController extends Controller
         if($request-> get('sort')=='id_desc'){
             $rent_rooms =DB::table('rent_rooms')
                 ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
-                ->join('categories','categories.id','=','rent_rooms.cate_id')
                 ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
                 ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
                 ->join('cities','rent_rooms.city_id','=','cities.cities_id')
                 ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
                 ->join('streets','rent_rooms.street_id','=','streets.street_id')
                 ->select('rent_rooms.*','room_details.*','cities.*','city_details.*','streets.*','rent_amounts.*','images.url')
+                ->where('rent_rooms.owner_id',"=",$id)
                 ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('rr_id')
