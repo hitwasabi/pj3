@@ -31,7 +31,7 @@
                             <div class="content-box">
                                 <div class="upper clearfix">
                                     <div class="title-inner pull-left">
-                                        <h4>{{$users-> name}}</h4>
+                                        <h4>{{$users->name}}</h4>
                                         <span class="designation">Chủ trọ</span>
                                     </div>
                                 </div>

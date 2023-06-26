@@ -64,7 +64,6 @@ class ClientController extends Controller
 
     public function show($rr_id,$cate_name){
         $rent_room = DB::table('rent_rooms')
-
             ->join('categories','categories.id','=','rent_rooms.cate_id')
             ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
             ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')

@@ -36,27 +36,20 @@
                                 <figure class="author-thumb"><img src="{{asset('images/feature/author-1.jpg')}}" alt=""></figure>
                                 <h6>{{$rent_room->name}}</h6>
                             </div>
-                            <ul class="rating clearfix pull-left">
-                                <li><i class="icon-39"></i></li>
-                                <li><i class="icon-39"></i></li>
-                                <li><i class="icon-39"></i></li>
-                                <li><i class="icon-39"></i></li>
-                                <li><i class="icon-40"></i></li>
-                            </ul>
                         </div>
                     </div>
                     <div class="right-column pull-right clearfix">
                         <div class="price-inner clearfix">
                             <ul class="category clearfix pull-left">
-                                <li><a href="{{url('/client/home/property-details')}}">Building</a></li>
-                                <li><a href="{{url('/client/home/property-details')}}">Cho thuê</a></li>
+                                <li><a href="#">{{$rent_room->cate_name}}</a></li>
+                                <li><a href="#">Cho thuê</a></li>
                             </ul>
                             <div class="price-box pull-right">
                                 <h3>{{number_format($rent_room->prices, 0, '.', '.')}}<sup>đ</sup></h3>
                             </div>
                         </div>
-                        <ul class="other-option pull-right clearfix">
-                            <li><a href="property-details.html"><i class="icon-13"></i></a></li>
+                        <ul class="pull-right ">
+                            <li><a >Liên hệ thuê phòng: {{$rent_room->phone}}</a></li>
                         </ul>
                     </div>
                 </div>
@@ -84,7 +77,6 @@
                                 </div>
                                 <ul class="list clearfix">
                                     <li>ID: <span>{{$rent_room->rr_id}}</span></li>
-                                    <li>Số phòng: <span>06</span></li>
                                     <li>Phòng ngủ: <span>{{$rent_room->bed_room}}</span></li>
                                     <li>Nhà vệ sinh: <span>{{$rent_room->bath_room}} </span></li>
                                     <li>Tình trạng: <span>Cho thuê</span></li>
@@ -97,9 +89,9 @@
                                     <h4>Vị trí</h4>
                                 </div>
                                 <ul class="info clearfix">
-                                    <li><span>Địa chỉ:</span> Virginia temple hills</li>
+                                    <li><span>Địa chỉ:</span> {{$rent_room->location_info}}</li>
                                     <li><span>Thành phố:</span> {{$rent_room->city_name}}</li>
-                                    <li><span>Quận/huyện:</span> {{$rent_room->name}}</li>
+                                    <li><span>Quận/huyện:</span> {{$rent_room->cd_name}}</li>
                                     <li><span>Đường/phố:</span> {{$rent_room->street_name}}</li>
                                 </ul>
 
@@ -118,7 +110,7 @@
                                         <ul class="info clearfix">
                                             <li><i class="fas fa-phone"></i><a href="tel:03030571965">{{$rent_room->phone}}</a></li>
                                         </ul>
-                                        <div class="btn-box"><a href="{{url('/client/home/agents-details/'.$rent_room->id)}}">Xem danh sách phòng</a></div>
+                                        <div class="btn-box"><a href="{{url('/client/home/agents-details/'.$rent_room->id)}}">Xem danh sách phòng </a></div>
                                     </div>
                                 </div>
                             </div>
