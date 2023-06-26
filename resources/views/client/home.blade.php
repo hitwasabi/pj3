@@ -446,7 +446,7 @@
                                 <div class="inner-box">
                                     <figure class="image-box"><img src="{{asset('images/resource/Hoan-Kiem.jpg')}}" alt=""></figure>
                                     <div class="text">
-                                        <h4><a href="{{url('/client/home/hoanKiem')}}">Quận Hoàn Kiếm</a></h4>
+                                        <h4><a href="{{url('/client/home/property-list')}}">Quận Hoàn Kiếm</a></h4>
                                         <p>10 Properties</p>
                                     </div>
                                 </div>
@@ -457,7 +457,7 @@
                                 <div class="inner-box">
                                     <figure class="image-box"><img src="{{asset('images/resource/ho-tay.jpg')}}" alt=""></figure>
                                     <div class="text">
-                                        <h4><a href="{{url('/client/home/tayHo')}}">Quận Tây Hồ</a></h4>
+                                        <h4><a href="{{url('/client/home/property-list')}}">Quận Tây Hồ</a></h4>
                                         <p>08 Properties</p>
                                     </div>
                                 </div>
@@ -468,7 +468,7 @@
                                 <div class="inner-box">
                                     <figure class="image-box"><img src="{{asset('images/resource/2-Ba-Trung.jpg')}}" alt=""></figure>
                                     <div class="text">
-                                        <h4><a href="{{url('/client/home/haiBaTrung')}}">Quận Hai Bà Trưng</a></h4>
+                                        <h4><a href="{{url('/client/home/property-list')}}">Quận Hai Bà Trưng</a></h4>
                                         <p>29 Properties</p>
                                     </div>
                                 </div>
@@ -479,7 +479,7 @@
                                 <div class="inner-box">
                                     <figure class="image-box"><img src="{{asset('images/resource/quan-dong-da.jpg')}}" alt=""></figure>
                                     <div class="text">
-                                        <h4><a href="{{url('/client/home/dongDa')}}">Quận Đống Đa</a></h4>
+                                        <h4><a href="{{url('/client/home/property-list')}}">Quận Đống Đa</a></h4>
                                         <p>05 Properties</p>
                                     </div>
                                 </div>
