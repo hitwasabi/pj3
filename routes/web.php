@@ -118,7 +118,7 @@ Route::get('/client/home/agents-details', function () {
 });
 Route::get('/agents/index',[\App\Http\Controllers\AgentController::class,'viewAgent']);
 //Xem cac san pham cua agent
-Route::get('/agents/ecom-product-list/{id}',[\App\Http\Controllers\AgentController::class,'viewEcom_product_list']);
+Route::get('/agents/ecom-product-list',[\App\Http\Controllers\AgentController::class,'viewEcom_product_list']);
 //Xem chi tiet san pham agent
 Route::get('/agents/ecom-product-detail/{rr_id}',[AgentController::class,'show']);
 

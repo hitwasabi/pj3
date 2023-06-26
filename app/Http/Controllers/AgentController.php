@@ -14,8 +14,8 @@ class AgentController extends Controller
         return view('/agents/index');
     }
 
-    public function viewEcom_product_list($id){
-        Auth::user()->id==$id;
+    public function viewEcom_product_list(){
+        $id = Auth::user()->id;
         $rent_rooms =DB::table('rent_rooms')
             ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
             ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
@@ -24,7 +24,9 @@ class AgentController extends Controller
             ->join('cities','rent_rooms.city_id','=','cities.cities_id')
             ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
             ->join('streets','rent_rooms.street_id','=','streets.street_id')
-            ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*',)->get();
+            ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*',)
+            ->where('rent_rooms.owner_id','=',$id)
+            ->get();
         $users = DB::table('users')->where('id',"=",$id)->first();
         return view('/agents/ecom-product-list',compact('users','rent_rooms'));
     }
