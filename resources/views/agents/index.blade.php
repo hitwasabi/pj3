@@ -1,5 +1,5 @@
 @extends('layouts.admin_base')
-@section('title',"Trang chủ admin")
+@section('title',"Trang chủ quản trị")
 
 @section('content')
 
