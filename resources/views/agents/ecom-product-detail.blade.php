@@ -34,36 +34,47 @@
                                     <div class="col-xl-3 col-lg-6 col-md-6">
                                         <!-- Tab panes -->
                                         <div class="tab-content" id="myTabContent">
-										  <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
-												 <img class="img-fluid rounded  " src="{{$image->url}}" alt="">
-										  </div>
+                                            @if($image->url == null)
+                                                <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                                                    <img class="img-fluid rounded " src="#" alt="">
+                                                </div>
+                                            @else
+                                                <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                                                    <img class="img-fluid rounded " src="{{url('images/rooms/'.$image->url)}}" alt="">
+                                                </div>
+                                            @endif
+                                            @if($image->url_1 == null)
+                                                <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                                                    <img class="img-fluid rounded " src="#" alt="">
+                                                </div>
+                                                    @else
 										  <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-												<img class="img-fluid rounded " src="{{$image->url}}" alt="">
+												<img class="img-fluid rounded " src="{{$image->url_1}}" alt="">
 										  </div>
-										  <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
-											 <img class="img-fluid rounded" src="{{$image->url}}" alt="">
-										  </div>
-										  <div class="tab-pane fade" id="end-tab-pane" role="tabpanel" aria-labelledby="end-tab" tabindex="0">
-											 <img class="img-fluid rounded" src="{{$image->url}}" alt="">
-										  </div>
+                                            @endif
+                                            @if($image->url_2 == null)
+                                                <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                                                    <img class="img-fluid rounded " src="#" alt="">
+                                                </div>
+                                            @else
+                                                <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                                                    <img class="img-fluid rounded " src="{{$image->url_2}}" alt="">
+                                                </div>
+                                            @endif
 
 										</div>
                                         <div class="tab-slide-content new-arrival-product mb-4 mb-xl-0">
                                             <!-- Nav tabs -->
                                             <ul class="nav nav-tabs slide-item-list mt-3" id="myTab" role="tablist">
 												  <li class="nav-item" role="presentation">
-													<a href="#first" class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"  role="tab" aria-controls="home-tab-pane" aria-selected="true"><img class="img-fluid me-2 rounded" src="{{$image->url}}" alt="" width="80"></a>
+													<a href="#first" class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane"  role="tab" aria-controls="home-tab-pane" aria-selected="true"><img class="img-fluid me-2 rounded" src="{{url('images/rooms/'.$image->url)}}" alt="" width="160"></a>
 												  </li>
 												  <li class="nav-item" role="presentation">
-													<a href="#second" class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"  role="tab" aria-controls="profile-tab-pane" aria-selected="false"><img class="img-fluid me-2 rounded" src="{{$image->url}}" alt="" width="80"></a>
+													<a href="#second" class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane"  role="tab" aria-controls="profile-tab-pane" aria-selected="false"><img class="img-fluid me-2 rounded" src="{{url('images/rooms/'.$image->url_1)}}" alt="" width="80"></a>
 												  </li>
 												  <li class="nav-item" role="presentation">
-													<a href="#third" class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" role="tab" aria-controls="contact-tab-pane" aria-selected="false"><img class="img-fluid me-2 rounded" src="{{$image->url}}" alt="" width="80"></a>
+													<a href="#third" class="nav-link" id="contact-tab" data-bs-toggle="tab" data-bs-target="#contact-tab-pane" role="tab" aria-controls="contact-tab-pane" aria-selected="false"><img class="img-fluid me-2 rounded" src="{{url('images/rooms/'.$image->url_2)}}" alt="" width="80"></a>
 												  </li>
-												  <li class="nav-item" role="presentation">
-													<a href="#for" class="nav-link" id="end-tab" data-bs-toggle="tab" data-bs-target="#end-tab-pane"  role="tab" aria-controls="end-tab-pane" aria-selected="false"><img class="img-fluid  rounded" src="{{$image->url}}" alt="" width="80"></a>
-												  </li>
-
 											</ul>
                                         </div>
                                     </div>
@@ -79,11 +90,11 @@
                                                 <p>Tình trạng: <span class="item"> Chưa cho thuê<i
                                                             class="fa fa-shopping-basket"></i></span>
                                                 </p>
-                                                <p>Diện tích:{{$rent_room -> acreage}} mét vuông</p>
+                                                <p>Diện tích: {{$rent_room -> acreage}} mét vuông</p>
                                                 <p>Số lượng người tối đa có thể ở: {{$rent_room->amounts}} người</p>
                                                 <p>Số phòng vệ sinh: {{$rent_room->bath_room}} ,Số phòng ngủ: {{$rent_room->bed_room}}  </p>
                                                 <p>Id phòng: <span class="item">{{$rent_room->rr_id}}</span> </p>
-                                                <p>Địa chỉ :{{$rent_room->street_name}} ,{{$rent_room->name}} ,{{$rent_room->city_name}}  </p>
+                                                <p>Địa chỉ :{{$rent_room->street_name}} ,{{$rent_room->cd_name}} ,{{$rent_room->city_name}}  </p>
                                                 <p>Product tags:&nbsp;&nbsp;
                                                     <span class="badge badge-success light">thuê nhà</span>
                                                 </p>
