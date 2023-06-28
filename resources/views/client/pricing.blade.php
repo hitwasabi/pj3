@@ -34,7 +34,7 @@
                             <div class="row clearfix">
                                 <div class="col-lg-4 col-md-6 col-sm-12 pricing-block">
                                     <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="300ms" data-wow-duration="1500ms">
-                                        <form action="" method="POST">
+                                        <form action="{{url('/client/buyPack')}}" method="POST">
                                             @csrf
                                         <div class="pricing-table">
                                             <div class="table-header">
