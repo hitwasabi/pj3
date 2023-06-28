@@ -27,9 +27,9 @@
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
+                <form action="{{url('admin/post-blog')}}" method="POST" enctype="multipart/form-data">
+                    @csrf
                 <div class="offcanvas-body">
-                    <form action="{{url('admin/post-blog')}}" method="POST">
-                        @csrf
                     <div class="container-fluid">
                         <div>
                             <label>Ảnh Bìa</label>
@@ -59,9 +59,8 @@
                                 <button class="btn btn-primary me-1" type="submit">Đăng bài báo</button>
                             </div>
                     </div>
-                    </form>
                 </div>
-
+                </form>
             </div>
         </div>
         <!--**********************************

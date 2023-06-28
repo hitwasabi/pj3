@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Rent_room;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -43,7 +44,8 @@ class RoomController extends Controller
             'city_detailId' => $city_detailId,
             'street_id' => $street_id,
             'info_detail' => $info_detail,
-            'status' => 0
+            'status' => 0,
+            'room_date' => Carbon::now()
         ]);
         DB::table('room_details')->insert([
             'rentRoom_id' => $rr_id,

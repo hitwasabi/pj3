@@ -59,9 +59,10 @@ class AdminController extends Controller
         DB::table('blogs')->insert([
             'userPost_id' => Auth::user()->id,
             'info' => $info,
-            'new_images' => $image,
+            'new_image' => $image,
             'new_name' => $new_name,
             'post_date' => Carbon::now()
         ]);
+        return view('admin/index');
     }
 }
