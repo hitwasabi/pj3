@@ -1,6 +1,6 @@
 
 @extends('layouts.admin_base')
-@section('title',"Sửa bài báo")
+@section('title',"Thêm bài báo")
 
 @section('content')
 
@@ -28,11 +28,12 @@
                     </button>
                 </div>
                 <div class="offcanvas-body">
+                    <form action="{{url('admin/post-blog')}}" method="POST">
+                        @csrf
                     <div class="container-fluid">
                         <div>
                             <label>Ảnh Bìa</label>
                             <div class="dz-default dlab-message upload-img mb-3">
-                                <form action="#" class="dropzone">
                                     <svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M27.1666 26.6667L20.4999 20L13.8333 26.6667" stroke="#DADADA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                         <path d="M20.5 20V35" stroke="#DADADA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -40,29 +41,27 @@
                                         <path d="M27.1666 26.6667L20.4999 20L13.8333 26.6667" stroke="#DADADA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
                                     <div class="fallback">
-                                        <input name="file" type="file" multiple>
+                                        <input name="new_image" type="file">
                                     </div>
-                                </form>
                             </div>
                         </div>
-                        <form>
                             <div class="row">
                                 <div class="col-xl-6 mb-3">
-                                    <label for="exampleFormControlInput1" class="form-label">ID Bài báo <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+                                    <label for="exampleFormControlInput1" class="form-label">Tên bài báo <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="exampleFormControlInput1" name="new_name" placeholder="Tên bài báo...">
                                 </div>
                                 <div class="col-xl-12 mb-3">
-                                    <label class="form-label">About<span class="text-danger">*</span></label>
-                                    <textarea rows="3" class="form-control"></textarea>
+                                    <label class="form-label">Thông tin bài báo<span class="text-danger">*</span></label>
+                                    <textarea rows="3" name="info" class="form-control"></textarea>
                                 </div>
                             </div>
                             <div>
-                                <button class="btn btn-primary me-1">Lưu</button>
-                                <button class="btn btn-danger light ms-1">Hủy Lưu</button>
+                                <button class="btn btn-primary me-1" type="submit">Đăng bài báo</button>
                             </div>
-                        </form>
                     </div>
+                    </form>
                 </div>
+
             </div>
         </div>
         <!--**********************************

@@ -146,3 +146,5 @@ Route::get('/admin/payment-history',[AdminController::class,'viewPayment']);
 Route::get('/admin/customer-profile',[\App\Http\Controllers\AdminController::class,'viewEmployeeDetail']);
 Route::get('/admin/comfirm-product',[\App\Http\Controllers\AdminController::class,'comfirm']);
 Route::get('/admin/admin-profile',[\App\Http\Controllers\AdminController::class,'viewAdminProfile']);
+
+Route::post('/admin/post-blog',[AdminController::class,'addBlog']);
