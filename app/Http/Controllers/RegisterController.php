@@ -25,6 +25,7 @@ class RegisterController extends Controller
             'email'=>$email,
             'password'=>Hash::make($password),
             'phone'=>$phone,
+            'money'=> 0,
             'isAdmin'=> 1,
             'level'=> 1,
         ]);

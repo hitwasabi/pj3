@@ -1,6 +1,6 @@
 
 @extends('layouts.admin_base')
-@section('title',"Trang rỗng")
+@section('title',"Đăng bài của bạn")
 
 @section('content')
 

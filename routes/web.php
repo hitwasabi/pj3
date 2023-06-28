@@ -123,6 +123,7 @@ Route::get('/agents/ecom-product-list',[\App\Http\Controllers\AgentController::c
 Route::get('/agents/ecom-product-detail/{rr_id}',[AgentController::class,'show']);
 
 Route::get('/agents/edit-profile',[\App\Http\Controllers\AgentController::class,'viewEdit']);
+Route::get('/agents/wrong-level',[AgentController::class,'viewWrong']);
 Route::get('/agents/add-product',[AgentController::class,'viewAdd']);
 Route::get('/agents/payment-history',[AgentController::class,'viewPayment']);
 Route::get('/agents/agents-profile',[\App\Http\Controllers\AgentController::class,'viewAgentsProfile']);

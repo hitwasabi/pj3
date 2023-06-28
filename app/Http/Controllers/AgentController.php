@@ -62,22 +62,25 @@ class AgentController extends Controller
         return view('/agents/agents-profile');
     }
 
-    public function viewAdd()
-    {
-        $cates = Category::all();
-        $cities = City::all();
-        $districts= DB::table('cities')
-            ->join('city_details','cities.cities_id','=','city_details.city_id')
-            ->select('city_details.*')
-            ->get();
-        $streets = DB::table('city_details')
-            ->join('streets','city_details.city_detailId','=','streets.city_detailsId')
-            ->select('streets.*')
-            ->get();
-        $amounts = DB::table('rent_amounts')
-            ->select('rent_amounts.ram_id','rent_amounts.amounts')
-            ->get();
-        return view('agents/add-product',compact('cities','districts','streets','amounts','cates'));
+    public function viewWrong(){
+        return view('agents/wrong-level');
     }
 
+    public function viewAdd()
+    {
+            $cates = Category::all();
+            $cities = City::all();
+            $districts = DB::table('cities')
+                ->join('city_details', 'cities.cities_id', '=', 'city_details.city_id')
+                ->select('city_details.*')
+                ->get();
+            $streets = DB::table('city_details')
+                ->join('streets', 'city_details.city_detailId', '=', 'streets.city_detailsId')
+                ->select('streets.*')
+                ->get();
+            $amounts = DB::table('rent_amounts')
+                ->select('rent_amounts.ram_id', 'rent_amounts.amounts')
+                ->get();
+            return view('agents/add-product', compact('cities', 'districts', 'streets', 'amounts', 'cates'));
+        }
 }

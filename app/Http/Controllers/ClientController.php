@@ -571,4 +571,8 @@ class ClientController extends Controller
         return view('/client/agents-details',compact('users','rent_rooms'));
     }
 
+    public function buyPack(){
+        
+    }
+
 }
