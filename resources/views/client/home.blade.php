@@ -56,7 +56,7 @@
                                                             <div class="select-box">
                                                                 <i class="far fa-compass"></i>
                                                                 <select class="wide" name="state_dropdown" id="state_dropdown">
-                                                                    <option>ABC</option>
+
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -66,7 +66,7 @@
                                                             <label for="streets">Đường,phố</label>
                                                             <div class="select-box" >
                                                                 <i class="far fa-compass"></i>
-                                                                <select class="wide" name ="streets" id="city-dropdown">
+                                                                <select class="wide" name ="city-dropdown" id="city-dropdown">
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -640,6 +640,7 @@
             },
             dataType : 'json',
             success: function(result){
+                $('#state_dropdown').html('<option value="">Nhập quận huyện</option>');
                 let html = '';
                 let districts = result.city_details;
                 for(let i = 0; i < districts.length; i++) {
@@ -650,7 +651,6 @@
                 }
                 $('#state_dropdown').append(html);
                 $('#state_dropdown').niceSelect("update")
-                $('#state_dropdown').html('<option value="">Select State First</option>');
 
                 // $('#state_dropdown').append($('<option>', {
                 //     value: 1,
@@ -659,7 +659,38 @@
                 // $.each(districts,function(key,value){
                 //     $("#state-dropdown").append('<option value="'+value.id+'">'+value.name+'</option>');
                 // });
-                $('#city-dropdown').html('<option value="">Select State First</option>');
+
+            }
+        });
+        let state_id = $("#state_dropdown").val();
+        $.ajax({
+            url:"{{url('get-cities-by-state')}}",
+            type: "POST",
+            data: {
+                city_detailsId: state_id,
+                _token: '{{csrf_token()}}'
+            },
+            dataType : 'json',
+            success: function(result){
+                let html = '';
+                let districts = result.streets;
+                for(let i = 0; i < districts.length; i++) {
+                    let item = districts[i];
+                    let name = item['street_name'];
+                    let id = item['street_id']
+                    html += '<option value='+id+'>'+name+ '</option>';
+                }
+                $('#city-dropdown').html('<option value="">Nhập đường,xá</option>');
+                $('#city-dropdown').append(html);
+                $('#city-dropdown').niceSelect("update")
+
+                // $('#state_dropdown').append($('<option>', {
+                //     value: 1,
+                //     text: 'My option'
+                // }));
+                // $.each(districts,function(key,value){
+                //     $("#state-dropdown").append('<option value="'+value.id+'">'+value.name+'</option>');
+                // });
 
             }
         });
