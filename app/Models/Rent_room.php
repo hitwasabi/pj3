@@ -18,7 +18,8 @@ class Rent_room extends Model
         'city_detailId',
         'street_id',
         'info_detail',
-        'status'
+        'status',
+        'room_date'
     ];
     public function category() {
         return $this->belongsTo(Category::class,'cate_id', 'cate_id');

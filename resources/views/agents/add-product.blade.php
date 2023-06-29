@@ -1,6 +1,6 @@
 
 @extends('layouts.admin_base')
-@section('title',"Trang rỗng")
+@section('title',"Đăng bài của bạn")
 
 @section('content')
 
@@ -32,7 +32,7 @@
                     <div class="offcanvas-body">
                         <div class="container-fluid">
                             <div>
-                                <label>Ảnh phòng cho thuê</label>
+                                <label>Ảnh phòng cho thuê, tối đa 3 ảnh</label>
                                 <div class="dz-default dlab-message upload-img mb-3">
 {{--                                    <form action="#" class="dropzone">--}}
                                         <svg width="41" height="40" viewBox="0 0 41 40" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -42,8 +42,14 @@
                                             <path d="M27.1666 26.6667L20.4999 20L13.8333 26.6667" stroke="#DADADA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
                                         <div class="fallback">
-                                            <input name="url" type="file" multiple>
+                                            <input name="url" type="file" >
                                         </div>
+                                    <div class="fallback">
+                                        <input name="url_1" type="file" >
+                                    </div>
+                                    <div class="fallback">
+                                        <input name="url_2" type="file" >
+                                    </div>
 {{--                                    </form>--}}
                                 </div>
                             </div>

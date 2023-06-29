@@ -11,6 +11,8 @@ class Image extends Model
     protected $primaryKey = 'image_id';
     protected $fillable = [
         'rentRoom_id',
-        'url'
+        'url',
+        'url_1',
+        'url_2'
     ];
 }

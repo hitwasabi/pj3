@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Rent_room;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -17,6 +18,10 @@ class RoomController extends Controller
         ]);
         $url = time().'.'.$_FILES['url']['name'];
         $request->url->move(public_path('images/rooms'), $url);
+        $url1 = time().'.'.$_FILES['url_1']['name'];
+        $request->url_1->move(public_path('images/rooms'), $url1);
+        $url2 = time().'.'.$_FILES['url_2']['name'];
+        $request->url_2->move(public_path('images/rooms'), $url2);
         $room_name = $request->input('room_name');
         $owner_id = Auth::id();
         $cate_id = $request->input('cate_id');
@@ -39,7 +44,8 @@ class RoomController extends Controller
             'city_detailId' => $city_detailId,
             'street_id' => $street_id,
             'info_detail' => $info_detail,
-            'status' => 0
+            'status' => 0,
+            'room_date' => Carbon::now()
         ]);
         DB::table('room_details')->insert([
             'rentRoom_id' => $rr_id,
@@ -50,7 +56,9 @@ class RoomController extends Controller
         ]);
         DB::table('images')->insert([
             'rentRoom_id' => $rr_id,
-            'url' => $url
+            'url' => $url,
+            'url_1' => $url1,
+            'url_2' => $url2
         ]);
         return redirect('agents/index');
     }

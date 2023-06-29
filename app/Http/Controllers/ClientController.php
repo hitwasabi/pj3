@@ -5,8 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\City;
 use App\Models\City_detail;
 use App\Models\Street;
+
+use App\Models\Payment_history;
+use http\Client\Curl\User;
+
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class ClientController extends Controller
 {
@@ -542,6 +548,7 @@ class ClientController extends Controller
 
 
 
+
     public function index()
     {
         $data['cities'] = City::get(["city_name","cities_id"]);
@@ -559,4 +566,25 @@ class ClientController extends Controller
             ->get(["street_name","street_id"]);
         return response()->json($data);
     }
+
+    public function buyPack(){
+        if (Auth::user()->money < 45000){
+            return view('client/pricing');
+        }else{
+            $cash = Auth::user()->money;
+            $newCash = $cash - 45000;
+            $user = \App\Models\User::findOrFail(Auth::id());
+            $user->update(['money'=> $newCash]);
+            $user->update(['level'=>'2']);
+            Payment_history::create([
+                'user_id' => Auth::user()->id,
+                'price' => 45000,
+                'payment_info' => 'Mua gói thường',
+                'payment_time' => Carbon::now()
+            ]);
+            return view('agents/index');
+        }
+    }
+
+
 }

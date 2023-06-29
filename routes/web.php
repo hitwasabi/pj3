@@ -109,7 +109,7 @@ Route::get('client/home/agents-details/{id}',[ClientController::class,'viewAgent
 
 
 Route::post('/agents/add-product',[\App\Http\Controllers\RoomController::class,'postRoom']);
-
+Route::post('/client/buyPack',[ClientController::class,'buyPack']);
 
 
 //Xem chi tiet chu tro DEMO
@@ -123,6 +123,7 @@ Route::get('/agents/ecom-product-list',[\App\Http\Controllers\AgentController::c
 Route::get('/agents/ecom-product-detail/{rr_id}',[AgentController::class,'show']);
 
 Route::get('/agents/edit-profile',[\App\Http\Controllers\AgentController::class,'viewEdit']);
+Route::get('/agents/wrong-level',[AgentController::class,'viewWrong']);
 Route::get('/agents/add-product',[AgentController::class,'viewAdd']);
 Route::get('/agents/payment-history',[AgentController::class,'viewPayment']);
 Route::get('/agents/agents-profile',[\App\Http\Controllers\AgentController::class,'viewAgentsProfile']);
@@ -151,4 +152,7 @@ Route::get('client/home',[\App\Http\Controllers\ClientController::class,'index']
 Route::post('get-states-by-country',[\App\Http\Controllers\ClientController::class,'getState']); //quan huyen
 Route::post('get-cities-by-state',[\App\Http\Controllers\ClientController::class,'getCity']); //xa phuong
 
+
+
+Route::post('/admin/post-blog',[AdminController::class,'addBlog']);
 

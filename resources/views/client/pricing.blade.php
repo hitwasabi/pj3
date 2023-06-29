@@ -34,12 +34,14 @@
                             <div class="row clearfix">
                                 <div class="col-lg-4 col-md-6 col-sm-12 pricing-block">
                                     <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="300ms" data-wow-duration="1500ms">
+                                        <form action="{{url('/client/buyPack')}}" method="POST">
+                                            @csrf
                                         <div class="pricing-table">
                                             <div class="table-header">
                                                 <div class="shape-1" style="background-image: url({{asset('images/shape/shape-4.png')}});"></div>
                                                 <div class="shape-2" style="background-image: url({{asset('images/shape/shape-5.png')}});"></div>
                                                 <h4>Gói thường</h4>
-                                                <h2>45000 đ <span>/ tháng</span></h2>
+                                                <h2>45.000 đ <span> tháng</span></h2>
                                             </div>
                                             <div class="table-content">
                                                 <ul class="feature-list clearfix">
@@ -49,9 +51,10 @@
                                                 </ul>
                                             </div>
                                             <div class="table-footer">
-                                                <a href="pricing.html" class="link-btn">Mua ngay</a>
+                                                <button class="muangay" type="submit">Mua ngay</button>
                                             </div>
                                         </div>
+                                        </form>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-6 col-sm-12 pricing-block">
@@ -61,7 +64,7 @@
                                                 <div class="shape-1" style="background-image: url({{asset('images/shape/shape-4.png')}});"></div>
                                                 <div class="shape-2" style="background-image: url({{asset('images/shape/shape-5.png')}});"></div>
                                                 <h4>Gói vip</h4>
-                                                <h2>225000 đ <span>/ tháng</span></h2>
+                                                <h2>225.000 đ <span> tháng</span></h2>
                                             </div>
                                             <div class="table-content">
                                                 <ul class="feature-list clearfix">
@@ -82,8 +85,8 @@
                                             <div class="table-header">
                                                 <div class="shape-1" style="background-image: url({{asset('images/shape/shape-4.png')}});"></div>
                                                 <div class="shape-2" style="background-image: url({{asset('images/shape/shape-5.png')}});"></div>
-                                                <h4>Gói chúa tể</h4>
-                                                <h2>Sắp ra mắt </h2>
+                                                <h4>Gói đa vũ trụ</h4>
+                                                <h2>10.000.000  </h2>
                                             </div>
                                             <div class="table-content">
                                                 <ul class="feature-list clearfix">
