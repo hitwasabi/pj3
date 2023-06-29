@@ -19,9 +19,16 @@ class Rent_room extends Model
         'street_id',
         'info_detail',
         'status',
-        'room_date'
+        'room_date',
+        'status',
+        'interact'
     ];
     public function category() {
         return $this->belongsTo(Category::class,'cate_id', 'cate_id');
+    }
+
+    public function increaseCount(){
+        $this->interact++;
+        return $this->save();
     }
 }

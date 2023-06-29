@@ -28,92 +28,35 @@
                             <table id="empoloyees-tbl" class="table">
                                 <thead>
                                 <tr>
-                                    <th>REFERENCE</th>
-                                    <th>Gói</th>
+                                    <th>Số hóa đơn</th>
+                                    <th>Loại thanh toán</th>
                                     <th>Trạng Thái</th>
-                                    <th>Ngày</th>
-                                    <th>AMOUNT</th>
+                                    <th>Giá tiền</th>
+                                    <th>Ngày thanh toán</th>
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @if($datas->count() == null)
+                                    <tr>
+                                        <td><span class="badge badge-success light border-0">Bạn chưa thực hiện thanh toán nên không có lịch sử</span></td>
+                                    </tr>
+                                @else
+                                    @foreach($datas as $data)
                                 <tr>
-                                    <td><span>#552145252</span></td>
+                                    <td><span>#{{$data->payment_id}}</span></td>
                                     <td>
-                                        <span>Zoom video conferencing</span>
+                                        <span>{{$data->payment_info}}</span>
                                     </td>
-                                    <td><span class="badge badge-danger light border-0">Pending</span></td>
+                                    <td><span class="badge badge-success light border-0">Đã hoàn thành</span></td>
                                     <td>
-                                        <span>12 February 2022</span>
+                                        <span>{{$data->price}} đ</span>
                                     </td>
                                     <td>
-                                        <span>$900</span>
+                                        <span>{{$data->payment_time}}</span>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td><span>#5454421</span></td>
-                                    <td>
-                                        <span>Salesforce CRM</span>
-                                    </td>
-                                    <td><span class="badge badge-primary light border-0">Inprogress</span></td>
-                                    <td>
-                                        <span>13 March 2023</span>
-                                    </td>
-                                    <td>
-                                        <span>$500</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><span>#5857455</span></td>
-                                    <td>
-                                        <span>Slack collaboration platform</span>
-                                    </td>
-                                    <td><span class="badge badge-primary light border-0">Inprogress</span></td>
-                                    <td>
-                                        <span>24 January 2022</span>
-                                    </td>
-                                    <td>
-                                        <span>$800</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><span>#552145252</span></td>
-                                    <td>
-                                        <span>Google Chrome</span>
-                                    </td>
-                                    <td><span class="badge badge-danger light border-0">Pending</span></td>
-                                    <td>
-                                        <span>12 February 2022</span>
-                                    </td>
-                                    <td>
-                                        <span>$900</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><span>#5454421</span></td>
-                                    <td>
-                                        <span>Shopify eCommerce</span>
-                                    </td>
-                                    <td><span class="badge badge-success light border-0">Completed</span></td>
-                                    <td>
-                                        <span>13 March 2023</span>
-                                    </td>
-                                    <td>
-                                        <span>$500</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><span>#5857455</span></td>
-                                    <td>
-                                        <span>Slack collaboration platform</span>
-                                    </td>
-                                    <td><span class="badge badge-primary light border-0">Inprogress</span></td>
-                                    <td>
-                                        <span>24 January 2022</span>
-                                    </td>
-                                    <td>
-                                        <span>$800</span>
-                                    </td>
-                                </tr>
+                                    @endforeach
+                                @endif
                                 </tbody>
 
                             </table>

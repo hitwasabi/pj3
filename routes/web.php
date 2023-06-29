@@ -110,6 +110,7 @@ Route::get('client/home/agents-details/{id}',[ClientController::class,'viewAgent
 
 Route::post('/agents/add-product',[\App\Http\Controllers\RoomController::class,'postRoom']);
 Route::post('/client/buyPack',[ClientController::class,'buyPack']);
+Route::post('/client/buyVipPack',[ClientController::class,'buyVipPack']);
 
 
 //Xem chi tiet chu tro DEMO

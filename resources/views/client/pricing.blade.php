@@ -59,6 +59,8 @@
                                 </div>
                                 <div class="col-lg-4 col-md-6 col-sm-12 pricing-block">
                                     <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms">
+                                        <form action="{{url('/client/buyPack')}}" method="POST">
+                                            @csrf
                                         <div class="pricing-table">
                                             <div class="table-header">
                                                 <div class="shape-1" style="background-image: url({{asset('images/shape/shape-4.png')}});"></div>
@@ -74,9 +76,10 @@
                                                 </ul>
                                             </div>
                                             <div class="table-footer">
-                                                <a href="pricing.html" class="link-btn">Mua ngay</a>
+                                                <button class="muangay" type="submit">Mua ngay</button>
                                             </div>
                                         </div>
+                                        </form>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 col-md-6 col-sm-12 pricing-block">

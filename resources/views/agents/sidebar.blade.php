@@ -44,14 +44,18 @@
                     <span class="nav-text">Các trang khác</span>
                 </a>
                 <ul aria-expanded="false">
+                    @if(\Illuminate\Support\Facades\Auth::user()->isAdmin == 1)
                     @if(\Illuminate\Support\Facades\Auth::user()->level == 1)
                         <li><a href="{{url('agents/wrong-level')}}">Đăng bài mới</a></li>
                     @else
                         <li><a href="{{url('agents/add-product')}}">Đăng bài mới</a></li>
                     @endif
+                    @else
+                        <li><a href="{{url('agents/add-product')}}">Đăng bài mới</a></li>
+                    @endif
                     <li><a href="{{url('agents/edit-profile')}}">Sửa thông tin cá nhân</a></li>
-                    <li><a href="{{url('client/home/pricing')}}">Nạp tiền/Bảng giá</a></li>
-                    <li><a href="{{url('agents/payment-history')}}">Lịch sử nạp tiền</a></li>
+                    <li><a href="{{url('client/home/pricing')}}">Mua gói</a></li>
+                    <li><a href="{{url('agents/payment-history')}}">Lịch sử thanh toán</a></li>
                 </ul>
             </li>
         </ul>

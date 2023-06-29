@@ -11,7 +11,22 @@ use Illuminate\Support\Facades\DB;
 class AgentController extends Controller
 {
     public function viewAgent(){
-        return view('/agents/index');
+        $all_room = DB::table('users')
+            ->join('rent_rooms','users.id','=','rent_rooms.owner_id')
+            ->select('rent_rooms.rr_id')
+            ->where('rent_rooms.owner_id','=',Auth::user()->id)
+            ->count();
+        $rent_room = DB::table('rent_rooms')
+            ->select('rr_id')
+            ->where('status','=' , 0)
+            ->where('owner_id','=',Auth::user()->id)
+            ->count();
+        $cancel_room = DB::table('rent_rooms')
+            ->select('rr_id')
+            ->where('status','=' , 1)
+            ->where('owner_id','=',Auth::user()->id)
+            ->count();
+        return view('/agents/index',compact('all_room','rent_room','cancel_room'));
     }
 
     public function viewEcom_product_list(){
@@ -55,7 +70,11 @@ class AgentController extends Controller
         return view('/agents/edit-profile');
     }
     public function viewPayment(){
-        return view('/agents/payment-history');
+        $user_id = Auth::user()->id;
+        $datas = DB::table('payment_histories')
+            ->where('user_id','=',$user_id)
+            ->get();
+        return view('/agents/payment-history',compact('datas'));
     }
 
     public function viewAgentsProfile(){
