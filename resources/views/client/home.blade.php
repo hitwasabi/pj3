@@ -31,46 +31,44 @@
                                                             <label>Tìm kiếm phòng trọ</label>
                                                             <div class="field-input">
                                                                 <i class="fas fa-search"></i>
-                                                                <input type="search" name="keyword_submit" placeholder="Tìm kiếm..." required="">
+                                                                <input type="search" name="keyword_submit" placeholder="Tìm kiếm...">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4 col-md-6 col-sm-12 column">
+                                                        @csrf
                                                         <div class="form-group">
-                                                            <label>Thành phố</label>
+                                                            <label for="cities">Thành phố</label>
                                                             <div class="select-box">
                                                                 <i class="far fa-compass"></i>
-                                                                <select class="wide" onchange="selectProvince()">
-                                                                   <option data-display="Nhập Thành Phố">Hà Nội</option>
-                                                                   <option value="1">Hồ Chí Minh</option>
+                                                                <select class="wide"  name ="cities"  id="country-dropdown" onchange="selectProvince()">
+                                                                    <option value="">Nhập tỉnh thành</option>
+                                                                    @foreach($cities as $city)
+                                                                        <option value="{{$city->cities_id }}">{{$city->city_name}}</option>
+                                                                    @endforeach
                                                                 </select>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4 col-md-6 col-sm-12 column">
                                                         <div class="form-group">
-                                                            <label>Quận , huyện</label>
+                                                            <label for="city_details">Quận , huyện</label>
                                                             <div class="select-box">
                                                                 <i class="far fa-compass"></i>
-                                                                <select class="wide">
-                                                                   <option data-display="Nhập Quận , huyện">Quận Hoàn Kiếm</option>
-                                                                   <option value="1">Quận Đống Đa</option>
-                                                                   <option value="2">Quận Hai Bà Trưng</option>
+                                                                <select class="wide" name="state_dropdown" id="state_dropdown">
+                                                                    <option>ABC</option>
+
                                                                 </select>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4 col-md-6 col-sm-12 column">
                                                         <div class="form-group">
-                                                            <label>Đường,phố</label>
-                                                            <div class="select-box">
+                                                            <label for="streets">Đường,phố</label>
+                                                            <div class="select-box" >
                                                                 <i class="far fa-compass"></i>
-                                                                <select class="wide">
-                                                                   <option data-display="Nhập đường,phố">Nhập đường,phố</option>
-                                                                   <option value="1">New York</option>
-                                                                   <option value="2">California</option>
-                                                                   <option value="3">London</option>
-                                                                   <option value="4">Maxico</option>
+                                                                <select class="wide" name ="streets" id="city-dropdown">
+
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -92,11 +90,11 @@
                                                         <div class="form-group">
                                                             <label>Phòng ngủ</label>
                                                             <div class="select-box">
-                                                                <select class="wide">
-                                                                   <option data-display="Một phòng ngủ">Một phòng ngủ</option>
-                                                                   <option value="1">Hai phòng ngủ</option>
-                                                                   <option value="2">Ba phòng ngủ</option>
-                                                                   <option value="3">Bốn phòng ngủ</option>
+                                                                <select class="wide" name="bed_room">
+                                                                   <option data-display="Một phòng ngủ" value="1">Một phòng ngủ</option>
+                                                                   <option value="2">Hai phòng ngủ</option>
+                                                                   <option value="3">Ba phòng ngủ</option>
+                                                                   <option value="4">Bốn phòng ngủ</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -590,4 +588,81 @@
         </button>
     </div>
 @endsection
+<script async='async' src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
+<script>
+    {{--$(document).ready(function() {--}}
+    {{--    $('#country-dropdown').on('change', function() {--}}
+    {{--        // var country_id = this.value; //id cua tinh--}}
+    {{--        console.log(1);--}}
+    {{--        $("#state-dropdown").html('');--}}
+    {{--        $.ajax({--}}
+    {{--            url:"{{url('get-states-by-country')}}",--}}
+    {{--            type: "POST",--}}
+    {{--            data: {--}}
+    {{--                city_id: country_id,--}}
+    {{--                _token: '{{csrf_token()}}'--}}
+    {{--            },--}}
+    {{--            dataType : 'json',--}}
+    {{--            success: function(result){--}}
+    {{--                $.each(result.city_details,function(key,value){--}}
+    {{--                    $("#state-dropdown").append('<option value="'+value.id+'">'+value.name+'</option>');--}}
+    {{--                });--}}
+    {{--                $('#city-dropdown').html('<option value="">Select State First</option>');--}}
+    {{--            }--}}
+    {{--        });--}}
+    {{--    });--}}
+    {{--    $('#state-dropdown').on('change', function() {--}}
+    {{--        var state_id = this.value;--}}
+    {{--        $("#city-dropdown").html('');--}}
+    {{--        $.ajax({--}}
+    {{--            url:"{{url('get-cities-by-state')}}",--}}
+    {{--            type: "POST",--}}
+    {{--            data: {--}}
+    {{--                city_detailsId: state_id,--}}
+    {{--                _token: '{{csrf_token()}}'--}}
+    {{--            },--}}
+    {{--            dataType : 'json',--}}
+    {{--            success: function(result){--}}
+    {{--                $.each(result.streets,function(key,value){--}}
+    {{--                    $("#city-dropdown").append('<option value="'+value.id+'">'+value.name+'</option>');--}}
+    {{--                });--}}
+    {{--            }--}}
+    {{--        });--}}
+    {{--    });--}}
+    {{--});--}}
+    function selectProvince() {
+        let country_id = $("#country-dropdown").val();
+        $.ajax({
+            url:"{{url('get-states-by-country')}}",
+            type: "POST",
+            data: {
+                city_id: country_id,
+                _token: '{{csrf_token()}}'
+            },
+            dataType : 'json',
+            success: function(result){
+                let html = '';
+                let districts = result.city_details;
+                for(let i = 0; i < districts.length; i++) {
+                    let item = districts[i];
+                    let name = item['cd_name'];
+                    let id = item['city_detailId']
+                    html += '<option value='+id+'>'+name+ '</option>';
+                }
+                console.log(html);
+                $('#state_dropdown').html('<option value="">Select State First</option>');
+
+                // $('#state_dropdown').append($('<option>', {
+                //     value: 1,
+                //     text: 'My option'
+                // }));
+                $.each(result.city_details,function(key,value){
+                    $("#state-dropdown").append('<option value="'+value.id+'">'+value.name+'</option>');
+                });
+                $('#city-dropdown').html('<option value="">Select State First</option>');
+
+            }
+        });
+    }
+</script>

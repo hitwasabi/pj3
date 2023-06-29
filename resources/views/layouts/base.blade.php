@@ -9,6 +9,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
     <title>@yield("title","Untiled")</title>
 
     <!-- Fav Icon -->
@@ -30,6 +32,7 @@
     <link href="{{asset('css/switcher-style.css')}}" rel="stylesheet">
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <link href="{{asset('css/responsive.css')}}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 </head>
 
@@ -85,7 +88,7 @@
     @yield("content")
     @extends('client.footer')
 <!-- jequery plugins -->
-    <script src="{{asset('js/jquery.js')}}"></script>
+<script src="{{asset('js/jquery.js')}}"></script>
     <script src="{{asset('js/popper.min.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <script src="{{asset('js/owl.js')}}"></script>
@@ -103,6 +106,8 @@
 
 <!-- main-js -->
 <script src="{{asset('js/script.js')}}"></script>
+
+
 
 </body><!-- End of .page_wrapper -->
 

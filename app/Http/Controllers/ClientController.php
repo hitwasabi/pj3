@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
+use App\Models\City_detail;
+use App\Models\Street;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
 class ClientController extends Controller
 {
-    public function viewClient(){
-
+    public function viewClient(Request $request){
         return view('client/home');
     }
     public function viewAbout(){
@@ -87,6 +89,7 @@ class ClientController extends Controller
     }
     public function searchInfo(Request $request){
         $keyword = $request->get('keyword_submit');
+        $cities =  $request->get('cities');
         $collection =DB::table('rent_rooms')
             ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
             ->join('categories','categories.id','=','rent_rooms.cate_id')
@@ -98,55 +101,21 @@ class ClientController extends Controller
             ->join('streets','rent_rooms.street_id','=','streets.street_id')
             ->select('rent_rooms.*','room_details.*','cities.*','city_details.*','streets.*','rent_amounts.*','users.*','images.*')
             ->where('room_name','like','%'.$keyword.'%')
+            ->where('cities_id','like','%'.$cities.'%')
             ->paginate(3);
         if($request-> get('sort')=='price_asc'){
-            $collection =DB::table('rent_rooms')
-                ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
-                ->join('categories','categories.id','=','rent_rooms.cate_id')
-                ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
-                ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
-                ->join('cities','rent_rooms.city_id','=','cities.cities_id')
-                ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
-                ->join('users','users.id','=','rent_rooms.owner_id')
-                ->join('streets','rent_rooms.street_id','=','streets.street_id')
-                ->select('rent_rooms.*','room_details.*','cities.*','city_details.*','streets.*','rent_amounts.*','users.*','images.*')
-                ->where('room_name','like','%'.$keyword.'%')
-                ->paginate(3);
             $collection->setCollection(
                 $collection->sortBy('prices')
             );
         }
         if($request-> get('sort')=='price_desc'){
-            $collection =DB::table('rent_rooms')
-                ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
-                ->join('categories','categories.id','=','rent_rooms.cate_id')
-                ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
-                ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
-                ->join('cities','rent_rooms.city_id','=','cities.cities_id')
-                ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
-                ->join('users','users.id','=','rent_rooms.owner_id')
-                ->join('streets','rent_rooms.street_id','=','streets.street_id')
-                ->select('rent_rooms.*','room_details.*','cities.*','city_details.*','streets.*','rent_amounts.*','users.*','images.*')
-                ->where('room_name','like','%'.$keyword.'%')
-                ->paginate(3);
             $collection->setCollection(
                 $collection->sortByDesc('prices')
             );
         }
         if($request-> get('sort')=='id_desc'){
-            $rent_rooms =DB::table('rent_rooms')
-                ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
-                ->join('categories','categories.id','=','rent_rooms.cate_id')
-                ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
-                ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
-                ->join('cities','rent_rooms.city_id','=','cities.cities_id')
-                ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
-                ->join('users','users.id','=','rent_rooms.owner_id')
-                ->join('streets','rent_rooms.street_id','=','streets.street_id')
-                ->select('rent_rooms.*','room_details.*','cities.*','city_details.*','streets.*','rent_amounts.*','users.*','images.*')
-                ->paginate(3);
-            $rent_rooms->setCollection(
-                $rent_rooms->sortByDesc('rr_id')
+            $collection->setCollection(
+                $collection->sortByDesc('rr_id')
             );
         }
         return view('client/search',['search_product'=>$collection]);
@@ -571,4 +540,23 @@ class ClientController extends Controller
         return view('/client/agents-details',compact('users','rent_rooms'));
     }
 
+
+
+    public function index()
+    {
+        $data['cities'] = City::get(["city_name","cities_id"]);
+        return view('/client/home',$data);
+    }
+    public function getState(Request $request)
+    {
+        $data['city_details'] = City_detail::where("city_id",$request->city_id)
+            ->get(["cd_name","city_detailId"]);
+        return response()->json($data);
+    }
+    public function getCity(Request $request)
+    {
+        $data['streets'] = Street::where("city_detailsId",$request->city_detailsId)
+            ->get(["street_name","street_id"]);
+        return response()->json($data);
+    }
 }
