@@ -57,7 +57,6 @@
                                                                 <i class="far fa-compass"></i>
                                                                 <select class="wide" name="state_dropdown" id="state_dropdown">
                                                                     <option>ABC</option>
-
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -68,7 +67,6 @@
                                                             <div class="select-box" >
                                                                 <i class="far fa-compass"></i>
                                                                 <select class="wide" name ="streets" id="city-dropdown">
-
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -650,16 +648,17 @@
                     let id = item['city_detailId']
                     html += '<option value='+id+'>'+name+ '</option>';
                 }
-                console.log(html);
+                $('#state_dropdown').append(html);
+                $('#state_dropdown').niceSelect("update")
                 $('#state_dropdown').html('<option value="">Select State First</option>');
 
                 // $('#state_dropdown').append($('<option>', {
                 //     value: 1,
                 //     text: 'My option'
                 // }));
-                $.each(result.city_details,function(key,value){
-                    $("#state-dropdown").append('<option value="'+value.id+'">'+value.name+'</option>');
-                });
+                // $.each(districts,function(key,value){
+                //     $("#state-dropdown").append('<option value="'+value.id+'">'+value.name+'</option>');
+                // });
                 $('#city-dropdown').html('<option value="">Select State First</option>');
 
             }
