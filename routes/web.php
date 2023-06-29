@@ -148,4 +148,12 @@ Route::get('/admin/customer-profile',[\App\Http\Controllers\AdminController::cla
 Route::get('/admin/comfirm-product',[\App\Http\Controllers\AdminController::class,'comfirm']);
 Route::get('/admin/admin-profile',[\App\Http\Controllers\AdminController::class,'viewAdminProfile']);
 
+
+Route::get('client/home',[\App\Http\Controllers\ClientController::class,'index']);  //tinh
+Route::post('get-states-by-country',[\App\Http\Controllers\ClientController::class,'getState']); //quan huyen
+Route::post('get-cities-by-state',[\App\Http\Controllers\ClientController::class,'getCity']); //xa phuong
+
+
+
 Route::post('/admin/post-blog',[AdminController::class,'addBlog']);
+
