@@ -80,7 +80,8 @@ Route::get('/client/home/dongDa',[\App\Http\Controllers\ClientController::class,
 Route::get('client/home/property-details/{rr_id}/{cate_id}',[ClientController::class,'show']);
 //Tim kiem
 Route::get('/client/home/search',[ClientController::class,'searchInfo']);
-
+Route::post('get-states-by-countryx',[\App\Http\Controllers\ClientController::class,'getStatex']); //quan huyen
+Route::post('get-cities-by-statex',[\App\Http\Controllers\ClientController::class,'getCityx']); //xa phuong
 
 //Login
 //giao dien dang nhap

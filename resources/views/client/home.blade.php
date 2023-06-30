@@ -55,7 +55,7 @@
                                                             <label for="city_details">Quận , huyện</label>
                                                             <div class="select-box">
                                                                 <i class="far fa-compass"></i>
-                                                                <select class="wide" name="state_dropdown" id="state_dropdown">
+                                                                <select class="wide" name="cities_details" id="state_dropdown" onchange="selectStreet()">
 
                                                                 </select>
                                                             </div>
@@ -66,7 +66,38 @@
                                                             <label for="streets">Đường,phố</label>
                                                             <div class="select-box" >
                                                                 <i class="far fa-compass"></i>
-                                                                <select class="wide" name ="city-dropdown" id="city-dropdown">
+                                                                <select class="wide" name ="streets" id="city-dropdown">
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-6 col-sm-12 column">
+                                                        <div class="form-group">
+                                                            <label>Phòng ngủ</label>
+                                                            <div class="select-box">
+                                                                <select class="wide" name="bed_room">
+                                                                    <option value="">Chọn số phòng ngủ</option>
+                                                                    {{--                                                                    @foreach($rent_rooms as $rent_room)--}}
+                                                                    {{--                                                                        <option value="{{$rent_room->bed_room }}">{{$rent_room->bed_room}} Phòng ngủ</option>--}}
+                                                                    {{--                                                                    @endforeach--}}
+                                                                    <option value="1">Một phòng ngủ</option>
+                                                                    <option value="2">Hai phòng ngủ</option>
+                                                                    <option value="3">Ba phòng ngủ</option>
+                                                                    <option value="4">Bốn phòng ngủ</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-6 col-sm-12 column">
+                                                        <div class="form-group">
+                                                            <label>Lọc giá</label>
+                                                            <div class="select-box">
+                                                                <select class="wide">
+                                                                    <option value="">Nhập khoảng giá</option>
+                                                                    <option value="1">1 triệu - 2 triệu</option>
+                                                                    <option value="2">2 triệu - 3 triệu</option>
+                                                                    <option value="3">3 triệu - 5 triệu</option>
+                                                                    <option value="4">lớn hơn 5 triệu</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -85,14 +116,19 @@
                                                 </div>
                                                 <div class="row clearfix">
                                                     <div class="col-lg-4 col-md-6 col-sm-12 column">
+                                                        @csrf
                                                         <div class="form-group">
                                                             <label>Phòng ngủ</label>
                                                             <div class="select-box">
                                                                 <select class="wide" name="bed_room">
-                                                                   <option data-display="Một phòng ngủ" value="1">Một phòng ngủ</option>
-                                                                   <option value="2">Hai phòng ngủ</option>
-                                                                   <option value="3">Ba phòng ngủ</option>
-                                                                   <option value="4">Bốn phòng ngủ</option>
+                                                                    <option value="">Chọn số phòng ngủ</option>
+{{--                                                                    @foreach($rent_rooms as $rent_room)--}}
+{{--                                                                        <option value="{{$rent_room->bed_room }}">{{$rent_room->bed_room}} Phòng ngủ</option>--}}
+{{--                                                                    @endforeach--}}
+                                                                    <option value="1">Một phòng ngủ</option>
+                                                                    <option value="2">Hai phòng ngủ</option>
+                                                                    <option value="3">Ba phòng ngủ</option>
+                                                                    <option value="4">Bốn phòng ngủ</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -102,7 +138,7 @@
                                                             <label>Phòng vệ sinh</label>
                                                             <div class="select-box">
                                                                 <select class="wide">
-                                                                   <option data-display="Lựa chọn số phòng vệ sinh">Một phòng vệ sinh</option>
+                                                                    <option value="">Chọn số phòng vệ sinh</option>
                                                                    <option value="1">Hai phòng vệ sinh</option>
                                                                    <option value="2">Ba phòng vệ sinh</option>
                                                                    <option value="3">Bốn phòng vệ sinh</option>
@@ -662,6 +698,8 @@
 
             }
         });
+    }
+    function selectStreet() {
         let state_id = $("#state_dropdown").val();
         $.ajax({
             url:"{{url('get-cities-by-state')}}",

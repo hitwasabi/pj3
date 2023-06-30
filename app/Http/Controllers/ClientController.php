@@ -19,8 +19,18 @@ use Illuminate\Support\Facades\Event;
 
 class ClientController extends Controller
 {
-    public function viewClient(Request $request){
-        return view('client/home');
+    public function viewClient(){
+        $rent_rooms =DB::table('rent_rooms')
+            ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
+            ->join('categories','categories.id','=','rent_rooms.cate_id')
+            ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
+            ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
+            ->join('cities','rent_rooms.city_id','=','cities.cities_id')
+            ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
+            ->join('users','users.id','=','rent_rooms.owner_id')
+            ->join('streets','rent_rooms.street_id','=','streets.street_id')
+            ->select('rent_rooms.*','room_details.*','cities.*','city_details.*','streets.*','rent_amounts.*','users.*','images.*');
+        return view('/client/home')->with('rent_rooms',$rent_rooms);
     }
     public function viewAbout(){
 
@@ -103,6 +113,12 @@ class ClientController extends Controller
     public function searchInfo(Request $request){
         $keyword = $request->get('keyword_submit');
         $cities =  $request->get('cities');
+        $city_details =  $request->get('cities_details');
+        $streets =  $request->get('streets');
+        $bath_room =  $request->get('bath_room');
+        $bed_room =  $request->input('bed_room');
+        $prices =  $request->input('prices');
+
         $collection =DB::table('rent_rooms')
             ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
             ->join('categories','categories.id','=','rent_rooms.cate_id')
@@ -115,7 +131,17 @@ class ClientController extends Controller
             ->select('rent_rooms.*','room_details.*','cities.*','city_details.*','streets.*','rent_amounts.*','users.*','images.*')
             ->where('room_name','like','%'.$keyword.'%')
             ->where('cities_id','like','%'.$cities.'%')
-            ->paginate(3);
+            ->where('rent_rooms.city_detailId','like','%'.$city_details.'%')
+            ->where('rent_rooms.street_id','like','%'.$streets.'%')
+            ->where('room_details.bath_room','like','%'.$bath_room.'%')
+            ->where('room_details.bed_room','like','%'.$bed_room.'%')
+            ->where('room_details.prices','like','%'.$prices.'%')
+            ->paginate(5);
+        if($request-> get('sort')=='price_asc'){
+            $collection->setCollection(
+                $collection->sortBy('prices')
+            );
+        }
         if($request-> get('sort')=='price_asc'){
             $collection->setCollection(
                 $collection->sortBy('prices')
@@ -131,9 +157,25 @@ class ClientController extends Controller
                 $collection->sortByDesc('rr_id')
             );
         }
-        return view('client/search',['search_product'=>$collection]);
-    }
 
+
+        $data = ['search_product'=>$collection,
+                'keyword_submit'=>$keyword];
+        $data['cities'] = City::get(["city_name","cities_id"]);
+        return view('client/search', $data);
+    }
+    public function getStatex(Request $request)
+    {
+        $data['city_details'] = City_detail::where("city_id",$request->city_id)
+            ->get(["cd_name","city_detailId"]);
+        return response()->json($data);
+    }
+    public function getCityx(Request $request)
+    {
+        $data['streets'] = Street::where("city_detailsId",$request->city_detailsId)
+            ->get(["street_name","street_id"]);
+        return response()->json($data);
+    }
     //Cac trang danh muc
     public function  viewMotel(Request $request){
         //$products = DB::select("SELECT * FROM products INNER JOIN images ON products.product_id = images.product_id INNER JOIN sell_products ON products.product_id = sell_products.product_id");
@@ -559,6 +601,21 @@ class ClientController extends Controller
     public function index()
     {
         $data['cities'] = City::get(["city_name","cities_id"]);
+        $rent_rooms =DB::table('rent_rooms')
+            ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
+            ->join('categories','categories.id','=','rent_rooms.cate_id')
+            ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
+            ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
+            ->join('cities','rent_rooms.city_id','=','cities.cities_id')
+            ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
+            ->join('users','users.id','=','rent_rooms.owner_id')
+            ->join('streets','rent_rooms.street_id','=','streets.street_id')
+            ->select('rent_rooms.*','room_details.*','cities.*','city_details.*','streets.*','rent_amounts.*','users.*','images.*')
+            ->get();
+//        return view('/client/home')->with('rent_rooms',$rent_rooms);
+//        dd($rent_rooms);
+        $data['rent_rooms']  = $rent_rooms;
+
         return view('/client/home',$data);
     }
     public function getState(Request $request)
@@ -616,4 +673,7 @@ class ClientController extends Controller
         }
     }
 
+
 }
+
+
