@@ -41,11 +41,11 @@
                                         <form action="{{url('/register')}}" method="post" class="default-form">
                                             @csrf
                                             <div class="form-group">
-                                                <label>Tên đăng nhập</label>
+                                                <label>Tên hiển thị</label>
                                                 <input type="text" name="name" required>
                                             </div>
                                             <div class="form-group">
-                                                <label>Email</label>
+                                                <label>Email đăng nhập</label>
                                                 <input type="email" name="email" required>
                                             </div>
                                             <div class="form-group">

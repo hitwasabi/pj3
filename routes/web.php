@@ -43,13 +43,13 @@ Route::get('client/home/services', function () {
     return view('/client/services');
 });
 
-//tin tuc
-Route::get('client/home/blog', function () {
-    return view('/client/blog');
-});
-Route::get('client/home/blog-details', function () {
-    return view('/client/blog-details');
-});
+//Xem trang tin tuc
+Route::get('client/home/blog', [ClientController::class,'viewAllBlog']);
+
+
+Route::get('client/home/blog-details/{new_id}',[ClientController::class,'showBlog']);
+
+
 
 //lien he
 Route::get('client/home/contact', function () {
@@ -80,8 +80,7 @@ Route::get('/client/home/dongDa',[\App\Http\Controllers\ClientController::class,
 Route::get('client/home/property-details/{rr_id}/{cate_id}',[ClientController::class,'show']);
 //Tim kiem
 Route::get('/client/home/search',[ClientController::class,'searchInfo']);
-Route::post('get-states-by-countryx',[\App\Http\Controllers\ClientController::class,'getStatex']); //quan huyen
-Route::post('get-cities-by-statex',[\App\Http\Controllers\ClientController::class,'getCityx']); //xa phuong
+
 
 //Login
 //giao dien dang nhap

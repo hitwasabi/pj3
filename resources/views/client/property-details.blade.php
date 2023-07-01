@@ -17,7 +17,7 @@
                     <h1>Chi tiết phòng</h1>
                     <ul class="bread-crumb clearfix">
                         <li><a href="{{url('/client/home')}}">Trang chủ</a></li>
-                        <li>Chi tiết phòng</li>
+                        <li>Chi tiết phòng {{$rent_room->room_name}}</li>
                     </ul>
                 </div>
             </div>

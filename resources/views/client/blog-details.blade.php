@@ -12,7 +12,7 @@
                     <h1>Blog Details</h1>
                     <ul class="bread-crumb clearfix">
                         <li><a href="{{url('/client/home')}}">Trang chủ</a></li>
-                        <li>Blog Details</li>
+                        <li>{{$blog->new_name}}</li>
                     </ul>
                 </div>
             </div>
@@ -29,25 +29,20 @@
                             <div class="news-block-one">
                                 <div class="inner-box">
                                     <div class="image-box">
-                                        <figure class="image"><img src="{{asset('images/news/news-21.jpg')}}" alt=""></figure>
+                                        <figure class="image"><img src="{{$blog->new_image}}" alt=""></figure>
                                         <span class="category">Featured</span>
                                     </div>
                                     <div class="lower-content">
-                                        <h3>Including Animation In Your Design System.</h3>
+                                        <h3>{{$blog->new_name}}</h3>
                                         <ul class="post-info clearfix">
                                             <li class="author-box">
-                                                <figure class="author-thumb"><img src="{{asset('images/news/author-1.jpg')}}" alt=""></figure>
-                                                <h5><a href="{{url('client/home/blog-details')}}">Eva Green</a></h5>
+                                                <figure class="author-thumb"><img src="{{$blog->user_image}}" alt=""></figure>
+                                                <h5><a href="{{url('client/home/agents-details/'.$blog->userPost_id)}}">{{$blog->name}}</a></h5>
                                             </li>
-                                            <li>April 10, 2020</li>
+                                            <li>{{$blog->post_date}}</li>
                                         </ul>
                                         <div class="text">
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing sed do eiusmod tempor incididunt labore dolore magna aliqua enim minim veniam quis nostrud exercitation ullamco laboris nisi aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. </p>
-                                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed perspiciatis unde omnis iste natus error sit voluptem accusantium doloremque laudantium.</p>
-                                            <blockquote>
-                                                <h4>“Enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis.”</h4>
-                                            </blockquote>
-                                            <p>Sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed perspiciatis unde omnis iste natus error sit voluptem accusantium doloremque laudantium totam rem aperiam.</p>
+                                            <p>{{$blog->info}}</p>
                                         </div>
                                         <div class="post-tags">
                                             <ul class="tags-list clearfix">
@@ -77,7 +72,7 @@
                             </div>
                             <div class="sidebar-widget social-widget">
                                 <div class="widget-title">
-                                    <h4>Follow Us On</h4>
+                                    <h4>Theo dõi chúng tôi</h4>
                                 </div>
                                 <ul class="social-links clearfix">
                                     <li><a href="https://www.facebook.com/Nhoctuthuoc/"><i class="fab fa-facebook-f"></i></a></li>
@@ -89,21 +84,15 @@
                                     <h4>Bài báo gần đây</h4>
                                 </div>
                                 <div class="post-inner">
+                                    @forelse($blogs as $blog)
                                     <div class="post">
-                                        <figure class="post-thumb"><a href="{{url('client/home/blog-details')}}"><img src="{{asset('images/news/post-1.jpg')}}" alt=""></a></figure>
-                                        <h5><a href="{{url('client/home/blog-details')}}">Best interior design idea for your home.</a></h5>
-                                        <span class="post-date">April 10, 2020</span>
+                                        <figure class="post-thumb"><a href="{{url('client/home/blog-details')}}"><img src="{{$blog->new_image}}" alt=""></a></figure>
+                                        <h5><a href="{{url('client/home/blog-details/'.$blog->new_id)}}">{{$blog->new_name}}.</a></h5>
+                                        <span class="post-date">{{$blog->post_date}}</span>
                                     </div>
-                                    <div class="post">
-                                        <figure class="post-thumb"><a href="{{url('client/home/blog-details')}}"><img src="{{asset('images/news/post-2.jpg')}}" alt=""></a></figure>
-                                        <h5><a href="{{url('client/home/blog-details')}}">A digital prescription for the industry.</a></h5>
-                                        <span class="post-date">April 09, 2020</span>
-                                    </div>
-                                    <div class="post">
-                                        <figure class="post-thumb"><a href="{{url('client/home/blog-details')}}"><img src="{{asset('images/news/post-3.jpg')}}" alt=""></a></figure>
-                                        <h5><a href="{{url('client/home/blog-details')}}">Strategic & commercial approach with issues.</a></h5>
-                                        <span class="post-date">April 08, 2020</span>
-                                    </div>
+                                    @empty
+                                        <div class="empty">Danh sách rỗng</div>
+                                    @endforelse
                                 </div>
                             </div>
                         </div>

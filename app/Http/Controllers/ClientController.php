@@ -80,7 +80,10 @@ class ClientController extends Controller
                 $rent_rooms->sortByDesc('rr_id')
             );
         }
-        return view('/client/property-list')->with('rent_rooms',$rent_rooms);
+        $data = ['rent_rooms'=>$rent_rooms];
+        $data['cities'] = City::get(["city_name","cities_id"]);
+        return view('client/property-list', $data);
+
     }
 
     public function show($rr_id,$cate_name){
@@ -136,25 +139,20 @@ class ClientController extends Controller
             ->where('room_details.bath_room','like','%'.$bath_room.'%')
             ->where('room_details.bed_room','like','%'.$bed_room.'%')
             ->where('room_details.prices','like','%'.$prices.'%')
-            ->paginate(5);
+            ->paginate(3);
         if($request-> get('sort')=='price_asc'){
             $collection->setCollection(
-                $collection->sortBy('prices')
-            );
-        }
-        if($request-> get('sort')=='price_asc'){
-            $collection->setCollection(
-                $collection->sortBy('prices')
+                $collection->sortBy('prices')->paginate()
             );
         }
         if($request-> get('sort')=='price_desc'){
             $collection->setCollection(
-                $collection->sortByDesc('prices')
+                $collection->sortByDesc('prices')->paginate()
             );
         }
         if($request-> get('sort')=='id_desc'){
             $collection->setCollection(
-                $collection->sortByDesc('rr_id')
+                $collection->sortByDesc('rr_id')->paginate()
             );
         }
 
@@ -164,18 +162,7 @@ class ClientController extends Controller
         $data['cities'] = City::get(["city_name","cities_id"]);
         return view('client/search', $data);
     }
-    public function getStatex(Request $request)
-    {
-        $data['city_details'] = City_detail::where("city_id",$request->city_id)
-            ->get(["cd_name","city_detailId"]);
-        return response()->json($data);
-    }
-    public function getCityx(Request $request)
-    {
-        $data['streets'] = Street::where("city_detailsId",$request->city_detailsId)
-            ->get(["street_name","street_id"]);
-        return response()->json($data);
-    }
+
     //Cac trang danh muc
     public function  viewMotel(Request $request){
         //$products = DB::select("SELECT * FROM products INNER JOIN images ON products.product_id = images.product_id INNER JOIN sell_products ON products.product_id = sell_products.product_id");
@@ -673,7 +660,31 @@ class ClientController extends Controller
         }
     }
 
+//Client xem trang tin tuc
+    public function viewAllBlog(){
+        $blogs =DB::table('blogs')
+            ->join('users','users.id','=','blogs.userPost_id')
+            ->select('users.*','blogs.*')
+            ->paginate(3);
+        $data = ['blogs'=>$blogs];
+        //dd($data);
+        return view('client/blog', $data);
 
+    }
+    public function showBlog($new_id){
+        $blog =DB::table('blogs')
+            ->join('users','users.id','=','blogs.userPost_id')
+            ->select('users.*','blogs.*')
+            ->where('blogs.new_id',"=",$new_id)->first();
+        $blogs =DB::table('blogs')
+            ->join('users','users.id','=','blogs.userPost_id')
+            ->select('users.*','blogs.*')
+            ->where('blogs.new_id',"!=",$new_id)
+            ->get()->take(3);
+        $data = ['blog'=>$blog,
+            'blogs'=>$blogs];
+        return view('client/blog-details',$data);
+    }
 }
 
 

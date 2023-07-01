@@ -18,7 +18,12 @@ class AdminController extends Controller
     }
 
     public function viewBlog(){
-        return view('/admin/blog');
+        $blogs =DB::table('blogs')
+            ->join('users','users.id','=','blogs.userPost_id')
+            ->select('users.*','blogs.*')
+            ->paginate(2);
+        $data = ['blogs'=>$blogs];
+        return view('/admin/blog',$data);
     }
     public function viewEditBlog(){
         return view('/admin/edit-blog');

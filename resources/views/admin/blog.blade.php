@@ -24,7 +24,7 @@
                     <form action="{{url('admin/edit-blog')}}" method="GET">
                         @csrf
                     <div class="d-flex align-items-center">
-                        <button type="submit">Thêm bài báo</button>
+                        <button class="btn btn-primary btn-sm ms-2" type="submit">Thêm bài báo</button>
                     </div>
                     </form>
                 </div>
@@ -32,27 +32,26 @@
                     <table id="example3" class="display table" style="min-width: 845px">
                         <thead>
                         <tr>
-                            <th></th>
+                            <th>Ảnh đại diện</th>
                             <th>Tên người viết</th>
-                            <th>Department</th>
-                            <th>Gender</th>
-                            <th>Education</th>
-                            <th>Mobile</th>
+                            <th>Tên bài báo</th>
+                            <th>Ảnh bài báo</th>
+                            <th>Số điện thoại</th>
                             <th>Email</th>
                             <th>Ngày viết</th>
                             <th>Hành động</th>
                         </tr>
                         </thead>
                         <tbody>
+                        @forelse($blogs as $blog)
                         <tr>
-                            <td><img class="rounded-circle" width="35" src="images/profile/small/pic1.jpg" alt=""></td>
-                            <td>Tiger Nixon</td>
-                            <td>Architect</td>
-                            <td>Male</td>
-                            <td>M.COM., P.H.D.</td>
-                            <td><a href="javascript:void(0);"><strong>123 456 7890</strong></a></td>
-                            <td><a href="javascript:void(0);"><strong>info@example.com</strong></a></td>
-                            <td>2011/04/25</td>
+                            <td><img class="rounded-circle" width="35" src="{{$blog->user_image}}" alt=""></td>
+                            <td>{{$blog->name}}</td>
+                            <td>{{$blog->new_name}}</td>
+                            <td><img  width="35" src="{{$blog->new_image}}" alt=""></td>
+                            <td><a href="javascript:void(0);"><strong>{{$blog->phone}}</strong></a></td>
+                            <td><a href="javascript:void(0);"><strong>{{$blog->email}}</strong></a></td>
+                            <td>{{$blog->post_date}}</td>
                             <td>
                                 <div class="d-flex">
                                     <a href="{{url('/admin/edit-blog')}}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
@@ -60,28 +59,21 @@
                                 </div>
                             </td>
                         </tr>
-                        <tr>
-                            <td><img class="rounded-circle" width="35" src="images/profile/small/pic2.jpg" alt=""></td>
-                            <td>Garrett Winters</td>
-                            <td>Accountant</td>
-                            <td>Female</td>
-                            <td>M.COM., P.H.D.</td>
-                            <td><a href="javascript:void(0);"><strong>123 456 7890</strong></a></td>
-                            <td><a href="javascript:void(0);"><strong>info@example.com</strong></a></td>
-                            <td>2011/07/25</td>
-                            <td>
-                                <div class="d-flex">
-                                    <a href="#" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
-                                    <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
-                                </div>
-                            </td>
-                        </tr>
-
+                        @empty
+                            <p>Danh sach rong</p>
+                        @endforelse
                         </tbody>
                     </table>
+                    <div class="pagination-wrapper">
+                        {{$blogs->links("pagination::bootstrap-4")}}
+                    </div>
                 </div>
             </div>
         </div>
+
+
+
+
         <div class="offcanvas offcanvas-end customeoff" tabindex="-1" id="offcanvasExample">
             <div class="offcanvas-header">
                 <h5 class="modal-title" id="#gridSystemModal">Thêm bài báo</h5>
