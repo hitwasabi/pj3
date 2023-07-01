@@ -42,7 +42,7 @@ class AdminController extends Controller
             'new_name' => $new_name,
             'post_date' => Carbon::now()
         ]);
-        return view('admin/index');
+        return redirect('admin/index');
     }
 
     public function viewContact(){

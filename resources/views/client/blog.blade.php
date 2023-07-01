@@ -33,7 +33,9 @@
                                         <span class="category">Featured</span>
                                     </div>
                                     <div class="lower-content">
-                                        <h3><a href="{{url('client/home/blogs-details/'.$blog->new_id)}}">{{$blog->new_name}}</a></h3>
+                                        <h3><a href="{{url('client/home/blogs-details/'.$blog->new_id)}}">
+                                                <img class="img-fluid" src="{{url('images/rooms/'.$blog->new_image)}}">
+                                            </a></h3>
                                         <ul class="post-info clearfix">
                                             <li class="author-box">
                                                 <figure class="author-thumb"><img src="{{$blog->user_image}}" alt=""></figure>
