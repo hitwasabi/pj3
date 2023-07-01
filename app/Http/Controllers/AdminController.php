@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -26,18 +27,16 @@ class AdminController extends Controller
         return view('/admin/blog',$data);
     }
     public function viewEditBlog($new_id){
-        $datas = DB::table('blogs')
-            ->where('new_id','=',$new_id)
-            ->select('blogs.*')->get();
-        return view('/admin/edit-blog',compact('datas'));
+        $data = Blog::findOrFail($new_id);
+        return view('/admin/edit-blog',compact('data'));
     }
 
-    public function editBlog(Request $request){
+    public function editBlog(Request $request,$new_id){
         $image = time().'.'.$_FILES['new_image']['name'];
         $request->new_image->move(public_path('images/rooms'), $image);
         $info = $request->input('info');
         $new_name = $request->input('new_name');
-        DB::table('blogs')->insert([
+        DB::table('blogs')->where('new_id','=',$new_id)->update([
             'info' => $info,
             'new_image' => $image,
             'new_name' => $new_name,

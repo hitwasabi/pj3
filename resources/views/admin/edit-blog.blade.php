@@ -27,11 +27,11 @@
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
-                <form action="{{url('admin/editBlog')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{url('admin/editBlog/'.$data->new_id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                 <div class="offcanvas-body">
                     <div class="container-fluid">
-                        @foreach($datas as $data)
                         <div>
                             <label>Ảnh Bìa</label>
                             <div class="dz-default dlab-message upload-img mb-3">
@@ -57,9 +57,8 @@
                                 </div>
                             </div>
                             <div>
-                                <button class="btn btn-primary me-1" type="submit">Đăng bài báo</button>
+                                <button class="btn btn-primary me-1" type="submit">Sửa thông tin bài báo</button>
                             </div>
-                        @endforeach
                     </div>
                 </div>
                 </form>
