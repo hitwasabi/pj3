@@ -139,7 +139,8 @@ Route::get('/agents/agents-profile',[\App\Http\Controllers\AgentController::clas
 Route::get('/admin/index',[\App\Http\Controllers\AdminController::class,'viewAdmin']);
 Route::get('/admin/employee',[\App\Http\Controllers\AdminController::class,'viewEmployee']);
 Route::get('/admin/blog',[\App\Http\Controllers\AdminController::class,'viewBlog']);
-Route::get('/admin/edit-blog',[\App\Http\Controllers\AdminController::class,'viewEditBlog']);
+Route::get('/admin/edit-blog/{new_id}',[\App\Http\Controllers\AdminController::class,'viewEditBlog']);
+Route::post('/admin/editBlog',[AdminController::class,'editBlog']);
 Route::get('/admin/contacts',[\App\Http\Controllers\AdminController::class,'viewContact']);
 Route::get('/admin/ecom-product-list',[\App\Http\Controllers\AdminController::class,'viewEcom_product_list']);
 Route::get('/admin/edit-profile',[\App\Http\Controllers\AdminController::class,'viewEdit']);

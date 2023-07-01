@@ -25,9 +25,27 @@ class AdminController extends Controller
         $data = ['blogs'=>$blogs];
         return view('/admin/blog',$data);
     }
-    public function viewEditBlog(){
-        return view('/admin/edit-blog');
+    public function viewEditBlog($new_id){
+        $datas = DB::table('blogs')
+            ->where('new_id','=',$new_id)
+            ->select('blogs.*')->get();
+        return view('/admin/edit-blog',compact('datas'));
     }
+
+    public function editBlog(Request $request){
+        $image = time().'.'.$_FILES['new_image']['name'];
+        $request->new_image->move(public_path('images/rooms'), $image);
+        $info = $request->input('info');
+        $new_name = $request->input('new_name');
+        DB::table('blogs')->insert([
+            'info' => $info,
+            'new_image' => $image,
+            'new_name' => $new_name,
+            'post_date' => Carbon::now()
+        ]);
+        return view('admin/index');
+    }
+
     public function viewContact(){
         return view('/admin/contacts');
     }

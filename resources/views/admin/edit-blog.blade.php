@@ -1,6 +1,6 @@
 
 @extends('layouts.admin_base')
-@section('title',"Thêm bài báo")
+@section('title',"Sửa bài báo")
 
 @section('content')
 
@@ -22,15 +22,16 @@
             <!-- row -->
             <div class="container-fluid">
                 <div class="offcanvas-header">
-                    <h5 class="modal-title" id="#gridSystemModal">Thêm bài báo</h5>
+                    <h5 class="modal-title" id="#gridSystemModal">Sửa bài báo</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
-                <form action="{{url('admin/post-blog')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{url('admin/editBlog')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                 <div class="offcanvas-body">
                     <div class="container-fluid">
+                        @foreach($datas as $data)
                         <div>
                             <label>Ảnh Bìa</label>
                             <div class="dz-default dlab-message upload-img mb-3">
@@ -41,23 +42,24 @@
                                         <path d="M27.1666 26.6667L20.4999 20L13.8333 26.6667" stroke="#DADADA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
                                     <div class="fallback">
-                                        <input name="new_image" type="file">
+                                        <input name="new_image" type="file" required>
                                     </div>
                             </div>
                         </div>
                             <div class="row">
                                 <div class="col-xl-6 mb-3">
                                     <label for="exampleFormControlInput1" class="form-label">Tên bài báo <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="exampleFormControlInput1" name="new_name" placeholder="Tên bài báo...">
+                                    <input type="text" class="form-control" value="{{$data->new_name}}" id="exampleFormControlInput1" name="new_name" placeholder="Tên bài báo...">
                                 </div>
                                 <div class="col-xl-12 mb-3">
                                     <label class="form-label">Thông tin bài báo<span class="text-danger">*</span></label>
-                                    <textarea rows="3" name="info" class="form-control"></textarea>
+                                    <textarea rows="3" name="info" class="form-control">{{$data->info}}</textarea>
                                 </div>
                             </div>
                             <div>
                                 <button class="btn btn-primary me-1" type="submit">Đăng bài báo</button>
                             </div>
+                        @endforeach
                     </div>
                 </div>
                 </form>

@@ -36,7 +36,6 @@
                             <th>Tên người viết</th>
                             <th>Tên bài báo</th>
                             <th>Ảnh bài báo</th>
-                            <th>Số điện thoại</th>
                             <th>Email</th>
                             <th>Ngày viết</th>
                             <th>Hành động</th>
@@ -45,16 +44,15 @@
                         <tbody>
                         @forelse($blogs as $blog)
                         <tr>
-                            <td><img class="rounded-circle" width="35" src="{{$blog->user_image}}" alt=""></td>
+                            <td><img class="rounded-circle" width="35" src="{{url('images/rooms/'.$blog->user_image)}}" alt=""></td>
                             <td>{{$blog->name}}</td>
                             <td>{{$blog->new_name}}</td>
-                            <td><img  width="35" src="{{$blog->new_image}}" alt=""></td>
-                            <td><a href="javascript:void(0);"><strong>{{$blog->phone}}</strong></a></td>
+                            <td><img  width="35" src="{{url('images/rooms/'.$blog->new_image)}}" alt=""></td>
                             <td><a href="javascript:void(0);"><strong>{{$blog->email}}</strong></a></td>
                             <td>{{$blog->post_date}}</td>
                             <td>
                                 <div class="d-flex">
-                                    <a href="{{url('/admin/edit-blog')}}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
+                                    <a href="{{url('/admin/edit-blog/'.$blog->new_id)}}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
                                     <a href="#" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                                 </div>
                             </td>
