@@ -42,7 +42,7 @@
                                             <li>{{$blog->post_date}}</li>
                                         </ul>
                                         <div class="text">
-                                            <p>{{$blog->info}}</p>
+                                            <p>{!! $blog->info !!}</p>
                                         </div>
                                         <div class="post-tags">
                                             <ul class="tags-list clearfix">

@@ -53,12 +53,22 @@
                                 </div>
                                 <div class="col-xl-12 mb-3">
                                     <label class="form-label">Thông tin bài báo<span class="text-danger">*</span></label>
-                                    <textarea rows="3" name="info" class="form-control">{{$data->info}}</textarea>
+                                    <textarea rows="3" name="info" class="form-control" id="editor"></textarea>
                                 </div>
                             </div>
                             <div>
                                 <button class="btn btn-primary me-1" type="submit">Sửa thông tin bài báo</button>
                             </div>
+                        <script>
+                            ClassicEditor
+                                .create( document.querySelector( '#editor' ) )
+                                .then( editor => {
+                                    console.log( editor );
+                                } )
+                                .catch( error => {
+                                    console.error( error );
+                                } );
+                        </script>
                     </div>
                 </div>
                 </form>
@@ -72,3 +82,4 @@
 
     </div>
 @endsection
+

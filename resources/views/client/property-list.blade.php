@@ -124,7 +124,7 @@
                                                     <div class="author-box pull-right">
                                                         <figure class="author-thumb">
                                                             <img src="assets/images/feature/author-1.jpg" alt="">
-                                                            <span>{{Michael Bean}}</span>
+                                                            <span></span>
                                                         </figure>
                                                     </div>
                                                 </div>

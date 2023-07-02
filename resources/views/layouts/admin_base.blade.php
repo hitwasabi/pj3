@@ -35,7 +35,7 @@
 
     <!-- Style css -->
     <link href="{{asset('admin/css/style.css')}}" rel="stylesheet">
-
+    <script src="https://cdn.ckeditor.com/ckeditor5/38.1.0/classic/ckeditor.js"></script>
 </head>
 <body data-typography="poppins" data-theme-version="light" data-layout="vertical" data-nav-headerbg="black" data-headerbg="color_1">
 
@@ -77,9 +77,9 @@
 <script src="{{asset('admin/js/styleSwitcher.js')}}"></script>
 
 
-<script src="https://cdn.ckeditor.com/ckeditor5/35.4.0/classic/ckeditor.js"></script>
 
 </body>
 
 <!-- Mirrored from w3crm.dexignzone.com/xhtml/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 20 Jun 2023 01:40:42 GMT -->
 </html>
+
