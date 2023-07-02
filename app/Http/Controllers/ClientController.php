@@ -581,11 +581,24 @@ class ClientController extends Controller
             ->get()->take(3);
 //        return view('/client/home')->with('rent_rooms',$rent_rooms);
 //        dd($rent_rooms);
+        $rent_roomss =DB::table('rent_rooms')
+            ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
+            ->join('categories','categories.id','=','rent_rooms.cate_id')
+            ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
+            ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
+            ->join('cities','rent_rooms.city_id','=','cities.cities_id')
+            ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
+            ->join('users','users.id','=','rent_rooms.owner_id')
+            ->join('streets','rent_rooms.street_id','=','streets.street_id')
+            ->select('rent_rooms.*','room_details.*','cities.*','city_details.*','streets.*','rent_amounts.*','users.*','images.*')
+            ->where('interact','>=','1')
+            ->get()->take(3);
         $blogs =DB::table('blogs')
             ->join('users','users.id','=','blogs.userPost_id')
             ->select('users.*','blogs.*')
             ->get()->take(3);
         $data['rent_rooms']  = $rent_rooms;
+        $data['rent_roomss']  = $rent_roomss;
         $data['blogs']  = $blogs;
         return view('/client/home',$data);
     }

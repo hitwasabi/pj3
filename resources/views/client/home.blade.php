@@ -333,7 +333,55 @@
             </div>
         </section>
         <!-- deals-section end -->
-
+        <!-- feature-section -->
+        <section class="feature-section sec-pad bg-color-1">
+            <div class="auto-container">
+                <div class="sec-title centred">
+                    <h5>Phòng có nhiều tương tác</h5>
+                    <h2>Phòng có nhiều lượt xem nhất</h2>
+                </div>
+                <div class="row clearfix">
+                    @forelse($rent_roomss as $rent_room)
+                        <div class="col-lg-4 col-md-6 col-sm-12 feature-block">
+                            <div class="feature-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
+                                <div class="inner-box">
+                                    <div class="image-box">
+                                        <figure class="image"><img src="{{url('images/rooms/'.$rent_room->url)}}" alt=""></figure>
+                                        <div class="batch"><i class="icon-11"></i></div>
+                                        <span class="category">Đặc sắc</span>
+                                    </div>
+                                    <div class="lower-content">
+                                        <div class="author-info clearfix">
+                                            <div class="author pull-left">
+                                                <figure class="author-thumb"><img src="{{$rent_room->user_image}}" alt=""></figure>
+                                                <h6>{{$rent_room->name}}</h6>
+                                            </div>
+                                            <div class="buy-btn pull-right"><a href="{{url('/client/home/agents-details/'.$rent_room->owner_id)}}">Cho thuê</a></div>
+                                        </div>
+                                        <div class="title-text"><h4><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}">{{$rent_room->room_name}}</a></h4></div>
+                                        <div class="price-box clearfix">
+                                            <div class="price-info pull-left">
+                                                <h6>Giá khởi điểm</h6>
+                                                <h4>{{number_format($rent_room->prices, 0, '.', '.')}}<sup>đ</sup></h4>
+                                            </div>
+                                        </div>
+                                        <ul class="more-details clearfix">
+                                            <li><i class="icon-14"></i>{{$rent_room->bed_room}} phòng ngủ</li>
+                                            <li><i class="icon-15"></i>{{$rent_room->bath_room}} phòng vệ sinh </li>
+                                            <li><i class="icon-16"></i>{{$rent_room -> acreage}}métvuông</li>
+                                        </ul>
+                                        <div class="btn-box"><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}" class="theme-btn btn-two">Xem chi tiết</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @empty
+                        <p>Danh sach rong</p>
+                    @endforelse
+                </div>
+            </div>
+        </section>
+        <!-- feature-section end -->
         <!-- feature-section -->
         <section class="feature-section sec-pad bg-color-1">
             <div class="auto-container">
@@ -348,7 +396,7 @@
                         <div class="feature-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
                             <div class="inner-box">
                                 <div class="image-box">
-                                    <figure class="image"><img src="{{'images/rooms/'.$rent_room->url}}" alt=""></figure>
+                                    <figure class="image"><img src="{{url('images/rooms/'.$rent_room->url)}}" alt=""></figure>
                                     <div class="batch"><i class="icon-11"></i></div>
                                     <span class="category">Đặc sắc</span>
                                 </div>
