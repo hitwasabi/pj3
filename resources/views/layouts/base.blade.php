@@ -1,5 +1,5 @@
 <!-- xong -->
-
+@include('sweetalert::alert')
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,6 +18,7 @@
 
     <!-- Google Fonts -->
     <!-- Stylesheets -->
+
     <link href="{{asset('css/button.css')}}" rel="stylesheet">
     <link href="{{asset('css/font-awesome-all.css')}}" rel="stylesheet">
     <link href="{{asset('css/flaticon.css')}}" rel="stylesheet">
@@ -32,6 +33,7 @@
     <link href="{{asset('css/style.css')}}" rel="stylesheet">
     <link href="{{asset('css/responsive.css')}}" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
 
 </head>
 
@@ -82,6 +84,9 @@
     }(document, 'script', 'facebook-jssdk'));
 </script>
 </script>
+
+<script src="https://unpkg.com/sweetalert2@7.18.0/dist/sweetalert2.all.js"></script>
+
 
 </div>
     @yield("content")

@@ -3,6 +3,7 @@
 
 @section('content')
     @include('layouts.load')
+    @include('sweetalert::alert')
     @include('client.header')
 
 
@@ -26,7 +27,8 @@
             <div class="auto-container">
                 <div class="tabs-box">
                     <ul class="tab-buttons ">
-                        <h3>Theo tháng</h3>
+                        <h3>Gói theo tháng</h3>
+                        <h4>Số dư tài khoản của bạn : {{number_format(\Illuminate\Support\Facades\Auth::user()->money, 0, '.', '.')}} đ</h4>
                     </ul>
                     <br>
                     <div class="tabs-content">
@@ -34,7 +36,7 @@
                             <div class="row clearfix">
                                 <div class="col-lg-4 col-md-6 col-sm-12 pricing-block">
                                     <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="300ms" data-wow-duration="1500ms">
-                                        <form action="{{url('/client/buyPack')}}" method="POST">
+                                        <form action="{{url('client/buyPack')}}" method="POST">
                                             @csrf
                                         <div class="pricing-table">
                                             <div class="table-header">
@@ -59,7 +61,7 @@
                                 </div>
                                 <div class="col-lg-4 col-md-6 col-sm-12 pricing-block">
                                     <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms">
-                                        <form action="{{url('/client/buyPack')}}" method="POST">
+                                        <form action="{{url('client/buyVipPack')}}" method="POST">
                                             @csrf
                                         <div class="pricing-table">
                                             <div class="table-header">

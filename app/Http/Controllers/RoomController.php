@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class RoomController extends Controller
 {
@@ -61,6 +62,7 @@ class RoomController extends Controller
             'url_1' => $url1,
             'url_2' => $url2
         ]);
+        Alert::success('Thành công','Bài của bạn đã được đăng lên!');
         return redirect('agents/index');
     }
 }
