@@ -65,10 +65,12 @@
                     </div>
                     <div class="col-xl-9">
                         <h4 class="heading">Cấp độ gói đang sở hữu :
-                        @if($user->level == 1)
+                        @if($user->level == 2)
                         Thường
-                        @else
-
+                        @elseif($user->level == 3)
+                        VIP
+                            @else
+                            None
                         @endif
                         </h4>
                         <div class="card h-auto">
