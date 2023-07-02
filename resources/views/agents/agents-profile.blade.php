@@ -11,7 +11,7 @@
     <div id="main-wrapper">
         @include('admin.preloader')
         @include('agents.header')
-
+        @include('sweetalert::alert')
         @include('agents.sidebar')
 
         <!--**********************************
@@ -21,15 +21,14 @@
             <!-- row -->
             <div class="page-titles">
                 <ol class="breadcrumb">
-                    <li><h5 class="bc-title">Dashboard</h5></li>
+                    <li><h5 class="bc-title">Thông tin cá nhân</h5></li>
                     <li class="breadcrumb-item"><a href="javascript:void(0)">
                             <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M2.125 6.375L8.5 1.41667L14.875 6.375V14.1667C14.875 14.5424 14.7257 14.9027 14.4601 15.1684C14.1944 15.4341 13.8341 15.5833 13.4583 15.5833H3.54167C3.16594 15.5833 2.80561 15.4341 2.53993 15.1684C2.27426 14.9027 2.125 14.5424 2.125 14.1667V6.375Z" stroke="#2C2C2C" stroke-linecap="round" stroke-linejoin="round"/>
                                 <path d="M6.375 15.5833V8.5H10.625V15.5833" stroke="#2C2C2C" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
-                            Home </a>
+                            </a>
                     </li>
-                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Dashboard</a></li>
                 </ol>
             </div>
             <div class="container-fluid">
@@ -39,17 +38,17 @@
                             <div class="card-body">
                                 <div class="c-profile text-center">
                                     <img src="images/user1.jpg" class="rounded-circle mb-2">
-                                    <h4>Thomas Fleming</h4>
+                                    <h4>{{$user->name}}</h4>
                                 </div>
                                 <div class="c-details">
                                     <ul>
                                         <li>
                                             <span>Email</span>
-                                            <p>demo123@gmail.com</p>
+                                            <p>{{$user->email}}</p>
                                         </li>
                                         <li>
                                             <span>Phone</span>
-                                            <p>+91 12345647890</p>
+                                            <p>{{$user->phone}}</p>
                                         </li>
                                     </ul>
                                 </div>
@@ -65,7 +64,13 @@
                         </div>
                     </div>
                     <div class="col-xl-9">
-                        <h4 class="heading">Gói : thường / vip</h4>
+                        <h4 class="heading">Cấp độ gói đang sở hữu :
+                        @if($user->level == 1)
+                        Thường
+                        @else
+
+                        @endif
+                        </h4>
                         <div class="card h-auto">
                             <div class="card-body d-flex align-items-center justify-content-between flex-wrap">
                                 <div class="d-flex align-items-center c-busiess">
@@ -109,71 +114,6 @@
                                             </td>
                                             <td>
                                                 <span>$900</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><span>#5454421</span></td>
-                                            <td>
-                                                <span>Salesforce CRM</span>
-                                            </td>
-                                            <td><span class="badge badge-primary light border-0">Inprogress</span></td>
-                                            <td>
-                                                <span>13 March 2023</span>
-                                            </td>
-                                            <td>
-                                                <span>$500</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><span>#5857455</span></td>
-                                            <td>
-                                                <span>Slack collaboration platform</span>
-                                            </td>
-                                            <td><span class="badge badge-primary light border-0">Inprogress</span></td>
-                                            <td>
-                                                <span>24 January 2022</span>
-                                            </td>
-                                            <td>
-                                                <span>$800</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><span>#552145252</span></td>
-                                            <td>
-                                                <span>Google Chrome</span>
-                                            </td>
-                                            <td><span class="badge badge-danger light border-0">Pending</span></td>
-                                            <td>
-                                                <span>12 February 2022</span>
-                                            </td>
-                                            <td>
-                                                <span>$900</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><span>#5454421</span></td>
-                                            <td>
-                                                <span>Shopify eCommerce</span>
-                                            </td>
-                                            <td><span class="badge badge-success light border-0">Completed</span></td>
-                                            <td>
-                                                <span>13 March 2023</span>
-                                            </td>
-                                            <td>
-                                                <span>$500</span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td><span>#5857455</span></td>
-                                            <td>
-                                                <span>Slack collaboration platform</span>
-                                            </td>
-                                            <td><span class="badge badge-primary light border-0">Inprogress</span></td>
-                                            <td>
-                                                <span>24 January 2022</span>
-                                            </td>
-                                            <td>
-                                                <span>$800</span>
                                             </td>
                                         </tr>
                                         </tbody>

@@ -11,7 +11,7 @@
     <div id="main-wrapper">
         @include('admin.preloader')
         @include('agents.header')
-
+        @include('sweetalert::alert')
         @include('agents.sidebar')
 
         <!--**********************************

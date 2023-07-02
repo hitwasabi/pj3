@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Event;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class ClientController extends Controller
 {
@@ -603,10 +604,11 @@ class ClientController extends Controller
 
     public function buyPack(){
         if (Auth::user()->level == 3){
-            return view('client/pricing');
+            Alert::error('Không thành công', 'Bạn không thể mua gói vì cấp độ của bạn cao hơn');
+            return redirect('client/home/pricing');
         }
         if (Auth::user()->money < 45000){
-            return view('client/pricing');
+            Alert::error('Không thành công', 'Bạn không có đủ số dư trong tài khoản');
         }else{
             $cash = Auth::user()->money;
             $newCash = $cash - 45000;
@@ -619,14 +621,16 @@ class ClientController extends Controller
                 'payment_info' => 'Mua gói thường',
                 'payment_time' => Carbon::now()
             ]);
-            return view('agents/index');
+            Alert::success('Mua thành công','Cấp độ tài khoản của bạn bây giờ là "Thường"');
         }
+        return redirect('client/home/pricing');
     }
 
 
     public function buyVipPack(){
         if (Auth::user()->money < 225000){
-            return view('client/pricing');
+            Alert::error('Không thành công', 'Bạn không có đủ số dư trong tài khoản');
+            return view('client/home/pricing');
         }else{
             $cash = Auth::user()->money;
             $newCash = $cash - 225000;
@@ -639,7 +643,8 @@ class ClientController extends Controller
                 'payment_info' => 'Mua gói Vip',
                 'payment_time' => Carbon::now()
             ]);
-            return view('agents/index');
+            Alert::success('Mua thành công','Cấp độ tài khoản của bạn bây giờ là "VIP"');
+            return redirect('client/home/pricing');
         }
     }
 

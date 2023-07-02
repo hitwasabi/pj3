@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\City;
+use http\Client\Curl\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -78,7 +79,9 @@ class AgentController extends Controller
     }
 
     public function viewAgentsProfile(){
-        return view('/agents/agents-profile');
+        $id = Auth::user()->id;
+        $user = \App\Models\User::findOrFail($id);
+        return view('/agents/agents-profile',compact('user'));
     }
 
     public function viewWrong(){

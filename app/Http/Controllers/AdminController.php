@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AdminController extends Controller
 {
@@ -42,6 +43,7 @@ class AdminController extends Controller
             'new_name' => $new_name,
             'post_date' => Carbon::now()
         ]);
+        Alert::success('Sửa thành công', 'Bài viết của bạn đã được cập nhật');
         return redirect('admin/index');
     }
 

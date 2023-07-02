@@ -3,6 +3,7 @@
 
 @section('content')
     @include('layouts.load')
+    @include('sweetalert::alert')
     @include('client.header')
 
 
@@ -34,7 +35,7 @@
                             <div class="row clearfix">
                                 <div class="col-lg-4 col-md-6 col-sm-12 pricing-block">
                                     <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="300ms" data-wow-duration="1500ms">
-                                        <form action="{{url('/client/buyPack')}}" method="POST">
+                                        <form action="{{url('client/buyPack')}}" method="POST">
                                             @csrf
                                         <div class="pricing-table">
                                             <div class="table-header">
@@ -59,7 +60,7 @@
                                 </div>
                                 <div class="col-lg-4 col-md-6 col-sm-12 pricing-block">
                                     <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms">
-                                        <form action="{{url('/client/buyPack')}}" method="POST">
+                                        <form action="{{url('client/buyVipPack')}}" method="POST">
                                             @csrf
                                         <div class="pricing-table">
                                             <div class="table-header">

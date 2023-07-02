@@ -71,7 +71,7 @@
                                             <img src="images/tab/1.jpg" class="avatar avatar-md" alt="">
                                             <div>
                                                 <h6></h6>
-                                                <span>Web Designer</span>
+                                                <b><span>{{\Illuminate\Support\Facades\Auth::user()->name}}</span></b>
                                             </div>
                                         </div>
                                     </div>
