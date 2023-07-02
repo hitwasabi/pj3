@@ -104,7 +104,7 @@
                         <div class="property-sidebar default-sidebar">
                             <div class="author-widget sidebar-widget">
                                 <div class="author-box">
-                                    <figure class="author-thumb"><img src="{{asset('images/resource/author-1.jpg')}}" alt=""></figure>
+                                    <figure class="author-thumb"><img src="{{$rent_room->user_image}}" alt=""></figure>
                                     <div class="inner">
                                         <h4>{{$rent_room->name}}</h4>
                                         <ul class="info clearfix">

@@ -598,11 +598,15 @@ class ClientController extends Controller
             ->join('users','users.id','=','rent_rooms.owner_id')
             ->join('streets','rent_rooms.street_id','=','streets.street_id')
             ->select('rent_rooms.*','room_details.*','cities.*','city_details.*','streets.*','rent_amounts.*','users.*','images.*')
-            ->get();
+            ->get()->take(3);
 //        return view('/client/home')->with('rent_rooms',$rent_rooms);
 //        dd($rent_rooms);
+        $blogs =DB::table('blogs')
+            ->join('users','users.id','=','blogs.userPost_id')
+            ->select('users.*','blogs.*')
+            ->get()->take(3);
         $data['rent_rooms']  = $rent_rooms;
-
+        $data['blogs']  = $blogs;
         return view('/client/home',$data);
     }
     public function getState(Request $request)
@@ -665,7 +669,7 @@ class ClientController extends Controller
         $blogs =DB::table('blogs')
             ->join('users','users.id','=','blogs.userPost_id')
             ->select('users.*','blogs.*')
-            ->paginate(3);
+            ->paginate(2);
         $data = ['blogs'=>$blogs];
         //dd($data);
         return view('client/blog', $data);

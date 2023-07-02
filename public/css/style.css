@@ -1983,6 +1983,7 @@ div#mCSB_1_container{
 
 .feature-section{
   position: relative;
+    margin-bottom: 300px;
 }
 
 .feature-section .sec-title h2{
@@ -2320,7 +2321,7 @@ div#mCSB_1_container{
 
 .feature-section .more-btn{
   position: relative;
-  margin-top: 50px;
+  margin-top: 400px;
 }
 
 
@@ -3204,6 +3205,7 @@ div#mCSB_1_container{
 
 .news-section{
   position: relative;
+    margin-bottom: 200px;
 }
 
 .news-section .sec-title h2{
