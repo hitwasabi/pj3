@@ -348,7 +348,7 @@
                         <div class="feature-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
                             <div class="inner-box">
                                 <div class="image-box">
-                                    <figure class="image"><img src="{{$rent_room-> url}}" alt=""></figure>
+                                    <figure class="image"><img src="{{'images/rooms/'.$rent_room->url}}" alt=""></figure>
                                     <div class="batch"><i class="icon-11"></i></div>
                                     <span class="category">Đặc sắc</span>
                                 </div>
@@ -462,7 +462,7 @@
                         <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
                             <div class="inner-box">
                                 <div class="image-box">
-                                    <figure class="image"><a href="{{url('client/home/blogs-details/'.$blog->new_id)}}"><img src="{{$blog->new_image}}" alt=""></a></figure>
+                                    <figure class="image"><a href="{{url('client/home/blogs-details/'.$blog->new_id)}}"><img src="{{url('images/rooms/'.$blog->new_image)}} " alt=""></a></figure>
                                     <span class="category">Tin tức</span>
                                 </div>
                                 <div class="lower-content">

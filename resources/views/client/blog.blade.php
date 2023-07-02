@@ -29,13 +29,12 @@
                                 @forelse($blogs as $blog)
                                 <div class="inner-box">
                                     <div class="image-box">
-                                        <figure class="image"><a href="{{url('client/home/blogs-details/'.$blog->new_id)}}"><img src="{{$blog->new_image}}" alt=""></a></figure>
+                                        <figure class="image"><a href="{{url('client/home/blogs-details/'.$blog->new_id)}}"><img src="{{url('images/rooms/'.$blog->new_image)}}" alt=""></a></figure>
                                         <span class="category">Featured</span>
                                     </div>
                                     <div class="lower-content">
                                         <h3><a href="{{url('client/home/blogs-details/'.$blog->new_id)}}">
-                                                <img class="img-fluid" src="{{url('images/rooms/'.$blog->new_image)}}">
-                                            </a></h3>
+                                            </a>{{$blog->new_name}}</h3>
                                         <ul class="post-info clearfix">
                                             <li class="author-box">
                                                 <figure class="author-thumb"><img src="{{$blog->user_image}}" alt=""></figure>
@@ -53,12 +52,7 @@
                                 @endforelse
                             </div>
                             <div class="pagination-wrapper">
-                                <ul class="pagination clearfix">
-                                    <li><a href="blog-3.html" class="current">1</a></li>
-                                    <li><a href="blog-3.html">2</a></li>
-                                    <li><a href="blog-3.html">3</a></li>
-                                    <li><a href="blog-3.html"><i class="fas fa-angle-right"></i></a></li>
-                                </ul>
+                                {{$blogs->links("pagination::bootstrap-4")}}
                             </div>
                         </div>
                     </div>

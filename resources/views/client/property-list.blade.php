@@ -109,7 +109,7 @@
                                     <div class="deals-block-one">
                                         <div class="inner-box">
                                             <div class="image-box">
-                                                <figure class="image"><img src="{{$rent_room->url}}" alt=""></figure>
+                                                <figure class="image"><img src="{{'images/rooms/'.$rent_room->url}}" alt=""></figure>
                                                 <div class="batch"><i class="icon-11"></i></div>
                                                 <span class="category">Featured</span>
                                                 <div class="buy-btn"><a href="property-details.blade.php">For Buy</a></div>
@@ -154,7 +154,7 @@
                                             <div class="feature-block-one">
                                                 <div class="inner-box">
                                                     <div class="image-box">
-                                                        <figure class="image"><img src="{{$rent_room-> url}}" alt=""></figure>
+                                                        <figure class="image"><img src="{{'images/rooms/'.$rent_room->url}}" alt=""></figure>
                                                         <div class="batch"><i class="icon-11"></i></div>
                                                         <span class="category">Featured</span>
                                                     </div>

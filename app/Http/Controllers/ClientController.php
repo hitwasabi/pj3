@@ -43,39 +43,18 @@ class ClientController extends Controller
             ->join('categories','categories.id','=','rent_rooms.cate_id')
             ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
             ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*')
-            ->paginate(3);
+            ->paginate(6);
         if($request-> get('sort')=='price_asc'){
-            $rent_rooms =DB::table('rent_rooms')
-                ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
-                ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
-                ->join('categories','categories.id','=','rent_rooms.cate_id')
-                ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
-                ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*')
-                ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortBy('prices')
             );
         }
         if($request-> get('sort')=='price_desc'){
-            $rent_rooms =DB::table('rent_rooms')
-                ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
-                ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
-                ->join('categories','categories.id','=','rent_rooms.cate_id')
-                ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
-                ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*')
-                ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('prices')
             );
         }
         if($request-> get('sort')=='id_desc'){
-            $rent_rooms =DB::table('rent_rooms')
-                ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
-                ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
-                ->join('categories','categories.id','=','rent_rooms.cate_id')
-                ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
-                ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*')
-                ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('rr_id')
             );
@@ -669,7 +648,7 @@ class ClientController extends Controller
         $blogs =DB::table('blogs')
             ->join('users','users.id','=','blogs.userPost_id')
             ->select('users.*','blogs.*')
-            ->paginate(2);
+            ->paginate(5);
         $data = ['blogs'=>$blogs];
         //dd($data);
         return view('client/blog', $data);

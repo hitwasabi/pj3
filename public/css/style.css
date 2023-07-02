@@ -3235,7 +3235,8 @@ div#mCSB_1_container{
 
 .news-block-one .inner-box .image-box .image img{
   width: 100%;
-  transition: all 500ms ease;
+    height: 300px;
+    transition: all 500ms ease;
 }
 
 .news-block-one .inner-box:hover .image-box .image img{
@@ -9210,6 +9211,7 @@ div#mCSB_1_container{
 
 .sidebar-page-container .news-block-one .inner-box{
   margin-bottom: 30px;
+
 }
 
 .blog-sidebar{
