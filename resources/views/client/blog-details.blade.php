@@ -29,7 +29,7 @@
                             <div class="news-block-one">
                                 <div class="inner-box">
                                     <div class="image-box">
-                                        <figure class="image"><img src="{{$blog->new_image}}" alt=""></figure>
+                                        <figure class="image"><img src="{{url('images/rooms/'.$blog->new_image)}}" alt=""></figure>
                                         <span class="category">Featured</span>
                                     </div>
                                     <div class="lower-content">
@@ -86,7 +86,7 @@
                                 <div class="post-inner">
                                     @forelse($blogs as $blog)
                                     <div class="post">
-                                        <figure class="post-thumb"><a href="{{url('client/home/blog-details')}}"><img src="{{$blog->new_image}}" alt=""></a></figure>
+                                        <figure class="post-thumb"><a href="{{url('client/home/blog-details')}}"><img src="{{url('images/rooms/'.$blog->new_image)}}" alt=""></a></figure>
                                         <h5><a href="{{url('client/home/blog-details/'.$blog->new_id)}}">{{$blog->new_name}}.</a></h5>
                                         <span class="post-date">{{$blog->post_date}}</span>
                                     </div>

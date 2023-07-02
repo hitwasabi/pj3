@@ -59,8 +59,8 @@
                             <div class="carousel-inner">
                                 <div class="single-item-carousel owl-carousel owl-theme owl-dots-none">
                                     <figure class="image-box"><img src="{{url('images/rooms/'.$image->url)}}" alt=""></figure>
-                                    <figure class="image-box"><img src="{{url('images/rooms/'.$image->url)}}" alt=""></figure>
-                                    <figure class="image-box"><img src="{{url('images/rooms/'.$image->url)}}" alt=""></figure>
+                                    <figure class="image-box"><img src="{{url('images/rooms/'.$image->url_1)}}" alt=""></figure>
+                                    <figure class="image-box"><img src="{{url('images/rooms/'.$image->url_2)}}" alt=""></figure>
                                 </div>
                             </div>
                             <div class="discription-box content-widget">
@@ -127,7 +127,7 @@
                             <div class="feature-block-one wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms">
                                 <div class="inner-box">
                                     <div class="image-box">
-                                        <figure class="image"><img src="{{$rent_room-> url}}" alt=""></figure>
+                                        <figure class="image"><img src="{{url('images/rooms/'.$rent_room->url)}}" alt=""></figure>
                                         <div class="batch"><i class="icon-11"></i></div>
                                         <span class="category">Featured</span>
                                     </div>
@@ -139,7 +139,7 @@
                                             </div>
                                             <div class="buy-btn pull-right"><a href="property-details.html">Sold Out</a></div>
                                         </div>
-                                        <div class="title-text"><h4><a href="property-details.html">{{$rent_room-> room_name}}</a></h4></div>
+                                        <div class="title-text"><h4><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}">{{$rent_room-> room_name}}</a></h4></div>
                                         <div class="price-box clearfix">
                                             <div class="price-info pull-left">
                                                 <h6>Giá khởi điểm</h6>

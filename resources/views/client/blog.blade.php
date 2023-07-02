@@ -29,7 +29,7 @@
                                 @forelse($blogs as $blog)
                                 <div class="inner-box">
                                     <div class="image-box">
-                                        <figure class="image"><a href="{{url('client/home/blogs-details/'.$blog->new_id)}}"><img src="{{url('images/rooms/'.$blog->new_image)}}" alt=""></a></figure>
+                                        <figure class="image"><a href="{{url('client/home/blog-details/'.$blog->new_id)}}"><img src="{{url('images/rooms/'.$blog->new_image)}}" alt=""></a></figure>
                                         <span class="category">Featured</span>
                                     </div>
                                     <div class="lower-content">

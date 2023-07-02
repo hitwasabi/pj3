@@ -76,6 +76,7 @@
 <script src="{{asset('admin/js/styleSwitcher.js')}}"></script>
 
 
+<script src="https://cdn.ckeditor.com/ckeditor5/35.4.0/classic/ckeditor.js"></script>
 
 </body>
 
