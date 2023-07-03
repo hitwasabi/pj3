@@ -20,7 +20,7 @@
         ***********************************-->
         <div class="content-body">
             <!-- row -->
-            @foreach($rent_rooms as $rent_room)
+            @forelse($rent_rooms as $rent_room)
             <div class="container-fluid">
                 <div class="offcanvas-header">
                     <h5 class="modal-title" id="#gridSystemModal">Sửa thông tin bài đăng</h5>
@@ -28,7 +28,7 @@
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
-                <form action="{{url('/agents/edit-room/'.$rent_room->rr_id)}}" method="PUT" enctype="multipart/form-data">
+                <form action="{{url('/agents/edit-room/'.$rent_room->rr_id)}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="offcanvas-body">
@@ -44,13 +44,13 @@
                                         <path d="M27.1666 26.6667L20.4999 20L13.8333 26.6667" stroke="#DADADA" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
                                     <div class="fallback">
-                                        <input name="url" type="file" >
+                                        <input name="url" type="file" required >
                                     </div>
                                     <div class="fallback">
-                                        <input name="url_1" type="file" >
+                                        <input name="url_1" type="file" required >
                                     </div>
                                     <div class="fallback">
-                                        <input name="url_2" type="file" >
+                                        <input name="url_2" type="file" required >
                                     </div>
                                     {{--                                    </form>--}}
                                 </div>
@@ -162,7 +162,9 @@
                     </div>
                 </form>
             </div>
-                @endforeach
+            @empty
+                <p>Error</p>
+            @endforelse
         </div>
         <!--**********************************
             Content body end

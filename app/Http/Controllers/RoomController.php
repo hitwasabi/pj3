@@ -95,9 +95,6 @@ class RoomController extends Controller
     }
 
     public function editRoom(Request $request, $rr_id){
-        $request->validate([
-            'url' => 'required'
-        ]);
         $url = time().'.'.$_FILES['url']['name'];
         $request->url->move(public_path('images/rooms'), $url);
         $url1 = time().'.'.$_FILES['url_1']['name'];
