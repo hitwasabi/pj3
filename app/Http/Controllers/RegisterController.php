@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class RegisterController extends Controller
 {
@@ -29,6 +30,7 @@ class RegisterController extends Controller
             'isAdmin'=> 1,
             'level'=> 1,
         ]);
-        return redirect('/login');
+        Alert::success('Đăng ký thành công','Giờ bạn có thể đăng nhập và sử dụng trang web một cách tiện lợi');
+        return view('/signin');
     }
 }

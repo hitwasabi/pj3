@@ -27,6 +27,11 @@ class AdminController extends Controller
         $data = ['blogs'=>$blogs];
         return view('/admin/blog',$data);
     }
+
+    public function viewAddBlog(){
+        return view('/admin/add-blog');
+    }
+
     public function viewEditBlog($new_id){
         $data = Blog::findOrFail($new_id);
         return view('/admin/edit-blog',compact('data'));
@@ -87,6 +92,7 @@ class AdminController extends Controller
             'new_name' => $new_name,
             'post_date' => Carbon::now()
         ]);
-        return view('admin/index');
+        Alert::success('Đăng thành công', 'Bài viết của bạn đã được đăng lên');
+        return redirect('admin/index');
     }
 }

@@ -21,7 +21,7 @@
             <div class="container-fluid">
                 <div class="d-flex align-items-center justify-content-between mb-4">
                     <h4 class="heading mb-0">Danh sách bài báo</h4>
-                    <form action="{{url('admin/post-blog')}}" method="GET">
+                    <form action="{{url('admin/add-blog')}}" method="GET">
                         @csrf
                     <div class="d-flex align-items-center">
                         <button class="btn btn-primary btn-sm ms-2" type="submit">Thêm bài báo</button>

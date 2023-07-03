@@ -3,6 +3,7 @@
 
 @section('content')
     @include('layouts.load')
+    @include('sweetalert::alert')
     @include('client.header')
 <!-- page wrapper -->
     <div class="boxed_wrapper">
