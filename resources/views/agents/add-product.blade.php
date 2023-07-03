@@ -134,15 +134,28 @@
                                         <label class="form-label">Diện tích phòng trọ<span class="text-danger">(mét vuông)</span></label>
                                         <input type="text" class="form-control" id="room_name" name="acreage" placeholder="Nhập diện tích phòng trọ..." required>
                                     </div>
-
+                                    <div class="col-xl-12 mb-3">
+                                        <label class="form-label">Địa chỉ chi tiết<span class="text-danger"></span></label>
+                                        <textarea type="text" class="form-control" name="location_info" placeholder="Nhập địa chỉ chi tiết..." required></textarea>
+                                    </div>
                                     <div class="col-xl-12 mb-3">
                                         <label class="form-label">Mô tả thêm <span class="text-danger">*</span></label>
-                                        <textarea rows="3" class="form-control" name="info_detail"></textarea>
+                                        <textarea rows="3" class="form-control" id="editor" name="info_detail"></textarea>
                                     </div>
                                 </div>
                                 <div>
                                     <button type="submit" class="btn btn-primary me-1">Đăng bài</button>
                                 </div>
+                            <script>
+                                ClassicEditor
+                                    .create( document.querySelector( '#editor' ) )
+                                    .then( editor => {
+                                        console.log( editor );
+                                    } )
+                                    .catch( error => {
+                                        console.error( error );
+                                    } );
+                            </script>
                         </div>
                     </div>
                     </form>

@@ -107,7 +107,7 @@ Route::get('/client/home/agents-list', function () {
 Route::get('client/home/agents-details/{id}',[ClientController::class,'viewAgent']);
 
 
-
+Route::get('/agents/edit-room/{rr_id}',[\App\Http\Controllers\RoomController::class,'viewEditRoom']);
 Route::post('/agents/add-product',[\App\Http\Controllers\RoomController::class,'postRoom']);
 Route::post('/client/buyPack',[ClientController::class,'buyPack']);
 Route::post('/client/buyVipPack',[ClientController::class,'buyVipPack']);
@@ -129,7 +129,7 @@ Route::get('/agents/add-product',[AgentController::class,'viewAdd']);
 Route::get('/agents/payment-history',[AgentController::class,'viewPayment']);
 Route::get('/agents/agents-profile',[\App\Http\Controllers\AgentController::class,'viewAgentsProfile']);
 
-
+Route::put('/agents/edit-room/{rr_id}',[\App\Http\Controllers\RoomController::class,'editRoom']);
 
 
 

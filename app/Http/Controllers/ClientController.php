@@ -102,7 +102,7 @@ class ClientController extends Controller
         $bed_room =  $request->input('bed_room');
         $prices =  $request->input('prices');
 
-        $collection =DB::table('rent_rooms')
+        $collection = DB::table('rent_rooms')
             ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
             ->join('categories','categories.id','=','rent_rooms.cate_id')
             ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
@@ -122,17 +122,17 @@ class ClientController extends Controller
             ->paginate(3);
         if($request-> get('sort')=='price_asc'){
             $collection->setCollection(
-                $collection->sortBy('prices')->paginate()
+                $collection->sortBy('prices')
             );
         }
         if($request-> get('sort')=='price_desc'){
             $collection->setCollection(
-                $collection->sortByDesc('prices')->paginate()
+                $collection->sortByDesc('prices')
             );
         }
         if($request-> get('sort')=='id_desc'){
             $collection->setCollection(
-                $collection->sortByDesc('rr_id')->paginate()
+                $collection->sortByDesc('rr_id')
             );
         }
 

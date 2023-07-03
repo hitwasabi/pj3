@@ -46,6 +46,10 @@
                                             <p>Tình trạng: <span class="item">  <i class="fa fa-check-circle text-success"></i></span></p>
                                             <p>ID phòng: <span class="item">{{$rent_room->rr_id}}</span> </p>
                                             <p class="text-content">{{$rent_room->info_detail}}</p>
+                                            <form action="{{url('/agents/edit-room/'.$rent_room->rr_id)}}" method="GET">
+                                                @csrf
+                                                <button type="submit">Sửa thông tin</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
