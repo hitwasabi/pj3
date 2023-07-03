@@ -8,6 +8,7 @@ use http\Client\Curl\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class AgentController extends Controller
 {
@@ -70,6 +71,21 @@ class AgentController extends Controller
     public function viewEdit(){
         return view('/agents/edit-profile');
     }
+
+    public function editProfile(Request $request, $id){
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $phone = $request->input('phone');
+
+        DB::table('users')->where('id','=',$id)->update([
+            'name' => $name,
+            'email' => $email,
+            'phone' => $phone
+        ]);
+        Alert::info('Thành công','Thông tin của bạn đã được cập nhật');
+        return redirect('agents/agents-profile');
+    }
+
     public function viewPayment(){
         $user_id = Auth::user()->id;
         $datas = DB::table('payment_histories')
@@ -81,7 +97,10 @@ class AgentController extends Controller
     public function viewAgentsProfile(){
         $id = Auth::user()->id;
         $user = \App\Models\User::findOrFail($id);
-        return view('/agents/agents-profile',compact('user'));
+        $datas = DB::table('payment_histories')
+            ->where('user_id','=',$id)
+            ->get();
+        return view('/agents/agents-profile',compact('user','datas'));
     }
 
     public function viewWrong(){

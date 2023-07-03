@@ -123,13 +123,14 @@ Route::get('/agents/ecom-product-list',[\App\Http\Controllers\AgentController::c
 //Xem chi tiet san pham agent
 Route::get('/agents/ecom-product-detail/{rr_id}',[AgentController::class,'show']);
 
-Route::get('/agents/edit-profile',[\App\Http\Controllers\AgentController::class,'viewEdit']);
+Route::get('/agents/edit-profile/{id}',[\App\Http\Controllers\AgentController::class,'viewEdit']);
 Route::get('/agents/wrong-level',[AgentController::class,'viewWrong']);
 Route::get('/agents/add-product',[AgentController::class,'viewAdd']);
 Route::get('/agents/payment-history',[AgentController::class,'viewPayment']);
 Route::get('/agents/agents-profile',[\App\Http\Controllers\AgentController::class,'viewAgentsProfile']);
 
 Route::put('/agents/edit-room/{rr_id}',[\App\Http\Controllers\RoomController::class,'editRoom']);
+Route::put('/agents/edit-profile/{id}',[AgentController::class,'editProfile']);
 
 
 
@@ -144,7 +145,7 @@ Route::get('/admin/edit-blog/{new_id}',[\App\Http\Controllers\AdminController::c
 Route::put('/admin/editBlog/{new_id}',[AdminController::class,'editBlog']);
 Route::get('/admin/contacts',[\App\Http\Controllers\AdminController::class,'viewContact']);
 Route::get('/admin/ecom-product-list',[\App\Http\Controllers\AdminController::class,'viewEcom_product_list']);
-Route::get('/admin/edit-profile',[\App\Http\Controllers\AdminController::class,'viewEdit']);
+Route::get('/admin/edit-profile/{id}',[\App\Http\Controllers\AdminController::class,'viewEdit']);
 Route::get('/admin/payment-history',[AdminController::class,'viewPayment']);
 Route::get('/admin/customer-profile',[\App\Http\Controllers\AdminController::class,'viewEmployeeDetail']);
 Route::get('/admin/comfirm-product',[\App\Http\Controllers\AdminController::class,'comfirm']);

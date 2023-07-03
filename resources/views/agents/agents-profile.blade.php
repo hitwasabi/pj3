@@ -37,7 +37,11 @@
                         <div class="card h-auto">
                             <div class="card-body">
                                 <div class="c-profile text-center">
-                                    <img src="images/user1.jpg" class="rounded-circle mb-2">
+                                    @if(\Illuminate\Support\Facades\Auth::user()->user_image == null)
+                                        <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAMAAABlApw1AAAAMFBMVEX19vfExcbIycnd3t/y8/TNzc7V1tfa29zm5+jr7O3LzMzc3d7Q0NHu7/Dg4eLj5OU4/BecAAAC7ElEQVR4nO3cAWKrIAwGYEFQVLT3v+2rdd3atTokaJK+/ztBoiAB0lYVAAAAAAAAAAAAAABAIS7Uje+tMbb3TR0cdzz7dG1vfvFtxx1VKje9RL/oJw3vwQ32ffgzO4hP4bIR/i2FC3eEm8a4Hf4sjtxRrvvr8X+9hMAd55o2JfxZyx3pe01q/MY03LG+kzD8f0TuaF/teP4i30Hy+L8TNg8ue+M3RtS3aEz6fj6zktaDXRP4TtBEzhhAMzFVhcsYQDMrpbIb8uI3puaOfJH7AsS8gik3fmMm7thvVvZfKTx37LMuP35jJOyTdxcRjyQUFJ6SgIAx5CjxG8P/HQq0BPhLupqWAP9atnMj8xv/xoY0hyWUpIRlbNZzx19lF0ILyx1/RYvfGO749Segfgipn8TqP6PqFzL1pYT6Yk59Oa1+Q0PbUg7c0VcfsKmnjCEJI+gDDrbUHy3mr2X8q9hC/fG6+gsO/VdM+i/5cko6/jLuye5rJglFxBPtrQY7J7LA+PW32+worMWN/7ugvOVMf9Nfpb7t8srVW42vtZj6bYObVvZoXkXr8U3XvuSgqPl7Mbffx6X9PuprvwcAAAAAgP+V68I0NPG6nVm2x7b3sRmm0Mnf1bgwNXFrUx+bSermbN5CJt4S2DgIy8KF1038X3wrJYluyL7p9gP3SYULqcNmjW0YX0QgdmvdNSynvV1LfPaP7OmnXpesi9Ut8XLeUNo8v8131smvI3U4bWuPT+Ggp//t6D+emI4N/8oe2UOUcoNE5w/7IhF7XNMdc4s5Eruk9/AHXAR2h4/+R+WvYgmdfXkKz+XThv+PohPh9Oc/K9gSmNkTR1XsTpzUXExRakE48fv5rC9TVzBM4LsiE3nki9+YEgta9r9GlFDiJ+vEH4oR0WcB8Uc+VPSS4sD9Vwr6GCp0dJKL3mDNtggs6D8WPbWKfoOcAHP8SAAJIAEkgASQABJAAkgACSABxgQAAAAAAAAAAAAAAODj/AMS6imfF+YdbQAAAABJRU5ErkJggg==" class="avatar avatar-md" alt="">
+                                    @else
+                                        <img src="{{url('images/agents/'.\Illuminate\Support\Facades\Auth::user()->user_image)}}" class="avatar avatar-md" alt="">
+                                    @endif
                                     <h4>{{$user->name}}</h4>
                                 </div>
                                 <div class="c-details">
@@ -52,13 +56,14 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <span class="mt-3 d-block">Social</span>
+                                <span class="mt-3 d-block"></span>
                                 <div class="d-flex mt-4 justify-content-end">
-                                    <a href="javascript:void(0)" class="btn btn-danger btn-sm light me-2"><i class="fa-solid fa-trash me-1"></i>Delete</a>
-                                    <button type="button" class="modal-btn btn btn-primary btn-sm  ms-2 " data-bs-toggle="modal" data-bs-target="#exampleModal3">
-                                        <i class="fa-solid fa-pen-to-square me-1"></i>
-                                        <span>Edit </span>
+                                    <form action="{{url('/agents/edit-profile/'.\Illuminate\Support\Facades\Auth::user()->id)}}" method="GET">
+                                        @csrf
+                                    <button type="submit" class="modal-btn btn btn-primary btn-sm  ms-2 ">
+                                        Sửa thông tin cá nhân
                                     </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -74,21 +79,6 @@
                         @endif
                         </h4>
                         <div class="card h-auto">
-                            <div class="card-body d-flex align-items-center justify-content-between flex-wrap">
-                                <div class="d-flex align-items-center c-busiess">
-                                    <img src="images/economics.png" class="avatar">
-                                    <div>
-                                        <h5 class="mb-0">Business board pro<span class="badge badge-danger badge-xs ms-1">Active</span></h5>
-                                        <span>Billing monthly | Next payment on 15/02/2023for$590.40</span>
-                                    </div>
-                                </div>
-                                <div>
-                                    <a href="javascript:void(0)" class="btn btn-light btn-sm me-2">Cancle plan</a>
-                                    <a href="javascript:void(0)" class="btn btn-primary btn-sm ms-2">Update plan</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="card h-auto">
                             <div class="card-header py-3">
                                 <h4 class="heading mb-0">Lịch sử thanh toán</h4>
                             </div>
@@ -97,27 +87,35 @@
                                     <table id="empoloyees-tbl" class="table">
                                         <thead>
                                         <tr>
-                                            <th>REFERENCE</th>
-                                            <th>PRODUCT</th>
-                                            <th>STATUS</th>
-                                            <th>DATE</th>
-                                            <th>AMOUNT</th>
+                                            <th>Số hóa đơn</th>
+                                            <th>Loại thanh toán</th>
+                                            <th>Trạng Thái</th>
+                                            <th>Giá tiền</th>
+                                            <th>Ngày thanh toán</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <td><span>#552145252</span></td>
-                                            <td>
-                                                <span>Zoom video conferencing</span>
-                                            </td>
-                                            <td><span class="badge badge-danger light border-0">Pending</span></td>
-                                            <td>
-                                                <span>12 February 2022</span>
-                                            </td>
-                                            <td>
-                                                <span>$900</span>
-                                            </td>
-                                        </tr>
+                                        @if($datas->count() == null)
+                                            <tr>
+                                                <td><span class="badge badge-success light border-0">Bạn chưa thực hiện thanh toán nên không có lịch sử</span></td>
+                                            </tr>
+                                        @else
+                                            @foreach($datas as $data)
+                                                <tr>
+                                                    <td><span>#{{$data->payment_id}}</span></td>
+                                                    <td>
+                                                        <span>{{$data->payment_info}}</span>
+                                                    </td>
+                                                    <td><span class="badge badge-success light border-0">Đã hoàn thành</span></td>
+                                                    <td>
+                                                        <span>{{$data->price}} đ</span>
+                                                    </td>
+                                                    <td>
+                                                        <span>{{$data->payment_time}}</span>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        @endif
                                         </tbody>
 
                                     </table>
