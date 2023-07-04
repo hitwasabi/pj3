@@ -151,7 +151,7 @@ class ClientController extends Controller
             $query->orderBy('room_details.prices');
         }
         if($request-> get('sort')=='price_desc'){
-            $query->orderBy('room_details.prices','desc')->appends(['sort'=>'']);
+            $query->orderBy('room_details.prices','desc');
         }
         if($request-> get('sort')=='id_desc'){
             $query->orderBy('rr_id','desc');
