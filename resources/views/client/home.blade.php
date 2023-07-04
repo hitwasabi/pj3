@@ -37,12 +37,12 @@
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-4 col-md-6 col-sm-12 column">
-                                                        @csrf
+
                                                         <div class="form-group">
                                                             <label for="cities">Thành phố</label>
                                                             <div class="select-box">
                                                                 <i class="far fa-compass"></i>
-                                                                <select class="wide"  name ="cities"  id="country-dropdown" onchange="selectProvince()">
+                                                                <select class="wide"  name ="cities"  id="country-dropdown" onchange="selectProvince()" >
                                                                     <option value="">Nhập tỉnh thành</option>
                                                                     @foreach($cities as $city)
                                                                         <option value="{{$city->cities_id }}">{{$city->city_name}}</option>
@@ -56,8 +56,8 @@
                                                             <label for="city_details">Quận , huyện</label>
                                                             <div class="select-box">
                                                                 <i class="far fa-compass"></i>
-                                                                <select class="wide" name="cities_details" id="state_dropdown" onchange="selectStreet()">
-
+                                                                <select class="wide" name="cities_details" id="state_dropdown" onchange="selectStreet()" >
+                                                                    <option value=""></option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -68,6 +68,7 @@
                                                             <div class="select-box" >
                                                                 <i class="far fa-compass"></i>
                                                                 <select class="wide" name ="streets" id="city-dropdown">
+                                                                    <option value=""></option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -107,6 +108,9 @@
                                                         <div class="form-group">
                                                             <label>Lọc giá</label>
                                                             <div class="range-price">
+                                                                <label>1 triệu - 5 triệu  <input type="radio" name="price" value="1000000-5000000" id="" checked="checked"></label>
+                                                            </div>
+                                                            <div class="range-price">
                                                                 <label>1 triệu - 2 triệu  <input type="radio" name="price" value="1000000-2000000" id=""></label>
                                                             </div>
                                                             <div class="range-price">
@@ -118,7 +122,10 @@
                                                         <div class="form-group">
                                                             <label>Lọc diện tích</label>
                                                             <div class="range-price">
-                                                                <label>20 - 30m vuông  <input type="radio" name="acre" value="20-30" id=""></label>
+                                                                <label>20 - 500m vuông  <input type="radio" name="acre" value="20-500" id="" checked="checked"></label>
+                                                            </div>
+                                                            <div class="range-price">
+                                                                <label>20 - 30m vuông  <input type="radio" name="acre" value="20-30" id="" ></label>
                                                             </div>
                                                             <div class="range-price">
                                                                 <label>50 - 100m vuông <input type="radio" name="acre" value="50-100" id=""></label>

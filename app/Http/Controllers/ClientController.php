@@ -103,6 +103,8 @@ class ClientController extends Controller
         $streets =  $request->get('streets');
         $bath_room =  $request->get('bath_room');
         $bed_room =  $request->input('bed_room');
+        $price = $request->price;
+        $acre = $request->acre;
         $query = DB::table('rent_rooms')
             ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
             ->join('categories','categories.id','=','rent_rooms.cate_id')
@@ -147,19 +149,27 @@ class ClientController extends Controller
             $query->where('room_details.acreage','>=', $minAcre);
             $query->where('room_details.acreage', '<=', $maxAcre);
         }
+//        dd($query->get());
         if($request-> get('sort')=='price_asc'){
-            $query->orderBy('room_details.prices');
+            $query->orderBy('room_details.prices')->paginate(3);
         }
         if($request-> get('sort')=='price_desc'){
-            $query->orderBy('room_details.prices','desc');
+            $query->orderBy('room_details.prices','DESC')->paginate(3);
         }
         if($request-> get('sort')=='id_desc'){
-            $query->orderBy('rr_id','desc');
+            $query->orderBy('rr_id','DESC')->paginate(3);
         }
-//        dd($query->get());
         $collection = $query->paginate(3);
         $data = ['search_product'=>$collection,
-                'keyword_submit'=>$keyword];
+                'keyword_submit'=>$keyword,
+            'cities'=>$cities,
+            'cities_details'=>$city_details,
+            'streets'=>$streets,
+            'bath_room'=>$bath_room,
+            'bed_room'=>$bed_room,
+            'price'=>$price,
+            'acreage'=>$acre
+        ];
         $data['cities'] = City::get(["city_name","cities_id"]);
         //dd($collection);
         return view('client/search', $data);

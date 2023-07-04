@@ -94,9 +94,9 @@
                                 <div class="short-box clearfix">
                                     <div class="select-box">
                                         <select class="wide" onchange="location = this.value;">
-                                            <option data-display="Sắp xếp theo:" value="{{url('/client/home/search')."?keyword_submit=".$_GET['keyword_submit']."&sort=id_desc"}}">Mới nhất</option>
-                                            <option value="{{url('/client/home/search')."?keyword_submit=".$_GET['keyword_submit']."&sort=price_desc"}}"> Giá cao đến thấp</option>
-                                            <option value="{{url('/client/home/search')."?keyword_submit=".$_GET['keyword_submit']."&sort=price_asc"}}">Giá thấp đến cao</option>
+                                            <option data-display="Sắp xếp theo:" value="{{url('/client/home/search')."?keyword_submit=".$_GET['keyword_submit']."&cities=".$_GET['cities']."&cities_details=".$_GET['cities_details']."&streets=".$_GET['streets']."&bed_room=".$_GET['bed_room']."&bath_room=".$_GET['bath_room']."&price=".$_GET['price']."&acre=".$_GET['acre']."&sort=id_desc"}}">Mới nhất</option>
+                                            <option value="{{url('/client/home/search')."?keyword_submit=".$_GET['keyword_submit']."&cities=".$_GET['cities']."&cities_details=".$_GET['cities_details']."&streets=".$_GET['streets']."&bed_room=".$_GET['bed_room']."&bath_room=".$_GET['bath_room']."&price=".$_GET['price']."&acre=".$_GET['acre']."&sort=price_desc"}}"> Giá cao đến thấp</option>
+                                            <option value="{{url('/client/home/search')."?keyword_submit=".$_GET['keyword_submit']."&cities=".$_GET['cities']."&cities_details=".$_GET['cities_details']."&streets=".$_GET['streets']."&bed_room=".$_GET['bed_room']."&bath_room=".$_GET['bath_room']."&price=".$_GET['price']."&acre=".$_GET['acre']."&sort=price_asc"}}">Giá thấp đến cao</option>
                                         </select>
                                     </div>
                                 </div>
@@ -196,7 +196,7 @@
                             </div>
                         </div>
                         <div class="pagination-wrapper">
-                            {!!$search_product->appends(['keyword_submit'=>$_GET['keyword_submit']])->links("pagination::bootstrap-4")  !!}
+                            {!!$search_product->appends(['keyword_submit'=>$_GET['keyword_submit'],'cities'=>$_GET['cities'],'cities_details'=>$_GET['cities_details'],'streets'=>$_GET['streets'],'bed_room'=>$_GET['bed_room'],'bath_room'=>$_GET['bath_room'],'price'=>$_GET['price'],'acre'=>$_GET['acre']])->links("pagination::bootstrap-4")  !!}
                         </div>
                     </div>
                 </div>
