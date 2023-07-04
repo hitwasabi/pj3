@@ -16,7 +16,10 @@ class AdminController extends Controller
     }
 
     public function viewEmployee(){
-        return view('/admin/customer');
+        $agents = DB::table('users')
+        ->where('isAdmin','=',1)
+            ->get();
+        return view('/admin/customer',compact('agents'));
     }
 
     public function viewBlog(){

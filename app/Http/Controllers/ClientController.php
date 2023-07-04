@@ -643,7 +643,7 @@ class ClientController extends Controller
     public function buyVipPack(){
         if (Auth::user()->money < 225000){
             Alert::error('Không thành công', 'Bạn không có đủ số dư trong tài khoản');
-            return view('client/home/pricing');
+            return redirect('client/home/pricing');
         }else{
             $cash = Auth::user()->money;
             $newCash = $cash - 225000;

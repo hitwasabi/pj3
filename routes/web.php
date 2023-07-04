@@ -147,7 +147,7 @@ Route::get('/admin/contacts',[\App\Http\Controllers\AdminController::class,'view
 Route::get('/admin/ecom-product-list',[\App\Http\Controllers\AdminController::class,'viewEcom_product_list']);
 Route::get('/admin/edit-profile/{id}',[\App\Http\Controllers\AdminController::class,'viewEdit']);
 Route::get('/admin/payment-history',[AdminController::class,'viewPayment']);
-Route::get('/admin/customer-profile',[\App\Http\Controllers\AdminController::class,'viewEmployeeDetail']);
+Route::get('/admin/customer-profile/{id}',[\App\Http\Controllers\AdminController::class,'viewEmployeeDetail']);
 Route::get('/admin/comfirm-product',[\App\Http\Controllers\AdminController::class,'comfirm']);
 Route::get('/admin/admin-profile',[\App\Http\Controllers\AdminController::class,'viewAdminProfile']);
 
