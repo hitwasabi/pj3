@@ -16,10 +16,13 @@ use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Event;
+use Ramsey\Uuid\Type\Integer;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class ClientController extends Controller
 {
+    public $min_prices;
+    public $max_prices;
     public function viewClient(){
         $rent_rooms =DB::table('rent_rooms')
             ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
@@ -100,9 +103,7 @@ class ClientController extends Controller
         $streets =  $request->get('streets');
         $bath_room =  $request->get('bath_room');
         $bed_room =  $request->input('bed_room');
-        $prices =  $request->input('prices');
-
-        $collection = DB::table('rent_rooms')
+        $query = DB::table('rent_rooms')
             ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
             ->join('categories','categories.id','=','rent_rooms.cate_id')
             ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
@@ -111,35 +112,56 @@ class ClientController extends Controller
             ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
             ->join('users','users.id','=','rent_rooms.owner_id')
             ->join('streets','rent_rooms.street_id','=','streets.street_id')
-            ->select('rent_rooms.*','room_details.*','cities.*','city_details.*','streets.*','rent_amounts.*','users.*','images.*')
-            ->where('room_name','like','%'.$keyword.'%')
-            ->where('cities_id','like','%'.$cities.'%')
-            ->where('rent_rooms.city_detailId','like','%'.$city_details.'%')
-            ->where('rent_rooms.street_id','like','%'.$streets.'%')
-            ->where('room_details.bath_room','like','%'.$bath_room.'%')
-            ->where('room_details.bed_room','like','%'.$bed_room.'%')
-            ->where('room_details.prices','like','%'.$prices.'%')
-            ->paginate(3);
+            ->select('rent_rooms.*','room_details.*','cities.*','city_details.*','streets.*','rent_amounts.*','users.*','images.*');
+        if($request->get('keyword_submit')){
+            $query->where('room_name','like','%'.$keyword.'%');
+        }
+        if($request->get('cities')){
+            $query->where('cities_id','like','%'.$cities.'%');
+        }
+        if($request->get('cities_details')){
+            $query->where('rent_rooms.city_detailId','like','%'.$city_details.'%');
+        }
+        if($request->get('streets')){
+            $query->where('rent_rooms.street_id','like','%'.$streets.'%');
+        }
+        if($request->get('bath_room')){
+            $query->where('room_details.bath_room','like','%'.$bath_room.'%');
+        }
+        if($request->get('bed_room')){
+            $query->where('room_details.bed_room','like','%'.$bed_room.'%');
+        }
+        if($request->price) {
+            $price = $request->price;
+            $priceArr = explode("-", $price);
+            $minPrice= (int)$priceArr[0];
+            $maxPrice= (int)$priceArr[1];
+            $query->where('room_details.prices','>=', $minPrice);
+            $query->where('room_details.prices', '<=', $maxPrice);
+        }
+        if($request->acre) {
+            $acre = $request->acre;
+            $acreArr = explode("-", $acre);
+            $minAcre= (int)$acreArr[0];
+            $maxAcre= (int)$acreArr[1];
+            $query->where('room_details.acreage','>=', $minAcre);
+            $query->where('room_details.acreage', '<=', $maxAcre);
+        }
         if($request-> get('sort')=='price_asc'){
-            $collection->setCollection(
-                $collection->sortBy('prices')
-            );
+            $query->orderBy('room_details.prices');
         }
         if($request-> get('sort')=='price_desc'){
-            $collection->setCollection(
-                $collection->sortByDesc('prices')
-            );
+            $query->orderBy('room_details.prices','desc')->appends(['sort'=>'']);
         }
         if($request-> get('sort')=='id_desc'){
-            $collection->setCollection(
-                $collection->sortByDesc('rr_id')
-            );
+            $query->orderBy('rr_id','desc');
         }
-
-
+//        dd($query->get());
+        $collection = $query->paginate(3);
         $data = ['search_product'=>$collection,
                 'keyword_submit'=>$keyword];
         $data['cities'] = City::get(["city_name","cities_id"]);
+        //dd($collection);
         return view('client/search', $data);
     }
 
@@ -567,6 +589,8 @@ class ClientController extends Controller
 
     public function index()
     {
+        $this->min_prices=1;
+        $this->max_prices=20000000;
         $data['cities'] = City::get(["city_name","cities_id"]);
         $rent_rooms =DB::table('rent_rooms')
             ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
@@ -600,6 +624,8 @@ class ClientController extends Controller
         $data['rent_rooms']  = $rent_rooms;
         $data['rent_roomss']  = $rent_roomss;
         $data['blogs']  = $blogs;
+        $data['min_prices']  = $this->min_prices;
+        $data['max_prices']  = $this->max_prices;
         return view('/client/home',$data);
     }
     public function getState(Request $request)

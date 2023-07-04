@@ -91,15 +91,40 @@
                                                     </div>
                                                     <div class="col-lg-4 col-md-6 col-sm-12 column">
                                                         <div class="form-group">
-                                                            <label>Lọc giá</label>
+                                                            <label>Phòng vệ sinh</label>
                                                             <div class="select-box">
-                                                                <select class="wide">
-                                                                    <option value="">Nhập khoảng giá</option>
-                                                                    <option value="1">1 triệu - 2 triệu</option>
-                                                                    <option value="2">2 triệu - 3 triệu</option>
-                                                                    <option value="3">3 triệu - 5 triệu</option>
-                                                                    <option value="4">lớn hơn 5 triệu</option>
+                                                                <select class="wide" name="bath_room">
+                                                                    <option value="">Chọn số phòng vệ sinh</option>
+                                                                    <option value="1">Một phòng vệ sinh</option>
+                                                                    <option value="2">Hai phòng vệ sinh</option>
+                                                                    <option value="3">Ba phòng vệ sinh</option>
+                                                                    <option value="4">Bốn phòng vệ sinh</option>
                                                                 </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-6 col-sm-12 column">
+                                                        <div class="form-group">
+                                                            <label>Lọc giá</label>
+                                                            <div class="range-price">
+                                                                <label>1 triệu - 2 triệu  <input type="radio" name="price" value="1000000-2000000" id=""></label>
+                                                            </div>
+                                                            <div class="range-price">
+                                                                <label>2 triệu - 5 triệu <input type="radio" name="price" value="2000000-5000000" id=""></label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-md-6 col-sm-12 column">
+                                                        <div class="form-group">
+                                                            <label>Lọc diện tích</label>
+                                                            <div class="range-price">
+                                                                <label>20 - 30m vuông  <input type="radio" name="acre" value="20-30" id=""></label>
+                                                            </div>
+                                                            <div class="range-price">
+                                                                <label>50 - 100m vuông <input type="radio" name="acre" value="50-100" id=""></label>
+                                                            </div>
+                                                            <div class="range-price">
+                                                                <label>100 - 500m vuông <input type="radio" name="acre" value="100-500" id=""></label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -208,6 +233,7 @@
                             </div>
                         </li>
                     </ul>
+
                     <div class="more-btn"><a href="{{url('/client/home/property-list')}}" class="theme-btn btn-one">Xem tất cả</a></div>
                 </div>
             </div>
@@ -545,7 +571,7 @@
     </div>
 @endsection
 <script async='async' src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.1/nouislider.min.js" integrity="sha512-UOJe4paV6hYWBnS0c9GnIRH8PLm2nFK22uhfAvsTIqd3uwnWsVri1OPn5fJYdLtGY3wB11LGHJ4yPU1WFJeBYQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
     {{--$(document).ready(function() {--}}
     {{--    $('#country-dropdown').on('change', function() {--}}
@@ -656,3 +682,4 @@
         });
     }
 </script>
+
