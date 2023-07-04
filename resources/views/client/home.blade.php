@@ -43,7 +43,7 @@
                                                             <div class="select-box">
                                                                 <i class="far fa-compass"></i>
                                                                 <select class="wide"  name ="cities"  id="country-dropdown" onchange="selectProvince()" >
-                                                                    <option value="">Nhập tỉnh thành</option>
+                                                                    <option value=" ">Nhập tỉnh thành</option>
                                                                     @foreach($cities as $city)
                                                                         <option value="{{$city->cities_id }}">{{$city->city_name}}</option>
                                                                     @endforeach
@@ -57,7 +57,7 @@
                                                             <div class="select-box">
                                                                 <i class="far fa-compass"></i>
                                                                 <select class="wide" name="cities_details" id="state_dropdown" onchange="selectStreet()" >
-                                                                    <option value=""></option>
+                                                                    <option value=" "></option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -78,7 +78,7 @@
                                                             <label>Phòng ngủ</label>
                                                             <div class="select-box">
                                                                 <select class="wide" name="bed_room">
-                                                                    <option value="">Chọn số phòng ngủ</option>
+                                                                    <option value=" ">Chọn số phòng ngủ</option>
                                                                     {{--                                                                    @foreach($rent_rooms as $rent_room)--}}
                                                                     {{--                                                                        <option value="{{$rent_room->bed_room }}">{{$rent_room->bed_room}} Phòng ngủ</option>--}}
                                                                     {{--                                                                    @endforeach--}}
@@ -108,13 +108,13 @@
                                                         <div class="form-group">
                                                             <label>Lọc giá</label>
                                                             <div class="range-price">
-                                                                <label>1 triệu - 5 triệu  <input type="radio" name="price" value="1000000-5000000" id="" checked="checked"></label>
+                                                                <label>1 - 5 triệu  <input type="radio" name="price" value="1000000-5000000" id="" checked="checked"></label>
                                                             </div>
                                                             <div class="range-price">
-                                                                <label>1 triệu - 2 triệu  <input type="radio" name="price" value="1000000-2000000" id=""></label>
+                                                                <label>1 - 2 triệu  <input type="radio" name="price" value="1000000-2000000" id=""></label>
                                                             </div>
                                                             <div class="range-price">
-                                                                <label>2 triệu - 5 triệu <input type="radio" name="price" value="2000000-5000000" id=""></label>
+                                                                <label>2 - 5 triệu <input type="radio" name="price" value="2000000-5000000" id=""></label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -122,16 +122,16 @@
                                                         <div class="form-group">
                                                             <label>Lọc diện tích</label>
                                                             <div class="range-price">
-                                                                <label>20 - 500m vuông  <input type="radio" name="acre" value="20-500" id="" checked="checked"></label>
+                                                                <label>20 - 500m<sup>2</sup>  <input type="radio" name="acre" value="20-500" id="" checked="checked"></label>
                                                             </div>
                                                             <div class="range-price">
-                                                                <label>20 - 30m vuông  <input type="radio" name="acre" value="20-30" id="" ></label>
+                                                                <label>20 - 30m<sup>2</sup>  <input type="radio" name="acre" value="20-30" id="" ></label>
                                                             </div>
                                                             <div class="range-price">
-                                                                <label>50 - 100m vuông <input type="radio" name="acre" value="50-100" id=""></label>
+                                                                <label>50 - 100m<sup>2</sup> <input type="radio" name="acre" value="50-100" id=""></label>
                                                             </div>
                                                             <div class="range-price">
-                                                                <label>100 - 500m vuông <input type="radio" name="acre" value="100-500" id=""></label>
+                                                                <label>100 - 500m<sup>2</sup> <input type="radio" name="acre" value="100-500" id=""></label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -140,70 +140,6 @@
                                                     <button type="submit"><i class="fas fa-search"></i>Tìm kiếm</button>
                                                 </div>
                                             </form>
-                                        </div>
-                                        <div class="switch_btn_one ">
-                                            <button class="nav-btn nav-toggler navSidebar-button clearfix search__toggler">Tìm kiếm nâng cao<i class="fas fa-angle-down"></i></button>
-                                            <div class="advanced-search">
-                                                <div class="close-btn">
-                                                    <a href="#" class="close-side-widget"><i class="far fa-times"></i></a>
-                                                </div>
-                                                <div class="row clearfix">
-                                                    <div class="col-lg-4 col-md-6 col-sm-12 column">
-                                                        @csrf
-                                                        <div class="form-group">
-                                                            <label>Phòng ngủ</label>
-                                                            <div class="select-box">
-                                                                <select class="wide" name="bed_room">
-                                                                    <option value="">Chọn số phòng ngủ</option>
-{{--                                                                    @foreach($rent_rooms as $rent_room)--}}
-{{--                                                                        <option value="{{$rent_room->bed_room }}">{{$rent_room->bed_room}} Phòng ngủ</option>--}}
-{{--                                                                    @endforeach--}}
-                                                                    <option value="1">Một phòng ngủ</option>
-                                                                    <option value="2">Hai phòng ngủ</option>
-                                                                    <option value="3">Ba phòng ngủ</option>
-                                                                    <option value="4">Bốn phòng ngủ</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-4 col-md-6 col-sm-12 column">
-                                                        <div class="form-group">
-                                                            <label>Phòng vệ sinh</label>
-                                                            <div class="select-box">
-                                                                <select class="wide">
-                                                                    <option value="">Chọn số phòng vệ sinh</option>
-                                                                   <option value="1">Hai phòng vệ sinh</option>
-                                                                   <option value="2">Ba phòng vệ sinh</option>
-                                                                   <option value="3">Bốn phòng vệ sinh</option>
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="range-box">
-                                                    <div class="row clearfix">
-                                                        <div class="col-lg-6 col-md-6 col-sm-12 column">
-                                                            <div class="price-range">
-                                                                <h6>Lựa chọn khoảng giá</h6>
-                                                                <div class="range-input">
-                                                                    <div class="input"><input type="text" class="property-amount" name="field-name" readonly=""></div>
-                                                                </div>
-                                                               <!-- Thay đổi số liệu trong class bên dưới -->
-                                                                <div class="price-range-slider"></div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-6 col-md-6 col-sm-12 column">
-                                                            <div class="area-range">
-                                                                <h6>Lựa chọn diện tích</h6>
-                                                                <div class="range-input">
-                                                                    <div class="input"><input type="text" class="area-range" name="field-name" readonly=""></div>
-                                                                </div>
-                                                                <div class="area-range-slider"></div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>

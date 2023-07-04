@@ -34,31 +34,25 @@
                                     <div class="col-xl-3 col-lg-6 col-md-6">
                                         <!-- Tab panes -->
                                         <div class="tab-content" id="myTabContent">
-                                            @if($image->url == null)
-                                                <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-                                                    <img class="img-fluid rounded " src="#" alt="">
-                                                </div>
-                                            @else
-                                                <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                                                <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
                                                     <img class="img-fluid rounded " src="{{url('images/rooms/'.$image->url)}}" alt="">
                                                 </div>
-                                            @endif
                                             @if($image->url_1 == null)
                                                 <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
                                                     <img class="img-fluid rounded " src="#" alt="">
                                                 </div>
                                                     @else
 										  <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-												<img class="img-fluid rounded " src="{{$image->url_1}}" alt="">
+												<img class="img-fluid rounded " src="{{url('images/rooms/'.$image->url_1)}}" alt="">
 										  </div>
                                             @endif
                                             @if($image->url_2 == null)
-                                                <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+                                                <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
                                                     <img class="img-fluid rounded " src="#" alt="">
                                                 </div>
                                             @else
-                                                <div class="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-                                                    <img class="img-fluid rounded " src="{{$image->url_2}}" alt="">
+                                                <div class="tab-pane fade" id="contact-tab-pane" role="tabpanel" aria-labelledby="contact-tab" tabindex="0">
+                                                    <img class="img-fluid rounded " src="{{url('images/rooms/'.$image->url_2)}}" alt="">
                                                 </div>
                                             @endif
 

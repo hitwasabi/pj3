@@ -150,16 +150,19 @@ class ClientController extends Controller
             $query->where('room_details.acreage', '<=', $maxAcre);
         }
 //        dd($query->get());
+        $collection = $query->paginate(3);
         if($request-> get('sort')=='price_asc'){
-            $query->orderBy('room_details.prices')->paginate(3);
+            $query->orderBy('room_details.prices');
+            $collection = $query->paginate(100);
         }
         if($request-> get('sort')=='price_desc'){
-            $query->orderBy('room_details.prices','DESC')->paginate(3);
+            $query->orderBy('room_details.prices','DESC');
+            $collection = $query->paginate(100);
         }
         if($request-> get('sort')=='id_desc'){
-            $query->orderBy('rr_id','DESC')->paginate(3);
+            $query->orderBy('rr_id','DESC');
+            $collection = $query->paginate(100);
         }
-        $collection = $query->paginate(3);
         $data = ['search_product'=>$collection,
                 'keyword_submit'=>$keyword,
             'cities'=>$cities,

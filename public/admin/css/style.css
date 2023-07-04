@@ -32690,6 +32690,7 @@ div#mCSB_1 {
       .slide-item-list li a:hover, .slide-item-list li a:focus {
         background: transparent; }
       .slide-item-list li a img {
+          height: 40px;
         width: 100%;
         border-radius: 0.375rem; }
   .slide-item-list .nav-link {
@@ -32781,6 +32782,7 @@ div#mCSB_1 {
   overflow: hidden;
   position: relative; }
   .new-arrival-product .new-arrivals-img-contnent img {
+      height: 300px;
     width: 100%;
     -webkit-transition: all 0.5s;
     -ms-transition: all 0.5s;
