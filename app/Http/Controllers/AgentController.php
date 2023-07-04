@@ -76,11 +76,14 @@ class AgentController extends Controller
     }
 
     public function editProfile(Request $request, $id){
+        $user_image = time().'.'.$_FILES['user_image']['name'];
+        $request->user_image->move(public_path('images/agents'), $user_image);
         $name = $request->input('name');
         $email = $request->input('email');
         $phone = $request->input('phone');
 
         DB::table('users')->where('id','=',$id)->update([
+            'user_image' => $user_image,
             'name' => $name,
             'email' => $email,
             'phone' => $phone
