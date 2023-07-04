@@ -28,7 +28,10 @@ class AgentController extends Controller
             ->where('status','=' , 1)
             ->where('owner_id','=',Auth::user()->id)
             ->count();
-        return view('/agents/index',compact('all_room','rent_room','cancel_room'));
+        $payment = DB::table('payment_histories')
+            ->where('user_id','=',Auth::id())
+            ->get();
+        return view('/agents/index',compact('all_room','rent_room','cancel_room','payment'));
     }
 
     public function viewEcom_product_list(){

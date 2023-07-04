@@ -105,8 +105,8 @@
                                     <div class="card-body depostit-card">
                                         <div class="depostit-card-media d-flex justify-content-between style-1">
                                             <div>
-                                                <h6>Số dư tài khoản</h6>
-                                                <h3>{{\Illuminate\Support\Facades\Auth::user()->money}} đ</h3>
+                                                <h6>Số lần thực hiện thanh toán</h6>
+                                                <h3>{{$payment->count()}}</h3>
                                             </div>
                                             <div class="icon-box bg-primary-light">
                                                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
