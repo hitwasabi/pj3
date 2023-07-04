@@ -93,7 +93,7 @@
                                 </li>
                                 <li><a href="{{url('/client/home/contact')}}"><span>Liên hệ</span></a></li>
                                 @if(\Illuminate\Support\Facades\Auth::check() == true)
-                                <li><a href="{{url('/logout')}}">Đăng xuất</a> </li>\
+                                <li><a href="{{url('/logout')}}">Đăng xuất</a> </li>
                                 @endif
                             </ul>
                         </div>

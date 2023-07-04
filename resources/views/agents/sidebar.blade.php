@@ -53,7 +53,7 @@
                     @else
                         <li><a href="{{url('agents/add-product')}}">Đăng bài mới</a></li>
                     @endif
-                    <li><a href="{{url('agents/edit-profile')}}">Sửa thông tin cá nhân</a></li>
+                    <li><a href="{{url('agents/edit-profile/'.\Illuminate\Support\Facades\Auth::id())}}">Sửa thông tin cá nhân</a></li>
                     <li><a href="{{url('client/home/pricing')}}">Mua gói</a></li>
                     <li><a href="{{url('agents/payment-history')}}">Lịch sử thanh toán</a></li>
                 </ul>

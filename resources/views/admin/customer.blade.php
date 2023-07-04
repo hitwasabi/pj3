@@ -38,6 +38,7 @@
 								<a class="btn btn-primary btn-sm ms-2" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">+ Thêm chủ trọ</a>
 							</div>
 						</div>
+
 						<div class="card">
 							<div class="card-body p-0">
 								<div class="table-responsive active-projects style-1 dt-filter exports">
@@ -46,426 +47,42 @@
 									<table id="customer-tbl" class="table shorting">
 										<thead>
                                             <tr>
-												<th class="">
-													<div class="form-check custom-checkbox ms-0">
-														<input type="checkbox" class="form-check-input" id="checkAll" required="">
-														<label class="form-check-label" for="checkAll"></label>
-													</div>
-												</th>
 												</th>
                                                 <th>ID</th>
                                                 <th>Tên</th>
                                                 <th>Email </th>
                                                 <th>Số điện thoại</th>
-                                                <th>Gender</th>
-                                                <th>Location</th>
-                                                <th>Status</th>
                                             </tr>
                                         </thead>
 										<tbody>
+                                        @foreach($agents as $agent)
 											<tr>
-												<td>
-													<div class="form-check custom-checkbox">
-														<input type="checkbox" class="form-check-input" id="customCheckBox2" required="">
-														<label class="form-check-label" for="customCheckBox2"></label>
-													</div>
-												</td>
-												<td><span>001</span></td>
+												<td><span>{{$agent->id}}</span></td>
 												<td>
 													<div class="products">
-														<img src="images/contacts/pic1.jpg" class="avatar avatar-md" alt="">
+                                                        @if($agent->user_image == null)
+                                                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAMAAABlApw1AAAAMFBMVEX19vfExcbIycnd3t/y8/TNzc7V1tfa29zm5+jr7O3LzMzc3d7Q0NHu7/Dg4eLj5OU4/BecAAAC7ElEQVR4nO3cAWKrIAwGYEFQVLT3v+2rdd3atTokaJK+/ztBoiAB0lYVAAAAAAAAAAAAAABAIS7Uje+tMbb3TR0cdzz7dG1vfvFtxx1VKje9RL/oJw3vwQ32ffgzO4hP4bIR/i2FC3eEm8a4Hf4sjtxRrvvr8X+9hMAd55o2JfxZyx3pe01q/MY03LG+kzD8f0TuaF/teP4i30Hy+L8TNg8ue+M3RtS3aEz6fj6zktaDXRP4TtBEzhhAMzFVhcsYQDMrpbIb8uI3puaOfJH7AsS8gik3fmMm7thvVvZfKTx37LMuP35jJOyTdxcRjyQUFJ6SgIAx5CjxG8P/HQq0BPhLupqWAP9atnMj8xv/xoY0hyWUpIRlbNZzx19lF0ILyx1/RYvfGO749Segfgipn8TqP6PqFzL1pYT6Yk59Oa1+Q0PbUg7c0VcfsKmnjCEJI+gDDrbUHy3mr2X8q9hC/fG6+gsO/VdM+i/5cko6/jLuye5rJglFxBPtrQY7J7LA+PW32+worMWN/7ugvOVMf9Nfpb7t8srVW42vtZj6bYObVvZoXkXr8U3XvuSgqPl7Mbffx6X9PuprvwcAAAAAgP+V68I0NPG6nVm2x7b3sRmm0Mnf1bgwNXFrUx+bSermbN5CJt4S2DgIy8KF1038X3wrJYluyL7p9gP3SYULqcNmjW0YX0QgdmvdNSynvV1LfPaP7OmnXpesi9Ut8XLeUNo8v8131smvI3U4bWuPT+Ggp//t6D+emI4N/8oe2UOUcoNE5w/7IhF7XNMdc4s5Eruk9/AHXAR2h4/+R+WvYgmdfXkKz+XThv+PohPh9Oc/K9gSmNkTR1XsTpzUXExRakE48fv5rC9TVzBM4LsiE3nki9+YEgta9r9GlFDiJ+vEH4oR0WcB8Uc+VPSS4sD9Vwr6GCp0dJKL3mDNtggs6D8WPbWKfoOcAHP8SAAJIAEkgASQABJAAkgACSABxgQAAAAAAAAAAAAAAODj/AMS6imfF+YdbQAAAABJRU5ErkJggg==" class="avatar avatar-md" alt="">
+                                                        @else
+                                                            <img src="{{url('images/agents/'.$agent->user_image)}}" class="avatar avatar-md" alt="">
+                                                        @endif
 														<div>
-															<h6><a href="{{url('admin/customer-profile')}}">Ricky Seme</a></h6>
-															<span>Web Designer</span>
+															<h6><a href="{{url('admin/customer-profile/'.$agent->id)}}">{{$agent->name}}</a></h6>
+															@if($agent->level == 1)
+                                                            <span>Chưa có cấp độ</span>
+                                                            @elseif($agent->level == 2)
+                                                                <span>Tài khoản thường</span>
+                                                            @else
+                                                            <span>Tài khoản VIP</span>
+                                                            @endif
 														</div>
 													</div>
 												</td>
-												<td><a href="javascript:void(0)" class="text-primary">rs@gmail.com</a></td>
+												<td><a href="javascript:void(0)" class="text-primary">{{$agent->email}}</a></td>
 												<td>
-													<span>+1 123 456 7890</span>
-												</td>
-												<td>
-													<span>Female</span>
-												</td>
-												<td>
-													<span>USA</span>
-												</td>
-												<td>
-													<span class="badge badge-success light border-0">Active</span>
+													<span>{{$agent->phone}}</span>
 												</td>
 											</tr>
-											<tr>
-												<td>
-													<div class="form-check custom-checkbox">
-														<input type="checkbox" class="form-check-input" id="customCheckBox22" required="">
-														<label class="form-check-label" for="customCheckBox22"></label>
-													</div>
-												</td>
-												<td><span>059</span></td>
-												<td>
-													<div class="products">
-														<img src="images/contacts/pic2.jpg" class="avatar avatar-md" alt="">
-														<div>
-															<h6><a href="app-profile-2.html">Ricky men</a></h6>
-															<span>Web Designer</span>
-														</div>
-													</div>
-												</td>
-												<td><a href="javascript:void(0)" class="text-primary">rm@gmail.com</a></td>
-												<td>
-													<span>+16 123 456 7890</span>
-												</td>
-												<td>
-													<span>Female</span>
-												</td>
-												<td>
-													<span>UK</span>
-												</td>
-												<td>
-													<span class="badge badge-success light border-0">Active</span>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<div class="form-check custom-checkbox">
-														<input type="checkbox" class="form-check-input" id="customCheckBox3" required="">
-														<label class="form-check-label" for="customCheckBox3"></label>
-													</div>
-												</td>
-												<td><span>0015</span></td>
-												<td>
-													<div class="products">
-														<img src="images/contacts/pic3.jpg" class="avatar avatar-md" alt="">
-														<div>
-															<h6><a href="javascript:void(0)">Charlotte Sarah</a></h6>
-															<span>Web Doveloper</span>
-														</div>
-													</div>
-												</td>
-												<td><a href="javascript:void(0)" class="text-primary">cs@gmail.com</a></td>
-												<td>
-													<span>+2 123 456 7890</span>
-												</td>
-												<td>
-													<span>CA</span>
-												</td>
-												<td>
-													<span>TX</span>
-												</td>
-												<td>
-													<span class="badge badge-danger light border-0">Pending</span>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<div class="form-check custom-checkbox">
-														<input type="checkbox" class="form-check-input" id="customCheckBox4" required="">
-														<label class="form-check-label" for="customCheckBox4"></label>
-													</div>
-												</td>
-												<td><span>0016</span></td>
-												<td>
-													<div class="products">
-														<img src="images/contacts/pic1.jpg" class="avatar avatar-md" alt="">
-														<div>
-															<h6><a href="app-profile-2.html">Madison Jessica</a></h6>
-															<span>Web Designer</span>
-														</div>
-													</div>
-												</td>
-												<td><a href="javascript:void(0)" class="text-primary">mj@gmail.com</a></td>
-												<td>
-													<span>+022 123 456 7890</span>
-												</td>
-												<td>
-													<span>Female</span>
-												</td>
-												<td>
-													<span>WA</span>
-												</td>
-												<td>
-													<span class="badge badge-success light border-0">Active</span>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<div class="form-check custom-checkbox">
-														<input type="checkbox" class="form-check-input" id="customCheckBox44" required="">
-														<label class="form-check-label" for="customCheckBox44"></label>
-													</div>
-												</td>
-												<td><span>0056</span></td>
-												<td>
-													<div class="products">
-														<img src="images/contacts/pic2.jpg" class="avatar avatar-md" alt="">
-														<div>
-															<h6><a href="app-profile-2.html">Rodriguez Jessica</a></h6>
-															<span>Web Doveloper</span>
-														</div>
-													</div>
-												</td>
-												<td><a href="javascript:void(0)" class="text-primary">mj@gmail.com</a></td>
-												<td>
-													<span>+044 123 456 7890</span>
-												</td>
-												<td>
-													<span>Female</span>
-												</td>
-												<td>
-													<span>KS</span>
-												</td>
-												<td>
-													<span class="badge badge-success light border-0">Active</span>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<div class="form-check custom-checkbox">
-														<input type="checkbox" class="form-check-input" id="customCheckBox5" required="">
-														<label class="form-check-label" for="customCheckBox5"></label>
-													</div>
-												</td>
-												<td><span>0017</span></td>
-												<td>
-													<div class="products">
-														<img src="images/contacts/pic3.jpg" class="avatar avatar-md" alt="">
-														<div>
-															<h6><a href="app-profile-2.html">Abigail Margaret</a></h6>
-															<span>Web Designer</span>
-														</div>
-													</div>
-												</td>
-												<td><a href="javascript:void(0)" class="text-primary">am@gmail.com</a></td>
-												<td>
-													<span>+56 123 456 7890</span>
-												</td>
-												<td>
-													<span>Male</span>
-												</td>
-												<td>
-													<span>PA</span>
-												</td>
-												<td>
-													<span class="badge badge-success light border-0">Active</span>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<div class="form-check custom-checkbox">
-														<input type="checkbox" class="form-check-input" id="customCheckBox5" required="">
-														<label class="form-check-label" for="customCheckBox5"></label>
-													</div>
-												</td>
-												<td><span>0017</span></td>
-												<td>
-													<div class="products">
-														<img src="images/contacts/pic3.jpg" class="avatar avatar-md" alt="">
-														<div>
-															<h6><a href="app-profile-2.html">Martinez Margaret</a></h6>
-															<span>Web Designer</span>
-														</div>
-													</div>
-												</td>
-												<td><a href="javascript:void(0)" class="text-primary">am@gmail.com</a></td>
-												<td>
-													<span>+88 123 456 7890</span>
-												</td>
-												<td>
-													<span>Male</span>
-												</td>
-												<td>
-													<span>WA</span>
-												</td>
-												<td>
-													<span class="badge badge-success light border-0">Active</span>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<div class="form-check custom-checkbox">
-														<input type="checkbox" class="form-check-input" id="customCheckBox6" required="">
-														<label class="form-check-label" for="customCheckBox6"></label>
-													</div>
-												</td>
-												<td><span>007</span></td>
-												<td>
-													<div class="products">
-														<img src="images/contacts/pic2.jpg" class="avatar avatar-md" alt="">
-														<div>
-															<h6><a href="javascript:void(0)">Ricky Antony</a></h6>
-															<span>App Designer</span>
-														</div>
-													</div>
-												</td>
-												<td><a href="javascript:void(0)" class="text-primary">ra@gmail.com</a></td>
-												<td>
-													<span>+588 123 456 7890</span>
-												</td>
-												<td>
-													<span>Male</span>
-												</td>
-												<td>
-													<span>USA</span>
-												</td>
-												<td>
-													<span class="badge badge-danger light border-0">Pending</span>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<div class="form-check custom-checkbox">
-														<input type="checkbox" class="form-check-input" id="customCheckBox7" required="">
-														<label class="form-check-label" for="customCheckBox7"></label>
-													</div>
-												</td>
-												<td><span>008</span></td>
-												<td>
-													<div class="products">
-														<img src="images/contacts/pic2.jpg" class="avatar avatar-md" alt="">
-														<div>
-															<h6><a href="app-profile-2.html">Amelia Antony</a></h6>
-															<span>Web Designer</span>
-														</div>
-													</div>
-												</td>
-												<td><a href="javascript:void(0)" class="text-primary">ant@gmail.com</a></td>
-												<td>
-													<span>+580 123 456 7890</span>
-												</td>
-												<td>
-													<span>Male</span>
-												</td>
-												<td>
-													<span>NYC</span>
-												</td>
-												<td>
-													<span class="badge badge-success light border-0">Active</span>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<div class="form-check custom-checkbox">
-														<input type="checkbox" class="form-check-input" id="customCheckBox8" required="">
-														<label class="form-check-label" for="customCheckBox8"></label>
-													</div>
-												</td>
-												<td><span>009</span></td>
-												<td>
-													<div class="products">
-														<img src="images/contacts/pic1.jpg" class="avatar avatar-md" alt="">
-														<div>
-															<h6><a href="app-profile-2.html">Ricky Olivia</a></h6>
-															<span>Web Doveloper</span>
-														</div>
-													</div>
-												</td>
-												<td><a href="javascript:void(0)" class="text-primary">ro@gmail.com</a></td>
-												<td>
-													<span>+78 123 456 7890</span>
-												</td>
-												<td>
-													<span>Female</span>
-												</td>
-												<td>
-													<span>NC</span>
-												</td>
-												<td>
-													<span class="badge badge-danger light border-0">Pending</span>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<div class="form-check custom-checkbox">
-														<input type="checkbox" class="form-check-input" id="customCheckBox9" required="">
-														<label class="form-check-label" for="customCheckBox9"></label>
-													</div>
-												</td>
-												<td><span>010</span></td>
-												<td>
-													<div class="products">
-														<img src="images/contacts/pic3.jpg" class="avatar avatar-md" alt="">
-														<div>
-															<h6><a href="app-profile-2.html">Ricky Isla</a></h6>
-															<span>Web Designer</span>
-														</div>
-													</div>
-												</td>
-												<td><a href="javascript:void(0)" class="text-primary">ri@gmail.com</a></td>
-												<td>
-													<span>+80 123 456 7890</span>
-												</td>
-												<td>
-													<span>Male</span>
-												</td>
-												<td>
-													<span>FL</span>
-												</td>
-												<td>
-													<span class="badge badge-success light border-0">Active</span>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<div class="form-check custom-checkbox">
-														<input type="checkbox" class="form-check-input" id="customCheckBox10" required="">
-														<label class="form-check-label" for="customCheckBox10"></label>
-													</div>
-												</td>
-												<td><span>011</span></td>
-												<td>
-													<div class="products">
-														<img src="images/contacts/pic3.jpg" class="avatar avatar-md" alt="">
-														<div>
-															<h6><a href="app-profile-2.html">Emily Elizabeth</a></h6>
-															<span>Web Designer</span>
-														</div>
-													</div>
-												</td>
-												<td><a href="javascript:void(0)" class="text-primary">ee@gmail.com</a></td>
-												<td>
-													<span>+80 123 456 7890</span>
-												</td>
-												<td>
-													<span>Female</span>
-												</td>
-												<td>
-													<span>GA</span>
-												</td>
-												<td>
-													<span class="badge badge-success light border-0">Active</span>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<div class="form-check custom-checkbox">
-														<input type="checkbox" class="form-check-input" id="customCheckBox11" required="">
-														<label class="form-check-label" for="customCheckBox11"></label>
-													</div>
-												</td>
-												<td><span>012</span></td>
-												<td>
-													<div class="products">
-														<img src="images/contacts/pic2.jpg" class="avatar avatar-md" alt="">
-														<div>
-															<h6><a href="app-profile-2.html">Isabella Tracy</a></h6>
-															<span>Web Designer</span>
-														</div>
-													</div>
-												</td>
-												<td><a href="javascript:void(0)" class="text-primary">it@gmail.com</a></td>
-												<td>
-													<span>+59 123 456 7890</span>
-												</td>
-												<td>
-													<span>Male</span>
-												</td>
-												<td>
-													<span>SC</span>
-												</td>
-												<td>
-													<span class="badge badge-danger light border-0">Pending</span>
-												</td>
-											</tr>
+                                        @endforeach
 										</tbody>
 
 									</table>

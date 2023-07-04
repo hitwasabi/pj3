@@ -12,14 +12,26 @@ use RealRashid\SweetAlert\Facades\Alert;
 class AdminController extends Controller
 {
     public function viewAdmin(){
+        if (Auth::user()->isAdmin == 1){
+            return redirect('agents/index');
+        }
         return view('admin/index');
     }
 
     public function viewEmployee(){
-        return view('/admin/customer');
+        if (Auth::user()->isAdmin == 1){
+            return redirect('agents/index');
+        }
+        $agents = DB::table('users')
+        ->where('isAdmin','=',1)
+            ->get();
+        return view('/admin/customer',compact('agents'));
     }
 
     public function viewBlog(){
+        if (Auth::user()->isAdmin == 1){
+            return redirect('agents/index');
+        }
         $blogs =DB::table('blogs')
             ->join('users','users.id','=','blogs.userPost_id')
             ->select('users.*','blogs.*')
@@ -29,10 +41,16 @@ class AdminController extends Controller
     }
 
     public function viewAddBlog(){
+        if (Auth::user()->isAdmin == 1){
+            return redirect('agents/index');
+        }
         return view('/admin/add-blog');
     }
 
     public function viewEditBlog($new_id){
+        if (Auth::user()->isAdmin == 1){
+            return redirect('agents/index');
+        }
         $data = Blog::findOrFail($new_id);
         return view('/admin/edit-blog',compact('data'));
     }
@@ -53,27 +71,48 @@ class AdminController extends Controller
     }
 
     public function viewContact(){
+        if (Auth::user()->isAdmin == 1){
+            return redirect('agents/index');
+        }
         return view('/admin/contacts');
     }
 
     public function viewEcom_product_list(){
+        if (Auth::user()->isAdmin == 1){
+            return redirect('agents/index');
+        }
         return view('/admin/ecom-product-list');
     }
 
     public function viewEdit(){
+        if (Auth::user()->isAdmin == 1){
+            return redirect('agents/index');
+        }
         return view('/admin/edit-profile');
     }
 
     public function viewEmployeeDetail(){
+        if (Auth::user()->isAdmin == 1){
+            return redirect('agents/index');
+        }
         return view('/admin/customer-profile');
     }
     public function viewPayment(){
+        if (Auth::user()->isAdmin == 1){
+            return redirect('agents/index');
+        }
         return view('/admin/payment-history');
     }
     public function comfirm(){
+        if (Auth::user()->isAdmin == 1){
+            return redirect('agents/index');
+        }
         return view('/admin/comfirm-product');
     }
     public function viewAdminProfile(){
+        if (Auth::user()->isAdmin == 1){
+            return redirect('agents/index');
+        }
         return view('/admin/admin-profile');
     }
 
