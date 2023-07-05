@@ -51,8 +51,6 @@
                     <span class="nav-text">Ứng dụng<span class="badge badge-danger badge-xs ms-1"></span></span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="{{url('admin/employee')}}" aria-expanded="false">Quản lý chủ trọ<span class="badge badge-danger badge-xs ms-1"></span></a>
-                    </li>
                     <li><a href="{{url('admin/contacts')}}">Liên hệ chủ trọ <span class="badge badge-danger badge-xs ms-1"></span></a></li>
                     <li><a class="has-arrow" href="javascript:void(0);" aria-expanded="false">Phòng trọ</a>
                         <ul aria-expanded="false">

@@ -74,7 +74,10 @@ class AdminController extends Controller
         if (Auth::user()->isAdmin == 1){
             return redirect('agents/index');
         }
-        return view('/admin/contacts');
+        $agents = DB::table('users')
+            ->where('isAdmin','=',1)
+            ->get();
+        return view('/admin/contacts',compact('agents'));
     }
 
     public function viewEcom_product_list(){
@@ -88,6 +91,7 @@ class AdminController extends Controller
         if (Auth::user()->isAdmin == 1){
             return redirect('agents/index');
         }
+
         return view('/admin/edit-profile');
     }
 

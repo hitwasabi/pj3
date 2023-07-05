@@ -30,7 +30,7 @@
 						</svg>
 						Apps </a>
 					</li>
-					<li class="breadcrumb-item active"><a href="javascript:void(0)">Liên hệ chủ trọ</a></li>
+					<li class="breadcrumb-item active"><a href="javascript:void(0)">Liên hệ và quản lý chủ trọ</a></li>
 				</ol>
 			</div>
 			<div class="container-fluid">
@@ -47,393 +47,54 @@
 									<table id="contacts-tbl" class="table">
 										<thead>
                                             <tr>
-												<th>
-													<div class="form-check custom-checkbox ms-0">
-														<input type="checkbox" class="form-check-input" id="checkAll" required="">
-														<label class="form-check-label" for="checkAll"></label>
-													</div>
-												</th>
-                                                <th>Tên</th>
+                                                <th>Họ và tên</th>
                                                 <th>Email</th>
                                                 <th>Tags</th>
                                                 <th>Số điện thoại</th>
-                                                <th>Trạng thái</th>
-                                                <th>Ngày sinh</th>
+                                                <th>Cấp độ</th>
+                                                <th>Số dư</th>
                                             </tr>
                                         </thead>
 										<tbody>
+                                        @foreach($agents as $agent)
 											<tr>
 												<td>
-													<div class="form-check custom-checkbox">
-														<input type="checkbox" class="form-check-input" id="customCheckBox2" required="">
-														<label class="form-check-label" for="customCheckBox2"></label>
-													</div>
-												</td>
-												<td>
 													<div class="d-flex align-items-center">
-														<img src="images/contacts/pic1.jpg" class="avatar rounded-circle" alt="">
-														<p class="mb-0 ms-2">Biam Lucas</p>
+                                                        @if($agent->user_image == null)
+                                                            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAMAAABlApw1AAAAMFBMVEX19vfExcbIycnd3t/y8/TNzc7V1tfa29zm5+jr7O3LzMzc3d7Q0NHu7/Dg4eLj5OU4/BecAAAC7ElEQVR4nO3cAWKrIAwGYEFQVLT3v+2rdd3atTokaJK+/ztBoiAB0lYVAAAAAAAAAAAAAABAIS7Uje+tMbb3TR0cdzz7dG1vfvFtxx1VKje9RL/oJw3vwQ32ffgzO4hP4bIR/i2FC3eEm8a4Hf4sjtxRrvvr8X+9hMAd55o2JfxZyx3pe01q/MY03LG+kzD8f0TuaF/teP4i30Hy+L8TNg8ue+M3RtS3aEz6fj6zktaDXRP4TtBEzhhAMzFVhcsYQDMrpbIb8uI3puaOfJH7AsS8gik3fmMm7thvVvZfKTx37LMuP35jJOyTdxcRjyQUFJ6SgIAx5CjxG8P/HQq0BPhLupqWAP9atnMj8xv/xoY0hyWUpIRlbNZzx19lF0ILyx1/RYvfGO749Segfgipn8TqP6PqFzL1pYT6Yk59Oa1+Q0PbUg7c0VcfsKmnjCEJI+gDDrbUHy3mr2X8q9hC/fG6+gsO/VdM+i/5cko6/jLuye5rJglFxBPtrQY7J7LA+PW32+worMWN/7ugvOVMf9Nfpb7t8srVW42vtZj6bYObVvZoXkXr8U3XvuSgqPl7Mbffx6X9PuprvwcAAAAAgP+V68I0NPG6nVm2x7b3sRmm0Mnf1bgwNXFrUx+bSermbN5CJt4S2DgIy8KF1038X3wrJYluyL7p9gP3SYULqcNmjW0YX0QgdmvdNSynvV1LfPaP7OmnXpesi9Ut8XLeUNo8v8131smvI3U4bWuPT+Ggp//t6D+emI4N/8oe2UOUcoNE5w/7IhF7XNMdc4s5Eruk9/AHXAR2h4/+R+WvYgmdfXkKz+XThv+PohPh9Oc/K9gSmNkTR1XsTpzUXExRakE48fv5rC9TVzBM4LsiE3nki9+YEgta9r9GlFDiJ+vEH4oR0WcB8Uc+VPSS4sD9Vwr6GCp0dJKL3mDNtggs6D8WPbWKfoOcAHP8SAAJIAEkgASQABJAAkgACSABxgQAAAAAAAAAAAAAAODj/AMS6imfF+YdbQAAAABJRU5ErkJggg==" class="avatar avatar-md" alt="">
+                                                        @else
+                                                            <img src="{{url('images/agents/'.$agent->user_image)}}" class="avatar avatar-md" alt="">
+                                                        @endif
+														<p class="mb-0 ms-2">{{$agent->name}}</p>
 													</div>
 												</td>
-												<td>demo1@gmail.com</td>
+												<td>{{$agent->email}}</td>
 
 												<td class="pe-0">
-													<span class="badge badge-success border-0 badge-sm">Customer</span>
+													<span class="badge badge-success border-0 badge-sm">Chủ trọ</span>
 												</td>
 												<td class="pe-0">
-													(123) 456 789
+                                                    {{$agent->phone}}
 												</td>
+                                                @if($agent->level == 1)
+                                                    <td class="pe-0 c-status">
+                                                        <span><i class="fa-solid fa-circle text-end"></i>None</span>
+                                                    </td>
+                                                @elseif($agent->level == 2)
 												<td class="pe-0 c-status">
-													<span><i class="fa-solid fa-circle text-success"></i>Avalible</span>
+													<span><i class="fa-solid fa-circle text-success"></i>Thường</span>
 												</td>
+                                                @else
+                                                    <td class="pe-0 c-status">
+                                                        <span><i class="fa-solid fa-circle text-warning"></i>VIP</span>
+                                                    </td>
+                                                @endif
 												<td>
-													<span>06 Sep 2021</span>
+													<span>{{$agent->money}}</span>
 												</td>
 											</tr>
-											<tr>
-												<td>
-													<div class="form-check custom-checkbox">
-														<input type="checkbox" class="form-check-input" id="customCheckBox3" required="">
-														<label class="form-check-label" for="customCheckBox3"></label>
-													</div>
-												</td>
-												<td>
-													<div class="d-flex align-items-center">
-														<img src="images/contacts/pic2.jpg" class="avatar rounded-circle" alt="">
-														<p class="mb-0 ms-2">Hrayson Leo</p>
-													</div>
-												</td>
-												<td>demo1@gmail.com</td>
-
-												<td class="pe-0">
-													<span class="badge badge-success border-0 badge-sm">Customer</span>
-													<span class="badge badge-warning border-0 badge-sm">Lead</span>
-												</td>
-												<td class="pe-0">
-													(123) 456 789
-												</td>
-												<td class="pe-0 c-status">
-													<span><i class="fa-solid fa-circle text-primary"></i>In Progress</span>
-												</td>
-												<td>
-													<span>08 Jan 1995</span>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<div class="form-check custom-checkbox">
-														<input type="checkbox" class="form-check-input" id="customCheckBox4" required="">
-														<label class="form-check-label" for="customCheckBox4"></label>
-													</div>
-												</td>
-												<td>
-													<div class="d-flex align-items-center">
-														<img src="images/contacts/pic3.jpg" class="avatar rounded-circle" alt="">
-														<p class="mb-0 ms-2">Jack Luca</p>
-													</div>
-												</td>
-												<td>demo3@gmail.com</td>
-
-												<td class="pe-0">
-													<span class="badge badge-warning border-0 badge-sm">Lead</span>
-												</td>
-												<td class="pe-0">
-													(123) 456 789
-												</td>
-												<td class="pe-0 c-status">
-													<span><i class="fa-solid fa-circle text-danger"></i>Cancelled</span>
-												</td>
-												<td>
-													<span>08 Jan 1994</span>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<div class="form-check custom-checkbox">
-														<input type="checkbox" class="form-check-input" id="customCheckBox5" required="">
-														<label class="form-check-label" for="customCheckBox5"></label>
-													</div>
-												</td>
-												<td>
-													<div class="d-flex align-items-center">
-														<img src="images/contacts/pic2.jpg" class="avatar rounded-circle" alt="">
-														<p class="mb-0 ms-2">Crayson Leo</p>
-													</div>
-												</td>
-												<td>demo1@gmail.com</td>
-
-												<td class="pe-0">
-													<span class="badge badge-success border-0 badge-sm">Customer</span>
-													<span class="badge badge-warning border-0 badge-sm">Lead</span>
-												</td>
-												<td class="pe-0">
-													(123) 456 789
-												</td>
-												<td class="pe-0 c-status">
-													<span><i class="fa-solid fa-circle text-primary"></i>In Progress</span>
-												</td>
-												<td>
-													<span>08 Jan 1995</span>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<div class="form-check custom-checkbox">
-														<input type="checkbox" class="form-check-input" id="customCheckBox6" required="">
-														<label class="form-check-label" for="customCheckBox6"></label>
-													</div>
-												</td>
-												<td>
-													<div class="d-flex align-items-center">
-														<img src="images/contacts/pic3.jpg" class="avatar rounded-circle" alt="">
-														<p class="mb-0 ms-2">Sack Luca</p>
-													</div>
-												</td>
-												<td>demo3@gmail.com</td>
-
-												<td class="pe-0">
-													<span class="badge badge-warning border-0 badge-sm">Lead</span>
-												</td>
-												<td class="pe-0">
-													(123) 456 789
-												</td>
-												<td class="pe-0 c-status">
-													<span><i class="fa-solid fa-circle text-danger"></i>Cancelled</span>
-												</td>
-												<td>
-													<span>08 Jan 1994</span>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<div class="form-check custom-checkbox">
-														<input type="checkbox" class="form-check-input" id="customCheckBox7" required="">
-														<label class="form-check-label" for="customCheckBox7"></label>
-													</div>
-												</td>
-												<td>
-													<div class="d-flex align-items-center">
-														<img src="images/contacts/pic888.jpg" class="avatar rounded-circle" alt="">
-														<p class="mb-0 ms-2">Pogan Liam</p>
-													</div>
-												</td>
-												<td>demo3@gmail.com</td>
-
-												<td class="pe-0">
-													<span class="badge badge-secondary border-0 badge-sm">Important</span>
-												</td>
-												<td class="pe-0">
-													(123) 456 789
-												</td>
-												<td class="pe-0 c-status">
-													<span><i class="fa-solid fa-circle text-danger"></i>Cancelled</span>
-												</td>
-												<td>
-													<span>10 Feb 1994</span>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<div class="form-check custom-checkbox">
-														<input type="checkbox" class="form-check-input" id="customCheckBox8" required="">
-														<label class="form-check-label" for="customCheckBox8"></label>
-													</div>
-												</td>
-												<td>
-													<div class="d-flex align-items-center">
-														<img src="images/contacts/pic777.jpg" class="avatar rounded-circle" alt="">
-														<p class="mb-0 ms-2">Benjamin William</p>
-													</div>
-												</td>
-												<td>demo3@gmail.com</td>
-
-												<td class="pe-0">
-													<span class="badge badge-secondary border-0 badge-sm">Important</span>
-													<span class="badge badge-warning border-0 badge-sm">Lead</span>
-												</td>
-												<td class="pe-0">
-													(123) 456 789
-												</td>
-												<td class="pe-0 c-status">
-													<span><i class="fa-solid fa-circle text-primary"></i>In Progress</span>
-												</td>
-												<td>
-													<span>10 Feb 1994</span>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<div class="form-check custom-checkbox">
-														<input type="checkbox" class="form-check-input" id="customCheckBox9" required="">
-														<label class="form-check-label" for="customCheckBox9"></label>
-													</div>
-												</td>
-												<td>
-													<div class="d-flex align-items-center">
-														<img src="images/contacts/pic1.jpg" class="avatar rounded-circle" alt="">
-														<p class="mb-0 ms-2">Ethan Lucas</p>
-													</div>
-												</td>
-												<td>demo1@gmail.com</td>
-
-												<td class="pe-0">
-													<span class="badge badge-success border-0 badge-sm">Customer</span>
-												</td>
-												<td class="pe-0">
-													(123) 456 789
-												</td>
-												<td class="pe-0 c-status">
-													<span><i class="fa-solid fa-circle text-success"></i>Avalible</span>
-												</td>
-												<td>
-													<span>06 Sep 2021</span>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<div class="form-check custom-checkbox">
-														<input type="checkbox" class="form-check-input" id="customCheckBox10" required="">
-														<label class="form-check-label" for="customCheckBox10"></label>
-													</div>
-												</td>
-												<td>
-													<div class="d-flex align-items-center">
-														<img src="images/contacts/pic2.jpg" class="avatar rounded-circle" alt="">
-														<p class="mb-0 ms-2">Mrayson Levi</p>
-													</div>
-												</td>
-												<td>demo1@gmail.com</td>
-
-												<td class="pe-0">
-													<span class="badge badge-success border-0 badge-sm">Customer</span>
-													<span class="badge badge-warning border-0 badge-sm">Lead</span>
-												</td>
-												<td class="pe-0">
-													(123) 456 789
-												</td>
-												<td class="pe-0 c-status">
-													<span><i class="fa-solid fa-circle text-primary"></i>In Progress</span>
-												</td>
-												<td>
-													<span>08 Jan 1995</span>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<div class="form-check custom-checkbox">
-														<input type="checkbox" class="form-check-input" id="customCheckBox11" required="">
-														<label class="form-check-label" for="customCheckBox11"></label>
-													</div>
-												</td>
-												<td>
-													<div class="d-flex align-items-center">
-														<img src="images/contacts/pic3.jpg" class="avatar rounded-circle" alt="">
-														<p class="mb-0 ms-2">Nack Luca</p>
-													</div>
-												</td>
-												<td>demo3@gmail.com</td>
-
-												<td class="pe-0">
-													<span class="badge badge-warning border-0 badge-sm">Lead</span>
-												</td>
-												<td class="pe-0">
-													(123) 456 789
-												</td>
-												<td class="pe-0 c-status">
-													<span><i class="fa-solid fa-circle text-danger"></i>Cancelled</span>
-												</td>
-												<td>
-													<span>08 Jan 1994</span>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<div class="form-check custom-checkbox">
-														<input type="checkbox" class="form-check-input" id="customCheckBox12" required="">
-														<label class="form-check-label" for="customCheckBox12"></label>
-													</div>
-												</td>
-												<td>
-													<div class="d-flex align-items-center">
-														<img src="images/contacts/pic888.jpg" class="avatar rounded-circle" alt="">
-														<p class="mb-0 ms-2">Logan Liam</p>
-													</div>
-												</td>
-												<td>demo3@gmail.com</td>
-
-												<td class="pe-0">
-													<span class="badge badge-secondary border-0 badge-sm">Important</span>
-												</td>
-												<td class="pe-0">
-													(123) 456 789
-												</td>
-												<td class="pe-0 c-status">
-													<span><i class="fa-solid fa-circle text-danger"></i>Cancelled</span>
-												</td>
-												<td>
-													<span>10 Feb 1994</span>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<div class="form-check custom-checkbox">
-														<input type="checkbox" class="form-check-input" id="customCheckBox13" required="">
-														<label class="form-check-label" for="customCheckBox13"></label>
-													</div>
-												</td>
-												<td>
-													<div class="d-flex align-items-center">
-														<img src="images/contacts/pic777.jpg" class="avatar rounded-circle" alt="">
-														<p class="mb-0 ms-2">Lenjamin William</p>
-													</div>
-												</td>
-												<td>demo3@gmail.com</td>
-
-												<td class="pe-0">
-													<span class="badge badge-secondary border-0 badge-sm">Important</span>
-													<span class="badge badge-warning border-0 badge-sm">Lead</span>
-												</td>
-												<td class="pe-0">
-													(123) 456 789
-												</td>
-												<td class="pe-0 c-status">
-													<span><i class="fa-solid fa-circle text-primary"></i>In Progress</span>
-												</td>
-												<td>
-													<span>10 Feb 1994</span>
-												</td>
-											</tr>
-											<tr>
-												<td>
-													<div class="form-check custom-checkbox">
-														<input type="checkbox" class="form-check-input" id="customCheckBox14" required="">
-														<label class="form-check-label" for="customCheckBox14"></label>
-													</div>
-												</td>
-												<td>
-													<div class="d-flex align-items-center">
-														<img src="images/contacts/pic777.jpg" class="avatar rounded-circle" alt="">
-														<p class="mb-0 ms-2">Theodore William</p>
-													</div>
-												</td>
-												<td>demo3@gmail.com</td>
-
-												<td class="pe-0">
-
-													<span class="badge badge-danger border-0 badge-sm">Supplier</span>
-												</td>
-												<td class="pe-0">
-													(123) 456 789
-												</td>
-												<td class="pe-0 c-status">
-													<span><i class="fa-solid fa-circle text-primary"></i>In Progress</span>
-												</td>
-												<td>
-													<span>10 Feb 1994</span>
-												</td>
-											</tr>
+                                        @endforeach
 										</tbody>
-
 									</table>
 								</div>
 							</div>

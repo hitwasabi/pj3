@@ -92,13 +92,12 @@
 									<button type="submit" class="btn btn-primary">Lưu</button>
 									<a href="page-register.html" class="btn-link">Quên mật khẩu?</a>
 								</div>
+                        </div>
+                    </div>
+                </div>
 							</form>
 						</div>
 					</div>
-				</div>
-                </form>
-            </div>
-        </div>
         <!--**********************************
             Content body end
         ***********************************-->
