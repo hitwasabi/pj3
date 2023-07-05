@@ -69,7 +69,7 @@
                                     </div>
                                     <div class="col-xl-6 mb-3">
                                         <label for="exampleFormControlInput3" class="form-label">Thành phố<span class="text-danger">*</span></label>
-                                        <select class="default-select form-control" name="city_id">
+                                        <select class="default-select form-control" name="city_id"  id="country-dropdown" onchange="selectProvince()">
                                             <option  data-display="Select">Hãy chọn</option>
                                         @foreach($cities as $city)
                                             <option value="{{$city->cities_id}}">{{$city->city_name}}</option>
@@ -87,11 +87,8 @@
                                     </div>
                                     <div class="col-xl-6 mb-3">
                                         <label class="form-label">Quận<span class="text-danger">*</span></label>
-                                        <select class="default-select form-control" name="city_detailId">
-                                            <option  data-display="Select">Hãy chọn</option>
-                                            @foreach($districts as $district)
-                                                <option value="{{$city->cities_id}}">{{$district->cd_name}}</option>
-                                            @endforeach
+                                        <select class="default-select form-control" name="city_detailId" id="state_dropdown" onchange="selectStreet()">
+
                                         </select>
                                     </div>
                                     <div class="col-xl-6 mb-3">
@@ -107,11 +104,7 @@
                                     </div>
                                     <div class="col-xl-6 mb-3">
                                         <label class="form-label">Đường<span class="text-danger">*</span></label>
-                                        <select class="default-select form-control" name="street_id">
-                                            <option  data-display="Select">Hãy chọn</option>
-                                            @foreach($streets as $street)
-                                                <option value="{{$district->city_detailId}}">{{$street->street_name}}</option>
-                                            @endforeach
+                                        <select class="default-select form-control" name="street_id" id="city-dropdown">
                                         </select>
                                     </div>
                                     <div class="col-xl-6 mb-3">
@@ -169,3 +162,113 @@
 
     </div>
 @endsection
+<script>
+    {{--$(document).ready(function() {--}}
+    {{--    $('#country-dropdown').on('change', function() {--}}
+    {{--        // var country_id = this.value; //id cua tinh--}}
+    {{--        console.log(1);--}}
+    {{--        $("#state-dropdown").html('');--}}
+    {{--        $.ajax({--}}
+    {{--            url:"{{url('get-states-by-country')}}",--}}
+    {{--            type: "POST",--}}
+    {{--            data: {--}}
+    {{--                city_id: country_id,--}}
+    {{--                _token: '{{csrf_token()}}'--}}
+    {{--            },--}}
+    {{--            dataType : 'json',--}}
+    {{--            success: function(result){--}}
+    {{--                $.each(result.city_details,function(key,value){--}}
+    {{--                    $("#state-dropdown").append('<option value="'+value.id+'">'+value.name+'</option>');--}}
+    {{--                });--}}
+    {{--                $('#city-dropdown').html('<option value="">Select State First</option>');--}}
+    {{--            }--}}
+    {{--        });--}}
+    {{--    });--}}
+    {{--    $('#state-dropdown').on('change', function() {--}}
+    {{--        var state_id = this.value;--}}
+    {{--        $("#city-dropdown").html('');--}}
+    {{--        $.ajax({--}}
+    {{--            url:"{{url('get-cities-by-state')}}",--}}
+    {{--            type: "POST",--}}
+    {{--            data: {--}}
+    {{--                city_detailsId: state_id,--}}
+    {{--                _token: '{{csrf_token()}}'--}}
+    {{--            },--}}
+    {{--            dataType : 'json',--}}
+    {{--            success: function(result){--}}
+    {{--                $.each(result.streets,function(key,value){--}}
+    {{--                    $("#city-dropdown").append('<option value="'+value.id+'">'+value.name+'</option>');--}}
+    {{--                });--}}
+    {{--            }--}}
+    {{--        });--}}
+    {{--    });--}}
+    {{--});--}}
+    function selectProvince() {
+        let country_id = $("#country-dropdown").val();
+        $.ajax({
+            url:"{{url('get-states-by-country')}}",
+            type: "POST",
+            data: {
+                city_id: country_id,
+                _token: '{{csrf_token()}}'
+            },
+            dataType : 'json',
+            success: function(result){
+                $('#state_dropdown').html('<option value="">Nhập quận huyện</option>');
+                let html = '';
+                let districts = result.city_details;
+                for(let i = 0; i < districts.length; i++) {
+                    let item = districts[i];
+                    let name = item['cd_name'];
+                    let id = item['city_detailId']
+                    html += '<option value='+id+'>'+name+ '</option>';
+                }
+                $('#state_dropdown').append(html);
+                $('#state_dropdown').niceSelect("update")
+
+                // $('#state_dropdown').append($('<option>', {
+                //     value: 1,
+                //     text: 'My option'
+                // }));
+                // $.each(districts,function(key,value){
+                //     $("#state-dropdown").append('<option value="'+value.id+'">'+value.name+'</option>');
+                // });
+
+            }
+        });
+    }
+    function selectStreet() {
+        let state_id = $("#state_dropdown").val();
+        $.ajax({
+            url:"{{url('get-cities-by-state')}}",
+            type: "POST",
+            data: {
+                city_detailsId: state_id,
+                _token: '{{csrf_token()}}'
+            },
+            dataType : 'json',
+            success: function(result){
+                let html = '';
+                let districts = result.streets;
+                for(let i = 0; i < districts.length; i++) {
+                    let item = districts[i];
+                    let name = item['street_name'];
+                    let id = item['street_id']
+                    html += '<option value='+id+'>'+name+ '</option>';
+                }
+                $('#city-dropdown').html('<option value="">Nhập đường,xá</option>');
+                $('#city-dropdown').append(html);
+                $('#city-dropdown').niceSelect("update")
+
+                // $('#state_dropdown').append($('<option>', {
+                //     value: 1,
+                //     text: 'My option'
+                // }));
+                // $.each(districts,function(key,value){
+                //     $("#state-dropdown").append('<option value="'+value.id+'">'+value.name+'</option>');
+                // });
+
+            }
+        });
+    }
+</script>

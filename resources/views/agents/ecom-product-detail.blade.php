@@ -92,7 +92,7 @@
                                                 <p>Product tags:&nbsp;&nbsp;
                                                     <span class="badge badge-success light">thuê nhà</span>
                                                 </p>
-                                                <p class="text-content">{{$rent_room->info_detail}}</p>
+                                                <p class="text-content">{!! $rent_room->info_detail !!}</p>
                                             </div>
                                         </div>
                                     </div>

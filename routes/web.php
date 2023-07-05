@@ -126,6 +126,10 @@ Route::get('/agents/ecom-product-detail/{rr_id}',[AgentController::class,'show']
 Route::get('/agents/edit-profile/{id}',[\App\Http\Controllers\AgentController::class,'viewEdit']);
 Route::get('/agents/wrong-level',[AgentController::class,'viewWrong']);
 Route::get('/agents/add-product',[AgentController::class,'viewAdd']);
+Route::post('get-states-by-countryx',[\App\Http\Controllers\AgentController::class,'getState']); //quan huyen
+Route::post('get-cities-by-statex',[\App\Http\Controllers\AgentController::class,'getCity']); //xa phuong
+
+
 Route::get('/agents/payment-history',[AgentController::class,'viewPayment']);
 Route::get('/agents/agents-profile',[\App\Http\Controllers\AgentController::class,'viewAgentsProfile']);
 

@@ -128,7 +128,6 @@
                                                         </figure>
                                                     </div>
                                                 </div>
-                                                <p>{{$rent_room->info_detail}}</p>
                                                 <ul class="more-details clearfix">
                                                     <li><i class="icon-14"></i>{{$rent_room->bed_room}} phòng ngủ</li>
                                                     <li><i class="icon-15"></i>{{$rent_room->bath_room}} phòng vệ sinh </li>
@@ -175,7 +174,6 @@
                                                                 <li><a href="property-details.blade.php"><i class="icon-13"></i></a></li>
                                                             </ul>
                                                         </div>
-                                                        <p>{{$rent_room->info_detail}}</p>
                                                         <ul class="more-details clearfix">
                                                             <li><i class="icon-14"></i>{{$rent_room->bed_room}} phòng ngủ</li>
                                                             <li><i class="icon-15"></i>{{$rent_room->bath_room}} phòng vệ sinh </li>

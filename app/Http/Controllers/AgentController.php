@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\City;
+use App\Models\City_detail;
+use App\Models\Street;
 use http\Client\Curl\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -48,6 +50,7 @@ class AgentController extends Controller
             ->where('rent_rooms.owner_id','=',$id)
             ->get();
         $users = DB::table('users')->where('id',"=",$id)->first();
+        //dd($rent_rooms);
         return view('/agents/ecom-product-list',compact('users','rent_rooms'));
     }
 
@@ -116,18 +119,25 @@ class AgentController extends Controller
     public function viewAdd()
     {
             $cates = Category::all();
-            $cities = City::all();
-            $districts = DB::table('cities')
-                ->join('city_details', 'cities.cities_id', '=', 'city_details.city_id')
-                ->select('city_details.*')
-                ->get();
-            $streets = DB::table('city_details')
-                ->join('streets', 'city_details.city_detailId', '=', 'streets.city_detailsId')
-                ->select('streets.*')
-                ->get();
+            $data['cities'] = City::get(["city_name","cities_id"]);
             $amounts = DB::table('rent_amounts')
                 ->select('rent_amounts.ram_id', 'rent_amounts.amounts')
                 ->get();
-            return view('agents/add-product', compact('cities', 'districts', 'streets', 'amounts', 'cates'));
+            $data['cates']  = $cates;
+            $data['amounts']  = $amounts;
+            //dd($data);
+            return view('agents/add-product',$data);
         }
+    public function getState(Request $request)
+    {
+        $data['city_details'] = City_detail::where("city_id",$request->city_id)
+            ->get(["cd_name","city_detailId"]);
+        return response()->json($data);
+    }
+    public function getCity(Request $request)
+    {
+        $data['streets'] = Street::where("city_detailsId",$request->city_detailsId)
+            ->get(["street_name","street_id"]);
+        return response()->json($data);
+    }
 }

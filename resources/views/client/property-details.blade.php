@@ -68,7 +68,7 @@
                                     <h4>Mô tả phòng</h4>
                                 </div>
                                 <div class="text">
-                                    <p>{{$rent_room->info_detail}}</p>
+                                    <p>{!! $rent_room->info_detail !!}</p>
                                 </div>
                             </div>
                             <div class="details-box content-widget">

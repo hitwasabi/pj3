@@ -75,6 +75,7 @@
 <script src="{{asset('admin/js/deznav-init.js')}}"></script>
 <script src="{{asset('admin/js/demo.js')}}"></script>
 <script src="{{asset('admin/js/styleSwitcher.js')}}"></script>
+<script async='async' src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 
 
