@@ -1682,6 +1682,7 @@ div#mCSB_1_container{
 
 .nice-select .option:hover, .nice-select .option.focus, .nice-select .option.selected.focus{
   border: 1px solid #e5e7ec;
+
 }
 
 .nice-select .option{
@@ -1700,6 +1701,9 @@ div#mCSB_1_container{
 
 .nice-select .list{
   padding: 20px 20px !important;
+    overflow-y:scroll;
+    height:200px;
+    width:auto;
 }
 
 .search-field .top-search .search-btn{
@@ -9823,3 +9827,5 @@ div#mCSB_1_container{
     display: inline-block;
     margin:10px;
 }
+
+
