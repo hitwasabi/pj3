@@ -33,16 +33,15 @@
                             <h3>Báo Mới</h3>
                         </div>
                         <div class="post-inner">
+                            @forelse($blogs as $blog)
                             <div class="post">
-                                <figure class="post-thumb"><a href="{{url('client/home/blog-details')}}"><img src="{{asset('images/resource/footer-post-1.jpg')}}" alt=""></a></figure>
-                                <h5><a href="{{url('client/home/blog-details')}}">The Added Value Social Worker</a></h5>
-                                <p>Mar 25, 2020</p>
+                                <figure class="post-thumb"><a href="{{url('client/home/blog-details/'.$blog->new_id)}}"><img src="{{url('images/rooms/'.$blog->new_image)}}" alt=""></a></figure>
+                                <h5><a href="{{url('client/home/blog-details/'.$blog->new_id)}}">{{$blog->new_name}}</a></h5>
+                                <p>{{$blog->post_date}}</p>
                             </div>
-                            <div class="post">
-                                <figure class="post-thumb"><a href="{{url('client/home/blog-details')}}"><img src="{{asset('images/resource/footer-post-2.jpg')}}" alt=""></a></figure>
-                                <h5><a href="{{url('client/home/blog-details')}}">Ways to Increase Trust</a></h5>
-                                <p>Mar 24, 2020</p>
-                            </div>
+                            @empty
+                                <p>Danh sach rong</p>
+                            @endforelse
                         </div>
                     </div>
                 </div>

@@ -750,6 +750,9 @@ class ClientController extends Controller
             'blogs'=>$blogs];
         return view('client/blog-details',$data);
     }
+
+
+
 }
 
 
