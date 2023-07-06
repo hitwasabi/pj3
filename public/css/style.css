@@ -2635,6 +2635,7 @@ div#mCSB_1_container{
 }
 
 .deals-section .single-item .image-box .image img{
+    height: 335px;
   width: 100%;
   border-radius: 10px;
 }

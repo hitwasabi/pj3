@@ -52,32 +52,66 @@
                                 </div>
                                 <div class="select-box">
                                     <select class="wide" name="cities_details" id="state_dropdown" onchange="selectStreet()">
-
+                                        <option value=""></option>
                                     </select>
                                 </div>
                                 <div class="select-box">
                                     <select class="wide" name ="streets" id="city-dropdown">
-
+                                        <option value=""></option>
                                     </select>
                                 </div>
-
+                                    <div class="select-box">
+                                        <select class="wide" name ="bed_room">
+                                            <option value=" ">Chọn số phòng ngủ</option>
+                                            {{--                                                                    @foreach($rent_rooms as $rent_room)--}}
+                                            {{--                                                                        <option value="{{$rent_room->bed_room }}">{{$rent_room->bed_room}} Phòng ngủ</option>--}}
+                                            {{--                                                                    @endforeach--}}
+                                            <option value="1">Một phòng ngủ</option>
+                                            <option value="2">Hai phòng ngủ</option>
+                                            <option value="3">Ba phòng ngủ</option>
+                                            <option value="4">Bốn phòng ngủ</option>
+                                        </select>
+                                    </div>
+                                    <div class="select-box">
+                                        <select class="wide" name ="bath_room" >
+                                            <option value="">Chọn số phòng vệ sinh</option>
+                                            <option value="1">Một phòng vệ sinh</option>
+                                            <option value="2">Hai phòng vệ sinh</option>
+                                            <option value="3">Ba phòng vệ sinh</option>
+                                            <option value="4">Bốn phòng vệ sinh</option>
+                                        </select>
+                                    </div>
+                                        <div class="form-group">
+                                            <label>Lọc giá</label>
+                                            <div class="range-price">
+                                                <label>1 - 5 triệu  <input type="radio" name="price" value="1000000-5000000" id="" checked="checked"></label>
+                                            </div>
+                                            <div class="range-price">
+                                                <label>1 - 2 triệu  <input type="radio" name="price" value="1000000-2000000" id=""></label>
+                                            </div>
+                                            <div class="range-price">
+                                                <label>2 - 5 triệu <input type="radio" name="price" value="2000000-5000000" id=""></label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Lọc diện tích</label>
+                                            <div class="range-price">
+                                                <label>20 - 500m<sup>2</sup>  <input type="radio" name="acre" value="20-500" id="" checked="checked"></label>
+                                            </div>
+                                            <div class="range-price">
+                                                <label>20 - 30m<sup>2</sup>  <input type="radio" name="acre" value="20-30" id="" ></label>
+                                            </div>
+                                            <div class="range-price">
+                                                <label>50 - 100m<sup>2</sup> <input type="radio" name="acre" value="50-100" id=""></label>
+                                            </div>
+                                            <div class="range-price">
+                                                <label>100 - 500m<sup>2</sup> <input type="radio" name="acre" value="100-500" id=""></label>
+                                            </div>
+                                    </div>
                                 <div class="filter-btn">
                                     <button type="submit" class="theme-btn btn-one"><i class="fas fa-filter"></i>&nbsp;Lọc</button>
                                 </div>
                                 </form>
-                            </div>
-                        </div>
-                        <div class="price-filter sidebar-widget">
-                            <div class="widget-title">
-                                <h5>Lựa chọn khoảng giá</h5>
-                            </div>
-                            <div class="range-slider clearfix">
-                                <div class="clearfix">
-                                    <div class="input">
-                                        <input type="text" class="property-amount" name="field-name" readonly="">
-                                    </div>
-                                </div>
-                                <div class="price-range-slider"></div>
                             </div>
                         </div>
                     </div>

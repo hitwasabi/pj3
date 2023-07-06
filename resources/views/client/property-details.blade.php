@@ -33,7 +33,7 @@
                         <h3>{{$rent_room->room_name}}</h3>
                         <div class="author-info clearfix">
                             <div class="author-box pull-left">
-                                <figure class="author-thumb"><img src="{{asset('images/feature/author-1.jpg')}}" alt=""></figure>
+                                <figure class="author-thumb"><img src="{{url('images/agents/'.$rent_room->user_image)}}" alt=""></figure>
                                 <h6>{{$rent_room->name}}</h6>
                             </div>
                         </div>
@@ -79,6 +79,7 @@
                                     <li>ID: <span>{{$rent_room->rr_id}}</span></li>
                                     <li>Phòng ngủ: <span>{{$rent_room->bed_room}}</span></li>
                                     <li>Nhà vệ sinh: <span>{{$rent_room->bath_room}} </span></li>
+                                    <li>Số người tối đa có thể ở: <span>{{$rent_room->amounts}} người</span></li>
                                     <li>Tình trạng: <span>Cho thuê</span></li>
                                     <li>Diện tích: <span>{{$rent_room -> acreage}} mét vuông</span></li>
                                 </ul>
@@ -94,17 +95,14 @@
                                     <li><span>Quận/huyện:</span> {{$rent_room->cd_name}}</li>
                                     <li><span>Đường/phố:</span> {{$rent_room->street_name}}</li>
                                 </ul>
-
                             </div>
-
-
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-12 col-sm-12 sidebar-side">
                         <div class="property-sidebar default-sidebar">
                             <div class="author-widget sidebar-widget">
                                 <div class="author-box">
-                                    <figure class="author-thumb"><img src="{{$rent_room->user_image}}" alt=""></figure>
+                                    <figure class="author-thumb"><img src="{{url('images/agents/'.$rent_room->user_image)}}" alt=""></figure>
                                     <div class="inner">
                                         <h4>{{$rent_room->name}}</h4>
                                         <ul class="info clearfix">

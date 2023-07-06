@@ -52,31 +52,66 @@
                                         </div>
                                         <div class="select-box">
                                             <select class="wide" name="cities_details" id="state_dropdown" onchange="selectStreet()">
-
+                                                <option value=""></option>
                                             </select>
                                         </div>
                                         <div class="select-box">
                                             <select class="wide" name ="streets" id="city-dropdown">
-
+                                                <option value=""></option>
                                             </select>
                                         </div>
-                                    <div class="filter-btn">
-                                        <button type="submit" class="theme-btn btn-one"><i class="fas fa-filter"></i>&nbsp;Lọc</button>
-                                    </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="price-filter sidebar-widget">
-                                <div class="widget-title">
-                                    <h5>Lựa chọn khoảng giá</h5>
-                                </div>
-                                <div class="range-slider clearfix">
-                                    <div class="clearfix">
-                                        <div class="input">
-                                            <input type="text" class="property-amount" name="field-name" readonly="">
+                                        <div class="select-box">
+                                            <select class="wide" name ="bed_room">
+                                                <option value=" ">Chọn số phòng ngủ</option>
+                                                {{--                                                                    @foreach($rent_rooms as $rent_room)--}}
+                                                {{--                                                                        <option value="{{$rent_room->bed_room }}">{{$rent_room->bed_room}} Phòng ngủ</option>--}}
+                                                {{--                                                                    @endforeach--}}
+                                                <option value="1">Một phòng ngủ</option>
+                                                <option value="2">Hai phòng ngủ</option>
+                                                <option value="3">Ba phòng ngủ</option>
+                                                <option value="4">Bốn phòng ngủ</option>
+                                            </select>
                                         </div>
-                                    </div>
-                                    <div class="price-range-slider"></div>
+                                        <div class="select-box">
+                                            <select class="wide" name ="bath_room" >
+                                                <option value="">Chọn số phòng vệ sinh</option>
+                                                <option value="1">Một phòng vệ sinh</option>
+                                                <option value="2">Hai phòng vệ sinh</option>
+                                                <option value="3">Ba phòng vệ sinh</option>
+                                                <option value="4">Bốn phòng vệ sinh</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Lọc giá</label>
+                                            <div class="range-price">
+                                                <label>1 - 5 triệu  <input type="radio" name="price" value="1000000-5000000" id="" checked="checked"></label>
+                                            </div>
+                                            <div class="range-price">
+                                                <label>1 - 2 triệu  <input type="radio" name="price" value="1000000-2000000" id=""></label>
+                                            </div>
+                                            <div class="range-price">
+                                                <label>2 - 5 triệu <input type="radio" name="price" value="2000000-5000000" id=""></label>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Lọc diện tích</label>
+                                            <div class="range-price">
+                                                <label>20 - 500m<sup>2</sup>  <input type="radio" name="acre" value="20-500" id="" checked="checked"></label>
+                                            </div>
+                                            <div class="range-price">
+                                                <label>20 - 30m<sup>2</sup>  <input type="radio" name="acre" value="20-30" id="" ></label>
+                                            </div>
+                                            <div class="range-price">
+                                                <label>50 - 100m<sup>2</sup> <input type="radio" name="acre" value="50-100" id=""></label>
+                                            </div>
+                                            <div class="range-price">
+                                                <label>100 - 500m<sup>2</sup> <input type="radio" name="acre" value="100-500" id=""></label>
+                                            </div>
+                                        </div>
+                                        <div class="filter-btn">
+                                            <button type="submit" class="theme-btn btn-one"><i class="fas fa-filter"></i>&nbsp;Lọc</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -111,8 +146,8 @@
                                             <div class="image-box">
                                                 <figure class="image"><img src="{{url('images/rooms/'.$rent_room->url)}}" alt=""></figure>
                                                 <div class="batch"><i class="icon-11"></i></div>
-                                                <span class="category">Featured</span>
-                                                <div class="buy-btn"><a href="#">For Rent</a></div>
+                                                <span class="category">Đặc sắc</span>
+                                                <div class="buy-btn"><a href="#">Cho thuê</a></div>
                                             </div>
                                             <div class="lower-content">
                                                 <div class="title-text"><h4><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}">{{$rent_room->room_name}}</a></h4></div>
@@ -123,8 +158,8 @@
                                                     </div>
                                                     <div class="author-box pull-right">
                                                         <figure class="author-thumb">
-                                                            <img src="assets/images/feature/author-1.jpg" alt="">
-                                                            <span></span>
+                                                            <img src="{{url('images/agents/'.$rent_room->user_image)}}" alt="">
+                                                            <span>{{$rent_room->name}}</span>
                                                         </figure>
                                                     </div>
                                                 </div>
@@ -135,9 +170,6 @@
                                                 </ul>
                                                 <div class="other-info-box clearfix">
                                                     <div class="btn-box pull-left"><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}" class="theme-btn btn-two">Xem chi tiết</a></div>
-                                                    <ul class="other-option pull-right clearfix">
-                                                        <li><a href="property-details.blade.php"><i class="icon-13"></i></a></li>
-                                                    </ul>
                                                 </div>
                                             </div>
                                         </div>
@@ -155,13 +187,13 @@
                                                     <div class="image-box">
                                                         <figure class="image"><img src="{{url('images/rooms/'.$rent_room->url)}}" alt=""></figure>
                                                         <div class="batch"><i class="icon-11"></i></div>
-                                                        <span class="category">Featured</span>
+                                                        <span class="category">Đặc sắc</span>
                                                     </div>
                                                     <div class="lower-content">
                                                         <div class="author-info clearfix">
                                                             <div class="author pull-left">
-                                                                <figure class="author-thumb"><img src="assets/images/feature/author-3.jpg" alt=""></figure>
-                                                                <h6>Keira Mel</h6>
+                                                                <figure class="author-thumb"><img src="{{url('images/agents/'.$rent_room->user_image)}}" alt=""></figure>
+                                                                <h6>{{$rent_room->name}}</h6>
                                                             </div>
                                                         </div>
                                                         <div class="title-text"><h4><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}">{{$rent_room->room_name}}</a></h4></div>
@@ -170,9 +202,6 @@
                                                                 <h6>Giá khởi điểm</h6>
                                                                 <h4>{{number_format($rent_room->prices, 0, '.', '.')}}<sup>đ</sup></h4>
                                                             </div>
-                                                            <ul class="other-option pull-right clearfix">
-                                                                <li><a href="property-details.blade.php"><i class="icon-13"></i></a></li>
-                                                            </ul>
                                                         </div>
                                                         <ul class="more-details clearfix">
                                                             <li><i class="icon-14"></i>{{$rent_room->bed_room}} phòng ngủ</li>

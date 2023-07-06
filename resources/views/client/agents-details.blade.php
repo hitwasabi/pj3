@@ -27,7 +27,7 @@
                 <div class="agent-details-content">
                     <div class="agents-block-one">
                         <div class="inner-box mr-0">
-                            <figure class="image-box"><img src="{{asset('images/agents/agent-details-1.jpg')}}" alt=""></figure>
+                            <figure class="image-box"><img src="{{url('images/agents/'.$users->user_image)}}" alt=""></figure>
                             <div class="content-box">
                                 <div class="upper clearfix">
                                     <div class="title-inner pull-left">
@@ -85,10 +85,10 @@
                                                 <div class="deals-block-one">
                                                     <div class="inner-box">
                                                         <div class="image-box">
-                                                            <figure class="image"><img src="{{$rent_room->url}}" alt=""></figure>
+                                                            <figure class="image"><img src="{{url('images/rooms/'.$rent_room->url)}}" alt=""></figure>
                                                             <div class="batch"><i class="icon-11"></i></div>
-                                                            <span class="category">Featured</span>
-                                                            <div class="buy-btn"><a href="property-details.blade.php">For Buy</a></div>
+                                                            <span class="category">Đặc sắc</span>
+                                                            <div class="buy-btn"><a href="#">Cho thuê</a></div>
                                                         </div>
                                                         <div class="lower-content">
                                                             <div class="title-text"><h4><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}">{{$rent_room->room_name}}</a></h4></div>
@@ -99,12 +99,11 @@
                                                                 </div>
                                                                 <div class="author-box pull-right">
                                                                     <figure class="author-thumb">
-                                                                        <img src="assets/images/feature/author-1.jpg" alt="">
-                                                                        <span>Michael Bean</span>
+                                                                        <img src="{{url('images/agents/'.$rent_room->user_image)}}" alt="">
+                                                                        <span>{{$rent_room->name}}</span>
                                                                     </figure>
                                                                 </div>
                                                             </div>
-                                                            <p>{{$rent_room->info_detail}}</p>
                                                             <ul class="more-details clearfix">
                                                                 <li><i class="icon-14"></i>{{$rent_room->bed_room}} phòng ngủ</li>
                                                                 <li><i class="icon-15"></i>{{$rent_room->bath_room}} phòng vệ sinh </li>
@@ -112,9 +111,6 @@
                                                             </ul>
                                                             <div class="other-info-box clearfix">
                                                                 <div class="btn-box pull-left"><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}" class="theme-btn btn-two">Xem chi tiết</a></div>
-                                                                <ul class="other-option pull-right clearfix">
-                                                                    <li><a href="property-details.blade.php"><i class="icon-13"></i></a></li>
-                                                                </ul>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -130,15 +126,15 @@
                                                         <div class="feature-block-one">
                                                             <div class="inner-box">
                                                                 <div class="image-box">
-                                                                    <figure class="image"><img src="{{$rent_room-> url}}" alt=""></figure>
+                                                                    <figure class="image"><img src="{{url('images/rooms/'.$rent_room->url)}}" alt=""></figure>
                                                                     <div class="batch"><i class="icon-11"></i></div>
-                                                                    <span class="category">Featured</span>
+                                                                    <span class="category">Đặc sắc</span>
                                                                 </div>
                                                                 <div class="lower-content">
                                                                     <div class="author-info clearfix">
                                                                         <div class="author pull-left">
-                                                                            <figure class="author-thumb"><img src="assets/images/feature/author-3.jpg" alt=""></figure>
-                                                                            <h6>Keira Mel</h6>
+                                                                            <figure class="author-thumb"><img src="{{url('images/agents/'.$rent_room->user_image)}}" alt=""></figure>
+                                                                            <h6>{{$rent_room->name}}</h6>
                                                                         </div>
                                                                     </div>
                                                                     <div class="title-text"><h4><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}">{{$rent_room->room_name}}</a></h4></div>
@@ -147,11 +143,7 @@
                                                                             <h6>Giá khởi điểm</h6>
                                                                             <h4>{{number_format($rent_room->prices, 0, '.', '.')}}<sup>đ</sup></h4>
                                                                         </div>
-                                                                        <ul class="other-option pull-right clearfix">
-                                                                            <li><a href="property-details.blade.php"><i class="icon-13"></i></a></li>
-                                                                        </ul>
                                                                     </div>
-                                                                    <p>{{$rent_room->info_detail}}</p>
                                                                     <ul class="more-details clearfix">
                                                                         <li><i class="icon-14"></i>{{$rent_room->bed_room}} phòng ngủ</li>
                                                                         <li><i class="icon-15"></i>{{$rent_room->bath_room}} phòng vệ sinh </li>

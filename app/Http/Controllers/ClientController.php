@@ -46,7 +46,8 @@ class ClientController extends Controller
             ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
             ->join('categories','categories.id','=','rent_rooms.cate_id')
             ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
-            ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*')
+            ->join('users','users.id','=','rent_rooms.owner_id')
+            ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','users.*')
             ->paginate(6);
         if($request-> get('sort')=='price_asc'){
             $rent_rooms->setCollection(
@@ -295,7 +296,7 @@ class ClientController extends Controller
             ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
             ->join('streets','rent_rooms.street_id','=','streets.street_id')
             ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*')
-            ->where('city_details.name','=','Hoàn Kiếm')
+            ->where('city_details.cd_name','=','Quận Hoàn Kiếm')
             ->paginate(3);
         if($request-> get('sort')=='price_asc'){
             $rent_rooms =DB::table('rent_rooms')
@@ -307,7 +308,7 @@ class ClientController extends Controller
                 ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
                 ->join('streets','rent_rooms.street_id','=','streets.street_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*')
-                ->where('city_details.name','=','Hoàn Kiếm')
+                ->where('city_details.cd_name','=','Quận Hoàn Kiếm')
                 ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortBy('prices')
@@ -323,7 +324,7 @@ class ClientController extends Controller
                 ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
                 ->join('streets','rent_rooms.street_id','=','streets.street_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*')
-                ->where('city_details.name','=','Hoàn Kiếm')
+                ->where('city_details.cd_name','=','Quận Hoàn Kiếm')
                 ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('prices')
@@ -339,13 +340,15 @@ class ClientController extends Controller
                 ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
                 ->join('streets','rent_rooms.street_id','=','streets.street_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*')
-                ->where('city_details.name','=','Hoàn Kiếm')
+                ->where('city_details.cd_name','=','Quận Hoàn Kiếm')
                 ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('rr_id')
             );
         }
-        return view('/client/district/hoanKiem')->with('rent_rooms',$rent_rooms);
+        $data['cities'] = City::get(["city_name","cities_id"]);
+        $data['rent_rooms']  = $rent_rooms;
+        return view('/client/district/hoanKiem',$data);
     }
     public function  viewTayHo(Request $request){
         //$products = DB::select("SELECT * FROM products INNER JOIN images ON products.product_id = images.product_id INNER JOIN sell_products ON products.product_id = sell_products.product_id");
@@ -358,7 +361,7 @@ class ClientController extends Controller
             ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
             ->join('streets','rent_rooms.street_id','=','streets.street_id')
             ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*')
-            ->where('city_details.name','=','Tây Hồ')
+            ->where('city_details.cd_name','=','Quận Tây Hồ')
             ->paginate(3);
         if($request-> get('sort')=='price_asc'){
             $rent_rooms =DB::table('rent_rooms')
@@ -370,7 +373,7 @@ class ClientController extends Controller
                 ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
                 ->join('streets','rent_rooms.street_id','=','streets.street_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*')
-                ->where('city_details.name','=','Tây Hồ')
+                ->where('city_details.cd_name','=','Quận Tây Hồ')
                 ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortBy('prices')
@@ -386,7 +389,7 @@ class ClientController extends Controller
                 ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
                 ->join('streets','rent_rooms.street_id','=','streets.street_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*')
-                ->where('city_details.name','=','Tây Hồ')
+                ->where('city_details.cd_name','=','Quận Tây Hồ')
                 ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('prices')
@@ -402,13 +405,15 @@ class ClientController extends Controller
                 ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
                 ->join('streets','rent_rooms.street_id','=','streets.street_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*')
-                ->where('city_details.name','=','Tây Hồ')
+                ->where('city_details.cd_name','=','Quận Tây Hồ')
                 ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('rr_id')
             );
         }
-        return view('/client/district/tayHo')->with('rent_rooms',$rent_rooms);
+        $data['cities'] = City::get(["city_name","cities_id"]);
+        $data['rent_rooms']  = $rent_rooms;
+        return view('/client/district/tayHo',$data);
     }
     public function  viewHaiBaTrung(Request $request){
         //$products = DB::select("SELECT * FROM products INNER JOIN images ON products.product_id = images.product_id INNER JOIN sell_products ON products.product_id = sell_products.product_id");
@@ -421,7 +426,7 @@ class ClientController extends Controller
             ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
             ->join('streets','rent_rooms.street_id','=','streets.street_id')
             ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*')
-            ->where('city_details.name','=','Hai Bà Trưng')
+            ->where('city_details.cd_name','=','Quận Hai Bà Trưng')
             ->paginate(3);
         if($request-> get('sort')=='price_asc'){
             $rent_rooms =DB::table('rent_rooms')
@@ -433,7 +438,7 @@ class ClientController extends Controller
                 ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
                 ->join('streets','rent_rooms.street_id','=','streets.street_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*')
-                ->where('city_details.name','=','Hai Bà Trưng')
+                ->where('city_details.cd_name','=','Quận Hai Bà Trưng')
                 ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortBy('prices')
@@ -449,7 +454,7 @@ class ClientController extends Controller
                 ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
                 ->join('streets','rent_rooms.street_id','=','streets.street_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*')
-                ->where('city_details.name','=','Hai Bà Trưng')
+                ->where('city_details.cd_name','=','Quận Hai Bà Trưng')
                 ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('prices')
@@ -465,16 +470,19 @@ class ClientController extends Controller
                 ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
                 ->join('streets','rent_rooms.street_id','=','streets.street_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*')
-                ->where('city_details.name','=','Hai Bà Trưng')
+                ->where('city_details.cd_name','=','Quận Hai Bà Trưng')
                 ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('rr_id')
             );
         }
-        return view('/client/district/haiBaTrung')->with('rent_rooms',$rent_rooms);
+        $data['cities'] = City::get(["city_name","cities_id"]);
+        $data['rent_rooms']  = $rent_rooms;
+        return view('/client/district/haiBaTrung',$data);
     }
     public function  viewDongDa(Request $request){
         //$products = DB::select("SELECT * FROM products INNER JOIN images ON products.product_id = images.product_id INNER JOIN sell_products ON products.product_id = sell_products.product_id");
+        $data['cities'] = City::get(["city_name","cities_id"]);
         $rent_rooms = DB::table('rent_rooms')
             ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
             ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
@@ -484,7 +492,7 @@ class ClientController extends Controller
             ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
             ->join('streets','rent_rooms.street_id','=','streets.street_id')
             ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*')
-            ->where('city_details.name','=','Đống đa')
+            ->where('city_details.cd_name','=','Quận Đống Đa')
             ->paginate(3);
         if($request-> get('sort')=='price_asc'){
             $rent_rooms =DB::table('rent_rooms')
@@ -496,7 +504,7 @@ class ClientController extends Controller
                 ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
                 ->join('streets','rent_rooms.street_id','=','streets.street_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*')
-                ->where('city_details.name','=','Đống đa')
+                ->where('city_details.cd_name','=','Quận Đống Đa')
                 ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortBy('prices')
@@ -512,7 +520,7 @@ class ClientController extends Controller
                 ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
                 ->join('streets','rent_rooms.street_id','=','streets.street_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*')
-                ->where('city_details.name','=','Đống đa')
+                ->where('city_details.cd_name','=','Quận Đống Đa')
                 ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('prices')
@@ -528,13 +536,15 @@ class ClientController extends Controller
                 ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
                 ->join('streets','rent_rooms.street_id','=','streets.street_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*')
-                ->where('city_details.name','=','Đống đa')
+                ->where('city_details.cd_name','=','Quận Đống Đa')
                 ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('rr_id')
             );
         }
-        return view('/client/district/dongDa')->with('rent_rooms',$rent_rooms);
+        $data['cities'] = City::get(["city_name","cities_id"]);
+        $data['rent_rooms']  = $rent_rooms;
+        return view('/client/district/dongDa',$data);
     }
 
     public function  viewAgent(Request $request,$id){
@@ -545,7 +555,8 @@ class ClientController extends Controller
             ->join('cities','rent_rooms.city_id','=','cities.cities_id')
             ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
             ->join('streets','rent_rooms.street_id','=','streets.street_id')
-            ->select('rent_rooms.*','room_details.*','cities.*','city_details.*','streets.*','rent_amounts.*','images.url')
+            ->join('users','users.id','=','rent_rooms.owner_id')
+            ->select('rent_rooms.*','room_details.*','cities.*','city_details.*','streets.*','rent_amounts.*','images.url','users.*')
             ->where('rent_rooms.owner_id',"=",$id)
             ->paginate(3);
         if($request-> get('sort')=='price_asc'){
@@ -630,15 +641,29 @@ class ClientController extends Controller
             ->select('rent_rooms.*','room_details.*','cities.*','city_details.*','streets.*','rent_amounts.*','users.*','images.*')
             ->where('interact','>=','1')
             ->get()->take(3);
+        $rent_roomsss =DB::table('rent_rooms')
+            ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
+            ->join('categories','categories.id','=','rent_rooms.cate_id')
+            ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
+            ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
+            ->join('cities','rent_rooms.city_id','=','cities.cities_id')
+            ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
+            ->join('users','users.id','=','rent_rooms.owner_id')
+            ->join('streets','rent_rooms.street_id','=','streets.street_id')
+            ->select('rent_rooms.*','room_details.*','cities.*','city_details.*','streets.*','rent_amounts.*','users.*','images.*')
+            ->where('users.level','=','3')
+            ->get();
         $blogs =DB::table('blogs')
             ->join('users','users.id','=','blogs.userPost_id')
             ->select('users.*','blogs.*')
             ->get()->take(3);
         $data['rent_rooms']  = $rent_rooms;
         $data['rent_roomss']  = $rent_roomss;
+        $data['rent_roomsss']  = $rent_roomsss;
         $data['blogs']  = $blogs;
         $data['min_prices']  = $this->min_prices;
         $data['max_prices']  = $this->max_prices;
+        //dd($blogs);
         return view('/client/home',$data);
     }
     public function getState(Request $request)

@@ -191,6 +191,7 @@
                     <h2>Ưu đãi cực kì tốt</h2>
                 </div>
                 <div class="deals-carousel owl-carousel owl-theme owl-dots-none nav-style-one">
+                    @forelse($rent_roomsss as $rent_room)
                     <div class="single-item">
                         <div class="row clearfix">
                             <div class="col-lg-6 col-md-6 col-sm-12 deals-block">
@@ -199,106 +200,33 @@
                                         <div class="batch"><i class="icon-11"></i></div>
                                         <span class="category">Đặc sắc</span>
                                         <div class="lower-content">
-                                            <div class="title-text"><h4><a href="{{url('/client/home/property-details')}}">Villa on Grand Avenue</a></h4></div>
+                                            <div class="title-text"><h4><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}">{{$rent_room->room_name}}</a></h4></div>
                                             <div class="price-box clearfix">
                                                 <div class="price-info pull-left">
                                                     <h6>Giá khởi điểm</h6>
-                                                    <h4>$30,000.00</h4>
+                                                    <h4>{{number_format($rent_room->prices, 0, '.', '.')}}<sup>đ</sup></h4>
                                                 </div>
-                                                <ul class="other-option pull-right clearfix">
-                                                    <li><a href="{{url('/client/home/property-details')}}"><i class="icon-13"></i></a></li>
-                                                </ul>
                                             </div>
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing sed eiusm tempor incididunt labore.</p>
                                             <ul class="more-details clearfix">
-                                                <li><i class="icon-14"></i>3 Beds</li>
-                                                <li><i class="icon-15"></i>2 Baths</li>
-                                                <li><i class="icon-16"></i>600 Sq Ft</li>
+                                                <li><i class="icon-14"></i>{{$rent_room->bed_room}} phòng ngủ</li>
+                                                <li><i class="icon-15"></i>{{$rent_room->bath_room}} phòng vệ sinh </li>
+                                                <li><i class="icon-16"></i>{{$rent_room -> acreage}}métvuông</li>
                                             </ul>
-                                            <div class="btn-box"><a href="{{url('/client/home/property-details')}}" class="theme-btn btn-one">Xem thông tin chi tiết</a></div>
+                                            <div class="btn-box"><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}" class="theme-btn btn-one">Xem thông tin chi tiết</a></div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12 deals-block">
                                 <div class="image-box">
-                                    <figure class="image"><img src="{{asset('images/resource/deals-1.jpg')}}" alt=""></figure>
+                                    <figure class="image"><img src="{{url('images/rooms/'.$rent_room->url)}}" alt=""></figure>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="single-item">
-                        <div class="row clearfix">
-                            <div class="col-lg-6 col-md-6 col-sm-12 deals-block">
-                                <div class="deals-block-one">
-                                    <div class="inner-box">
-                                        <div class="batch"><i class="icon-11"></i></div>
-                                        <span class="category">Đặc sắc</span>
-                                        <div class="lower-content">
-                                            <div class="title-text"><h4><a href="{{url('/client/home/property-details')}}">Contemporary Apartment</a></h4></div>
-                                            <div class="price-box clearfix">
-                                                <div class="price-info pull-left">
-                                                    <h6>Giá khởi điểm</h6>
-                                                    <h4>$45,000.00</h4>
-                                                </div>
-                                                <ul class="other-option pull-right clearfix">
-                                                    <li><a href="{{url('/client/home/property-details')}}"><i class="icon-13"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing sed eiusm tempor incididunt labore.</p>
-                                            <ul class="more-details clearfix">
-                                                <li><i class="icon-14"></i>3 Beds</li>
-                                                <li><i class="icon-15"></i>2 Baths</li>
-                                                <li><i class="icon-16"></i>600 Sq Ft</li>
-                                            </ul>
-                                            <div class="btn-box"><a href="{{url('/client/home/property-details')}}" class="theme-btn btn-one">Xem thông tin chi tiết</a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-12 deals-block">
-                                <div class="image-box">
-                                    <figure class="image"><img src="{{asset('images/resource/deals-1.jpg')}}" alt=""></figure>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="single-item">
-                        <div class="row clearfix">
-                            <div class="col-lg-6 col-md-6 col-sm-12 deals-block">
-                                <div class="deals-block-one">
-                                    <div class="inner-box">
-                                        <div class="batch"><i class="icon-11"></i></div>
-                                        <span class="category">Đặc sắc</span>
-                                        <div class="lower-content">
-                                            <div class="title-text"><h4><a href="{{url('/client/home/property-details')}}">Luxury Villa With Pool</a></h4></div>
-                                            <div class="price-box clearfix">
-                                                <div class="price-info pull-left">
-                                                    <h6>Giá khởi điểm</h6>
-                                                    <h4>$63,000.00</h4>
-                                                </div>
-                                                <ul class="other-option pull-right clearfix">
-                                                    <li><a href="{{url('/client/home/property-details')}}"><i class="icon-13"></i></a></li>
-                                                </ul>
-                                            </div>
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing sed eiusm tempor incididunt labore.</p>
-                                            <ul class="more-details clearfix">
-                                                <li><i class="icon-14"></i>3 Beds</li>
-                                                <li><i class="icon-15"></i>2 Baths</li>
-                                                <li><i class="icon-16"></i>600 Sq Ft</li>
-                                            </ul>
-                                            <div class="btn-box"><a href="{{url('/client/home/property-details')}}" class="theme-btn btn-one">Xem thông tin chi tiết</a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-12 deals-block">
-                                <div class="image-box">
-                                    <figure class="image"><img src="{{asset('images/resource/deals-1.jpg')}}" alt=""></figure>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @empty
+                        <p>Danh sach rong</p>
+                    @endforelse
                 </div>
             </div>
         </section>
@@ -323,7 +251,7 @@
                                     <div class="lower-content">
                                         <div class="author-info clearfix">
                                             <div class="author pull-left">
-                                                <figure class="author-thumb"><img src="{{$rent_room->user_image}}" alt=""></figure>
+                                                <figure class="author-thumb"><img src="{{url('images/agents/'.$rent_room->user_image)}}" alt=""></figure>
                                                 <h6>{{$rent_room->name}}</h6>
                                             </div>
                                             <div class="buy-btn pull-right"><a href="{{url('/client/home/agents-details/'.$rent_room->owner_id)}}">Cho thuê</a></div>
@@ -373,7 +301,7 @@
                                 <div class="lower-content">
                                     <div class="author-info clearfix">
                                         <div class="author pull-left">
-                                            <figure class="author-thumb"><img src="{{$rent_room->user_image}}" alt=""></figure>
+                                            <figure class="author-thumb"><img src="{{url('images/agents/'.$rent_room->user_image)}}" alt=""></figure>
                                             <h6>{{$rent_room->name}}</h6>
                                         </div>
                                         <div class="buy-btn pull-right"><a href="{{url('/client/home/agents-details/'.$rent_room->owner_id)}}">Cho thuê</a></div>
@@ -487,7 +415,11 @@
                                     <h4><a href="{{url('client/home/blogs-details/'.$blog->new_id)}}">{{$blog->new_name}}</a></h4>
                                     <ul class="post-info clearfix">
                                         <li class="author-box">
-                                            <figure class="author-thumb"><img src="{{$blog->user_image}}" alt=""></figure>
+                                            <figure class="author-thumb">@if(\Illuminate\Support\Facades\Auth::user()->user_image == null)
+                                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMAAAADACAMAAABlApw1AAAAMFBMVEX19vfExcbIycnd3t/y8/TNzc7V1tfa29zm5+jr7O3LzMzc3d7Q0NHu7/Dg4eLj5OU4/BecAAAC7ElEQVR4nO3cAWKrIAwGYEFQVLT3v+2rdd3atTokaJK+/ztBoiAB0lYVAAAAAAAAAAAAAABAIS7Uje+tMbb3TR0cdzz7dG1vfvFtxx1VKje9RL/oJw3vwQ32ffgzO4hP4bIR/i2FC3eEm8a4Hf4sjtxRrvvr8X+9hMAd55o2JfxZyx3pe01q/MY03LG+kzD8f0TuaF/teP4i30Hy+L8TNg8ue+M3RtS3aEz6fj6zktaDXRP4TtBEzhhAMzFVhcsYQDMrpbIb8uI3puaOfJH7AsS8gik3fmMm7thvVvZfKTx37LMuP35jJOyTdxcRjyQUFJ6SgIAx5CjxG8P/HQq0BPhLupqWAP9atnMj8xv/xoY0hyWUpIRlbNZzx19lF0ILyx1/RYvfGO749Segfgipn8TqP6PqFzL1pYT6Yk59Oa1+Q0PbUg7c0VcfsKmnjCEJI+gDDrbUHy3mr2X8q9hC/fG6+gsO/VdM+i/5cko6/jLuye5rJglFxBPtrQY7J7LA+PW32+worMWN/7ugvOVMf9Nfpb7t8srVW42vtZj6bYObVvZoXkXr8U3XvuSgqPl7Mbffx6X9PuprvwcAAAAAgP+V68I0NPG6nVm2x7b3sRmm0Mnf1bgwNXFrUx+bSermbN5CJt4S2DgIy8KF1038X3wrJYluyL7p9gP3SYULqcNmjW0YX0QgdmvdNSynvV1LfPaP7OmnXpesi9Ut8XLeUNo8v8131smvI3U4bWuPT+Ggp//t6D+emI4N/8oe2UOUcoNE5w/7IhF7XNMdc4s5Eruk9/AHXAR2h4/+R+WvYgmdfXkKz+XThv+PohPh9Oc/K9gSmNkTR1XsTpzUXExRakE48fv5rC9TVzBM4LsiE3nki9+YEgta9r9GlFDiJ+vEH4oR0WcB8Uc+VPSS4sD9Vwr6GCp0dJKL3mDNtggs6D8WPbWKfoOcAHP8SAAJIAEkgASQABJAAkgACSABxgQAAAAAAAAAAAAAAODj/AMS6imfF+YdbQAAAABJRU5ErkJggg=="  alt="">
+                                                @else
+                                                    <img src="{{url('images/agents/'.\Illuminate\Support\Facades\Auth::user()->user_image)}}" class="avatar avatar-md" alt="">
+                                                @endif</figure>
                                             <h5><a href="{{url('client/home/agents-details/'.$blog->userPost_id)}}">{{$blog->name}}</a></h5>
                                         </li>
                                         <li>{{$blog->post_date}}</li>
