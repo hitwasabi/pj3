@@ -30,18 +30,11 @@
                 <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
                     <div class="footer-widget post-widget">
                         <div class="widget-title">
-                            <h3>Báo Mới</h3>
+                            <h3>Trang xã hội</h3>
                         </div>
                         <div class="post-inner">
-                            @forelse($blogs as $blog)
-                            <div class="post">
-                                <figure class="post-thumb"><a href="{{url('client/home/blog-details/'.$blog->new_id)}}"><img src="{{url('images/rooms/'.$blog->new_image)}}" alt=""></a></figure>
-                                <h5><a href="{{url('client/home/blog-details/'.$blog->new_id)}}">{{$blog->new_name}}</a></h5>
-                                <p>{{$blog->post_date}}</p>
-                            </div>
-                            @empty
-                                <p>Danh sach rong</p>
-                            @endforelse
+                            <li><a href="https://www.facebook.com/Nhoctuthuoc/"><i class="fab fa-facebook-f"></i> Nhoctuthuoc</a> </li>
+                            <li><a href="https://www.instagram.com/hitwasabi/"><i class="fab fa-instagram"></i> Hitwasabi</a> </li>
                         </div>
                     </div>
                 </div>
