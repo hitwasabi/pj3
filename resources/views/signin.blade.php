@@ -23,8 +23,6 @@
             </div>
         </section>
         <!--End Page Title-->
-
-
         <!-- ragister-section -->
         <section class="ragister-section centred sec-pad">
             <div class="auto-container">
@@ -58,9 +56,6 @@
                                         </div>
                                     </div>
                                 </div>
-
-
-
                             </div>
                         </div>
                     </div>

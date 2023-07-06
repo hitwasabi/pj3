@@ -6,8 +6,6 @@
     @include('client.header')
 
 
-
-
         <!--Page Title-->
         <section class="page-title centred" style="background-image: url({{asset('images/background/page-title.jpg')}});">
             <div class="auto-container">
