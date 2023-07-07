@@ -132,10 +132,10 @@
                                     <div class="lower-content">
                                         <div class="author-info clearfix">
                                             <div class="author pull-left">
-                                                <figure class="author-thumb"><img src="assets/images/feature/author-3.jpg" alt=""></figure>
+                                                <figure class="author-thumb"><img src="{{url('images/agents/'.$rent_room->user_image)}}" alt=""></figure>
                                                 <h6>{{$rent_room-> name}}</h6>
                                             </div>
-                                            <div class="buy-btn pull-right"><a href="#">For Rent</a></div>
+                                            <div class="buy-btn pull-right"><a href="#">Cho thuê</a></div>
                                         </div>
                                         <div class="title-text"><h4><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}">{{$rent_room-> room_name}}</a></h4></div>
                                         <div class="price-box clearfix">
@@ -143,16 +143,13 @@
                                                 <h6>Giá khởi điểm</h6>
                                                 <h4>{{number_format($rent_room->prices, 0, '.', '.')}}<sup>đ</sup></h4>
                                             </div>
-                                            <ul class="other-option pull-right clearfix">
-                                                <li><a href="property-details.html"><i class="icon-13"></i></a></li>
-                                            </ul>
                                         </div>
                                         <ul class="more-details clearfix">
                                             <li><i class="icon-14"></i>{{$rent_room->bed_room}} phòng ngủ</li>
                                             <li><i class="icon-15"></i>{{$rent_room->bath_room}} phòng vệ sinh </li>
                                             <li><i class="icon-16"></i>{{$rent_room -> acreage}} m²</li>
                                         </ul>
-                                        <div class="btn-box"><a href="{{url('client/home/property-details/'.$rent_room->rr_id)}}" class="theme-btn btn-two">Xem chi tiết</a></div>
+                                        <div class="btn-box"><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}" class="theme-btn btn-two">Xem chi tiết</a></div>
                                     </div>
                                 </div>
                             </div>
