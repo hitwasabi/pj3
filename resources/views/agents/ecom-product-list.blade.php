@@ -25,7 +25,6 @@
 					</ol>
                 </div>
             <div class="container-fluid mh-auto">
-
                 <div class="row">
                     @forelse($rent_rooms as $rent_room)
                     <div class="col-lg-12 col-xl-6 col-xxl-4">

@@ -28,7 +28,11 @@
                 <div class="tabs-box">
                     <ul class="tab-buttons ">
                         <h3>Gói theo tháng</h3>
+                        @if(\Illuminate\Support\Facades\Auth::check() == false)
+                            <h4>Hãy đăng nhập để mua gói</h4>
+                        @else
                         <h4>Số dư tài khoản của bạn : {{number_format(\Illuminate\Support\Facades\Auth::user()->money, 0, '.', '.')}} đ</h4>
+                        @endif
                     </ul>
                     <br>
                     <div class="tabs-content">

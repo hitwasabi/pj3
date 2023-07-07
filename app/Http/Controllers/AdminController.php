@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Blog;
+use App\Models\Payment_history;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
@@ -84,7 +86,17 @@ class AdminController extends Controller
         if (Auth::user()->isAdmin == 1){
             return redirect('agents/index');
         }
-        return view('/admin/ecom-product-list');
+        $rooms =DB::table('rent_rooms')
+            ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
+            ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
+            ->join('categories','categories.id','=','rent_rooms.cate_id')
+            ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
+            ->join('cities','rent_rooms.city_id','=','cities.cities_id')
+            ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
+            ->join('streets','rent_rooms.street_id','=','streets.street_id')
+            ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*',)
+            ->get();
+        return view('/admin/ecom-product-list',compact('rooms'));
     }
 
     public function viewEdit(){
@@ -101,23 +113,55 @@ class AdminController extends Controller
         }
         return view('/admin/customer-profile');
     }
+
     public function viewPayment(){
         if (Auth::user()->isAdmin == 1){
             return redirect('agents/index');
         }
-        return view('/admin/payment-history');
+        $payments = DB::table('payment_histories')
+            ->join('users','users.id','=','payment_histories.user_id')
+            ->select('payment_histories.*','users.*')
+            ->get();
+        return view('/admin/payment-history',compact('payments'));
     }
+
     public function comfirm(){
         if (Auth::user()->isAdmin == 1){
             return redirect('agents/index');
         }
         return view('/admin/comfirm-product');
     }
+
     public function viewAdminProfile(){
         if (Auth::user()->isAdmin == 1){
             return redirect('agents/index');
         }
         return view('/admin/admin-profile');
+    }
+
+    public function viewCharges($id){
+        if (Auth::user()->isAdmin == 1){
+            return redirect('agents/index');
+        }
+        $agents = DB::table('users')
+            ->where('id','=',$id)
+            ->get();
+        return view('admin/charges',compact('agents'));
+    }
+
+    public function charges(Request $request, $id){
+        $currentUser = User::findOrFail($id);
+        $cash = $request->input('money');
+        $newCash = $currentUser->money + $cash;
+        $currentUser->update(['money'=> $newCash]);
+        Payment_history::create([
+            'user_id' => $id,
+            'price' => $cash,
+            'payment_info' => 'Nạp tiền vào tài khoản',
+            'payment_time' => Carbon::now()
+        ]);
+        Alert::success('Nạp thành công','Tài khoản '.$currentUser->name.' đã được nạp '.$cash.' vnđ');
+        return redirect('admin/contacts');
     }
 
     public function addBlog(Request $request){

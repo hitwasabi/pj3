@@ -12,7 +12,7 @@
 <div id="main-wrapper">
     @include('admin.preloader')
     @include('admin.header')
-
+    @include('sweetalert::alert')
     @include('admin.sidebar')
 
 		<!--**********************************
@@ -53,6 +53,7 @@
                                                 <th>Số điện thoại</th>
                                                 <th>Cấp độ</th>
                                                 <th>Số dư</th>
+                                                <th>Action</th>
                                             </tr>
                                         </thead>
 										<tbody>
@@ -92,6 +93,9 @@
 												<td>
 													<span>{{$agent->money}}</span>
 												</td>
+                                                <td>
+                                                    <li><a href="{{url('admin/viewCharges/'.$agent->id)}}" style="color: red">Nạp tiền</a></li>
+                                                </td>
 											</tr>
                                         @endforeach
 										</tbody>

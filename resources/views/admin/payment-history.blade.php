@@ -30,92 +30,32 @@
                                 <tr>
                                     <th>ID</th>
                                     <th>Người mua</th>
+                                    <th>Email</th>
+                                    <th>Số điện thoại</th>
                                     <th>Gói</th>
+                                    <th>Giá</th>
                                     <th>Trạng Thái</th>
-                                    <th>Ngày</th>
+                                    <th>Ngày mua</th>
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @foreach($payments as $payment )
                                 <tr>
-                                    <td><span>#552145252</span></td>
+                                    <td><span>#{{$payment->payment_id}}</span></td>
                                     <td>
-                                        <span>Zoom video conferencing</span>
+                                        <span>{{$payment->name}}</span>
                                     </td>
-                                    <td><span class="badge badge-danger light border-0">Pending</span></td>
+                                    <td><span>{{$payment->email}}</span></td>
+                                    <td><span>{{$payment->phone}}</span></td>
+                                    <td><span>{{$payment->payment_info}}</span></td>
+                                    <td><span>{{$payment->price}}</span></td>
+                                    <td><span class="badge badge-success light border-0">Thành công</span></td>
                                     <td>
-                                        <span>12 February 2022</span>
-                                    </td>
-                                    <td>
-                                        <span>$900</span>
+                                        <span>{{$payment->payment_time}}</span>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td><span>#5454421</span></td>
-                                    <td>
-                                        <span>Salesforce CRM</span>
-                                    </td>
-                                    <td><span class="badge badge-primary light border-0">Inprogress</span></td>
-                                    <td>
-                                        <span>13 March 2023</span>
-                                    </td>
-                                    <td>
-                                        <span>$500</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><span>#5857455</span></td>
-                                    <td>
-                                        <span>Slack collaboration platform</span>
-                                    </td>
-                                    <td><span class="badge badge-primary light border-0">Inprogress</span></td>
-                                    <td>
-                                        <span>24 January 2022</span>
-                                    </td>
-                                    <td>
-                                        <span>$800</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><span>#552145252</span></td>
-                                    <td>
-                                        <span>Google Chrome</span>
-                                    </td>
-                                    <td><span class="badge badge-danger light border-0">Pending</span></td>
-                                    <td>
-                                        <span>12 February 2022</span>
-                                    </td>
-                                    <td>
-                                        <span>$900</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><span>#5454421</span></td>
-                                    <td>
-                                        <span>Shopify eCommerce</span>
-                                    </td>
-                                    <td><span class="badge badge-success light border-0">Completed</span></td>
-                                    <td>
-                                        <span>13 March 2023</span>
-                                    </td>
-                                    <td>
-                                        <span>$500</span>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><span>#5857455</span></td>
-                                    <td>
-                                        <span>Slack collaboration platform</span>
-                                    </td>
-                                    <td><span class="badge badge-primary light border-0">Inprogress</span></td>
-                                    <td>
-                                        <span>24 January 2022</span>
-                                    </td>
-                                    <td>
-                                        <span>$800</span>
-                                    </td>
-                                </tr>
+                                @endforeach
                                 </tbody>
-
                             </table>
                         </div>
                     </div>

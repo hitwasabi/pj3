@@ -8,7 +8,11 @@
             </div>
             <div class="btn-box pull-right">
                 <a href="{{url('client/home/property-list')}}" class="theme-btn btn-three">Danh mục phòng </a>
-                <a href="index-2.html" class="theme-btn btn-one">Đăng tin bài</a>
+                @if(\Illuminate\Support\Facades\Auth::check()==true)
+                    <a href="{{url('/agents/add-product')}}" class="theme-btn btn-one">Đăng tin bài</a>
+                @else
+                <a href="{{url('/login')}}" class="theme-btn btn-one">Đăng tin bài</a>
+                @endif
             </div>
         </div>
     </div>
