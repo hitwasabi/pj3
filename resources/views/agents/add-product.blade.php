@@ -88,7 +88,7 @@
                                     <div class="col-xl-6 mb-3">
                                         <label class="form-label">Quận<span class="text-danger">*</span></label>
                                         <select class="default-select form-control" name="city_detailId" id="state_dropdown" onchange="selectStreet()">
-
+                                            <option value=" "></option>
                                         </select>
                                     </div>
                                     <div class="col-xl-6 mb-3">
@@ -105,6 +105,7 @@
                                     <div class="col-xl-6 mb-3">
                                         <label class="form-label">Đường<span class="text-danger">*</span></label>
                                         <select class="default-select form-control" name="street_id" id="city-dropdown">
+                                            <option value=" "></option>
                                         </select>
                                     </div>
                                     <div class="col-xl-6 mb-3">

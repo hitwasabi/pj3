@@ -54,7 +54,7 @@ class AgentController extends Controller
             ->join('streets','rent_rooms.street_id','=','streets.street_id')
             ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*',)
             ->where('rent_rooms.owner_id','=',$id)
-            ->get();
+            ->paginate(6);
         $users = DB::table('users')->where('id',"=",$id)->first();
         //dd($rent_rooms);
         return view('/agents/ecom-product-list',compact('users','rent_rooms'));
@@ -161,5 +161,30 @@ class AgentController extends Controller
         $data['streets'] = Street::where("city_detailsId",$request->city_detailsId)
             ->get(["street_name","street_id"]);
         return response()->json($data);
+    }
+
+    public function searchInfo(Request $request){
+        $keyword = $request->get('keyword_submit');
+        $id = Auth::user()->id;
+        $query = DB::table('rent_rooms')
+            ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
+            ->join('categories','categories.id','=','rent_rooms.cate_id')
+            ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
+            ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
+            ->join('cities','rent_rooms.city_id','=','cities.cities_id')
+            ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
+            ->join('users','users.id','=','rent_rooms.owner_id')
+            ->join('streets','rent_rooms.street_id','=','streets.street_id')
+            ->select('rent_rooms.*','room_details.*','cities.*','city_details.*','streets.*','rent_amounts.*','users.*','images.*')
+            ->where('rent_rooms.owner_id','=',$id);
+        if($request->get('keyword_submit')){
+            $query->where('room_name','like','%'.$keyword.'%');
+        }
+        $collection = $query->paginate(6);
+        $data = ['search_product'=>$collection,
+            'keyword_submit'=>$keyword,
+        ];
+        //dd($collection);
+        return view('agents/search', $data);
     }
 }

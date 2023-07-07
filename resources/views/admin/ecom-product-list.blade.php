@@ -24,6 +24,12 @@
 						<li class="breadcrumb-item active"><a href="javascript:void(0)">Product List</a></li>
 					</ol>
                 </div>
+             <div class="input-group container-fluid mh-auto" >
+                 <form action="{{url('admin/search')}}" method="get" class="search-form">
+                     <i class="fas fa-search"></i>
+                     <input type="search" name="keyword_submit" placeholder="Tìm kiếm...">
+                 </form>
+             </div>
              <div class="container-fluid mh-auto">
                  <div class="row">
                      @forelse($rooms as $room)
@@ -58,6 +64,9 @@
                          <p>Danh sach rong</p>
                      @endforelse
                 </div>
+                 <div class="pagination-wrapper">
+                     {!!$rooms->links("pagination::bootstrap-4")  !!}
+                 </div>
             </div>
         </div>
         <!--**********************************

@@ -38,7 +38,7 @@
                 <div class="tabs-content">
                     <div class="tab active-tab" id="tab-1">
                         <div class="row clearfix">
-                            <div class="col-lg-4 col-md-6 col-sm-12 pricing-block">
+                            <div class=" pricing-block center" >
                                 <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="300ms" data-wow-duration="1500ms">
                                     <form action="{{url('client/buyPack')}}" method="POST">
                                         @csrf
@@ -47,7 +47,7 @@
                                                 <div class="shape-1" style="background-image: url({{asset('images/shape/shape-4.png')}});"></div>
                                                 <div class="shape-2" style="background-image: url({{asset('images/shape/shape-5.png')}});"></div>
                                                 <h4>Quét mã QR dưới đây</h4>
-                                                <h2><img src="https://i.ibb.co/684Qds6/qr.png" width="500" height="500"></h2>
+                                                <h2><img src="https://i.ibb.co/684Qds6/qr.png" width="5000" height="500"></h2>
                                             </div>
                                             <div class="table-content">
                                                 <ul class="feature-list clearfix">

@@ -147,7 +147,7 @@
                                                 <figure class="image"><img src="{{url('images/rooms/'.$rent_room->url)}}" alt=""></figure>
                                                 <div class="batch"><i class="icon-11"></i></div>
                                                 <span class="category">Đặc sắc</span>
-                                                <div class="buy-btn"><a href="#">Cho thuê</a></div>
+                                                <div class="buy-btn"><a href="{{url('client/home/property-details')}}">Cho thuê</a></div>
                                             </div>
                                             <div class="lower-content">
                                                 <div class="title-text"><h4><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}">{{$rent_room->room_name}}</a></h4></div>

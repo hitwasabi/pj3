@@ -103,7 +103,7 @@ class AdminController extends Controller
             ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
             ->join('streets','rent_rooms.street_id','=','streets.street_id')
             ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*',)
-            ->get();
+            ->paginate(6);
         return view('/admin/ecom-product-list',compact('rooms'));
     }
 
@@ -189,5 +189,30 @@ class AdminController extends Controller
         ]);
         Alert::success('Đăng thành công', 'Bài viết của bạn đã được đăng lên');
         return redirect('admin/index');
+    }
+
+    public function searchInfo(Request $request){
+        if (Auth::user()->isAdmin == 1){
+            return redirect('agents/index');
+        }
+        $query =DB::table('rent_rooms')
+            ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
+            ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
+            ->join('categories','categories.id','=','rent_rooms.cate_id')
+            ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
+            ->join('cities','rent_rooms.city_id','=','cities.cities_id')
+            ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
+            ->join('streets','rent_rooms.street_id','=','streets.street_id')
+            ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*',);
+        $keyword = $request->get('keyword_submit');
+        if($request->get('keyword_submit')){
+            $query->where('room_name','like','%'.$keyword.'%');
+        }
+        $collection = $query->paginate(6);
+        $data = ['search_product'=>$collection,
+            'keyword_submit'=>$keyword,
+        ];
+        //dd($collection);
+        return view('admin/search', $data);
     }
 }

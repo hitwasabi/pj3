@@ -200,7 +200,7 @@
                                         <div class="batch"><i class="icon-11"></i></div>
                                         <span class="category">Đặc sắc</span>
                                         <div class="lower-content">
-                                            <div class="title-text"><h4><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}">{{$rent_room->room_name}}</a></h4></div>
+                                            <div class="title-text a"><h4><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}">{{$rent_room->room_name}}</a></h4></div>
                                             <div class="price-box clearfix">
                                                 <div class="price-info pull-left">
                                                     <h6>Giá khởi điểm</h6>
