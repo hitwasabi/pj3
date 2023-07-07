@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\Payment_history;
+use App\Models\Rent_room;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -17,7 +18,14 @@ class AdminController extends Controller
         if (Auth::user()->isAdmin == 1){
             return redirect('agents/index');
         }
-        return view('admin/index');
+        $rooms = Rent_room::all();
+        $money = DB::table('payment_histories')
+            ->where('payment_info','like','Nạp tiền vào tài khoản')
+            ->sum('price');
+        $user = DB::table('users')
+            ->where('isAdmin','=',1)
+            ->get();
+        return view('admin/index',compact('rooms','money','user'));
     }
 
     public function viewEmployee(){

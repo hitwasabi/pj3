@@ -94,7 +94,7 @@
                                                     @csrf
                                                     @method('PUT')
                                                 <td>
-                                                    <input name="money">
+                                                    <input name="money" type="number" min="1" >
                                                 </td>
                                                 <td>
                                                     <button type="submit">Nạp</button>

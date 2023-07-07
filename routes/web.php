@@ -129,7 +129,7 @@ Route::get('/agents/add-product',[AgentController::class,'viewAdd']);
 Route::post('get-states-by-countryx',[\App\Http\Controllers\AgentController::class,'getState']); //quan huyen
 Route::post('get-cities-by-statex',[\App\Http\Controllers\AgentController::class,'getCity']); //xa phuong
 
-
+Route::get('/client/home/charges',[AgentController::class,'viewCharge']);
 Route::get('/agents/payment-history',[AgentController::class,'viewPayment']);
 Route::get('/agents/agents-profile',[\App\Http\Controllers\AgentController::class,'viewAgentsProfile']);
 

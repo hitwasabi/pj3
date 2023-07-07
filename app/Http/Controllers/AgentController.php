@@ -15,28 +15,34 @@ use RealRashid\SweetAlert\Facades\Alert;
 class AgentController extends Controller
 {
     public function viewAgent(){
-        $all_room = DB::table('users')
-            ->join('rent_rooms','users.id','=','rent_rooms.owner_id')
-            ->select('rent_rooms.rr_id')
-            ->where('rent_rooms.owner_id','=',Auth::user()->id)
-            ->count();
-        $rent_room = DB::table('rent_rooms')
-            ->select('rr_id')
-            ->where('status','=' , 0)
-            ->where('owner_id','=',Auth::user()->id)
-            ->count();
-        $cancel_room = DB::table('rent_rooms')
-            ->select('rr_id')
-            ->where('status','=' , 1)
-            ->where('owner_id','=',Auth::user()->id)
-            ->count();
-        $payment = DB::table('payment_histories')
-            ->where('user_id','=',Auth::id())
-            ->get();
+        if (Auth::check() == false){
+            return redirect('login');
+        }
+            $all_room = DB::table('users')
+                ->join('rent_rooms', 'users.id', '=', 'rent_rooms.owner_id')
+                ->select('rent_rooms.rr_id')
+                ->where('rent_rooms.owner_id', '=', Auth::user()->id)
+                ->count();
+            $rent_room = DB::table('rent_rooms')
+                ->select('rr_id')
+                ->where('status', '=', 0)
+                ->where('owner_id', '=', Auth::user()->id)
+                ->count();
+            $cancel_room = DB::table('rent_rooms')
+                ->select('rr_id')
+                ->where('status', '=', 1)
+                ->where('owner_id', '=', Auth::user()->id)
+                ->count();
+            $payment = DB::table('payment_histories')
+                ->where('user_id', '=', Auth::id())
+                ->get();
         return view('/agents/index',compact('all_room','rent_room','cancel_room','payment'));
     }
 
     public function viewEcom_product_list(){
+        if (Auth::check() == false){
+            return redirect('login');
+        }
         $id = Auth::user()->id;
         $rent_rooms =DB::table('rent_rooms')
             ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
@@ -75,7 +81,14 @@ class AgentController extends Controller
         return view('/agents/ecom-product-detail',compact('rent_rooms','image','room_details','rent_room'));
     }
     public function viewEdit(){
+        if (Auth::check() == false){
+            return redirect('login');
+        }
         return view('/agents/edit-profile');
+    }
+
+    public function viewCharge(){
+        return view('client/charges');
     }
 
     public function editProfile(Request $request, $id){
@@ -96,6 +109,9 @@ class AgentController extends Controller
     }
 
     public function viewPayment(){
+        if (Auth::check() == false){
+            return redirect('login');
+        }
         $user_id = Auth::user()->id;
         $datas = DB::table('payment_histories')
             ->where('user_id','=',$user_id)
@@ -104,6 +120,9 @@ class AgentController extends Controller
     }
 
     public function viewAgentsProfile(){
+        if (Auth::check() == false){
+            return redirect('login');
+        }
         $id = Auth::user()->id;
         $user = \App\Models\User::findOrFail($id);
         $datas = DB::table('payment_histories')
@@ -118,6 +137,9 @@ class AgentController extends Controller
 
     public function viewAdd()
     {
+        if (Auth::check() == false){
+            return redirect('login');
+        }
             $cates = Category::all();
             $data['cities'] = City::get(["city_name","cities_id"]);
             $amounts = DB::table('rent_amounts')
