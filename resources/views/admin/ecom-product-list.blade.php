@@ -11,7 +11,7 @@
     <div id="main-wrapper">
         @include('admin.preloader')
         @include('admin.header')
-
+        @include('sweetalert::alert')
         @include('admin.sidebar')
 
         <!--**********************************
@@ -54,8 +54,17 @@
                                                      @csrf
                                                      <button type="submit">Sửa thông tin</button>
                                                  </form>
+                                                 @if($room->status == 0)
+                                                     <form action="{{url('agents/hideRoom/'.$room->rr_id)}}" method="POST">
+                                                         @csrf
+                                                         @method('PUT')
+                                                         <button type="submit">Ẩn bài</button>
+                                                     </form>
+                                                 @else
+                                                 @endif
                                              </div>
                                          </div>
+
                                      </div>
                                  </div>
                              </div>

@@ -47,7 +47,8 @@ class ClientController extends Controller
             ->join('categories','categories.id','=','rent_rooms.cate_id')
             ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
             ->join('users','users.id','=','rent_rooms.owner_id')
-            ->select('rent_rooms.*','rent_amounts.*','images.*','room_details.*','categories.*','users.*');
+            ->select('rent_rooms.*','rent_amounts.*','images.*','room_details.*','categories.*','users.*')
+            ->where('rent_rooms.status','=',0);
         $collection = $query->paginate(3);
         if($request-> get('sort')=='price_asc'){
             $query->orderBy('room_details.prices');
@@ -113,7 +114,8 @@ class ClientController extends Controller
             ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
             ->join('users','users.id','=','rent_rooms.owner_id')
             ->join('streets','rent_rooms.street_id','=','streets.street_id')
-            ->select('rent_rooms.*','room_details.*','cities.*','city_details.*','streets.*','rent_amounts.*','users.*','images.*');
+            ->select('rent_rooms.*','room_details.*','cities.*','city_details.*','streets.*','rent_amounts.*','users.*','images.*')
+            ->where('rent_rooms.status','=',0);
         if($request->get('keyword_submit')){
             $query->where('room_name','like','%'.$keyword.'%');
         }
@@ -188,6 +190,7 @@ class ClientController extends Controller
             ->join('users','users.id','=','rent_rooms.owner_id')
             ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','users.*')
             ->where('cate_name','=','Nhà riêng')
+            ->where('rent_rooms.status','=',0)
             ->paginate(3);
         if($request-> get('sort')=='price_asc'){
             $rent_rooms =DB::table('rent_rooms')
@@ -198,6 +201,7 @@ class ClientController extends Controller
                 ->join('users','users.id','=','rent_rooms.owner_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','users.*')
                 ->where('cate_name','=','Nhà riêng')
+                ->where('rent_rooms.status','=',0)
                 ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortBy('prices')
@@ -212,6 +216,7 @@ class ClientController extends Controller
                 ->join('users','users.id','=','rent_rooms.owner_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','users.*')
                 ->where('cate_name','=','Nhà riêng')
+                ->where('rent_rooms.status','=',0)
                 ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('prices')
@@ -226,6 +231,7 @@ class ClientController extends Controller
                 ->join('users','users.id','=','rent_rooms.owner_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','users.*')
                 ->where('cate_name','=','Nhà riêng')
+                ->where('rent_rooms.status','=',0)
                 ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('rr_id')
@@ -247,6 +253,7 @@ class ClientController extends Controller
             ->join('users','users.id','=','rent_rooms.owner_id')
             ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','users.*')
             ->where('cate_name','=','Nhà chung cư')
+            ->where('rent_rooms.status','=',0)
             ->paginate(3);
         if($request-> get('sort')=='price_asc'){
             $rent_rooms =DB::table('rent_rooms')
@@ -257,6 +264,7 @@ class ClientController extends Controller
                 ->join('users','users.id','=','rent_rooms.owner_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','users.*')
                 ->where('cate_name','=','Nhà chung cư')
+                ->where('rent_rooms.status','=',0)
                 ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortBy('prices')
@@ -271,6 +279,7 @@ class ClientController extends Controller
                 ->join('users','users.id','=','rent_rooms.owner_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','users.*')
                 ->where('cate_name','=','Nhà chung cư')
+                ->where('rent_rooms.status','=',0)
                 ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('prices')
@@ -285,6 +294,7 @@ class ClientController extends Controller
                 ->join('users','users.id','=','rent_rooms.owner_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','users.*')
                 ->where('cate_name','=','Nhà chung cư')
+                ->where('rent_rooms.status','=',0)
                 ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('rr_id')
@@ -308,6 +318,7 @@ class ClientController extends Controller
             ->join('users','users.id','=','rent_rooms.owner_id')
             ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*','users.*')
             ->where('city_details.cd_name','=','Quận Hoàn Kiếm')
+            ->where('rent_rooms.status','=',0)
             ->paginate(3);
         if($request-> get('sort')=='price_asc'){
             $rent_rooms =DB::table('rent_rooms')
@@ -321,6 +332,7 @@ class ClientController extends Controller
                 ->join('users','users.id','=','rent_rooms.owner_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*','users.*')
                 ->where('city_details.cd_name','=','Quận Hoàn Kiếm')
+                ->where('rent_rooms.status','=',0)
                 ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortBy('prices')
@@ -338,6 +350,7 @@ class ClientController extends Controller
                 ->join('users','users.id','=','rent_rooms.owner_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*','users.*')
                 ->where('city_details.cd_name','=','Quận Hoàn Kiếm')
+                ->where('rent_rooms.status','=',0)
                 ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('prices')
@@ -355,6 +368,7 @@ class ClientController extends Controller
                 ->join('users','users.id','=','rent_rooms.owner_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*','users.*')
                 ->where('city_details.cd_name','=','Quận Hoàn Kiếm')
+                ->where('rent_rooms.status','=',0)
                 ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('rr_id')
@@ -377,6 +391,7 @@ class ClientController extends Controller
             ->join('users','users.id','=','rent_rooms.owner_id')
             ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*','users.*')
             ->where('city_details.cd_name','=','Quận Tây Hồ')
+            ->where('rent_rooms.status','=',0)
             ->paginate(3);
         if($request-> get('sort')=='price_asc'){
             $rent_rooms =DB::table('rent_rooms')
@@ -390,6 +405,7 @@ class ClientController extends Controller
                 ->join('users','users.id','=','rent_rooms.owner_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*','users.*')
                 ->where('city_details.cd_name','=','Quận Tây Hồ')
+                ->where('rent_rooms.status','=',0)
                 ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortBy('prices')
@@ -407,6 +423,7 @@ class ClientController extends Controller
                 ->join('users','users.id','=','rent_rooms.owner_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*','users.*')
                 ->where('city_details.cd_name','=','Quận Tây Hồ')
+                ->where('rent_rooms.status','=',0)
                 ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('prices')
@@ -424,6 +441,7 @@ class ClientController extends Controller
                 ->join('users','users.id','=','rent_rooms.owner_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*','users.*')
                 ->where('city_details.cd_name','=','Quận Tây Hồ')
+                ->where('rent_rooms.status','=',0)
                 ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('rr_id')
@@ -446,6 +464,7 @@ class ClientController extends Controller
             ->join('users','users.id','=','rent_rooms.owner_id')
             ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*','users.*')
             ->where('city_details.cd_name','=','Quận Hai Bà Trưng')
+            ->where('rent_rooms.status','=',0)
             ->paginate(3);
         if($request-> get('sort')=='price_asc'){
             $rent_rooms =DB::table('rent_rooms')
@@ -459,6 +478,7 @@ class ClientController extends Controller
                 ->join('users','users.id','=','rent_rooms.owner_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*','users.*')
                 ->where('city_details.cd_name','=','Quận Hai Bà Trưng')
+                ->where('rent_rooms.status','=',0)
                 ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortBy('prices')
@@ -476,6 +496,7 @@ class ClientController extends Controller
                 ->join('users','users.id','=','rent_rooms.owner_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*','users.*')
                 ->where('city_details.cd_name','=','Quận Hai Bà Trưng')
+                ->where('rent_rooms.status','=',0)
                 ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('prices')
@@ -493,6 +514,7 @@ class ClientController extends Controller
                 ->join('users','users.id','=','rent_rooms.owner_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*','users.*')
                 ->where('city_details.cd_name','=','Quận Hai Bà Trưng')
+                ->where('rent_rooms.status','=',0)
                 ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('rr_id')
@@ -516,6 +538,7 @@ class ClientController extends Controller
             ->join('users','users.id','=','rent_rooms.owner_id')
             ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*','users.*')
             ->where('city_details.cd_name','=','Quận Đống Đa')
+            ->where('rent_rooms.status','=',0)
             ->paginate(3);
         if($request-> get('sort')=='price_asc'){
             $rent_rooms =DB::table('rent_rooms')
@@ -529,6 +552,7 @@ class ClientController extends Controller
                 ->join('users','users.id','=','rent_rooms.owner_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*','users.*')
                 ->where('city_details.cd_name','=','Quận Đống Đa')
+                ->where('rent_rooms.status','=',0)
                 ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortBy('prices')
@@ -545,7 +569,7 @@ class ClientController extends Controller
                 ->join('streets','rent_rooms.street_id','=','streets.street_id')
                 ->join('users','users.id','=','rent_rooms.owner_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*','users.*')
-                ->where('city_details.cd_name','=','Quận Đống Đa')
+                ->where('city_details.cd_name','=','Quận Đống Đa')->where('rent_rooms.status','=',0)
                 ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('prices')
@@ -562,7 +586,7 @@ class ClientController extends Controller
                 ->join('streets','rent_rooms.street_id','=','streets.street_id')
                 ->join('users','users.id','=','rent_rooms.owner_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*','users.*')
-                ->where('city_details.cd_name','=','Quận Đống Đa')
+                ->where('city_details.cd_name','=','Quận Đống Đa')->where('rent_rooms.status','=',0)
                 ->paginate(3);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('rr_id')
@@ -603,9 +627,7 @@ class ClientController extends Controller
         return view('/client/agents-details',$data);
     }
 
-
-
-
+    
     public function index()
     {
         $this->min_prices=1;
@@ -620,6 +642,7 @@ class ClientController extends Controller
             ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
             ->join('users','users.id','=','rent_rooms.owner_id')
             ->join('streets','rent_rooms.street_id','=','streets.street_id')
+            ->where('rent_rooms.status','=',0)
             ->select('rent_rooms.*','room_details.*','cities.*','city_details.*','streets.*','rent_amounts.*','users.*','images.*')
             ->get()->take(3);
 //        return view('/client/home')->with('rent_rooms',$rent_rooms);
@@ -635,6 +658,7 @@ class ClientController extends Controller
             ->join('streets','rent_rooms.street_id','=','streets.street_id')
             ->select('rent_rooms.*','room_details.*','cities.*','city_details.*','streets.*','rent_amounts.*','users.*','images.*')
             ->where('interact','>=','1')
+            ->where('rent_rooms.status','=',0)
             ->get()->take(3);
         $rent_roomsss =DB::table('rent_rooms')
             ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
@@ -647,6 +671,7 @@ class ClientController extends Controller
             ->join('streets','rent_rooms.street_id','=','streets.street_id')
             ->select('rent_rooms.*','room_details.*','cities.*','city_details.*','streets.*','rent_amounts.*','users.*','images.*')
             ->where('users.level','=','3')
+            ->where('rent_rooms.status','=',0)
             ->get();
         $blogs =DB::table('blogs')
             ->join('users','users.id','=','blogs.userPost_id')

@@ -111,7 +111,6 @@ class AdminController extends Controller
         if (Auth::user()->isAdmin == 1){
             return redirect('agents/index');
         }
-
         return view('/admin/edit-profile');
     }
 

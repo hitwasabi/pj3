@@ -168,6 +168,8 @@ Route::post('get-states-by-country',[\App\Http\Controllers\ClientController::cla
 Route::post('get-cities-by-state',[\App\Http\Controllers\ClientController::class,'getCity']); //xa phuong
 
 
+Route::put('/admin/hideRoom/{rr_id}',[\App\Http\Controllers\RoomController::class,'adminHideRoom']);
+Route::put('/agents/hideRoom/{rr_id}',[\App\Http\Controllers\RoomController::class,'agentHideRoom']);
 
 Route::post('/admin/post-blog',[AdminController::class,'addBlog']);
 
