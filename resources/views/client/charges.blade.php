@@ -53,7 +53,7 @@
                                                 <ul class="feature-list clearfix">
                                                     <li><b>Khi chuyển khoản hãy kèm theo tin nhắn sau : </b></li>
                                                     <li style="color: red;">NAPTIEN <b>{Tên tài khoản} {Số điện thoại}</b></li>
-                                                    <li>Chúng tôi sẽ keconme nếu quý khách nạp nhầm hoặc nhập sai thông tin</li>
+                                                    <li>Chúng tôi sẽ giải quyết sau nếu quý khách nạp nhầm hoặc nhập sai thông tin</li>
                                                     <li>Khi chuyển khoản thành công, quý khách hãy chờ tối đa 30 phút để tiền được thêm vào tài khoản</li>
                                                 </ul>
                                             </div>

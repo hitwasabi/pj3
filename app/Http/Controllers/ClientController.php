@@ -657,7 +657,7 @@ class ClientController extends Controller
             ->join('users','users.id','=','rent_rooms.owner_id')
             ->join('streets','rent_rooms.street_id','=','streets.street_id')
             ->select('rent_rooms.*','room_details.*','cities.*','city_details.*','streets.*','rent_amounts.*','users.*','images.*')
-            ->where('interact','>=','1')
+            ->orderBy('rent_rooms.interact','DESC')
             ->where('rent_rooms.status','=',0)
             ->get()->take(3);
         $rent_roomsss =DB::table('rent_rooms')
