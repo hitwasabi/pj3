@@ -170,6 +170,6 @@ Route::post('get-cities-by-state',[\App\Http\Controllers\ClientController::class
 
 Route::put('/admin/hideRoom/{rr_id}',[\App\Http\Controllers\RoomController::class,'adminHideRoom']);
 Route::put('/agents/hideRoom/{rr_id}',[\App\Http\Controllers\RoomController::class,'agentHideRoom']);
-
+Route::put('/admin/adminShowRoom/{rr_id}',[\App\Http\Controllers\RoomController::class,'adminShowRoom']);
 Route::post('/admin/post-blog',[AdminController::class,'addBlog']);
 

@@ -627,7 +627,7 @@ class ClientController extends Controller
         return view('/client/agents-details',$data);
     }
 
-    
+
     public function index()
     {
         $this->min_prices=1;

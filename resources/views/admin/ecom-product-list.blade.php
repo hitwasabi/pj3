@@ -61,6 +61,11 @@
                                                          <button type="submit">Ẩn bài</button>
                                                      </form>
                                                  @else
+                                                     <form action="{{url('admin/adminShowRoom/'.$room->rr_id)}}" method="POST">
+                                                         @csrf
+                                                         @method('PUT')
+                                                         <button type="submit">Hiện lại bài</button>
+                                                     </form>
                                                  @endif
                                              </div>
                                          </div>

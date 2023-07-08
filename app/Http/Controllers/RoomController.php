@@ -148,10 +148,19 @@ class RoomController extends Controller
         return redirect('admin/ecom-product-list');
     }
 
+    public function adminShowRoom($rr_id){
+        DB::table('rent_rooms')->where('rr_id','=',$rr_id)->update([
+            'status' => 0
+        ]);
+        Alert::info('Hoàn thành','Phòng có id '.$rr_id.' đã được hiện lại');
+        return redirect('admin/ecom-product-list');
+    }
+
     public function agentHideRoom($rr_id){
         DB::table('rent_rooms')->where('rr_id','=',$rr_id)->update([
             'status' => 1
         ]);
+        Alert::info('Hoàn thành','Phòng có id '.$rr_id.' của bạn đã được ẩn đi');
         return redirect('agents/ecom-product-list');
     }
 
