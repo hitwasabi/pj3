@@ -154,15 +154,15 @@ class ClientController extends Controller
         $collection = $query->paginate(3);
         if($request-> get('sort')=='price_asc'){
             $query->orderBy('room_details.prices');
-            $collection = $query->paginate(100);
+            $collection = $query->paginate(3);
         }
         if($request-> get('sort')=='price_desc'){
             $query->orderBy('room_details.prices','DESC');
-            $collection = $query->paginate(100);
+            $collection = $query->paginate(3);
         }
         if($request-> get('sort')=='id_desc'){
             $query->orderBy('rr_id','DESC');
-            $collection = $query->paginate(100);
+            $collection = $query->paginate(3);
         }
         $data = ['search_product'=>$collection,
                 'keyword_submit'=>$keyword,

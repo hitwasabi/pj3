@@ -1,6 +1,6 @@
 
 @extends('layouts.admin_base')
-@section('title',"Sửa bài báo")
+@section('title',"Thêm bài báo")
 
 @section('content')
 

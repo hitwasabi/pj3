@@ -45,7 +45,11 @@
                             <ul class="navigation clearfix">
                                 <li><a href="{{url('/client/home')}}"><span>Trang chủ</span></a></li>
                                 @if(\Illuminate\Support\Facades\Auth::check() == true)
-                                <li><a href="{{url('/agents/index')}}"><span>Quản trị</span></a></li>
+                                    @if(\Illuminate\Support\Facades\Auth::user()->isAdmin == 1)
+                                         <li><a href="{{url('/agents/index')}}"><span>Quản trị</span></a></li>
+                                    @else
+                                        <li><a href="{{url('/admin/index')}}"><span>Quản trị</span></a></li>
+                                    @endif
                                 @endif
                                 <li><a href="{{url('client/home/property-list')}}"><span>Danh sách phòng</span></a>
                                 </li>
