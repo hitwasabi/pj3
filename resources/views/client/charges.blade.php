@@ -29,7 +29,7 @@
                 <ul class="tab-buttons ">
                     <h3>Nạp tiền</h3>
                     @if(\Illuminate\Support\Facades\Auth::check() == false)
-                        <h4>Hãy đăng nhập nạp tiền vào tài khoản</h4>
+                        <h4>Hãy đăng nhập để nạp tiền vào tài khoản</h4>
                     @else
                         <h4>Số dư tài khoản của bạn : {{number_format(\Illuminate\Support\Facades\Auth::user()->money, 0, '.', '.')}} đ</h4>
                     @endif

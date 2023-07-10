@@ -214,4 +214,8 @@ class AdminController extends Controller
         //dd($collection);
         return view('admin/search', $data);
     }
+
+    public function viewMail(){
+        return view('client/mail');
+    }
 }
