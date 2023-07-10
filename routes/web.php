@@ -172,4 +172,5 @@ Route::put('/admin/hideRoom/{rr_id}',[\App\Http\Controllers\RoomController::clas
 Route::put('/agents/hideRoom/{rr_id}',[\App\Http\Controllers\RoomController::class,'agentHideRoom']);
 Route::put('/admin/adminShowRoom/{rr_id}',[\App\Http\Controllers\RoomController::class,'adminShowRoom']);
 Route::post('/admin/post-blog',[AdminController::class,'addBlog']);
+Route::get('/mail',[AdminController::class,'viewMail']);
 

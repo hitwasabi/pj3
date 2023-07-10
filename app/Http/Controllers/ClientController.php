@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SendMail;
 use App\Models\City;
 use App\Models\City_detail;
 use App\Models\Rent_room;
@@ -17,6 +18,7 @@ use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Ramsey\Uuid\Type\Integer;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -752,6 +754,11 @@ class ClientController extends Controller
                 'payment_info' => 'Mua gói thường',
                 'payment_time' => Carbon::now()
             ]);
+            $mailData = [
+                'title' => 'Mail from ChipHome.com',
+                'body' => 'This is for customer'
+            ];
+            Mail::to($user->email)->send(new SendMail($mailData));
             Alert::success('Mua thành công','Cấp độ tài khoản của bạn bây giờ là "Thường"');
         }
         return redirect('client/home/pricing');
