@@ -756,7 +756,7 @@ class ClientController extends Controller
             ]);
             $mailData = [
                 'title' => 'Mail from ChipHome.com',
-                'body' => 'This is for customer'
+                'body' => 'Thư này gửi cho khách hàng, vui lòng không phản hồi lại'
             ];
             Mail::to($user->email)->send(new SendMail($mailData));
             Alert::success('Mua thành công','Cấp độ tài khoản của bạn bây giờ là "Thường"');
