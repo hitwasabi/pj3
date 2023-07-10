@@ -122,7 +122,7 @@
                             <div class="left-column pull-left">
                                 <h5>Kết quả tìm kiếm: @php
                                         echo ($_GET['keyword_submit']);
-                                    @endphp </h5>
+                                    @endphp  có {{ $search_product->total() }} kết quả </h5>
                             </div>
                             <div class="right-column pull-right clearfix">
                                 <div class="short-box clearfix">

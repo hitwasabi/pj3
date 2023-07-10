@@ -120,7 +120,7 @@
                         <div class="property-content-side">
                             <div class="item-shorting clearfix">
                                 <div class="left-column pull-left">
-                                    <h5>Kết quả tìm kiếm: </h5>
+                                    <h5>Kết quả tìm kiếm:  {{{ count($rent_rooms) }}} kết quả</h5>
                                 </div>
                                 <div class="right-column pull-right clearfix">
                                     <div class="short-box clearfix">
@@ -220,7 +220,7 @@
                                 </div>
                             </div>
                             <div class="pagination-wrapper">
-                                   {{$rent_rooms->links("pagination::bootstrap-4")}}
+                                   {{$rent_rooms->appends(Request::all())->links("pagination::bootstrap-4")}}
                             </div>
                         </div>
                     </div>
