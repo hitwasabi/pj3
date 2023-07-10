@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\City;
 use App\Models\City_detail;
+use App\Models\Rent_room;
 use App\Models\Street;
 
 use App\Models\Payment_history;
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Event;
+use Illuminate\Support\Facades\Session;
 use Ramsey\Uuid\Type\Integer;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -69,7 +71,7 @@ class ClientController extends Controller
 
     }
 
-    public function show($rr_id,$cate_name){
+    public function show($rr_id,$cate_name, Request $request){
         $rent_room = DB::table('rent_rooms')
             ->join('categories','categories.id','=','rent_rooms.cate_id')
             ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
@@ -91,10 +93,12 @@ class ClientController extends Controller
             ->where('rent_rooms.rr_id',"!=",$rr_id)
             ->where('categories.id' ,"=",$cate_name)
             ->get()->take(3);
-        $interact = DB::table('rent_rooms')
-            ->where('rr_id','=',$rr_id)
-            ->increment('interact');
-        return view('client/property-details',compact('rent_rooms','image','room_details','rent_room','interact'));
+        $room_key = 'rr_'.$rr_id;
+        if (!Session::has($room_key)) {
+            Rent_room::where('rr_id', $rr_id)->increment('interact');
+            Session::put($room_key, 1);
+        }
+        return view('client/property-details',compact('rent_rooms','image','room_details','rent_room'));
     }
     public function searchInfo(Request $request){
         $keyword = $request->get('keyword_submit');

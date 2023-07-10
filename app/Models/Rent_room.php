@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Rent_room extends Model
 {
     use HasFactory;
+    public $timestamps = false;
     protected $primaryKey = 'rr_id';
     protected $fillable = [
         'room_name',
