@@ -10,18 +10,15 @@ use App\Models\Street;
 
 use App\Models\Payment_history;
 
-use http\Client\Curl\User;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\DB;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
-use Ramsey\Uuid\Type\Integer;
 use RealRashid\SweetAlert\Facades\Alert;
+use Symfony\Component\Console\Helper\Table;
 
 class ClientController extends Controller
 {
@@ -668,6 +665,21 @@ class ClientController extends Controller
         $this->min_prices=1;
         $this->max_prices=20000000;
         $data['cities'] = City::get(["city_name","cities_id"]);
+        $rooms = Rent_room::
+            join('users','users.id','=','rent_rooms.owner_id')
+            ->select('rent_rooms.*','users.level')->get();
+        foreach ($rooms as $room){
+            if($room->level == 2){
+                if(Carbon::today()->diffInDays($room->room_date) == 500){
+                    $room->update(['status' => 1]);
+                }
+            }
+            if ($room->level == 3){
+                if(Carbon::today()->diffInDays($room->room_date) == 700){
+                    $room->update(['status' => 1]);
+                }
+            }
+        }
         $rent_rooms =DB::table('rent_rooms')
             ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
             ->join('categories','categories.id','=','rent_rooms.cate_id')

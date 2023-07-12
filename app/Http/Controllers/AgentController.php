@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\City;
 use App\Models\City_detail;
 use App\Models\Street;
+use Carbon\Carbon;
 use http\Client\Curl\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -82,6 +83,7 @@ class AgentController extends Controller
     }
     public function viewEdit(){
         if (Auth::check() == false){
+            Alert::info('Xin lỗi','Bạn cần phải đăng nhập để thực hiện hành động này');
             return redirect('login');
         }
         return view('/agents/edit-profile');
@@ -109,6 +111,7 @@ class AgentController extends Controller
     }
 
     public function viewPayment(){
+        Alert::info('Xin lỗi','Bạn cần phải đăng nhập để thực hiện hành động này');
         if (Auth::check() == false){
             return redirect('login');
         }
@@ -121,6 +124,7 @@ class AgentController extends Controller
 
     public function viewAgentsProfile(){
         if (Auth::check() == false){
+            Alert::info('Xin lỗi','Bạn cần phải đăng nhập để thực hiện hành động này');
             return redirect('login');
         }
         $id = Auth::user()->id;
@@ -140,16 +144,61 @@ class AgentController extends Controller
         if (Auth::check() == false){
             return redirect('login');
         }
+        $roomNum = DB::table('rent_rooms')
+            ->join('users','rent_rooms.owner_id','=','users.id')
+            ->where('rent_rooms.room_date','=',Carbon::today())
+            ->where('users.id','=',Auth::user()->id)
+            ->select('rent_rooms.*')
+            ->count();
+        $user = \App\Models\User::findOrFail(Auth::id());
+        if ($user->isAdmin == 1) {
+            if ($user->level == 2) {
+                if ($roomNum < 3) {
+                    $cates = Category::all();
+                    $data['cities'] = City::get(["city_name", "cities_id"]);
+                    $amounts = DB::table('rent_amounts')
+                        ->select('rent_amounts.ram_id', 'rent_amounts.amounts')
+                        ->get();
+                    $data['cates'] = $cates;
+                    $data['amounts'] = $amounts;
+                    //dd($data);
+                    return view('agents/add-product', $data);
+                } else {
+                    Alert::info('Xin lỗi', 'Bạn đã đạt giới hạn số lần đăng của tài khoản trong ngày, hãy quay lại vào ngày mai nhé!');
+                    return redirect('agents/index');
+                }
+            } elseif ($user->level == 3) {
+                if ($roomNum < 5) {
+                    $cates = Category::all();
+                    $data['cities'] = City::get(["city_name", "cities_id"]);
+                    $amounts = DB::table('rent_amounts')
+                        ->select('rent_amounts.ram_id', 'rent_amounts.amounts')
+                        ->get();
+                    $data['cates'] = $cates;
+                    $data['amounts'] = $amounts;
+                    //dd($data);
+                    return view('agents/add-product', $data);
+                } else {
+                    Alert::info('Xin lỗi', 'Bạn đã đạt giới hạn số lần đăng của tài khoản trong ngày, hãy quay lại vào ngày mai nhé!');
+                    return redirect('agents/index');
+                }
+            }else{
+                return view('agents/wrong-level');
+            }
+        }else{
             $cates = Category::all();
-            $data['cities'] = City::get(["city_name","cities_id"]);
+            $data['cities'] = City::get(["city_name", "cities_id"]);
             $amounts = DB::table('rent_amounts')
                 ->select('rent_amounts.ram_id', 'rent_amounts.amounts')
                 ->get();
-            $data['cates']  = $cates;
-            $data['amounts']  = $amounts;
+            $data['cates'] = $cates;
+            $data['amounts'] = $amounts;
             //dd($data);
-            return view('agents/add-product',$data);
+            return view('agents/add-product', $data);
         }
+    }
+
+
     public function getState(Request $request)
     {
         $data['city_details'] = City_detail::where("city_id",$request->city_id)

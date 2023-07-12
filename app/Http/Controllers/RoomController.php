@@ -49,7 +49,7 @@ class RoomController extends Controller
             'street_id' => $street_id,
             'info_detail' => $info_detail,
             'status' => 0,
-            'room_date' => Carbon::now(),
+            'room_date' => Carbon::today(),
             'interact' => 0
         ]);
         DB::table('room_details')->insert([
