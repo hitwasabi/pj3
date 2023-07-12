@@ -736,6 +736,10 @@ class ClientController extends Controller
     }
 
     public function buyPack(){
+        if (Auth::check() == false){
+            Alert::info('Xin lỗi','Bạn cần phải đăng nhập để thực hiện hành động này');
+            return redirect('login');
+        }
         if (Auth::user()->level == 3){
             Alert::error('Không thành công', 'Bạn không thể mua gói vì cấp độ của bạn cao hơn');
             return redirect('client/home/pricing');
@@ -766,6 +770,10 @@ class ClientController extends Controller
 
 
     public function buyVipPack(){
+        if (Auth::check() == false){
+            Alert::info('Xin lỗi','Bạn cần phải đăng nhập để thực hiện hành động này');
+            return redirect('login');
+        }
         if (Auth::user()->money < 225000){
             Alert::error('Không thành công', 'Bạn không có đủ số dư trong tài khoản');
             return redirect('client/home/pricing');
@@ -781,6 +789,11 @@ class ClientController extends Controller
                 'payment_info' => 'Mua gói Vip',
                 'payment_time' => Carbon::now()
             ]);
+            $mailData = [
+                'title' => 'Mail from ChipHome.com',
+                'body' => 'Thư này gửi cho khách hàng, vui lòng không phản hồi lại'
+            ];
+            Mail::to($user->email)->send(new SendMail($mailData));
             Alert::success('Mua thành công','Cấp độ tài khoản của bạn bây giờ là "VIP"');
             return redirect('client/home/pricing');
         }
