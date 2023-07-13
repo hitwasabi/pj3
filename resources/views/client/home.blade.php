@@ -252,9 +252,9 @@
                                         <div class="author-info clearfix">
                                             <div class="author pull-left">
                                                 <figure class="author-thumb"><img src="{{url('images/agents/'.$rent_room->user_image)}}" alt=""></figure>
-                                                <h6>{{$rent_room->name}}</h6>
+                                                <h6><a href="{{url('/client/home/agents-details/'.$rent_room->owner_id)}}">{{$rent_room->name}}</a></h6>
                                             </div>
-                                            <div class="buy-btn pull-right"><a href="{{url('/client/home/agents-details/'.$rent_room->owner_id)}}">Cho thuê</a></div>
+                                            <div class="buy-btn pull-right"><a href="{{url('https://zalo.me/'.$rent_room->phone)}}">Nhắn Zalo</a></div>
                                         </div>
                                         <div class="title-text"><h4><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}">{{$rent_room->room_name}}</a></h4></div>
                                         <div class="price-box clearfix">

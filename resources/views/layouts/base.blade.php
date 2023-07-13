@@ -114,7 +114,102 @@
 <script src="{{asset('js/script.js')}}"></script>
 
 
+<!-- Code hien thi icon Face Zalo -->
+<style>
+    .photheme-mobile-contact-bar{
+        display:none
+    }
+    .photheme-pc-contact-bar{
+        left: 30px;
+        bottom: 30px;
+        position: fixed;
+        z-index: 998;
+        margin-bottom:0
+    }
+    .photheme-pc-contact-bar li{
+        width: 44px;
+        height: 46px;
+        overflow: hidden;
+        margin-bottom: 0;
+        list-style: none;
+    }
+    .photheme-pc-contact-bar li.facebook{
+        margin-bottom: 8px;
+        background: url(https://1.bp.blogspot.com/-VbN-gi1xiYQ/YBJy3pC7v2I/AAAAAAAAJl0/uBZq95iIwsQpg3Bo_8yb4NMTs6j0GJ12ACLcBGAsYHQ/s44/fb.png);
+        background-repeat: no-repeat;
+    }
+    .photheme-pc-contact-bar li.zalo{
+        background: url(https://1.bp.blogspot.com/-sEGByHlRYxU/YBJy3qQDnjI/AAAAAAAAJl4/ofjocpfb57EGfCEm1-U6_Yp8jhQSP7LcwCLcBGAsYHQ/s0/zl.png);    background-repeat: no-repeat;
+    }
+    .photheme-pc-contact-bar li a{
+        display: block;
+        width: 44px;
+        height: 44px;
+    }
 
+    @media only screen and (max-width: 499px) {
+        .photheme-pc-contact-bar{
+            display:none
+        }
+        .photheme-mobile-contact-bar{
+            left: 10px;
+            bottom: 10px;
+            position: fixed;
+            z-index: 998;
+            margin-bottom:0;
+            display:block !Important
+        }
+        .photheme-mobile-contact-bar li{
+            display:inline-block;
+            float:left;
+            margin-right:7px;
+            list-style:none
+        }
+        .photheme-mobile-contact-bar li.facebook{
+            margin-bottom: 8px;
+            background: url(https://1.bp.blogspot.com/-VbN-gi1xiYQ/YBJy3pC7v2I/AAAAAAAAJl0/uBZq95iIwsQpg3Bo_8yb4NMTs6j0GJ12ACLcBGAsYHQ/s44/fb.png);
+            background-repeat: no-repeat;
+        }
+        .photheme-mobile-contact-bar li.zalo{
+            background: url(https://1.bp.blogspot.com/-sEGByHlRYxU/YBJy3qQDnjI/AAAAAAAAJl4/ofjocpfb57EGfCEm1-U6_Yp8jhQSP7LcwCLcBGAsYHQ/s0/zl.png);    background-repeat: no-repeat;
+        }
+        .photheme-mobile-contact-bar li a{
+            display: block;
+            width: 44px;
+            height: 44px;}
+        .photheme-mobile-contact-bar li.hotline {
+            background: url(https://1.bp.blogspot.com/-D4cWxxDWjZY/YBJy3qUVuuI/AAAAAAAAJl8/0qw0rdQmDKYz-oPl81-jEHwJgHtlocOEwCLcBGAsYHQ/s250/p2.gif);
+            background-repeat: no-repeat;
+            background-size: 44px;
+        }
+    }
+
+</style>
+<ul class='photheme-pc-contact-bar'>
+    <li class='facebook'>
+        <a href='https://m.me/ChipHomeeee/' rel='nofollow' target='_blank'/>
+    </li>
+    <li class='zalo'>
+        <a href='https://zalo.me/0904534464' rel='nofollow' target='_blank'/>
+    </li>
+</ul>
+<ul class='photheme-pc-contact-bar'>
+    <li class='zalo'>
+        <a href='https://zalo.me/0904534464' rel='nofollow' target='_blank'/>
+    </li>
+</ul>
+<ul class='photheme-mobile-contact-bar'>
+    <li class='facebook'>
+        <a href='https://m.me/ChipHomeeee/' rel='nofollow' target='_blank'/>
+    </li>
+    <li class='zalo'>
+        <a href='https://zalo.me/0858862720' rel='nofollow' target='_blank'/>
+    </li>
+    <li class='hotline'>
+        <a href='tel:0858862720' rel='nofollow' target='_blank'/>
+    </li>
+</ul>
+<!-- Ket thuc doan code hien thi icon Zalo, facebook -->
 </body><!-- End of .page_wrapper -->
 
 <!-- Mirrored from azim.commonsupport.com/Realshed/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 08 Jun 2023 14:55:16 GMT -->

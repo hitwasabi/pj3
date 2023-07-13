@@ -107,6 +107,8 @@
                                         <h4>{{$rent_room->name}}</h4>
                                         <ul class="info clearfix">
                                             <li><i class="fas fa-phone"></i><a href="tel:03030571965">{{$rent_room->phone}}</a></li>
+                                            <li><i class="far fa-comment"></i><a href="{{url('https://zalo.me/'.$rent_room->phone)}}"> Nhắn tin zalo</a></li>
+
                                         </ul>
                                         <div class="btn-box"><a href="{{url('/client/home/agents-details/'.$rent_room->owner_id)}}">Xem danh sách phòng </a></div>
                                     </div>
