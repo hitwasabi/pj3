@@ -837,6 +837,9 @@ class ClientController extends Controller
         return view('client/blog-details',$data);
     }
 
+    public function viewReport(){
+        return view('client/report');
+    }
 
 
 }
