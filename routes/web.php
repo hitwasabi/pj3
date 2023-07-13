@@ -111,6 +111,7 @@ Route::get('/agents/edit-room/{rr_id}',[\App\Http\Controllers\RoomController::cl
 Route::post('/agents/add-product',[\App\Http\Controllers\RoomController::class,'postRoom']);
 Route::post('/client/buyPack',[ClientController::class,'buyPack']);
 Route::post('/client/buyVipPack',[ClientController::class,'buyVipPack']);
+Route::get('/client/report',[ClientController::class,'viewReport']);
 
 
 //Xem chi tiet chu tro DEMO

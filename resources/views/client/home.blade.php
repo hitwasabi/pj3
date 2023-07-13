@@ -269,6 +269,8 @@
                                             <li><i class="icon-16"></i>{{$rent_room -> acreage}}métvuông</li>
                                         </ul>
                                         <div class="btn-box"><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}" class="theme-btn btn-two">Xem chi tiết</a></div>
+                                        <div class="btn-box"><a href="{{url('/client/report')}}" class="theme-btn btn-two">Báo cáo</a></div>
+
                                     </div>
                                 </div>
                             </div>
