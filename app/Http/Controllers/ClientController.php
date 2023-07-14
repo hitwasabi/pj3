@@ -11,6 +11,7 @@ use App\Models\Street;
 use App\Models\Payment_history;
 
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -665,6 +666,12 @@ class ClientController extends Controller
         $this->min_prices=1;
         $this->max_prices=20000000;
         $data['cities'] = City::get(["city_name","cities_id"]);
+        $users = User::all();
+        foreach ($users as $user){
+            if ($user->endDate == Carbon::today()){
+                $user->update(['level' => 1]);
+            }
+        }
         $rooms = Rent_room::
             join('users','users.id','=','rent_rooms.owner_id')
             ->select('rent_rooms.*','users.level')->get();

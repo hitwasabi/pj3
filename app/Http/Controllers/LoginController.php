@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use http\Client\Curl\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -35,6 +36,8 @@ class LoginController extends Controller
     }
 
     function logout(Request $request){
+        $user = \App\Models\User::findOrFail(Auth::id());
+        $user->update(['isVerify' => 0]);
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();

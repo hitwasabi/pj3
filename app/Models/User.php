@@ -25,7 +25,9 @@ class User extends Authenticatable
         'phone',
         'isAdmin',
         'money',
-        'level'
+        'level',
+        'user_image',
+        'isVerify'
     ];
 
     /**
