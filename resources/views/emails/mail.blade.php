@@ -5,7 +5,7 @@
 </head>
 <body>
 <h1>{{ $mailData['title'] }}</h1>
-<p>{{ $mailData['body'] }}</p>
+<p><i>{{ $mailData['body'] }}</i></p>
 
 <p>Cảm ơn vì đã tin tưởng và mua hàng trên trang web của chúng tôi</p>
    Trong tương lai đội ngũ phát triển trang web CodeToànBug sẽ cố gắng hơn nữa!

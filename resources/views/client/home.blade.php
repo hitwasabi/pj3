@@ -207,7 +207,7 @@
                                                     <h4>{{number_format($rent_room->prices, 0, '.', '.')}}<sup>đ</sup></h4>
                                                 </div>
                                                 <ul class="other-option pull-right clearfix">
-                                                    <li><a href="property-details.html"><i class="fas fa-exclamation"></i></a></li>
+                                                    <li><a style="color: red;" href="{{url('/client/report/'.$rent_room->rr_id)}}"><i class="fas fa-exclamation"></i></a></li>
                                                 </ul>
                                             </div>
 
@@ -267,7 +267,7 @@
                                                 <h4>{{number_format($rent_room->prices, 0, '.', '.')}}<sup>đ</sup></h4>
                                             </div>
                                             <ul class="other-option pull-right clearfix">
-                                                <li><a href="property-details.html"><i class="fas fa-exclamation"></i></a></li>
+                                                <li><a style="color: red;" href="{{url('/client/report/'.$rent_room->rr_id)}}"><i class="fas fa-exclamation"></i></a></li>
                                             </ul>
                                         </div>
                                         <ul class="more-details clearfix">
@@ -276,8 +276,6 @@
                                             <li><i class="icon-16"></i>{{$rent_room -> acreage}}métvuông</li>
                                         </ul>
                                         <div class="btn-box"><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}" class="theme-btn btn-two">Xem chi tiết</a></div>
-                                        <div class="btn-box"><a href="{{url('/client/report')}}" class="theme-btn btn-two">Báo cáo</a></div>
-
                                     </div>
                                 </div>
                             </div>
@@ -322,7 +320,7 @@
                                             <h4>{{number_format($rent_room->prices, 0, '.', '.')}}<sup>đ</sup></h4>
                                         </div>
                                         <ul class="other-option pull-right clearfix">
-                                            <li><a href="property-details.html"><i class="fas fa-exclamation"></i></a></li>
+                                            <li><a style="color: red;" href="{{url('/client/report/'.$rent_room->rr_id)}}"><i class="fas fa-exclamation"></i></a></li>
                                         </ul>
                                     </div>
                                     <ul class="more-details clearfix">

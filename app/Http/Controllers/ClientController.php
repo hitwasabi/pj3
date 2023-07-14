@@ -844,8 +844,40 @@ class ClientController extends Controller
         return view('client/blog-details',$data);
     }
 
-    public function viewReport(){
-        return view('client/report');
+    public function viewReport($rr_id){
+        if (Auth::check() == false){
+            Alert::info('Xin lỗi','Bạn cần đăng nhập để thực hiện hành vi này');
+            return redirect('/login');
+        }else {
+            $rent_roomsss = DB::table('rent_rooms')
+                ->join('images', 'images.rentRoom_id', '=', 'rent_rooms.rr_id')
+                ->join('categories', 'categories.id', '=', 'rent_rooms.cate_id')
+                ->join('rent_amounts', 'rent_amounts.ram_id', '=', 'rent_rooms.rent_amountId')
+                ->join('room_details', 'room_details.rentRoom_id', '=', 'rent_rooms.rr_id')
+                ->join('cities', 'rent_rooms.city_id', '=', 'cities.cities_id')
+                ->join('city_details', 'rent_rooms.city_detailId', '=', 'city_details.city_detailId')
+                ->join('users', 'users.id', '=', 'rent_rooms.owner_id')
+                ->join('streets', 'rent_rooms.street_id', '=', 'streets.street_id')
+                ->select('rent_rooms.*', 'room_details.*', 'cities.*', 'city_details.*', 'streets.*', 'rent_amounts.*', 'users.*', 'images.*')
+                ->where('rent_rooms.status', '=', 0)
+                ->where('rent_rooms.rr_id', '=', $rr_id)
+                ->inRandomOrder()
+                ->get();
+            return view('client/report', compact('rent_roomsss'));
+        }
+    }
+
+    public function report(Request $request,$rr_id){
+        $userReport_id = Auth::user()->id;
+        $report_info = $request->input('report_info');
+        DB::table('reports')->insert([
+            'userReport_id' => $userReport_id,
+            'rpRoom_id' => $rr_id,
+            'report_info' => $report_info,
+            'report_date' => Carbon::today()
+        ]);
+        Alert::info('Báo cáo thành công','Chúng tôi sẽ kiểm tra và xác thực việc báo cáo của bạn');
+        return redirect('client/home');
     }
 
 

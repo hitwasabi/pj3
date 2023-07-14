@@ -23,95 +23,82 @@
 
 
     <!-- pricing-section -->
-    <section class="pricing-section sec-pad centred">
+    <section class="deals-section sec-pad">
         <div class="auto-container">
-            <div class="tabs-box">
-                <ul class="tab-buttons ">
-                    <h3>Hãy báo cáo cho chúng tôi</h3>
-                </ul>
-                <br>
-                <div class="tabs-content">
-                    <div class="tab active-tab" id="tab-1">
+            <div class="sec-title">
+                @forelse($rent_roomsss as $rent_room)
+                <h5>Chủ sở hữu phòng trọ : {{$rent_room->name}}</h5>
+                <h2>Hãy báo cáo cho chúng tôi</h2>
+            </div>
+                    <div class="single-item">
                         <div class="row clearfix">
-                            <div class="col-lg-4 col-md-6 col-sm-12 pricing-block">
-                                <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="300ms" data-wow-duration="1500ms">
-                                    <form action="{{url('client/buyPack')}}" method="POST">
-                                        @csrf
-                                        <div class="pricing-table">
-                                            <div class="table-header">
-                                                <div class="shape-1" style="background-image: url({{asset('images/shape/shape-4.png')}});"></div>
-                                                <div class="shape-2" style="background-image: url({{asset('images/shape/shape-5.png')}});"></div>
-                                                <h4>Gói thường</h4>
-                                                <h2>45.000 đ <span> tháng</span></h2>
+                            <div class="col-lg-6 col-md-6 col-sm-12 deals-block">
+                                <div class="deals-block-one">
+                                    <div class="inner-box">
+                                        <div class="batch"><i class="icon-11"></i></div>
+                                        <div class="lower-content">
+                                            <div class="title-text a"><h4><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}">{{$rent_room->room_name}}</a></h4></div>
+                                            <div class="price-box clearfix">
+                                                <div class="price-info pull-left">
+                                                    <h6>Giá khởi điểm</h6>
+                                                    <h4>{{number_format($rent_room->prices, 0, '.', '.')}}<sup>đ</sup></h4>
+                                                </div>
                                             </div>
-                                            <div class="table-content">
-                                                <ul class="feature-list clearfix">
-                                                    <li>Giới hạn 2 bài /ngày</li>
-                                                    <li>Thời gian tồn tại bài đăng 5 ngày</li>
-                                                    <li>Phù hợp tất cả các loại hình tuy nhiên lượng tiếp cận khách hàng thấp hơn </li>
-                                                </ul>
-                                            </div>
-                                            <div class="table-footer">
-                                                <button class="muangay" type="submit">Mua ngay</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-12 pricing-block">
-                                <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms">
-                                    <form action="{{url('client/buyVipPack')}}" method="POST">
-                                        @csrf
-                                        <div class="pricing-table">
-                                            <div class="table-header">
-                                                <div class="shape-1" style="background-image: url({{asset('images/shape/shape-4.png')}});"></div>
-                                                <div class="shape-2" style="background-image: url({{asset('images/shape/shape-5.png')}});"></div>
-                                                <h4>Gói vip</h4>
-                                                <h2>225.000 đ <span> tháng</span></h2>
-                                            </div>
-                                            <div class="table-content">
-                                                <ul class="feature-list clearfix">
-                                                    <li>Giới hạn 5 bài /ngày</li>
-                                                    <li>Thời gian tồn tại bài đăng 10 ngày</li>
-                                                    <li>Phù hợp khách hàng cá nhân/môi giới có lượng căn trống thường xuyên, cần cho thuê nhanh hơn.</li>
-                                                </ul>
-                                            </div>
-                                            <div class="table-footer">
-                                                <button class="muangay" type="submit">Mua ngay</button>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-12 pricing-block">
-                                <div class="pricing-block-one wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms">
-                                    <div class="pricing-table">
-                                        <div class="table-header">
-                                            <div class="shape-1" style="background-image: url({{asset('images/shape/shape-4.png')}});"></div>
-                                            <div class="shape-2" style="background-image: url({{asset('images/shape/shape-5.png')}});"></div>
-                                            <h4>Gói đa vũ trụ</h4>
-                                            <h2>10.000.000  </h2>
-                                        </div>
-                                        <div class="table-content">
-                                            <ul class="feature-list clearfix">
 
+                                            <ul class="more-details clearfix">
+                                                <li><i class="icon-14"></i>{{$rent_room->bed_room}} phòng ngủ</li>
+                                                <li><i class="icon-15"></i>{{$rent_room->bath_room}} phòng vệ sinh </li>
+                                                <li><i class="icon-16"></i>{{$rent_room -> acreage}}métvuông</li>
                                             </ul>
-                                        </div>
-                                        <div class="table-footer">
-
+                                            <hr>
+                                            <form action="{{url('/client/report/'.$rent_room->rr_id)}}" method="POST">
+                                                @csrf
+                                            <h4>Lí do mà bạn muốn báo cáo bài viết này ?</h4>
+                                                <input type="text" style="border: 2px solid red" name="report_info">
+                                                <button type="submit" class="btn btn-xs btn-warning btn-flat show-alert-delete-box btn-sm" data-toggle="tooltip" title='Delete'>Xác nhận báo cáo</button>
+                                            </form>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 deals-block">
+                                <div class="image-box">
+                                    <figure class="image"><img src="{{url('images/rooms/'.$rent_room->url)}}" alt=""></figure>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                </div>
-            </div>
+                @empty
+                    <p>Danh sach rong</p>
+                @endforelse
         </div>
     </section>
     <!-- pricing-section end -->
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+
+    <script type="text/javascript">
+        $('.show-alert-delete-box').click(function(event){
+            var form =  $(this).closest("form");
+            var name = $(this).data("name");
+            event.preventDefault();
+            swal({
+                title: "Bạn có chắc chắn muốn báo cáo bài đăng này ? ",
+                text: "Hãy cân nhắc khi xác nhận",
+                icon: "warning",
+                type: "warning",
+                buttons: ["Hủy","Chắc chắn"],
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#20d706',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((willDelete) => {
+                if (willDelete) {
+                    form.submit();
+                }
+            });
+        });
+    </script>
 
     <!-- clients-section -->
     @include('client.section')
