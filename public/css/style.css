@@ -2248,6 +2248,7 @@ div#mCSB_1_container{
   display: inline-block;
   float: left;
   margin-right: 10px;
+    margin-top: 25px;
 }
 
 .feature-block-one .inner-box .lower-content .price-box .other-option li:last-child{
@@ -2266,7 +2267,9 @@ div#mCSB_1_container{
   color: #a6a7af;
   text-align: center;
 }
-
+.feature-block-one .inner-box .lower-content .price-box .other-option li a i{
+    margin-top: 10px;
+}
 .feature-block-one .inner-box .lower-content .price-box .other-option{
   position: relative;
   margin-top: 5px;
@@ -2552,7 +2555,9 @@ div#mCSB_1_container{
   color: #a6a7af;
   text-align: center;
 }
-
+.deals-block-one .inner-box .lower-content .other-option li a i{
+    margin-top: 10px;
+}
 .deals-block-one .inner-box .lower-content .price-box .other-option{
   position: relative;
   margin-top: 5px;

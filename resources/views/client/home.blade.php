@@ -206,7 +206,11 @@
                                                     <h6>Giá khởi điểm</h6>
                                                     <h4>{{number_format($rent_room->prices, 0, '.', '.')}}<sup>đ</sup></h4>
                                                 </div>
+                                                <ul class="other-option pull-right clearfix">
+                                                    <li><a href="property-details.html"><i class="fas fa-exclamation"></i></a></li>
+                                                </ul>
                                             </div>
+
                                             <ul class="more-details clearfix">
                                                 <li><i class="icon-14"></i>{{$rent_room->bed_room}} phòng ngủ</li>
                                                 <li><i class="icon-15"></i>{{$rent_room->bath_room}} phòng vệ sinh </li>
@@ -262,6 +266,9 @@
                                                 <h6>Giá khởi điểm</h6>
                                                 <h4>{{number_format($rent_room->prices, 0, '.', '.')}}<sup>đ</sup></h4>
                                             </div>
+                                            <ul class="other-option pull-right clearfix">
+                                                <li><a href="property-details.html"><i class="fas fa-exclamation"></i></a></li>
+                                            </ul>
                                         </div>
                                         <ul class="more-details clearfix">
                                             <li><i class="icon-14"></i>{{$rent_room->bed_room}} phòng ngủ</li>
@@ -314,6 +321,9 @@
                                             <h6>Giá khởi điểm</h6>
                                             <h4>{{number_format($rent_room->prices, 0, '.', '.')}}<sup>đ</sup></h4>
                                         </div>
+                                        <ul class="other-option pull-right clearfix">
+                                            <li><a href="property-details.html"><i class="fas fa-exclamation"></i></a></li>
+                                        </ul>
                                     </div>
                                     <ul class="more-details clearfix">
                                         <li><i class="icon-14"></i>{{$rent_room->bed_room}} phòng ngủ</li>
