@@ -17,15 +17,16 @@ class AdminController extends Controller
     public function viewAdmin(){
         if (Auth::user()->isAdmin == 1){
             return redirect('agents/index');
+        }else {
+            $rooms = Rent_room::all();
+            $money = DB::table('payment_histories')
+                ->where('payment_info', 'like', 'Nạp tiền vào tài khoản')
+                ->sum('price');
+            $user = DB::table('users')
+                ->where('isAdmin', '=', 1)
+                ->get();
+            return view('admin/index', compact('rooms', 'money', 'user'));
         }
-        $rooms = Rent_room::all();
-        $money = DB::table('payment_histories')
-            ->where('payment_info','like','Nạp tiền vào tài khoản')
-            ->sum('price');
-        $user = DB::table('users')
-            ->where('isAdmin','=',1)
-            ->get();
-        return view('admin/index',compact('rooms','money','user'));
     }
 
     public function viewEmployee(){
@@ -107,6 +108,26 @@ class AdminController extends Controller
         return view('/admin/ecom-product-list',compact('rooms'));
     }
 
+    public function viewEcom_product_report()
+    {
+        if (Auth::user()->isAdmin == 1){
+            return redirect('agents/index');
+        }
+        $rent_rooms = DB::table('rent_rooms')
+            ->join('rent_amounts', 'rent_amounts.ram_id', '=', 'rent_rooms.rent_amountId')
+            ->join('images', 'images.rentRoom_id', '=', 'rent_rooms.rr_id')
+            ->join('categories', 'categories.id', '=', 'rent_rooms.cate_id')
+            ->join('room_details', 'room_details.rentRoom_id', '=', 'rent_rooms.rr_id')
+            ->join('cities', 'rent_rooms.city_id', '=', 'cities.cities_id')
+            ->join('city_details', 'rent_rooms.city_detailId', '=', 'city_details.city_detailId')
+            ->join('streets', 'rent_rooms.street_id', '=', 'streets.street_id')
+            ->join('reports', 'reports.rpRoom_id', '=', 'rent_rooms.rr_id')
+            ->select('rent_rooms.*', 'rent_amounts.*', 'images.url', 'room_details.*', 'categories.*', 'cities.*', 'city_details.*', 'streets.*','reports.*')
+            ->distinct()
+            ->paginate(6);
+        return view('/admin/ecom-product-report', compact('rent_rooms'));
+    }
+
     public function viewEdit(){
         if (Auth::user()->isAdmin == 1){
             return redirect('agents/index');
@@ -165,7 +186,7 @@ class AdminController extends Controller
             'user_id' => $id,
             'price' => $cash,
             'payment_info' => 'Nạp tiền vào tài khoản',
-            'payment_time' => Carbon::now()
+            'payment_time' => Carbon::today()
         ]);
         Alert::success('Nạp thành công','Tài khoản '.$currentUser->name.' đã được nạp '.$cash.' vnđ');
         return redirect('admin/contacts');
@@ -184,7 +205,7 @@ class AdminController extends Controller
             'info' => $info,
             'new_image' => $image,
             'new_name' => $new_name,
-            'post_date' => Carbon::now()
+            'post_date' => Carbon::today()
         ]);
         Alert::success('Đăng thành công', 'Bài viết của bạn đã được đăng lên');
         return redirect('admin/index');

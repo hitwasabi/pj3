@@ -771,6 +771,7 @@ class ClientController extends Controller
             $user = \App\Models\User::findOrFail(Auth::id());
             $user->update(['money'=> $newCash]);
             $user->update(['level'=>'2']);
+            $user->update(['endDate'=> Carbon::parse($user->endDate)->addDays(30)]);
             Payment_history::create([
                 'user_id' => Auth::user()->id,
                 'price' => 45000,
@@ -782,7 +783,11 @@ class ClientController extends Controller
                 'body' => 'Thư này gửi cho khách hàng, vui lòng không phản hồi lại'
             ];
             Mail::to($user->email)->send(new SendMail($mailData));
-            Alert::success('Mua thành công','Cấp độ tài khoản của bạn bây giờ là "Thường"');
+            if ($user->level == 1) {
+                Alert::success('Mua thành công', 'Cấp độ tài khoản của bạn bây giờ là "Thường"');
+            }else{
+                Alert::success('Mua thành công', 'Gói "Thường" của bạn đã được gia hạn thêm 30 ngày');
+            }
         }
         return redirect('client/home/pricing');
     }
@@ -796,25 +801,37 @@ class ClientController extends Controller
         if (Auth::user()->money < 225000){
             Alert::error('Không thành công', 'Bạn không có đủ số dư trong tài khoản');
             return redirect('client/home/pricing');
-        }else{
-            $cash = Auth::user()->money;
-            $newCash = $cash - 225000;
-            $user = \App\Models\User::findOrFail(Auth::id());
-            $user->update(['money'=> $newCash]);
-            $user->update(['level'=>'3']);
-            Payment_history::create([
-                'user_id' => Auth::user()->id,
-                'price' => 225000,
-                'payment_info' => 'Mua gói Vip',
-                'payment_time' => Carbon::now()
-            ]);
-            $mailData = [
-                'title' => 'Mail from ChipHome.com',
-                'body' => 'Thư này gửi cho khách hàng, vui lòng không phản hồi lại'
-            ];
-            Mail::to($user->email)->send(new SendMail($mailData));
-            Alert::success('Mua thành công','Cấp độ tài khoản của bạn bây giờ là "VIP"');
-            return redirect('client/home/pricing');
+        }else {
+            if (Auth::user()->level == 2) {
+                if (Carbon::today()->diffInDays(Auth::user()->endDate) > 30) {
+                    Alert::warning('Không thể thực hiện thanh toán','Gói hiện tại của bạn đang là "Thường" và có thời hạn lâu hơn để có thể mua gói VIP');
+                    return redirect('client/home/pricing');
+                } else {
+                    $cash = Auth::user()->money;
+                    $newCash = $cash - 225000;
+                    $user = \App\Models\User::findOrFail(Auth::id());
+                    $user->update(['money' => $newCash]);
+                    $user->update(['level' => '3']);
+                    $user->update(['endDate' => Carbon::parse($user->endDate)->addDays(30)]);
+                    Payment_history::create([
+                        'user_id' => Auth::user()->id,
+                        'price' => 225000,
+                        'payment_info' => 'Mua gói Vip',
+                        'payment_time' => Carbon::now()
+                    ]);
+                    $mailData = [
+                        'title' => 'Mail from ChipHome.com',
+                        'body' => 'Thư này gửi cho khách hàng, vui lòng không phản hồi lại'
+                    ];
+                    Mail::to($user->email)->send(new SendMail($mailData));
+                    if ($user->level == 2) {
+                        Alert::success('Mua thành công', 'Cấp độ tài khoản của bạn bây giờ là "VIP"');
+                    }else{
+                        Alert::success('Mua thành công', 'Gói VIP của bạn đã được gia hạn thêm 30 ngày');
+                    }
+                    return redirect('client/home/pricing');
+                }
+            }
         }
     }
 

@@ -37,7 +37,9 @@ class AgentController extends Controller
             $payment = DB::table('payment_histories')
                 ->where('user_id', '=', Auth::id())
                 ->get();
-        return view('/agents/index',compact('all_room','rent_room','cancel_room','payment'));
+            $user = \App\Models\User::findOrFail(Auth::user()->id);
+            $endDate = Carbon::parse($user->endDate)->toDateString();
+        return view('/agents/index',compact('all_room','rent_room','cancel_room','payment','endDate'));
     }
 
     public function viewEcom_product_list(){
@@ -59,6 +61,29 @@ class AgentController extends Controller
         $users = DB::table('users')->where('id',"=",$id)->first();
         //dd($rent_rooms);
         return view('/agents/ecom-product-list',compact('users','rent_rooms'));
+    }
+
+    public function viewEcom_product_report()
+    {
+        if (Auth::check() == false) {
+            return redirect('login');
+        }
+        $id = Auth::user()->id;
+        $rent_rooms = DB::table('rent_rooms')
+            ->join('rent_amounts', 'rent_amounts.ram_id', '=', 'rent_rooms.rent_amountId')
+            ->join('images', 'images.rentRoom_id', '=', 'rent_rooms.rr_id')
+            ->join('categories', 'categories.id', '=', 'rent_rooms.cate_id')
+            ->join('room_details', 'room_details.rentRoom_id', '=', 'rent_rooms.rr_id')
+            ->join('cities', 'rent_rooms.city_id', '=', 'cities.cities_id')
+            ->join('city_details', 'rent_rooms.city_detailId', '=', 'city_details.city_detailId')
+            ->join('streets', 'rent_rooms.street_id', '=', 'streets.street_id')
+            ->join('reports', 'reports.rpRoom_id', '=', 'rent_rooms.rr_id')
+            ->select('rent_rooms.*', 'rent_amounts.*', 'images.url', 'room_details.*', 'categories.*', 'cities.*', 'city_details.*', 'streets.*','reports.*')
+            ->distinct()
+            ->where('rent_rooms.owner_id', '=', $id)
+            ->paginate(6);
+        $users = DB::table('users')->where('id', "=", $id)->first();
+        return view('/agents/ecom-product-report', compact('users', 'rent_rooms'));
     }
 
     public function show($rr_id){

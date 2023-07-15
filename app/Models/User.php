@@ -27,7 +27,7 @@ class User extends Authenticatable
         'money',
         'level',
         'user_image',
-        'isVerify'
+        'endDate'
     ];
 
     /**

@@ -26,11 +26,5 @@ class Verify extends Command
      */
     public function handle()
     {
-        $users = User::all();
-        foreach ($users as $user){
-            if ($user->isVerify == 1) {
-                $user->updateOrFail(['isVerify' => 0]);
-            }
-        }
     }
 }

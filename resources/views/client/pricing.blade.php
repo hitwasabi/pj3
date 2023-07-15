@@ -57,7 +57,13 @@
                                                 </ul>
                                             </div>
                                             <div class="table-footer">
+                                                @if(\Illuminate\Support\Facades\Auth::user()->level == 1)
                                                 <button type="submit" class="btn btn-xs btn-success btn-flat show-alert-delete-box btn-sm" data-toggle="tooltip" title='Delete'>Mua ngay</button>
+                                                @elseif(\Illuminate\Support\Facades\Auth::user()->level == 2)
+                                                    <button type="submit" class="btn btn-xs btn-success btn-flat show-alert-delete-box-bought btn-sm" data-toggle="tooltip" title='Delete'>Mua ngay</button>
+                                                @else
+                                                    <button type="submit" class="btn btn-xs btn-success btn-flat show-alert-delete-box btn-sm" data-toggle="tooltip" title='Delete'>Mua ngay</button>
+                                                @endif
                                             </div>
                                         </div>
                                         </form>
@@ -82,7 +88,13 @@
                                                 </ul>
                                             </div>
                                             <div class="table-footer">
+                                                @if(\Illuminate\Support\Facades\Auth::user()->level == 1)
                                                 <button type="submit" class="btn btn-xs btn-success btn-flat show-alert-delete-box-fuck btn-sm" data-toggle="tooltip" title='Delete'>Mua ngay</button>
+                                                @elseif(\Illuminate\Support\Facades\Auth::user()->level == 2)
+                                                    <button type="submit" class="btn btn-xs btn-success btn-flat show-alert-delete-box-fuck-2 btn-sm" data-toggle="tooltip" title='Delete'>Mua ngay</button>
+                                                @else
+                                                    <button type="submit" class="btn btn-xs btn-success btn-flat show-alert-delete-box-fuck btn-sm" data-toggle="tooltip" title='Delete'>Mua ngay</button>
+                                                @endif
                                             </div>
                                         </div>
                                         </form>
@@ -130,9 +142,9 @@
                 text: "Gói có thời gian tồn tại là 30 ngày",
                 icon: "warning",
                 type: "warning",
-                buttons: ["À thôi","Mua chứ"],
+                buttons: ["Hủy","Xác nhận mua"],
                 confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#20d706',
+                cancelButtonColor: '#af000f',
                 confirmButtonText: 'Yes, delete it!'
             }).then((willDelete) => {
                 if (willDelete) {
@@ -141,6 +153,29 @@
             });
         });
     </script>
+
+    <script type="text/javascript">
+        $('.show-alert-delete-box-bought').click(function(event){
+            var form =  $(this).closest("form");
+            var name = $(this).data("name");
+            event.preventDefault();
+            swal({
+                title: "Bạn có chắc mình muốn mua thêm gói THƯỜNG ? ",
+                text: "Thời gian tồn tại của gói bạn đang sở hữu sẽ được cộng thêm 30 ngày, nhưng bạn không thể mua gói VIP",
+                icon: "warning",
+                type: "warning",
+                buttons: ["Hủy","Xác nhận mua"],
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#af000f',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((willDelete) => {
+                if (willDelete) {
+                    form.submit();
+                }
+            });
+        });
+    </script>
+
 
     <script type="text/javascript">
         $('.show-alert-delete-box-fuck').click(function(event){
@@ -152,9 +187,31 @@
                 text: "Gói có thời gian tồn tại là 30 ngày cùng với nhiều quyền lợi",
                 icon: "warning",
                 type: "warning",
-                buttons: ["À thôi","Mua chứ"],
+                buttons: ["Hủy","Xác nhận mua"],
                 confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#20d706',
+                cancelButtonColor: '#af000f',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((willDelete) => {
+                if (willDelete) {
+                    form.submit();
+                }
+            });
+        });
+    </script>
+
+    <script type="text/javascript">
+        $('.show-alert-delete-box-fuck-2').click(function(event){
+            var form =  $(this).closest("form");
+            var name = $(this).data("name");
+            event.preventDefault();
+            swal({
+                title: "Bạn có chắc mình muốn nâng cấp lên gói VIP ? ",
+                text: "Gói có thời gian tồn tại là 30 ngày cùng với nhiều quyền lợi",
+                icon: "warning",
+                type: "warning",
+                buttons: ["Hủy","Xác nhận mua"],
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#af000f',
                 confirmButtonText: 'Yes, delete it!'
             }).then((willDelete) => {
                 if (willDelete) {

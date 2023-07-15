@@ -45,6 +45,7 @@
                     <li><a class="has-arrow" href="javascript:void(0);" aria-expanded="false">Phòng trọ</a>
                         <ul aria-expanded="false">
                             <li><a href="{{url('admin/ecom-product-list')}}">Danh mục phòng trọ</a></li>
+                            <li><a href="{{url('admin/ecom-product-report')}}">Phòng trọ bị báo cáo</a></li>
                         </ul>
                     </li>
                 </ul>

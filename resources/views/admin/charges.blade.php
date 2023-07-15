@@ -97,7 +97,7 @@
                                                     <input name="money" type="number" min="1" >
                                                 </td>
                                                 <td>
-                                                    <button type="submit">Nạp</button>
+                                                    <button class="btn btn-primary" type="submit">Nạp</button>
                                                 </td>
                                                 </form>
                                             </tr>

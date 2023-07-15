@@ -121,6 +121,7 @@ Route::get('/client/home/agents-details', function () {
 Route::get('/agents/index',[\App\Http\Controllers\AgentController::class,'viewAgent']);
 //Xem cac san pham cua agent
 Route::get('/agents/ecom-product-list',[\App\Http\Controllers\AgentController::class,'viewEcom_product_list']);
+Route::get('/agents/ecom-product-report',[AgentController::class,'viewEcom_product_report']);
 
 Route::get('/agents/search',[AgentController::class,'searchInfo']);
 
@@ -153,6 +154,8 @@ Route::get('/admin/edit-blog/{new_id}',[\App\Http\Controllers\AdminController::c
 Route::put('/admin/editBlog/{new_id}',[AdminController::class,'editBlog']);
 Route::get('/admin/contacts',[\App\Http\Controllers\AdminController::class,'viewContact']);
 Route::get('/admin/ecom-product-list',[\App\Http\Controllers\AdminController::class,'viewEcom_product_list']);
+Route::get('/admin/ecom-product-report',[\App\Http\Controllers\AdminController::class,'viewEcom_product_report']);
+
 Route::get('/admin/search',[AdminController::class,'searchInfo']);
 
 Route::get('/admin/edit-profile/{id}',[\App\Http\Controllers\AdminController::class,'viewEdit']);

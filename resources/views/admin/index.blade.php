@@ -112,7 +112,7 @@
                                         <div class="depostit-card-media d-flex justify-content-between style-1">
                                             <div>
                                                 <h6>Tổng số doanh thu</h6>
-                                                <h3>{{$money}} đ</h3>
+                                                <h3>{{number_format($money, 0, '.', '.')}} đ</h3>
                                             </div>
                                             <div class="icon-box bg-primary-light">
                                                 <span class="fas fa-money-bill"></span>

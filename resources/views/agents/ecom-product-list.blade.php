@@ -56,8 +56,8 @@
                                                 @csrf
                                                 <button type="submit">Sửa thông tin</button>
                                             </form>
-                                            @if($room->status == 0)
-                                            <form action="{{url('agents/hideRoom/'.$room->rr_id)}}" method="POST">
+                                            @if($rent_room->status == 0)
+                                            <form action="{{url('agents/hideRoom/'.$rent_room->rr_id)}}" method="POST">
                                                 @csrf
                                                 @method('PUT')
                                                 <button type="submit">Ẩn bài</button>
