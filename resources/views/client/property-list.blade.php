@@ -120,7 +120,7 @@
                         <div class="property-content-side">
                             <div class="item-shorting clearfix">
                                 <div class="left-column pull-left">
-                                    <h5>Kết quả tìm kiếm:  {{{ count($rent_rooms) }}} kết quả</h5>
+                                    <h5>Kết quả tìm kiếm:  {{{ $rent_rooms->total() }}} kết quả</h5>
                                 </div>
                                 <div class="right-column pull-right clearfix">
                                     <div class="short-box clearfix">
@@ -147,7 +147,7 @@
                                                 <figure class="image"><img src="{{url('images/rooms/'.$rent_room->url)}}" alt=""></figure>
                                                 <div class="batch"><i class="icon-11"></i></div>
                                                 <span class="category">Đặc sắc</span>
-                                                <div class="buy-btn"><a href="{{url('client/home/property-details')}}">Cho thuê</a></div>
+                                                <div class="buy-btn "><a href="{{url('https://zalo.me/'.$rent_room->phone)}}">Nhắn Zalo</a></div>
                                             </div>
                                             <div class="lower-content">
                                                 <div class="title-text"><h4><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}">{{$rent_room->room_name}}</a></h4></div>
@@ -167,6 +167,9 @@
                                                     <li><i class="icon-14"></i>{{$rent_room->bed_room}} phòng ngủ</li>
                                                     <li><i class="icon-15"></i>{{$rent_room->bath_room}} phòng vệ sinh </li>
                                                     <li><i class="icon-16"></i>{{$rent_room -> acreage}} m²</li>
+                                                </ul>
+                                                <ul class="other-option pull-right clearfix">
+                                                    <li><a style="color: red;" href="{{url('/client/report/'.$rent_room->rr_id)}}"><i class="fas fa-exclamation"></i></a></li>
                                                 </ul>
                                                 <div class="other-info-box clearfix">
                                                     <div class="btn-box pull-left"><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}" class="theme-btn btn-two">Xem chi tiết</a></div>
@@ -202,6 +205,9 @@
                                                                 <h6>Giá khởi điểm</h6>
                                                                 <h4>{{number_format($rent_room->prices, 0, '.', '.')}}<sup>đ</sup></h4>
                                                             </div>
+                                                            <ul class="other-option pull-right clearfix">
+                                                                <li><a style="color: red;" href="{{url('/client/report/'.$rent_room->rr_id)}}"><i class="fas fa-exclamation"></i></a></li>
+                                                            </ul>
                                                         </div>
                                                         <ul class="more-details clearfix">
                                                             <li><i class="icon-14"></i>{{$rent_room->bed_room}} phòng ngủ</li>

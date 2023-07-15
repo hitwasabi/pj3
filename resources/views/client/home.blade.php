@@ -77,6 +77,7 @@
                                                         <div class="form-group">
                                                             <label>Phòng ngủ</label>
                                                             <div class="select-box">
+                                                                <i class="fa-solid fa-bed"></i>
                                                                 <select class="wide" name="bed_room">
                                                                     <option value=" ">Chọn số phòng ngủ</option>
                                                                     {{--                                                                    @foreach($rent_rooms as $rent_room)--}}
@@ -94,6 +95,7 @@
                                                         <div class="form-group">
                                                             <label>Phòng vệ sinh</label>
                                                             <div class="select-box">
+                                                                <i class="fa-solid fa-bath"></i>
                                                                 <select class="wide" name="bath_room">
                                                                     <option value="">Chọn số phòng vệ sinh</option>
                                                                     <option value="1">Một phòng vệ sinh</option>
@@ -203,20 +205,27 @@
                                             <div class="title-text a"><h4><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}">{{$rent_room->room_name}}</a></h4></div>
                                             <div class="price-box clearfix">
                                                 <div class="price-info pull-left">
-                                                    <h6>Giá khởi điểm</h6>
+                                                    <h6>Giá khởi điểm </h6>
                                                     <h4>{{number_format($rent_room->prices, 0, '.', '.')}}<sup>đ</sup></h4>
                                                 </div>
-                                                <ul class="other-option pull-right clearfix">
-                                                    <li><a style="color: red;" href="{{url('/client/report/'.$rent_room->rr_id)}}"><i class="fas fa-exclamation"></i></a></li>
-                                                </ul>
+                                                <div class="author-box pull-right">
+                                                    <figure class="author-thumb">
+                                                        <figure class="author-thumb"><img src="{{url('images/agents/'.$rent_room->user_image)}}" alt=""></figure>
+                                                        <span><a href="{{url('/client/home/agents-details/'.$rent_room->owner_id)}}">{{$rent_room->name}}</a></span>
+                                                    </figure>
+                                                    <ul class="other-option pull-right clearfix">
+                                                        <li><a style="color: red;" href="{{url('/client/report/'.$rent_room->rr_id)}}"><i class="fas fa-exclamation"></i></a></li>
+                                                    </ul>
+                                                </div>
                                             </div>
-
                                             <ul class="more-details clearfix">
                                                 <li><i class="icon-14"></i>{{$rent_room->bed_room}} phòng ngủ</li>
                                                 <li><i class="icon-15"></i>{{$rent_room->bath_room}} phòng vệ sinh </li>
-                                                <li><i class="icon-16"></i>{{$rent_room -> acreage}}métvuông</li>
+                                                <li><i class="icon-16"></i>{{$rent_room -> acreage}}m²</li>
+                                                <div class="buy-btn pull-right"><a href="{{url('https://zalo.me/'.$rent_room->phone)}}">Nhắn Zalo</a></div>
                                             </ul>
                                             <div class="btn-box"><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}" class="theme-btn btn-one">Xem thông tin chi tiết</a></div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -273,7 +282,7 @@
                                         <ul class="more-details clearfix">
                                             <li><i class="icon-14"></i>{{$rent_room->bed_room}} phòng ngủ</li>
                                             <li><i class="icon-15"></i>{{$rent_room->bath_room}} phòng vệ sinh </li>
-                                            <li><i class="icon-16"></i>{{$rent_room -> acreage}}métvuông</li>
+                                            <li><i class="icon-16"></i>{{$rent_room -> acreage}}m²</li>
                                         </ul>
                                         <div class="btn-box"><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}" class="theme-btn btn-two">Xem chi tiết</a></div>
                                     </div>
@@ -309,9 +318,9 @@
                                     <div class="author-info clearfix">
                                         <div class="author pull-left">
                                             <figure class="author-thumb"><img src="{{url('images/agents/'.$rent_room->user_image)}}" alt=""></figure>
-                                            <h6>{{$rent_room->name}}</h6>
+                                            <h6><a href="{{url('/client/home/agents-details/'.$rent_room->owner_id)}}">{{$rent_room->name}}</a></h6>
                                         </div>
-                                        <div class="buy-btn pull-right"><a href="{{url('/client/home/agents-details/'.$rent_room->owner_id)}}">Cho thuê</a></div>
+                                        <div class="buy-btn pull-right"><a href="{{url('https://zalo.me/'.$rent_room->phone)}}">Nhắn Zalo</a></div>
                                     </div>
                                     <div class="title-text"><h4><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}">{{$rent_room->room_name}}</a></h4></div>
                                     <div class="price-box clearfix">
@@ -326,7 +335,7 @@
                                     <ul class="more-details clearfix">
                                         <li><i class="icon-14"></i>{{$rent_room->bed_room}} phòng ngủ</li>
                                         <li><i class="icon-15"></i>{{$rent_room->bath_room}} phòng vệ sinh </li>
-                                        <li><i class="icon-16"></i>{{$rent_room -> acreage}}métvuông</li>
+                                        <li><i class="icon-16"></i>{{$rent_room -> acreage}}m²</li>
                                     </ul>
                                     <div class="btn-box"><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}" class="theme-btn btn-two">Xem chi tiết</a></div>
                                 </div>

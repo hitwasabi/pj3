@@ -168,6 +168,9 @@
                                                     <li><i class="icon-15"></i>{{$rent_room->bath_room}} phòng vệ sinh </li>
                                                     <li><i class="icon-16"></i>{{$rent_room -> acreage}}métvuông</li>
                                                 </ul>
+                                                <ul class="other-option pull-right clearfix">
+                                                    <li><a style="color: red;" href="{{url('/client/report/'.$rent_room->rr_id)}}"><i class="fas fa-exclamation"></i></a></li>
+                                                </ul>
                                                 <div class="other-info-box clearfix">
                                                     <div class="btn-box pull-left"><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}" class="theme-btn btn-two">Xem chi tiết</a></div>
                                                 </div>
@@ -202,6 +205,9 @@
                                                                 <h6>Giá khởi điểm</h6>
                                                                 <h4>{{number_format($rent_room->prices, 0, '.', '.')}}<sup>đ</sup></h4>
                                                             </div>
+                                                            <ul class="other-option pull-right clearfix">
+                                                                <li><a style="color: red;" href="{{url('/client/report/'.$rent_room->rr_id)}}"><i class="fas fa-exclamation"></i></a></li>
+                                                            </ul>
                                                         </div>
                                                         <ul class="more-details clearfix">
                                                             <li><i class="icon-14"></i>{{$rent_room->bed_room}} phòng ngủ</li>
