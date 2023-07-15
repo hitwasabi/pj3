@@ -77,7 +77,7 @@
                                                         <div class="form-group">
                                                             <label>Phòng ngủ</label>
                                                             <div class="select-box">
-                                                                <i class="fa-solid fa-bed"></i>
+                                                                <i class="fas fa-solid fa-bed"></i>
                                                                 <select class="wide" name="bed_room">
                                                                     <option value=" ">Chọn số phòng ngủ</option>
                                                                     {{--                                                                    @foreach($rent_rooms as $rent_room)--}}
@@ -95,7 +95,7 @@
                                                         <div class="form-group">
                                                             <label>Phòng vệ sinh</label>
                                                             <div class="select-box">
-                                                                <i class="fa-solid fa-bath"></i>
+                                                                <i class="fas fa-solid fa-bath"></i>
                                                                 <select class="wide" name="bath_room">
                                                                     <option value="">Chọn số phòng vệ sinh</option>
                                                                     <option value="1">Một phòng vệ sinh</option>
