@@ -54,8 +54,10 @@
                                             <form action="{{url('/client/report/'.$rent_room->rr_id)}}" method="POST">
                                                 @csrf
                                             <h4>Lí do mà bạn muốn báo cáo bài viết này ?</h4>
-                                                <input type="text" style="border: 2px solid red" name="report_info">
-                                                <button type="submit" class="btn btn-xs btn-warning btn-flat show-alert-delete-box btn-sm" data-toggle="tooltip" title='Delete'>Xác nhận báo cáo</button>
+                                                <div class="input-group mb-3">
+                                                    <input  type="text" class="form-control" style="border: 1px solid" name="report_info" placeholder="Hãy cho chúng tôi biết..." >
+                                                </div>
+                                                <button type="submit" class="btn btn-xs btn-outline-danger btn-flat show-alert-report-box btn-sm" data-toggle="tooltip" title='Báo cáo'>Xác nhận báo cáo</button>
                                             </form>
                                         </div>
                                     </div>
