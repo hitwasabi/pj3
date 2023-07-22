@@ -55,7 +55,7 @@
                                                 @csrf
                                             <h4>Lí do mà bạn muốn báo cáo bài viết này ?</h4>
                                                 <div class="input-group mb-3">
-                                                    <input  type="text" class="form-control" style="border: 1px solid" name="report_info" placeholder="Hãy cho chúng tôi biết..." >
+                                                    <input  type="text" class="form-control" style="border: 1px solid" name="report_info" placeholder="Hãy cho chúng tôi biết..." required>
                                                 </div>
                                                 <button type="submit" class="btn btn-xs btn-outline-danger btn-flat show-alert-report-box btn-sm" data-toggle="tooltip" title='Báo cáo'>Xác nhận báo cáo</button>
                                             </form>
@@ -81,7 +81,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
 
     <script type="text/javascript">
-        $('.show-alert-delete-box').click(function(event){
+        $('.show-alert-report-box').click(function(event){
             var form =  $(this).closest("form");
             var name = $(this).data("name");
             event.preventDefault();

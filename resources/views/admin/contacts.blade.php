@@ -94,7 +94,10 @@
 													<span>{{$agent->money}}</span>
 												</td>
                                                 <td>
-                                                    <li><a href="{{url('admin/viewCharges/'.$agent->id)}}" style="color: red">Nạp tiền</a></li>
+                                                    <form action="{{url('admin/viewCharges/'.$agent->id)}}" method="POST">
+                                                        @csrf
+                                                        <button class="btn btn-xs btn-outline-secondary" type="submit">Nạp tiền</button>
+                                                    </form>
                                                 </td>
 											</tr>
                                         @endforeach
