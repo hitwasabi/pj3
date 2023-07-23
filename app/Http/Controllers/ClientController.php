@@ -54,7 +54,7 @@ class ClientController extends Controller
             ->orderBy('users.level','DESC')->inRandomOrder();
 //            ->where('users.level','=','3')
 //            ->get()->random(1);
-        $collection = $query->orderBy(DB::raw('RAND()'))->paginate(3);
+        $collection = $query->orderBy(DB::raw('RAND()'))->paginate(4);
         if($request-> get('sort')=='price_asc'){
             $query =DB::table('rent_rooms')
                 ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
@@ -64,8 +64,8 @@ class ClientController extends Controller
                 ->join('users','users.id','=','rent_rooms.owner_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.*','room_details.*','categories.*','users.*')
                 ->where('rent_rooms.status','=',0);
-            $query->orderBy('room_details.prices');
-            $collection = $query->paginate(3);
+            $query->orderBy('room_details.prices')->orderBy('users.level','DESC')->inRandomOrder();
+            $collection = $query->paginate(4);
         }
         if($request-> get('sort')=='price_desc'){
             $query =DB::table('rent_rooms')
@@ -76,8 +76,8 @@ class ClientController extends Controller
                 ->join('users','users.id','=','rent_rooms.owner_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.*','room_details.*','categories.*','users.*')
                 ->where('rent_rooms.status','=',0);
-            $query->orderBy('room_details.prices','DESC');
-            $collection = $query->paginate(3);
+            $query->orderBy('room_details.prices','DESC')->orderBy('users.level','DESC')->inRandomOrder();
+            $collection = $query->paginate(4);
         }
         if($request-> get('sort')=='id_desc'){
             $query =DB::table('rent_rooms')
@@ -87,9 +87,9 @@ class ClientController extends Controller
                 ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
                 ->join('users','users.id','=','rent_rooms.owner_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.*','room_details.*','categories.*','users.*')
-                ->where('rent_rooms.status','=',0);
+                ->where('rent_rooms.status','=',0)->orderBy('users.level','DESC');
             $query->orderBy('rr_id','DESC');
-            $collection = $query->paginate(3);
+            $collection = $query->paginate(4);
         }
         $data = ['rent_rooms'=>$collection];
         $data['cities'] = City::get(["city_name","cities_id"]);
@@ -184,18 +184,18 @@ class ClientController extends Controller
             $query->where('room_details.acreage', '<=', $maxAcre);
         }
 //        dd($query->get());
-        $collection = $query->paginate(3);
+        $collection = $query->paginate(4);
         if($request-> get('sort')=='price_asc'){
             $query->orderBy('room_details.prices');
-            $collection = $query->paginate(3)->withQueryString();
+            $collection = $query->paginate(4)->withQueryString();
         }
         if($request-> get('sort')=='price_desc'){
             $query->orderBy('room_details.prices','DESC');
-            $collection = $query->paginate(3)->withQueryString();
+            $collection = $query->paginate(4)->withQueryString();
         }
         if($request-> get('sort')=='id_desc'){
             $query->orderBy('rr_id','DESC');
-            $collection = $query->paginate(3)->withQueryString();
+            $collection = $query->paginate(4)->withQueryString();
         }
         $data = ['search_product'=>$collection,
                 'keyword_submit'=>$keyword,
@@ -224,7 +224,7 @@ class ClientController extends Controller
             ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','users.*')
             ->where('cate_name','=','Nhà riêng')
             ->where('rent_rooms.status','=',0)
-            ->paginate(3);
+            ->paginate(4);
         if($request-> get('sort')=='price_asc'){
             $rent_rooms =DB::table('rent_rooms')
                 ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
@@ -235,7 +235,7 @@ class ClientController extends Controller
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','users.*')
                 ->where('cate_name','=','Nhà riêng')
                 ->where('rent_rooms.status','=',0)
-                ->paginate(3);
+                ->paginate(4);
             $rent_rooms->setCollection(
                 $rent_rooms->sortBy('prices')
             );
@@ -250,7 +250,7 @@ class ClientController extends Controller
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','users.*')
                 ->where('cate_name','=','Nhà riêng')
                 ->where('rent_rooms.status','=',0)
-                ->paginate(3);
+                ->paginate(4);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('prices')
             );
@@ -265,7 +265,7 @@ class ClientController extends Controller
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','users.*')
                 ->where('cate_name','=','Nhà riêng')
                 ->where('rent_rooms.status','=',0)
-                ->paginate(3);
+                ->paginate(4);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('rr_id')
             );
@@ -287,7 +287,7 @@ class ClientController extends Controller
             ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','users.*')
             ->where('cate_name','=','Nhà chung cư')
             ->where('rent_rooms.status','=',0)
-            ->paginate(3);
+            ->paginate(4);
         if($request-> get('sort')=='price_asc'){
             $rent_rooms =DB::table('rent_rooms')
                 ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
@@ -298,7 +298,7 @@ class ClientController extends Controller
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','users.*')
                 ->where('cate_name','=','Nhà chung cư')
                 ->where('rent_rooms.status','=',0)
-                ->paginate(3);
+                ->paginate(4);
             $rent_rooms->setCollection(
                 $rent_rooms->sortBy('prices')
             );
@@ -313,7 +313,7 @@ class ClientController extends Controller
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','users.*')
                 ->where('cate_name','=','Nhà chung cư')
                 ->where('rent_rooms.status','=',0)
-                ->paginate(3);
+                ->paginate(4);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('prices')
             );
@@ -328,7 +328,7 @@ class ClientController extends Controller
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','users.*')
                 ->where('cate_name','=','Nhà chung cư')
                 ->where('rent_rooms.status','=',0)
-                ->paginate(3);
+                ->paginate(4);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('rr_id')
             );
@@ -352,7 +352,7 @@ class ClientController extends Controller
             ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*','users.*')
             ->where('city_details.cd_name','=','Quận Hoàn Kiếm')
             ->where('rent_rooms.status','=',0)
-            ->paginate(3);
+            ->paginate(4);
         if($request-> get('sort')=='price_asc'){
             $rent_rooms =DB::table('rent_rooms')
                 ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
@@ -366,7 +366,7 @@ class ClientController extends Controller
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*','users.*')
                 ->where('city_details.cd_name','=','Quận Hoàn Kiếm')
                 ->where('rent_rooms.status','=',0)
-                ->paginate(3);
+                ->paginate(4);
             $rent_rooms->setCollection(
                 $rent_rooms->sortBy('prices')
             );
@@ -384,7 +384,7 @@ class ClientController extends Controller
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*','users.*')
                 ->where('city_details.cd_name','=','Quận Hoàn Kiếm')
                 ->where('rent_rooms.status','=',0)
-                ->paginate(3);
+                ->paginate(4);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('prices')
             );
@@ -402,7 +402,7 @@ class ClientController extends Controller
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*','users.*')
                 ->where('city_details.cd_name','=','Quận Hoàn Kiếm')
                 ->where('rent_rooms.status','=',0)
-                ->paginate(3);
+                ->paginate(4);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('rr_id')
             );
@@ -425,7 +425,7 @@ class ClientController extends Controller
             ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*','users.*')
             ->where('city_details.cd_name','=','Quận Tây Hồ')
             ->where('rent_rooms.status','=',0)
-            ->paginate(3);
+            ->paginate(4);
         if($request-> get('sort')=='price_asc'){
             $rent_rooms =DB::table('rent_rooms')
                 ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
@@ -439,7 +439,7 @@ class ClientController extends Controller
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*','users.*')
                 ->where('city_details.cd_name','=','Quận Tây Hồ')
                 ->where('rent_rooms.status','=',0)
-                ->paginate(3);
+                ->paginate(4);
             $rent_rooms->setCollection(
                 $rent_rooms->sortBy('prices')
             );
@@ -457,7 +457,7 @@ class ClientController extends Controller
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*','users.*')
                 ->where('city_details.cd_name','=','Quận Tây Hồ')
                 ->where('rent_rooms.status','=',0)
-                ->paginate(3);
+                ->paginate(4);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('prices')
             );
@@ -475,7 +475,7 @@ class ClientController extends Controller
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*','users.*')
                 ->where('city_details.cd_name','=','Quận Tây Hồ')
                 ->where('rent_rooms.status','=',0)
-                ->paginate(3);
+                ->paginate(4);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('rr_id')
             );
@@ -498,7 +498,7 @@ class ClientController extends Controller
             ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*','users.*')
             ->where('city_details.cd_name','=','Quận Hai Bà Trưng')
             ->where('rent_rooms.status','=',0)
-            ->paginate(3);
+            ->paginate(4);
         if($request-> get('sort')=='price_asc'){
             $rent_rooms =DB::table('rent_rooms')
                 ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
@@ -512,7 +512,7 @@ class ClientController extends Controller
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*','users.*')
                 ->where('city_details.cd_name','=','Quận Hai Bà Trưng')
                 ->where('rent_rooms.status','=',0)
-                ->paginate(3);
+                ->paginate(4);
             $rent_rooms->setCollection(
                 $rent_rooms->sortBy('prices')
             );
@@ -530,7 +530,7 @@ class ClientController extends Controller
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*','users.*')
                 ->where('city_details.cd_name','=','Quận Hai Bà Trưng')
                 ->where('rent_rooms.status','=',0)
-                ->paginate(3);
+                ->paginate(4);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('prices')
             );
@@ -548,7 +548,7 @@ class ClientController extends Controller
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*','users.*')
                 ->where('city_details.cd_name','=','Quận Hai Bà Trưng')
                 ->where('rent_rooms.status','=',0)
-                ->paginate(3);
+                ->paginate(4);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('rr_id')
             );
@@ -572,7 +572,7 @@ class ClientController extends Controller
             ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*','users.*')
             ->where('city_details.cd_name','=','Quận Đống Đa')
             ->where('rent_rooms.status','=',0)
-            ->paginate(3);
+            ->paginate(4);
         if($request-> get('sort')=='price_asc'){
             $rent_rooms =DB::table('rent_rooms')
                 ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
@@ -586,7 +586,7 @@ class ClientController extends Controller
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*','users.*')
                 ->where('city_details.cd_name','=','Quận Đống Đa')
                 ->where('rent_rooms.status','=',0)
-                ->paginate(3);
+                ->paginate(4);
             $rent_rooms->setCollection(
                 $rent_rooms->sortBy('prices')
             );
@@ -603,7 +603,7 @@ class ClientController extends Controller
                 ->join('users','users.id','=','rent_rooms.owner_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*','users.*')
                 ->where('city_details.cd_name','=','Quận Đống Đa')->where('rent_rooms.status','=',0)
-                ->paginate(3);
+                ->paginate(4);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('prices')
             );
@@ -620,7 +620,7 @@ class ClientController extends Controller
                 ->join('users','users.id','=','rent_rooms.owner_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*','users.*')
                 ->where('city_details.cd_name','=','Quận Đống Đa')->where('rent_rooms.status','=',0)
-                ->paginate(3);
+                ->paginate(4);
             $rent_rooms->setCollection(
                 $rent_rooms->sortByDesc('rr_id')
             );
@@ -641,7 +641,7 @@ class ClientController extends Controller
             ->join('users','users.id','=','rent_rooms.owner_id')
             ->select('rent_rooms.*','room_details.*','cities.*','city_details.*','streets.*','rent_amounts.*','images.url','users.*')
             ->where('rent_rooms.owner_id',"=",$id);
-        $collection = $query->paginate(3);
+        $collection = $query->paginate(4);
         if($request-> get('sort')=='price_asc'){
             $query->orderBy('room_details.prices');
             $collection = $query->paginate(100);

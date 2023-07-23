@@ -28,8 +28,7 @@ class RegisterController extends Controller
             'phone'=>$phone,
             'money'=> 0,
             'isAdmin'=> 1,
-            'level'=> 1,
-            'isVerify' => 0
+            'level'=> 1
         ]);
         Alert::success('Đăng ký thành công','Giờ bạn có thể đăng nhập và sử dụng trang web một cách tiện lợi');
         return view('/signin');

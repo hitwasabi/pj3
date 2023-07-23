@@ -110,7 +110,7 @@
                                                         <div class="form-group">
                                                             <label>Lọc giá</label>
                                                             <div class="range-price">
-                                                                <label>1 - 5 triệu  <input type="radio" name="price" value="1000000-5000000" id="" checked="checked"></label>
+                                                                <label>1 - 30 triệu  <input type="radio" name="price" value="1000000-30000000" id="" checked="checked"></label>
                                                             </div>
                                                             <div class="range-price">
                                                                 <label>1 - 2 triệu  <input type="radio" name="price" value="1000000-2000000" id=""></label>
