@@ -135,6 +135,30 @@ class AdminController extends Controller
         return view('/admin/edit-profile');
     }
 
+    public function edit(Request $request,$id){
+        $user_image = time().'.'.$_FILES['user_image']['name'];
+        if ($request->user_image == null ){
+            $user_image = \App\Models\User::findOrFail($id)->user_image;
+        }else {
+            $request->user_image->move(public_path('images/agents'), $user_image);
+        }
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $phone = $request->input('phone');
+
+        if ($user_image == null ){
+            $user_image = \App\Models\User::findOrFail($id)->user_image;
+        }
+
+        DB::table('users')->where('id','=',$id)->update([
+            'user_image' => $user_image,
+            'name' => $name,
+            'email' => $email,
+            'phone' => $phone
+        ]);
+        Alert::info('Thành công','Thông tin của bạn đã được cập nhật');
+    }
+
     public function viewEmployeeDetail(){
         if (Auth::user()->isAdmin == 1){
             return redirect('agents/index');
