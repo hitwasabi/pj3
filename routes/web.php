@@ -155,6 +155,7 @@ Route::put('/admin/editBlog/{new_id}',[AdminController::class,'editBlog']);
 Route::get('/admin/contacts',[\App\Http\Controllers\AdminController::class,'viewContact']);
 Route::get('/admin/ecom-product-list',[\App\Http\Controllers\AdminController::class,'viewEcom_product_list']);
 Route::get('/admin/ecom-product-report',[\App\Http\Controllers\AdminController::class,'viewEcom_product_report']);
+Route::post('/admin/edit-profile/{id}',[AdminController::class,'edit']);
 
 Route::get('/admin/search',[AdminController::class,'searchInfo']);
 
