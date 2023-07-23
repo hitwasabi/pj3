@@ -6,7 +6,7 @@
             <div class="left-column pull-left">
                 <ul class="info clearfix">
                     <li><i class="far fa-map-marker-alt"></i>Yên Sở City</li>
-                    <li><i class="far fa-clock"></i>Thứ 2 - Thứ 7  9.00h - 18.00h</li>
+                    <li><i class="far fa-clock"></i>Thứ 2 - Chủ Nhật  6h - 22h</li>
                     <li><i class="far fa-phone"></i>+0858862720</li>
                 </ul>
             </div>

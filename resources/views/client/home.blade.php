@@ -334,8 +334,8 @@
                                     </div>
                                     <ul class="more-details clearfix">
                                         <li><i class="icon-14"></i>{{$rent_room->bed_room}} phòng ngủ</li>
-                                        <li><i class="icon-15"></i>{{$rent_room->bath_room}} phòng vệ sinh </li>
-                                        <li><i class="icon-16"></i>{{$rent_room -> acreage}}m²</li>
+                                        <li><i class="icon-15"></i>{{$rent_room->bath_room}} phòng vệ sinh</li>
+                                        <li><i class="icon-16"></i>{{$rent_room->acreage}}m²</li>
                                     </ul>
                                     <div class="btn-box"><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}" class="theme-btn btn-two">Xem chi tiết</a></div>
                                 </div>

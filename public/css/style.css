@@ -2510,8 +2510,13 @@ div#mCSB_1_container{
 }
 
 .deals-block-one .inner-box .lower-content .title-text h4 a{
-  display: inline-block;
+
   color: #2d2929;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .deals-block-one .inner-box .lower-content .title-text h4 a:hover{
@@ -2662,11 +2667,15 @@ div#mCSB_1_container{
 }
 
 .deals-section .single-item .image-box .image img{
-    height: 335px;
+    height: 365px;
   width: 100%;
   border-radius: 10px;
 }
-
+.deals-section .single-item .image-boxx more-details clearfix.image img{
+    height: 445px;
+    width: 100%;
+    border-radius: 10px;
+}
 .nav-style-one .owl-nav button{
   position: relative;
   display: inline-block;

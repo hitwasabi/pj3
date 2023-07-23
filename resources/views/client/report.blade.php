@@ -64,7 +64,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12 deals-block">
-                                <div class="image-box">
+                                <div class="image-boxx">
                                     <figure class="image"><img src="{{url('images/rooms/'.$rent_room->url)}}" alt=""></figure>
                                 </div>
                             </div>

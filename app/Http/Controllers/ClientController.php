@@ -698,7 +698,7 @@ class ClientController extends Controller
             ->join('streets','rent_rooms.street_id','=','streets.street_id')
             ->where('rent_rooms.status','=',0)
             ->select('rent_rooms.*','room_details.*','cities.*','city_details.*','streets.*','rent_amounts.*','users.*','images.*')
-            ->get()->take(3);
+            ->inRandomOrder()->get()->take(3);
 //        return view('/client/home')->with('rent_rooms',$rent_rooms);
 //        dd($rent_rooms);
         $rent_roomss =DB::table('rent_rooms')
