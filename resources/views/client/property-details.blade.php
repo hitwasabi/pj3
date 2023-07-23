@@ -81,6 +81,15 @@
                                     <li>Nhà vệ sinh: <span>{{$rent_room->bath_room}} </span></li>
                                     <li>Số người tối đa có thể ở: <span>{{$rent_room->amounts}} người</span></li>
                                     <li>Tình trạng: <span>Cho thuê</span></li>
+                                    <li>Ngày đăng: {{\Illuminate\Support\Carbon::parse($rent_room->room_date)->toDateString()}}</li>
+                                    <li>Gói bài đăng:
+                                        @if($rent_room->level == 2)
+                                        <span>Gói thường</span>
+                                        @else
+                                            <span>Gói VIP</span>
+                                        @endif
+                                    </li>
+                                    <li>Ngày hết hạn: {{\Illuminate\Support\Carbon::parse($rent_room->room_date)->addDays(30)->toDateString()}}</li>
                                     <li>Diện tích: <span>{{$rent_room -> acreage}} mét vuông</span></li>
                                 </ul>
                             </div>
