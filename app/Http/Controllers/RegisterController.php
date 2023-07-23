@@ -30,6 +30,6 @@ class RegisterController extends Controller
             'level'=> 1
         ]);
         Alert::success('Đăng ký thành công','Giờ bạn có thể đăng nhập và sử dụng trang web một cách tiện lợi');
-        return view('signin');
+        return redirect('login');
     }
 }
