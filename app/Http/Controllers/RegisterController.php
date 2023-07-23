@@ -14,7 +14,6 @@ class RegisterController extends Controller
     }
     public function saveAccount(Request $request){
         $this->validate($request, [
-            'password' => 'min:3|required_with:password_confirmation|same:password_confirmation',
             'password_confirmation' => 'min:3'
         ]);
         $name = $request->get('name');
@@ -31,6 +30,6 @@ class RegisterController extends Controller
             'level'=> 1
         ]);
         Alert::success('Đăng ký thành công','Giờ bạn có thể đăng nhập và sử dụng trang web một cách tiện lợi');
-        return view('/signin');
+        return view('signin');
     }
 }

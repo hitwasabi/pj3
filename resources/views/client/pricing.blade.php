@@ -227,7 +227,7 @@
             var name = $(this).data("name");
             event.preventDefault();
             swal({
-                title: "Bạn có chắc mình muốn mua thêm cấp lên gói VIP ? ",
+                title: "Bạn có chắc mình muốn mua thêm cấp gói VIP ? ",
                 text: "Thời gian tồn tại của gói bạn đang sở hữu sẽ được cộng thêm 30 ngày",
                 icon: "warning",
                 type: "warning",
