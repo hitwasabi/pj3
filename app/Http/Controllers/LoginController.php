@@ -35,12 +35,10 @@ class LoginController extends Controller
     }
 
     function logout(Request $request){
-        $user = \App\Models\User::findOrFail(Auth::id());
-        $user->update(['isVerify' => 0]);
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        Alert::info('Bạn đã đăng xuất khỏi trái đất');
+        Alert::info('Bạn đã đăng xuất thành công');
         return redirect('/client/home');
     }
 

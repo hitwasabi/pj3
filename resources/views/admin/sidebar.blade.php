@@ -60,7 +60,7 @@
                     <span class="nav-text">Các trang khác</span>
                 </a>
                 <ul aria-expanded="false">
-                    <li><a href="{{url('admin/edit-profile')}}">Sửa thông tin cá nhân</a></li>
+                    <li><a href="{{url('admin/edit-profile/'.\Illuminate\Support\Facades\Auth::user()->id)}}">Sửa thông tin cá nhân</a></li>
                     <li><a href="{{url('admin/payment-history')}}">Lịch sử nạp tiền</a></li>
                 </ul>
             </li>

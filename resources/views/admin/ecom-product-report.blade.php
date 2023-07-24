@@ -20,8 +20,7 @@
         <div class="content-body">
             <div class="page-titles">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item "><a href="javascript:void(0)">Shop</a></li>
-                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Product List</a></li>
+                    <li class="breadcrumb-item "><a href="javascript:void(0)">Danh mục bị báo cáo</a></li>
                 </ol>
             </div>
             <div class="input-group container-fluid mh-auto" >
