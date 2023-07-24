@@ -164,7 +164,7 @@ class AgentController extends Controller
         $user = \App\Models\User::findOrFail($id);
         $datas = DB::table('payment_histories')
             ->where('user_id','=',$id)
-            ->get();
+            ->paginate(3);
         return view('/agents/agents-profile',compact('user','datas'));
     }
 

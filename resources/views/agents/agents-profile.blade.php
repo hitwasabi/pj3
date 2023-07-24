@@ -69,18 +69,19 @@
                         </div>
                     </div>
                     <div class="col-xl-9">
-                        <h4 class="heading">Cấp độ gói đang sở hữu :
-                        @if($user->level == 2)
-                        Thường
-                        @elseif($user->level == 3)
-                        VIP
-                            @else
-                            None
-                        @endif
-                        </h4>
+
                         <div class="card h-auto">
-                            <div class="card-header py-3">
+                            <div class="card-header py-3" >
                                 <h4 class="heading mb-0">Lịch sử thanh toán</h4>
+                                <h4 class="heading">Cấp độ gói đang sở hữu :
+                                    @if($user->level == 2)
+                                        Thường
+                                    @elseif($user->level == 3)
+                                        VIP
+                                    @else
+                                        None
+                                    @endif
+                                </h4>
                             </div>
                             <div class="card-body p-0">
                                 <div class="table-responsive active-projects style-1">
@@ -117,8 +118,8 @@
                                             @endforeach
                                         @endif
                                         </tbody>
-
                                     </table>
+                                    {{$datas->appends(Request::all())->links("pagination::bootstrap-4")}}
                                 </div>
                             </div>
                         </div>
