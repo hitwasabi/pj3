@@ -81,20 +81,27 @@
                                             <option value="4">Bốn phòng vệ sinh</option>
                                         </select>
                                     </div>
-                                    <div class="form-group">
-                                        <label>Lọc giá</label>
-                                        <div class="range-price">
-                                            <label>1 - 5 triệu  <input type="radio" name="price" value="1000000-5000000" id="" checked="checked"></label>
-                                        </div>
-                                        <div class="range-price">
-                                            <label>1 - 2 triệu  <input type="radio" name="price" value="1000000-2000000" id=""></label>
-                                        </div>
-                                        <div class="range-price">
-                                            <label>2 - 5 triệu <input type="radio" name="price" value="2000000-5000000" id=""></label>
-                                        </div>
+                                    <div class="widget-title">
+                                        <h5>Lọc giá</h5>
                                     </div>
                                     <div class="form-group">
-                                        <label>Lọc diện tích</label>
+                                        <div class="range-price">
+                                            <label>1 - 30 triệu  <input type="radio" name="price" value="1000000-30000000" id="" checked="checked"></label>
+                                        </div>
+                                        <div class="range-price">
+                                            <label>1 - 10 triệu  <input type="radio" name="price" value="1000000-10000000" id=""></label>
+                                        </div>
+                                        <div class="range-price">
+                                            <label>10 - 30 triệu <input type="radio" name="price" value="10000000-30000000" id=""></label>
+                                        </div>
+                                        <div class="range-price">
+                                            <label>Trên 30 triệu <input type="radio" name="price" value="30000001-300000000" id=""></label>
+                                        </div>
+                                    </div>
+                                    <div class="widget-title">
+                                        <h5>Lọc diện tích</h5>
+                                    </div>
+                                    <div class="form-group">
                                         <div class="range-price">
                                             <label>20 - 500m<sup>2</sup>  <input type="radio" name="acre" value="20-500" id="" checked="checked"></label>
                                         </div>
@@ -120,7 +127,7 @@
                     <div class="property-content-side">
                         <div class="item-shorting clearfix">
                             <div class="left-column pull-left">
-                                <h5>Kết quả tìm kiếm: </h5>
+                                <h5>Danh sách phòng trọ nhà riêng: {{ $rent_rooms->total() }} kết quả </h5>
                             </div>
                             <div class="right-column pull-right clearfix">
                                 <div class="short-box clearfix">
@@ -147,7 +154,6 @@
                                                 <figure class="image"><img src="{{url('images/rooms/'.$rent_room->url)}}" alt=""></figure>
                                                 <div class="batch"><i class="icon-11"></i></div>
                                                 <span class="category">Đặc sắc</span>
-                                                <div class="buy-btn"><a href="{{url('client/home/property-details')}}">Cho thuê</a></div>
                                             </div>
                                             <div class="lower-content">
                                                 <div class="title-text"><h4><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}">{{$rent_room->room_name}}</a></h4></div>
@@ -159,14 +165,17 @@
                                                     <div class="author-box pull-right">
                                                         <figure class="author-thumb">
                                                             <img src="{{url('images/agents/'.$rent_room->user_image)}}" alt="">
-                                                            <span>{{$rent_room->name}}</span>
+                                                            <span><a href="{{url('/client/home/agents-details/'.$rent_room->owner_id)}}">{{$rent_room->name}}</a></span>
                                                         </figure>
                                                     </div>
                                                 </div>
                                                 <ul class="more-details clearfix">
-                                                    <li><i class="icon-14"></i>{{$rent_room->bed_room}} phòng ngủ</li>
-                                                    <li><i class="icon-15"></i>{{$rent_room->bath_room}} phòng vệ sinh </li>
-                                                    <li><i class="icon-16"></i>{{$rent_room -> acreage}} m²</li>
+                                                    <div>
+                                                        <li><i class="icon-14"></i>{{$rent_room->bed_room}} phòng ngủ</li>
+                                                        <li><i class="icon-15"></i>{{$rent_room->bath_room}} phòng vệ sinh </li>
+                                                        <li><i class="icon-16"></i>{{$rent_room -> acreage}} m²</li>
+                                                    </div>
+                                                    <div class="buy-btn "><a href="{{url('https://zalo.me/'.$rent_room->phone)}}">Nhắn Zalo</a></div>
                                                 </ul>
                                                 <ul class="other-option pull-right clearfix">
                                                     <li><a style="color: red;" href="{{url('/client/report/'.$rent_room->rr_id)}}"><i class="fas fa-exclamation"></i></a></li>
@@ -196,8 +205,9 @@
                                                         <div class="author-info clearfix">
                                                             <div class="author pull-left">
                                                                 <figure class="author-thumb"><img src="{{url('images/agents/'.$rent_room->user_image)}}" alt=""></figure>
-                                                                <h6>{{$rent_room->name}}</h6>
+                                                                <h6><a href="{{url('/client/home/agents-details/'.$rent_room->owner_id)}}">{{$rent_room->name}}</a></h6>
                                                             </div>
+                                                            <div class="buy-btn pull-right"><a href="{{url('https://zalo.me/'.$rent_room->phone)}}">Nhắn Zalo</a></div>
                                                         </div>
                                                         <div class="title-text"><h4><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}">{{$rent_room->room_name}}</a></h4></div>
                                                         <div class="price-box clearfix">

@@ -113,10 +113,13 @@
                                                                 <label>1 - 30 triệu  <input type="radio" name="price" value="1000000-30000000" id="" checked="checked"></label>
                                                             </div>
                                                             <div class="range-price">
-                                                                <label>1 - 2 triệu  <input type="radio" name="price" value="1000000-2000000" id=""></label>
+                                                                <label>1 - 10 triệu  <input type="radio" name="price" value="1000000-10000000" id=""></label>
                                                             </div>
                                                             <div class="range-price">
-                                                                <label>2 - 5 triệu <input type="radio" name="price" value="2000000-5000000" id=""></label>
+                                                                <label>10 - 30 triệu <input type="radio" name="price" value="10000000-30000000" id=""></label>
+                                                            </div>
+                                                            <div class="range-price">
+                                                                <label>Trên 30 triệu <input type="radio" name="price" value="30000001-300000000" id=""></label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -164,7 +167,7 @@
                                 <div class="inner-box">
                                     <div class="icon-box"><i class="icon-1"></i></div>
                                     <h5><a href="{{url('/client/home/category/motel')}}">Nhà trọ riêng</a></h5>
-                                    <span>52</span>
+                                    <span>{{{ $motel->count() }}}</span>
                                 </div>
                             </div>
                         </li>
@@ -173,7 +176,7 @@
                                 <div class="inner-box">
                                     <div class="icon-box"><i class="icon-3"></i></div>
                                     <h5><a href="{{url('/client/home/category/apartment')}}">Nhà trọ chung cư</a></h5>
-                                    <span>35</span>
+                                    <span>{{{ $apartment->count() }}}</span>
                                 </div>
                             </div>
                         </li>
@@ -367,7 +370,7 @@
                                     <figure class="image-box"><img src="{{asset('images/resource/Hoan-Kiem.jpg')}}" alt=""></figure>
                                     <div class="text">
                                         <h4><a href="{{url('/client/home/hoanKiem')}}">Quận Hoàn Kiếm</a></h4>
-                                        <p>10 Properties</p>
+                                        <p>{{{ $hoanKiem->count() }}} Phòng</p>
                                     </div>
                                 </div>
                             </div>
@@ -378,7 +381,7 @@
                                     <figure class="image-box"><img src="{{asset('images/resource/ho-tay.jpg')}}" alt=""></figure>
                                     <div class="text">
                                         <h4><a href="{{url('/client/home/tayHo')}}">Quận Tây Hồ</a></h4>
-                                        <p>08 Properties</p>
+                                        <p>{{{ $tayHo->count() }}} Phòng</p>
                                     </div>
                                 </div>
                             </div>
@@ -389,7 +392,7 @@
                                     <figure class="image-box"><img src="{{asset('images/resource/2-Ba-Trung.jpg')}}" alt=""></figure>
                                     <div class="text">
                                         <h4><a href="{{url('/client/home/haiBaTrung')}}">Quận Hai Bà Trưng</a></h4>
-                                        <p>29 Properties</p>
+                                        <p>{{{ $haiBaTrung->count() }}} Phòng</p>
                                     </div>
                                 </div>
                             </div>
@@ -400,7 +403,7 @@
                                     <figure class="image-box"><img src="{{asset('images/resource/quan-dong-da.jpg')}}" alt=""></figure>
                                     <div class="text">
                                         <h4><a href="{{url('/client/home/dongDa')}}">Quận Đống Đa</a></h4>
-                                        <p>05 Properties</p>
+                                        <p>{{{ $dongDa->count() }}} Phòng</p>
                                     </div>
                                 </div>
                             </div>
@@ -427,11 +430,11 @@
                         <div class="news-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
                             <div class="inner-box">
                                 <div class="image-box">
-                                    <figure class="image"><a href="{{url('client/home/blogs-details/'.$blog->new_id)}}"><img src="{{url('images/rooms/'.$blog->new_image)}} " alt=""></a></figure>
+                                    <figure class="image"><a href="{{url('client/home/blog-details/'.$blog->new_id)}}"><img src="{{url('images/rooms/'.$blog->new_image)}} " alt=""></a></figure>
                                     <span class="category">Tin tức</span>
                                 </div>
                                 <div class="lower-content">
-                                    <h4><a href="{{url('client/home/blogs-details/'.$blog->new_id)}}">{{$blog->new_name}}</a></h4>
+                                    <h4><a href="{{url('client/home/blog-details/'.$blog->new_id)}}">{{$blog->new_name}}</a></h4>
                                     <ul class="post-info clearfix">
                                         <li class="author-box">
                                             <figure class="author-thumb">
@@ -441,7 +444,7 @@
                                                     <img src="{{url('images/agents/'.$blog->user_image)}}" class="avatar avatar-md" alt="">
                                                @endif
                                             </figure>
-                                            <h5><a href="{{url('client/home/agents-details/'.$blog->userPost_id)}}">{{$blog->name}}</a></h5>
+                                            <h5><a>{{$blog->name}}</a></h5>
                                         </li>
                                         <li>{{$blog->post_date}}</li>
                                     </ul>

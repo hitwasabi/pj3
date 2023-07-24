@@ -33,7 +33,7 @@
                             <h3>Trang xã hội</h3>
                         </div>
                         <div class="post-inner">
-                            <li><a href="https://www.facebook.com/Nhoctuthuoc/"><i class="fab fa-facebook-f"></i> Nhoctuthuoc</a> </li>
+                            <li><a href="https://www.facebook.com/ChipHomeeee/"><i class="fab fa-facebook-f"></i> ChipHome</a> </li>
                             <li><a href="https://www.instagram.com/hitwasabi/"><i class="fab fa-instagram"></i> Hitwasabi</a> </li>
                         </div>
                     </div>
@@ -62,8 +62,8 @@
                     <p><a href="{{url('client/home')}}">ChipHome</a> &copy; 2023 All Right Reserved</p>
                 </div>
                 <ul class="footer-nav pull-right clearfix">
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="{{url('client/home/about')}}">Về chúng tôi</a></li>
+                    <li><a href="{{url('client/home/services')}}">Dịch vụ</a></li>
                 </ul>
             </div>
         </div>

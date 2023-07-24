@@ -28,7 +28,7 @@
                         <div class="col-lg-6 col-md-12 col-sm-12 image-column">
                             <div class="image_block_2">
                                 <div class="image-box">
-                                    <figure class="image"><img src="{{asset('images/resource/about-1.jpg')}}" alt=""></figure>
+                                    <figure class="image"><img src="{{asset('images/agents/1690113859.132329012_1296728504021961_8937667392558597598_n.jpg')}}" alt=""></figure>
                                     <div class="text wow fadeInLeft animated" data-wow-delay="00ms" data-wow-duration="1500ms">
                                         <h2>20</h2>
                                         <h4>Năm  <br />Kinh nghiệm</h4>
@@ -48,7 +48,7 @@
                                         <p>Tôi và đội ngũ phát triển đã tạo ra trang web ChipHome thuê trọ hỗ trợ các bạn trong việc tìm nhà</p>
                                     </div>
                                     <ul class="list clearfix">
-                                        <li>Uy tín , chất lượng</li>
+                                        <li>Uy tín, chất lượng</li>
                                         <li>Đội ngũ giàu kinh nghiệm</li>
                                     </ul>
                                     <div class="btn-box">
@@ -145,57 +145,6 @@
         <!-- clients-section end -->
 
 
-        <!-- team-section -->
-        <section class="team-section sec-pad centred">
-            <div class="auto-container">
-                <div class="sec-title">
-                    <h5>Các Chủ trọ</h5>
-                    <h2>Gặp gỡ các chủ trọ của chúng tôi</h2>
-                </div>
-                <div class="row clearfix">
-                    <div class="col-lg-4 col-md-6 col-sm-12 team-block">
-                        <div class="team-block-one wow fadeInUp animated" data-wow-delay="00ms" data-wow-duration="1500ms">
-                            <div class="inner-box">
-                                <figure class="image-box"><img src="{{asset('images/team/team-6.jpg')}}" alt=""></figure>
-                                <div class="lower-content">
-                                    <div class="inner">
-                                        <h4><a href="{{url('/client/home/agents-details')}}">Jennifer Lawrence</a></h4>
-                                        <span class="designation">Senior Agent</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 team-block">
-                        <div class="team-block-one wow fadeInUp animated" data-wow-delay="300ms" data-wow-duration="1500ms">
-                            <div class="inner-box">
-                                <figure class="image-box"><img src="{{asset('images/team/team-7.jpg')}}" alt=""></figure>
-                                <div class="lower-content">
-                                    <div class="inner">
-                                        <h4><a href="{{url('/client/home/agents-details')}}">Benedict Cumberbatch</a></h4>
-                                        <span class="designation">Senior Agent</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6 col-sm-12 team-block">
-                        <div class="team-block-one wow fadeInUp animated" data-wow-delay="600ms" data-wow-duration="1500ms">
-                            <div class="inner-box">
-                                <figure class="image-box"><img src="{{asset('images/team/team-8.jpg')}}" alt=""></figure>
-                                <div class="lower-content">
-                                    <div class="inner">
-                                        <h4><a href="{{url('/client/home/agents-details')}}">Elizabeth Winstead</a></h4>
-                                        <span class="designation">Senior Agent</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- team-section end -->
 
 
         <!--Scroll to top-->
