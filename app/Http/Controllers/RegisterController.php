@@ -14,13 +14,13 @@ class RegisterController extends Controller
     }
     public function saveAccount(Request $request){
         $this->validate($request, [
-            'password_confirmation' => 'min:3'
+            'password' => 'required|confirmed|min:3'
         ]);
         $name = $request->get('name');
         $email =$request->get('email');
         $password = $request->get('password');
         $phone = $request->get('phone');
-        DB::table('users')->insert([
+        $result = DB::table('users')->insertGetId([
             'name'=>$name,
             'email'=>$email,
             'password'=>Hash::make($password),
@@ -29,7 +29,14 @@ class RegisterController extends Controller
             'isAdmin'=> 1,
             'level'=> 1
         ]);
-        Alert::success('Đăng ký thành công','Giờ bạn có thể đăng nhập và sử dụng trang web một cách tiện lợi');
-        return redirect('login');
+        dd($result);
+        if ($result != null) {
+            Alert::success('Đăng ký thành công', 'Giờ bạn có thể đăng nhập và sử dụng trang web một cách tiện lợi');
+            return redirect('login');
+        }
+        if ($result == null){
+            Alert::error('Đăng ký không thành công', 'Thông tin bạn nhập chưa chính xác');
+            return redirect('register');
+        }
     }
 }

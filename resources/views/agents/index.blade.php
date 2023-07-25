@@ -169,7 +169,8 @@
                                 </div>
                             </div>
 
-                            <div class="card">
+                            <div class="col-xl-12 col-sm-12">
+                                <div class="card">
                                 <div class="card-body depostit-card">
                                     <div class="depostit-card-media d-flex justify-content-between style-1">
                                         <div>
@@ -209,6 +210,7 @@
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                             </div>
 
                             <div class="col-xl-12">

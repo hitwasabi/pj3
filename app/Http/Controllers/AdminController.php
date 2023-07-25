@@ -19,13 +19,37 @@ class AdminController extends Controller
             return redirect('agents/index');
         }else {
             $rooms = Rent_room::all();
+            $rent_room = DB::table('rent_rooms')
+                ->select('rr_id')
+                ->where('status', '=', 0)
+                ->count();
+            $cancel_room = DB::table('rent_rooms')
+                ->select('rr_id')
+                ->where('status', '=', 1)
+                ->count();
+            $reports = DB::table('rent_rooms')
+                ->join('reports','reports.rpRoom_id','=','rent_rooms.rr_id')
+                ->where('rent_rooms.status', '=', 0)
+                ->select('reports.rpRoom_id')->distinct()->get();
             $money = DB::table('payment_histories')
                 ->where('payment_info', 'like', 'Nạp tiền vào tài khoản')
                 ->sum('price');
             $user = DB::table('users')
                 ->where('isAdmin', '=', 1)
                 ->get();
-            return view('admin/index', compact('rooms', 'money', 'user'));
+            $vips = DB::table('users')
+                ->where('isAdmin', '=', 1)
+                ->where('level','=',3)
+                ->get()->count();
+            $normals = DB::table('users')
+                ->where('isAdmin', '=', 1)
+                ->where('level','=',2)
+                ->get()->count();
+            $none = DB::table('users')
+                ->where('isAdmin', '=', 1)
+                ->where('level','=',1)
+                ->get()->count();
+            return view('admin/index', compact('rooms', 'money', 'user','vips','none','normals','rent_room','cancel_room','reports'));
         }
     }
 

@@ -4,6 +4,7 @@
 @section('content')
     @include('layouts.load')
     @include('client.header')
+    @include('sweetalert::alert')
 
         <!--Page Title-->
         <section class="page-title-two bg-color-1 centred">
@@ -54,11 +55,16 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>Mật khẩu</label>
-                                                <input type="password" name="password" required>
+                                                <input id="password" type="password" name="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                                @error('password')
+                                                <span class="invalid-feedback" role="alert">
+                <strong>{{ $message }}</strong>
+            </span>
+                                                @enderror
                                             </div>
                                             <div class="form-group">
                                                 <label>Xác nhận mật khẩu</label>
-                                                <input type="password" name="password_confirmation" required>
+                                                <input id="password"  type="password" name="password_confirmation" class="form-control @error('password') is-invalid @enderror" name="password_confirmation" required autocomplete="current-password">
                                             </div>
                                             <div class="form-group message-btn">
                                                 <button type="submit" class="theme-btn btn-one">Đăng ký</button>
