@@ -26,7 +26,6 @@
                 </div>
                 <form action="{{url('admin/post-blog')}}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    @method('POST')
                     <div class="offcanvas-body">
                         <div class="container-fluid">
                             <div>
@@ -50,11 +49,21 @@
                                 </div>
                                 <div class="col-xl-12 mb-3">
                                     <label class="form-label">Thông tin bài báo<span class="text-danger">*</span></label>
-                                    <textarea rows="3" name="info" class="form-control" id="editor" required></textarea>
+                                    <textarea rows="3" name="info" class="form-control" id="editor"></textarea>
                                 </div>
                             </div>
                                 <button class="btn btn-primary me-1" type="submit">Thêm bài báo</button>
                         </div>
+                        <script>
+                            ClassicEditor
+                                .create( document.querySelector( '#editor' ) )
+                                .then( editor => {
+                                    console.log( editor );
+                                } )
+                                .catch( error => {
+                                    console.error( error );
+                                } );
+                        </script>
                     </div>
                 </form>
             </div>
@@ -63,16 +72,7 @@
             Content body end
         ***********************************-->
         @include('admin.footer')
-{{--        <script>--}}
-{{--            ClassicEditor--}}
-{{--                .create( document.querySelector( '#editor' ) )--}}
-{{--                .then( editor => {--}}
-{{--                    console.log( editor );--}}
-{{--                } )--}}
-{{--                .catch( error => {--}}
-{{--                    console.error( error );--}}
-{{--                } );--}}
-        </script>
+
     </div>
 @endsection
 
