@@ -58,8 +58,8 @@
                                     @endforeach
                                 @endif
                                 </tbody>
-
                             </table>
+                            {{$datas->appends(Request::all())->links("pagination::bootstrap-4")}}
                         </div>
                     </div>
                 </div>
