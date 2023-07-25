@@ -91,6 +91,8 @@ class AdminController extends Controller
         return view('/admin/contacts',compact('agents'));
     }
 
+
+
     public function viewEcom_product_list(){
         if (Auth::user()->isAdmin == 1){
             return redirect('agents/index');
@@ -255,6 +257,13 @@ class AdminController extends Controller
         ];
         //dd($collection);
         return view('admin/search', $data);
+    }
+
+    public function deleteBlog($id){
+        DB::table('blogs')
+            ->where('new_id','=',$id)
+            ->delete();
+        Alert::info('Thành công','Bài báo đã được xóa');
     }
 
     public function viewMail(){

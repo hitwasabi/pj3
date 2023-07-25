@@ -24,7 +24,7 @@
                 <div class="d-flex align-items-center justify-content-between mb-4">
                     <h4 class="heading mb-0">Thêm bài báo</h4>
                 </div>
-                <form action="{{url('admin/postBlog')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{url('admin/post-blog')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('POST')
                     <div class="offcanvas-body">
@@ -53,19 +53,7 @@
                                     <textarea rows="3" name="info" class="form-control" id="editor" required></textarea>
                                 </div>
                             </div>
-                            <div>
                                 <button class="btn btn-primary me-1" type="submit">Thêm bài báo</button>
-                            </div>
-                            <script>
-                                ClassicEditor
-                                    .create( document.querySelector( '#editor' ) )
-                                    .then( editor => {
-                                        console.log( editor );
-                                    } )
-                                    .catch( error => {
-                                        console.error( error );
-                                    } );
-                            </script>
                         </div>
                     </div>
                 </form>
@@ -75,7 +63,16 @@
             Content body end
         ***********************************-->
         @include('admin.footer')
-
+        <script>
+            ClassicEditor
+                .create( document.querySelector( '#editor' ) )
+                .then( editor => {
+                    console.log( editor );
+                } )
+                .catch( error => {
+                    console.error( error );
+                } );
+        </script>
     </div>
 @endsection
 
