@@ -1,7 +1,7 @@
 
 @extends('layouts.admin_base')
 @section('title',"Thêm bài báo")
-
+@include('sweetalert::alert')
 @section('content')
 
 
@@ -63,15 +63,15 @@
             Content body end
         ***********************************-->
         @include('admin.footer')
-        <script>
-            ClassicEditor
-                .create( document.querySelector( '#editor' ) )
-                .then( editor => {
-                    console.log( editor );
-                } )
-                .catch( error => {
-                    console.error( error );
-                } );
+{{--        <script>--}}
+{{--            ClassicEditor--}}
+{{--                .create( document.querySelector( '#editor' ) )--}}
+{{--                .then( editor => {--}}
+{{--                    console.log( editor );--}}
+{{--                } )--}}
+{{--                .catch( error => {--}}
+{{--                    console.error( error );--}}
+{{--                } );--}}
         </script>
     </div>
 @endsection

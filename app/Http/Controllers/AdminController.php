@@ -264,6 +264,7 @@ class AdminController extends Controller
             ->where('new_id','=',$id)
             ->delete();
         Alert::info('Thành công','Bài báo đã được xóa');
+        return redirect('admin/blog');
     }
 
     public function viewMail(){

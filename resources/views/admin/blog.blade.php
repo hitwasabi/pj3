@@ -10,7 +10,7 @@
     <div id="main-wrapper">
         @include('admin.preloader')
         @include('admin.header')
-
+        @include('sweetalert::alert')
         @include('admin.sidebar')
 
         <!--**********************************
@@ -57,12 +57,11 @@
                             <td>
                                 <div class="d-flex">
                                     <a href="{{url('/admin/edit-blog/'.$blog->new_id)}}" class="btn btn-primary shadow btn-xs sharp me-1"><i class="fas fa-pencil-alt"></i></a>
-                                    <form class="btn btn-danger shadow btn-xs sharp" action="{{url('/admin/delete-blog/'.$blog->new_id)}}" method="PUT">
+                                    <form action="{{url('/admin/delete-blog/'.$blog->new_id)}}" method="POST">
                                         @csrf
-                                        @method('PUT')
-                                        <button class="fas fa-trash" type="submit"></button>
+                                        @method('delete')
+                                        <button class="btn btn-danger shadow btn-xs sharp show-alert-delete-box btn-sm" type="submit"><i class="fas fa-trash"></i></button>
                                     </form>
-                                    <a data-cofirm="Bạn có chắc muốn xóa bài báo này?" data-method="delete" href="{{url('/admin/delete-blog/'.$blog->new_id)}}" class="btn btn-danger shadow btn-xs sharp"><i class="fa fa-trash"></i></a>
                                 </div>
                             </td>
                         </tr>
@@ -78,27 +77,27 @@
             </div>
         </div>
 
-        <script>
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            $(document).on('click', 'a.jquery-postback', function(e) {
-                e.preventDefault(); // does not go through with the link.
-
-                var $this = $(this);
-
-                $.post({
-                    type: $this.data('method'),
-                    url: $this.attr('href')
-                }).done(function (data) {
-                    alert('success');
-                    console.log(data);
+        <script type="text/javascript">
+            $('.show-alert-delete-box').click(function(event){
+                var form =  $(this).closest("form");
+                var name = $(this).data("name");
+                event.preventDefault();
+                swal({
+                    title: "Bạn có chắc muốn xóa bài báo này ? ",
+                    text: "",
+                    icon: "warning",
+                    type: "warning",
+                    buttons: ["Hủy","Chắc chắn xóa"],
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#af000f',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((willDelete) => {
+                    if (willDelete) {
+                        form.submit();
+                    }
                 });
             });
         </script>
-
 
 
 
