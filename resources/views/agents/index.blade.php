@@ -235,7 +235,7 @@
                                         <div class="ttl-project">
                                             <div class="pr-data">
                                                 <h5>12,721</h5>
-                                                <span>Number of Projects</span>
+                                                <span>Tổng số lượt xem</span>
                                             </div>
                                             <div class="pr-data">
                                                 <h5 class="text-primary">721</h5>
@@ -253,7 +253,6 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                     <div class="col-xl-3 t-earn">
@@ -283,7 +282,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col-xl-9 bst-seller">
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 
 @extends('layouts.admin_base')
 @section('title',"Thêm bài báo")
-
+@include('sweetalert::alert')
 @section('content')
 
 
@@ -24,9 +24,8 @@
                 <div class="d-flex align-items-center justify-content-between mb-4">
                     <h4 class="heading mb-0">Thêm bài báo</h4>
                 </div>
-                <form action="{{url('admin/postBlog')}}" method="POST" enctype="multipart/form-data">
+                <form action="{{url('admin/post-blog')}}" method="POST" enctype="multipart/form-data">
                     @csrf
-                    @method('POST')
                     <div class="offcanvas-body">
                         <div class="container-fluid">
                             <div>
@@ -50,23 +49,21 @@
                                 </div>
                                 <div class="col-xl-12 mb-3">
                                     <label class="form-label">Thông tin bài báo<span class="text-danger">*</span></label>
-                                    <textarea rows="3" name="info" class="form-control" id="editor" required></textarea>
+                                    <textarea rows="3" name="info" class="form-control" id="editor"></textarea>
                                 </div>
                             </div>
-                            <div>
                                 <button class="btn btn-primary me-1" type="submit">Thêm bài báo</button>
-                            </div>
-                            <script>
-                                ClassicEditor
-                                    .create( document.querySelector( '#editor' ) )
-                                    .then( editor => {
-                                        console.log( editor );
-                                    } )
-                                    .catch( error => {
-                                        console.error( error );
-                                    } );
-                            </script>
                         </div>
+                        <script>
+                            ClassicEditor
+                                .create( document.querySelector( '#editor' ) )
+                                .then( editor => {
+                                    console.log( editor );
+                                } )
+                                .catch( error => {
+                                    console.error( error );
+                                } );
+                        </script>
                     </div>
                 </form>
             </div>

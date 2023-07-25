@@ -38,9 +38,7 @@
                             </svg>
                             Home </a>
                     </li>
-
                 </ol>
-
             </div>
             <div class="container-fluid">
                 <div class="row">
@@ -51,7 +49,7 @@
                                     <div class="card-body depostit-card p-0">
                                         <div class="depostit-card-media d-flex justify-content-between pb-0">
                                             <div>
-                                                <h6>Total rooms</h6>
+                                                <h6>Tổng số bài đăng</h6>
                                                 <h3>{{$rooms->count()}}</h3>
                                             </div>
                                             <div class="icon-box bg-primary-light">
@@ -63,7 +61,7 @@
                                 </div>
                             </div>
                             <div class="col-xl-3 col-sm-6">
-                                <div class="card same-card">
+                                <div class="card chart-grd same-card">
                                     <div class="card-body d-flex align-items-center  py-2">
                                         <div id="AllProject"></div>
                                         <ul class="project-list">
@@ -107,7 +105,7 @@
                                 </div>
                             </div>
                             <div class="col-xl-3 col-sm-6 same-card">
-                                <div class="card">
+                                <div class="card chart-grd same-card">
                                     <div class="card-body depostit-card">
                                         <div class="depostit-card-media d-flex justify-content-between style-1">
                                             <div>
@@ -121,7 +119,25 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-xl-3 col-sm-6">
+                                <div class="card chart-grd same-card">
+                                    <div class="card-body depostit-card p-0">
+                                        <div class="depostit-card-media d-flex justify-content-between pb-0">
+                                            <div>
+                                                <h6>Tổng số tài khoản</h6>
+                                                <h3>{{$user->count()}}</h3>
+                                            </div>
+                                            <div class="icon-box bg-danger-light">
+                                                <span class="fas fa-user"></span>
+                                            </div>
+                                        </div>
+                                        <div id="NewExperience"></div>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div class="col-xl-12">
+
                                 <div class="card overflow-hidden">
                                     <div class="card-header border-0 pb-0 flex-wrap">
                                         <h4 class="heading mb-0">Projects Overview</h4>
@@ -145,7 +161,7 @@
                                         <div class="ttl-project">
                                             <div class="pr-data">
                                                 <h5>12,721</h5>
-                                                <span>Number of Projects</span>
+                                                <span>Tổng số lượt xem</span>
                                             </div>
                                             <div class="pr-data">
                                                 <h5 class="text-primary">721</h5>
@@ -161,6 +177,32 @@
                                             </div>
                                         </div>
                                     </div>
+                                </div>
+                            </div>
+                            <div class="card chart-grd same-card">
+                                <div class="card-body d-flex align-items-center  py-2">
+                                    <div id="AllProject"></div>
+                                    <ul class="project-list">
+                                        <li><h6>All Projects</h6></li>
+                                        <li>
+                                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="10" height="10" rx="3" fill="#3AC977"/>
+                                            </svg>
+                                            Compete
+                                        </li>
+                                        <li>
+                                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="10" height="10" rx="3" fill="var(--primary)"/>
+                                            </svg>
+                                            Pending
+                                        </li>
+                                        <li>
+                                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <rect width="10" height="10" rx="3" fill="var(--secondary)"/>
+                                            </svg>
+                                            Not Start
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
 

@@ -2,16 +2,16 @@
 
 (function($) {
     /* "use strict" */
-	
+
  var dzChartlist = function(){
-	
+
 	var screenWidth = $(window).width();
 	let draw = Chart.controllers.line.__super__.draw; //draw shadow
-	
-	
-	
-	
-	
+
+
+
+
+
 	var projectChart = function(){
 		var options = {
 			series: [30, 40, 20, 10],
@@ -42,7 +42,7 @@
 						fontWeight:'500',
 						fontFamily:'Arial',
 						label: 'Total projects',
-					   
+
 						formatter: function (w) {
 						  return w.globals.seriesTotals.reduce((a, b) => {
 							return a + b
@@ -64,38 +64,38 @@
         };
 		var chartBar1 = new ApexCharts(document.querySelector("#projectChart"), options);
 		chartBar1.render();
-	 
+
 	}
- 
+
 	/* Function ============ */
 		return {
 			init:function(){
 			},
-			
-			
+
+
 			load:function(){
 				projectChart();
-				
-				
+
+
 			},
-			
+
 			resize:function(){
 				handleWorldMap();
 				earningChart();
 			}
 		}
-	
+
 	}();
 
-	
-		
+
+
 	jQuery(window).on('load',function(){
 		setTimeout(function(){
 			dzChartlist.load();
-		}, 1000); 
-		
+		}, 1000);
+
 	});
 
-     
+
 
 })(jQuery);

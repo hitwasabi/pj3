@@ -30,7 +30,7 @@ class LoginController extends Controller
             }
         }else{
             Alert::error('Đăng nhập không thành công','Thông tin của bạn đang sai hoặc bạn chưa có tài khoản');
-            return redirect('/signin');
+            return redirect('login');
         }
     }
 
