@@ -32836,6 +32836,11 @@ div#mCSB_1 {
   font-weight: 600;
   margin-bottom: 0.625rem; }
   .new-arrival-content h4 a, .new-arrival-content .h4 a {
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
     color: #000; }
 
 .new-arrival-content .price {

@@ -48,14 +48,14 @@
                                             <ul class="more-details clearfix">
                                                 <li><i class="icon-14"></i>{{$rent_room->bed_room}} phòng ngủ</li>
                                                 <li><i class="icon-15"></i>{{$rent_room->bath_room}} phòng vệ sinh </li>
-                                                <li><i class="icon-16"></i>{{$rent_room -> acreage}}métvuông</li>
+                                                <li><i class="icon-16"></i>{{$rent_room->acreage}}métvuông</li>
                                             </ul>
                                             <hr>
                                             <form action="{{url('/client/report/'.$rent_room->rr_id)}}" method="POST">
                                                 @csrf
                                             <h4>Lí do mà bạn muốn báo cáo bài viết này ?</h4>
                                                 <div class="input-group mb-3">
-                                                    <input  type="text" class="form-control" style="border: 1px solid" name="report_info" placeholder="Hãy cho chúng tôi biết..." required>
+                                                    <input  type="text" class="form-control" style="border: 1px solid" name="report_info" placeholder="Hãy cho chúng tôi biết..." required="Bạn vui lòng nhập lí do muốn báo cáo">
                                                 </div>
                                                 <button type="submit" class="btn btn-xs btn-outline-danger btn-flat show-alert-report-box btn-sm" data-toggle="tooltip" title='Báo cáo'>Xác nhận báo cáo</button>
                                             </form>

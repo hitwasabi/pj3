@@ -20,8 +20,7 @@
          <div class="content-body">
 			<div class="page-titles">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item "><a href="javascript:void(0)">Shop</a></li>
-						<li class="breadcrumb-item active"><a href="javascript:void(0)">Product List</a></li>
+						<li class="breadcrumb-item "><a href="javascript:void(0)">Danh sách phòng trọ</a></li>
 					</ol>
                 </div>
              <div class="input-group container-fluid mh-auto" >
@@ -31,6 +30,9 @@
                          <input type="search" name="keyword_submit" placeholder="Tìm kiếm...">
                      </form>
                  </form>
+                 <div>
+                     <h5>&nbsp {{ $rent_rooms->total() }} kết quả</h5>
+                 </div>
              </div>
             <div class="container-fluid mh-auto">
                 <div class="row">
