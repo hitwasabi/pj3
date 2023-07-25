@@ -582,6 +582,7 @@ class ClientController extends Controller
         $blogs =DB::table('blogs')
             ->join('users','users.id','=','blogs.userPost_id')
             ->select('users.*','blogs.*')
+            ->orderBy('blogs.post_date','DESC')
             ->get()->take(3);
         $data['apartment']  = $apartment;
         $data['motel']  = $motel;

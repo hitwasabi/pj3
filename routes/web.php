@@ -101,9 +101,7 @@ Route::get('/client/home/about',[ClientController::class,'viewAbout']);
 
 //Chu tro
 //Xem danh sach chu tro
-Route::get('/client/home/agents-list', function () {
-    return view('/client/agents-list');
-});
+
 Route::get('client/home/agents-details/{id}',[ClientController::class,'viewAgent']);
 
 
