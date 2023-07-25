@@ -174,6 +174,8 @@ Route::post('get-cities-by-state',[\App\Http\Controllers\ClientController::class
 Route::put('/admin/hideRoom/{rr_id}',[\App\Http\Controllers\RoomController::class,'adminHideRoom']);
 Route::put('/agents/hideRoom/{rr_id}',[\App\Http\Controllers\RoomController::class,'agentHideRoom']);
 Route::put('/admin/adminShowRoom/{rr_id}',[\App\Http\Controllers\RoomController::class,'adminShowRoom']);
+
+Route::delete('/admin/delete-blog/{id}',[AdminController::class,'deleteBlog']);
 Route::post('/admin/post-blog',[AdminController::class,'addBlog']);
 Route::get('/mail',[AdminController::class,'viewMail']);
 

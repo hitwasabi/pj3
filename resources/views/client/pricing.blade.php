@@ -25,7 +25,27 @@
         <!-- pricing-section -->
         <section class="pricing-section sec-pad centred">
             <div class="auto-container">
-                <div class="tabs-box">
+                    <div class="boxed_wrapper" style="box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;border: green solid 1px">
+                        <br>
+                        <span style="color: red;font-size: 30px"><b><u>CẢNH BÁO</u></b></span>
+                        <br>
+                        <b>
+                            <div style="text-align: left; ">
+                            &nbsp; <span style="color: red"><u>LƯU Ý</u></span> : Xin quý khách hãy đọc kỹ điều khoản trước khi mua gói<br>
+                            &nbsp;&nbsp;&nbsp;* Gói bao gồm gói "Thường" và "VIP", quý khách có thể chọn mua tùy ý<br>
+                            &nbsp;&nbsp;&nbsp;* Gói có thời gian tồn tại là 30 ngày, quyền lợi của các gói sẽ như sau :<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~ Gói "Thường" : số bài đăng tối đa một ngày là 2, thời gian tồn tại của một bài đăng là 5 ngày<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~ Gói "VIP" : số bài đăng tối đa một ngày là 5, thời gian tồn tại của một bài đăng là 10 ngày<br>
+                            &nbsp;&nbsp;&nbsp;* Quý khách có thể tiếp tục mua khi đã sỡ hữu gói, tuy nhiên :<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~ Quý khách vẫn có thể mua gói "VIP" khi đang sở hữu gói "Thường"<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~ Khi quý khách đang sở hữu gói "VIP" sẽ <span style="color: red">KHÔNG THỂ</span> mua gói  "Thường"<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;~ Nếu thời gian gói "Thường" của quý khách đang TRÊN 30 ngày, quý khách sẽ <span style="color: red">KHÔNG THỂ</span> mua gói "VIP"<br>
+                            </div>
+                        </b>
+                            <br>
+                    </div>
+                <br>
+                <br>
                     <ul class="tab-buttons ">
                         <h3>Gói theo tháng</h3>
                         @if(\Illuminate\Support\Facades\Auth::check() == false)
