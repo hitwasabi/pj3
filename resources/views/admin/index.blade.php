@@ -53,7 +53,7 @@
                                                 <h3>{{$rooms->count()}}</h3>
                                             </div>
                                             <div class="icon-box bg-primary-light">
-                                            <span class="fas fa-house-chimney"></span>
+                                                <div class="fas fa-home"></div>
                                             </div>
                                         </div>
                                         <div id="NewCustomers"></div>
@@ -62,29 +62,17 @@
                             </div>
                             <div class="col-xl-3 col-sm-6">
                                 <div class="card chart-grd same-card">
-                                    <div class="card-body d-flex align-items-center  py-2">
-                                        <div id="AllProject"></div>
-                                        <ul class="project-list">
-                                            <li><h6>All Projects</h6></li>
-                                            <li>
-                                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <rect width="10" height="10" rx="3" fill="#3AC977"/>
-                                                </svg>
-                                                Compete
-                                            </li>
-                                            <li>
-                                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <rect width="10" height="10" rx="3" fill="var(--primary)"/>
-                                                </svg>
-                                                Pending
-                                            </li>
-                                            <li>
-                                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <rect width="10" height="10" rx="3" fill="var(--secondary)"/>
-                                                </svg>
-                                                Not Start
-                                            </li>
-                                        </ul>
+                                    <div class="card-body depostit-card p-0">
+                                        <div class="depostit-card-media d-flex justify-content-between pb-0">
+                                            <div>
+                                                <h6>Tổng số bài đang đăng</h6>
+                                                <h3>{{$rent_room}}</h3>
+                                            </div>
+                                            <div class="icon-box bg-danger-light">
+                                                <div class="fas fa-home"></div>
+                                            </div>
+                                        </div>
+                                        <div id="NewExperiences"></div>
                                     </div>
                                 </div>
                             </div>
@@ -93,11 +81,11 @@
                                     <div class="card-body depostit-card p-0">
                                         <div class="depostit-card-media d-flex justify-content-between pb-0">
                                             <div>
-                                                <h6>Tổng số tài khoản</h6>
-                                                <h3>{{$user->count()}}</h3>
+                                                <h6>Tổng số bài đã hủy</h6>
+                                                <h3>{{$cancel_room}}</h3>
                                             </div>
                                             <div class="icon-box bg-danger-light">
-                                                <span class="fas fa-user"></span>
+                                                <div class="fas fa-home"></div>
                                             </div>
                                         </div>
                                         <div id="NewExperience"></div>
@@ -105,39 +93,166 @@
                                 </div>
                             </div>
                             <div class="col-xl-3 col-sm-6 same-card">
-                                <div class="card chart-grd same-card">
+                                <div class="card">
                                     <div class="card-body depostit-card">
                                         <div class="depostit-card-media d-flex justify-content-between style-1">
                                             <div>
-                                                <h6>Tổng số doanh thu</h6>
-                                                <h3>{{number_format($money, 0, '.', '.')}} đ</h3>
+                                                <h6>Số bài bị báo cáo</h6>
+                                                <h3>{{$reports->count()}}</h3>
                                             </div>
-                                            <div class="icon-box bg-primary-light">
-                                                <span class="fas fa-money-bill"></span>
+                                            <div class="icon-box bg-danger-light">
+                                                <div style="color: darkred"><b>!!</b></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-sm-6">
-                                <div class="card chart-grd same-card">
-                                    <div class="card-body depostit-card p-0">
-                                        <div class="depostit-card-media d-flex justify-content-between pb-0">
+                            <div class="col-xl-3 col-sm-6 same-card">
+                                <div class="card">
+                                    <div class="card-body depostit-card">
+                                        <div class="depostit-card-media d-flex justify-content-between style-1">
                                             <div>
-                                                <h6>Tổng số tài khoản</h6>
+                                                <h6>Tổng số người dùng</h6>
                                                 <h3>{{$user->count()}}</h3>
                                             </div>
-                                            <div class="icon-box bg-danger-light">
-                                                <span class="fas fa-user"></span>
+                                            <div class="icon-box bg-primary-light">
+                                                <div class="fas fa-user"></div>
                                             </div>
                                         </div>
-                                        <div id="NewExperience"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-sm-6 same-card">
+                                <div class="card">
+                                    <div class="card-body depostit-card">
+                                        <div class="depostit-card-media d-flex justify-content-between style-1">
+                                            <div>
+                                                <h6>Tổng số TK VIP</h6>
+                                                <h3>{{$vips}}</h3>
+                                            </div>
+                                            <div class="icon-box bg-primary-light">
+                                                <div class="fas fa-user-alt"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-sm-6 same-card">
+                                <div class="card">
+                                    <div class="card-body depostit-card">
+                                        <div class="depostit-card-media d-flex justify-content-between style-1">
+                                            <div>
+                                                <h6>Tổng số TK thường</h6>
+                                                <h3>{{$normals}}</h3>
+                                            </div>
+                                            <div class="icon-box bg-primary-light">
+                                                <div class="fas fa-user-circle"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-sm-6 same-card">
+                                <div class="card">
+                                    <div class="card-body depostit-card">
+                                        <div class="depostit-card-media d-flex justify-content-between style-1">
+                                            <div>
+                                                <h6>Số TK mặc định</h6>
+                                                <h3>{{$none}}</h3>
+                                            </div>
+                                            <div class="icon-box bg-primary-light">
+                                                <div class="fas fa-user-astronaut"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-12 col-sm-12">
+                                <div class="card chart-grd same-card">
+                                    <div class="card-body d-flex align-items-center  py-2">
+{{--                                        <div id="AllProject"></div>--}}
+{{--                                        <ul class="project-list">--}}
+{{--                                            <li><h6>All Projects</h6></li>--}}
+{{--                                            <li>--}}
+{{--                                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">--}}
+{{--                                                    <rect width="20" height="20" rx="3" fill="#3AC977"/>--}}
+{{--                                                </svg>--}}
+{{--                                                Compete--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
+{{--                                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">--}}
+{{--                                                    <rect width="20" height="20" rx="3" fill="var(--primary)"/>--}}
+{{--                                                </svg>--}}
+{{--                                                Pending--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
+{{--                                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">--}}
+{{--                                                    <rect width="20" height="20" rx="3" fill="var(--secondary)"/>--}}
+{{--                                                </svg>--}}
+{{--                                                Not Start--}}
+{{--                                            </li>--}}
+{{--                                            <li>--}}
+{{--                                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">--}}
+{{--                                                    <rect width="10" height="10" rx="3" fill="var(--secondary)"/>--}}
+{{--                                                </svg>--}}
+{{--                                                Not Start--}}
+{{--                                            </li>--}}
+{{--                                        </ul>--}}
+                                        <div>
+                                            <!DOCTYPE HTML>
+                                            <html>
+
+                                            <head>
+                                                <script>
+                                                    window.onload = function () {
+
+                                                        var chart = new CanvasJS.Chart("chartContainer", {
+                                                            animationEnabled: true,
+                                                            title:{
+                                                                text: "THỐNG KÊ NGƯỜI DÙNG",
+                                                                fontFamily: "Bolder",
+                                                                horizontalAlign: "left"
+                                                            },
+                                                            data: [{
+                                                                type: "doughnut",
+                                                                startAngle: 60,
+                                                                //innerRadius: 60,
+                                                                indexLabelFontSize: 17,
+                                                                indexLabel: "{label}",
+                                                                toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+                                                                dataPoints: [
+                                                                    { y: {{(int)($vips)}}, label: "Người dùng VIP" },
+                                                                    { y: {{(int)($normals)}}, label: "Người dùng thường" },
+                                                                    { y: {{(int)($none)}}, label: "Người chưa mua gói" },
+
+                                                                ]
+                                                            }]
+                                                        });
+                                                        chart.render();
+
+                                                    }
+                                                </script>
+                                            </head>
+                                            <body>
+                                            <div id="chartContainer" style="height: 370px; width: 100%;">
+                                                HI
+                                            </div>
+                                            <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+                                            </body>
+                                            </html>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-12 col-sm-12">
+                                <div class="card chart-grd same-card">
+                                    <div class="card-body d-flex align-items-center  py-2">
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-xl-12">
-
                                 <div class="card overflow-hidden">
                                     <div class="card-header border-0 pb-0 flex-wrap">
                                         <h4 class="heading mb-0">Projects Overview</h4>
@@ -179,43 +294,18 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="card chart-grd same-card">
-                                <div class="card-body d-flex align-items-center  py-2">
-                                    <div id="AllProject"></div>
-                                    <ul class="project-list">
-                                        <li><h6>All Projects</h6></li>
-                                        <li>
-                                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <rect width="10" height="10" rx="3" fill="#3AC977"/>
-                                            </svg>
-                                            Compete
-                                        </li>
-                                        <li>
-                                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <rect width="10" height="10" rx="3" fill="var(--primary)"/>
-                                            </svg>
-                                            Pending
-                                        </li>
-                                        <li>
-                                            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <rect width="10" height="10" rx="3" fill="var(--secondary)"/>
-                                            </svg>
-                                            Not Start
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+
 
                         </div>
                     </div>
                     <div class="col-xl-3 t-earn">
                         <div class="card">
                             <div class="card-header border-0 pb-0">
-                                <h4 class="heading mb-0">Total Earning</h4>
+                                <h4 class="heading mb-0">Tổng số doanh thu</h4>
                             </div>
                             <div class="card-body px-0 overflow-hidden">
                                 <div class="total-earning">
-                                    <h2>$6,743.00</h2>
+                                    <h2>{{number_format($money, 0, '.', '.')}} đ</h2>
                                     <ul class="nav nav-pills mb-3 earning-tab earning-chart" id="pills-tab1" role="tablist">
                                         <li class="nav-item" role="presentation">
                                             <button class="nav-link active" data-series="day" id="pills-day-tab1" data-bs-toggle="pill" data-bs-target="#pills-day1" type="button" role="tab" aria-selected="true">Day</button>
