@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\City;
 use App\Models\City_detail;
+use App\Models\Payment_history;
 use App\Models\Street;
 use Carbon\Carbon;
 use http\Client\Curl\User;
@@ -37,9 +38,23 @@ class AgentController extends Controller
             $payment = DB::table('payment_histories')
                 ->where('user_id', '=', Auth::id())
                 ->get();
+            $packs = DB::table('payment_histories')
+                ->where('user_id', '=', Auth::id())
+                ->where('payment_info','LIKE','Mua gói%')
+                ->get();
+            $charge = DB::table('payment_histories')
+                ->where('user_id', '=', Auth::id())
+                ->where('payment_info','LIKE','Nạp tiền%')
+                ->get();
             $user = \App\Models\User::findOrFail(Auth::user()->id);
+            $latest = Payment_history::orderBy('payment_time','DESC')->first();
+            $reports = DB::table('rent_rooms')
+                ->join('reports','reports.rpRoom_id','=','rent_rooms.rr_id')
+                ->where('rent_rooms.status', '=', 0)
+                ->where('rent_rooms.owner_id', '=', Auth::user()->id)
+                ->select('reports.rpRoom_id')->distinct()->get();
             $endDate = Carbon::parse($user->endDate)->toDateString();
-        return view('/agents/index',compact('all_room','rent_room','cancel_room','payment','endDate'));
+        return view('/agents/index',compact('all_room','rent_room','cancel_room','payment','endDate','reports','packs','charge','latest'));
     }
 
     public function viewEcom_product_list(){
@@ -151,7 +166,8 @@ class AgentController extends Controller
         $user_id = Auth::user()->id;
         $datas = DB::table('payment_histories')
             ->where('user_id','=',$user_id)
-            ->get();
+            ->orderBy('payment_id','DESC')
+            ->paginate(10);
         return view('/agents/payment-history',compact('datas'));
     }
 
@@ -165,7 +181,18 @@ class AgentController extends Controller
         $datas = DB::table('payment_histories')
             ->where('user_id','=',$id)
             ->paginate(3);
-        return view('/agents/agents-profile',compact('user','datas'));
+        $rent_rooms =DB::table('rent_rooms')
+            ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
+            ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
+            ->join('categories','categories.id','=','rent_rooms.cate_id')
+            ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
+            ->join('cities','rent_rooms.city_id','=','cities.cities_id')
+            ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
+            ->join('streets','rent_rooms.street_id','=','streets.street_id')
+            ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*',)
+            ->where('rent_rooms.owner_id','=',$id)
+            ->paginate(3);
+        return view('/agents/agents-profile',compact('user','datas','rent_rooms'));
     }
 
     public function viewWrong(){
