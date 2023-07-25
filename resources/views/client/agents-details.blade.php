@@ -117,6 +117,9 @@
                                                                 </div>
                                                                 <div class="buy-btn "><a href="{{url('https://zalo.me/'.$rent_room->phone)}}">Nhắn Zalo</a></div>
                                                             </ul>
+                                                            <ul class="other-option pull-right clearfix">
+                                                                <li><a style="color: red;" href="{{url('/client/report/'.$rent_room->rr_id)}}"><i class="fas fa-exclamation"></i></a></li>
+                                                            </ul>
                                                             <div class="other-info-box clearfix">
                                                                 <div class="btn-box pull-left"><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}" class="theme-btn btn-two">Xem chi tiết</a></div>
                                                             </div>
@@ -152,6 +155,9 @@
                                                                             <h6>Giá khởi điểm</h6>
                                                                             <h4>{{number_format($rent_room->prices, 0, '.', '.')}}<sup>đ</sup></h4>
                                                                         </div>
+                                                                        <ul class="other-option pull-right clearfix">
+                                                                            <li><a style="color: red;" href="{{url('/client/report/'.$rent_room->rr_id)}}"><i class="fas fa-exclamation"></i></a></li>
+                                                                        </ul>
                                                                     </div>
                                                                     <ul class="more-details clearfix">
                                                                         <li><i class="icon-14"></i>{{$rent_room->bed_room}} phòng ngủ</li>

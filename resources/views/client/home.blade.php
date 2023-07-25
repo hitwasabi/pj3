@@ -216,9 +216,6 @@
                                                         <figure class="author-thumb"><img src="{{url('images/agents/'.$rent_room->user_image)}}" alt=""></figure>
                                                         <span><a href="{{url('/client/home/agents-details/'.$rent_room->owner_id)}}">{{$rent_room->name}}</a></span>
                                                     </figure>
-                                                    <ul class="other-option pull-right clearfix">
-                                                        <li><a style="color: red;" href="{{url('/client/report/'.$rent_room->rr_id)}}"><i class="fas fa-exclamation"></i></a></li>
-                                                    </ul>
                                                 </div>
                                             </div>
                                             <ul class="more-details clearfix">
@@ -226,6 +223,9 @@
                                                 <li><i class="icon-15"></i>{{$rent_room->bath_room}} phòng vệ sinh </li>
                                                 <li><i class="icon-16"></i>{{$rent_room -> acreage}}m²</li>
                                                 <div class="buy-btn pull-right"><a href="{{url('https://zalo.me/'.$rent_room->phone)}}">Nhắn Zalo</a></div>
+                                            </ul>
+                                            <ul class="other-option pull-right clearfix">
+                                                <li><a style="color: red;" href="{{url('/client/report/'.$rent_room->rr_id)}}"><i class="fas fa-exclamation"></i></a></li>
                                             </ul>
                                             <div class="btn-box"><a href="{{url('client/home/property-details/'.$rent_room->rr_id.'/'.$rent_room->cate_id)}}" class="theme-btn btn-one">Xem thông tin chi tiết</a></div>
 

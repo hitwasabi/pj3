@@ -119,7 +119,7 @@ class ClientController extends Controller
             ->join('users','users.id','=','rent_rooms.owner_id')
             ->where('rent_rooms.rr_id',"!=",$rr_id)
             ->where('categories.id' ,"=",$cate_name)
-            ->get()->take(3);
+            ->inRandomOrder()->get()->take(3);
         $room_key = 'rr_'.$rr_id;
         if (!Session::has($room_key)) {
             Rent_room::where('rr_id', $rr_id)->increment('interact');

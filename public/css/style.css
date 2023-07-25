@@ -2671,11 +2671,12 @@ div#mCSB_1_container{
   width: 100%;
   border-radius: 10px;
 }
-.deals-section .single-item .image-boxx more-details clearfix.image img{
+.deals-section .single-item .image-boxx .image img{
     height: 445px;
     width: 100%;
     border-radius: 10px;
 }
+
 .nav-style-one .owl-nav button{
   position: relative;
   display: inline-block;

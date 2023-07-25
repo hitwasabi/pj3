@@ -21,11 +21,8 @@
         <div class="content-body">
             <!-- row -->
             <div class="container-fluid">
-                <div class="offcanvas-header">
-                    <h5 class="modal-title" id="#gridSystemModal">Sửa bài báo</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h4 class="heading mb-0">Thêm bài báo</h4>
                 </div>
                 <form action="{{url('admin/postBlog')}}" method="POST" enctype="multipart/form-data">
                     @csrf

@@ -137,13 +137,13 @@
                                     <div class="image-box">
                                         <figure class="image"><img src="{{url('images/rooms/'.$rent_room->url)}}" alt=""></figure>
                                         <div class="batch"><i class="icon-11"></i></div>
-                                        <span class="category">Featured</span>
+                                        <span class="category">Đặc sắc</span>
                                     </div>
                                     <div class="lower-content">
                                         <div class="author-info clearfix">
                                             <div class="author pull-left">
                                                 <figure class="author-thumb"><img src="{{url('images/agents/'.$rent_room->user_image)}}" alt=""></figure>
-                                                <h6>{{$rent_room-> name}}</h6>
+                                                <h6><a href="{{url('/client/home/agents-details/'.$rent_room->owner_id)}}">{{$rent_room->name}}</a></h6>
                                             </div>
                                             <div class="buy-btn pull-right"><a href="#">Cho thuê</a></div>
                                         </div>
@@ -153,6 +153,9 @@
                                                 <h6>Giá khởi điểm</h6>
                                                 <h4>{{number_format($rent_room->prices, 0, '.', '.')}}<sup>đ</sup></h4>
                                             </div>
+                                            <ul class="other-option pull-right clearfix">
+                                                <li><a style="color: red;" href="{{url('/client/report/'.$rent_room->rr_id)}}"><i class="fas fa-exclamation"></i></a></li>
+                                            </ul>
                                         </div>
                                         <ul class="more-details clearfix">
                                             <li><i class="icon-14"></i>{{$rent_room->bed_room}} phòng ngủ</li>

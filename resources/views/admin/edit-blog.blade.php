@@ -23,9 +23,6 @@
             <div class="container-fluid">
                 <div class="offcanvas-header">
                     <h5 class="modal-title" id="#gridSystemModal">Sửa bài báo</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
                 </div>
                 <form action="{{url('admin/editBlog/'.$data->new_id)}}" method="POST" enctype="multipart/form-data">
                     @csrf

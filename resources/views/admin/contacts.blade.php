@@ -94,7 +94,7 @@
 													<span>{{$agent->money}}</span>
 												</td>
                                                 <td>
-                                                    <form action="{{url('admin/viewCharges/'.$agent->id)}}" method="POST">
+                                                    <form action="{{url('admin/viewCharges/'.$agent->id)}}" method="GET">
                                                         @csrf
                                                         <button class="btn btn-xs btn-outline-secondary" type="submit">Nạp tiền</button>
                                                     </form>
