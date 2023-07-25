@@ -217,9 +217,6 @@ class AdminController extends Controller
     }
 
     public function addBlog(Request $request){
-        $request->validate([
-            'new_image' => 'required'
-        ]);
         $image = time().'.'.$_FILES['new_image']['name'];
         $request->new_image->move(public_path('images/rooms'), $image);
         $info = $request->input('info');
