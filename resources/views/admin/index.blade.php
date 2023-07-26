@@ -235,7 +235,7 @@
                                                         title:{
                                                             text: "THỐNG KÊ BÀI ĐĂNG PHÒNG TRỌ",
                                                             fontFamily: "Bolder",
-                                                            horizontalAlign: "left"
+                                                            horizontalAlign: "center"
                                                         },
                                                         data: [{
                                                             type: "doughnut",
@@ -337,33 +337,64 @@
                     <div class="col-xl-3 t-earn">
                         <div class="card">
                             <div class="card-header border-0 pb-0">
-                                <h4 class="heading mb-0">Tổng số doanh thu</h4>
+                                <h4 style="color: green;" class="heading mb-0">Tổng số doanh thu:</h4>
                             </div>
                             <div class="card-body px-0 overflow-hidden">
                                 <div class="total-earning">
-                                    <h2>{{number_format($money, 0, '.', '.')}} đ</h2>
-                                    <ul class="nav nav-pills mb-3 earning-tab earning-chart" id="pills-tab1" role="tablist">
-                                        <li class="nav-item" role="presentation">
-                                            <button class="nav-link active" data-series="day" id="pills-day-tab1" data-bs-toggle="pill" data-bs-target="#pills-day1" type="button" role="tab" aria-selected="true">Day</button>
-                                        </li>
-                                        <li class="nav-item" role="presentation">
-                                            <button class="nav-link" id="pills-week-tab1" data-series="week" data-bs-toggle="pill" data-bs-target="#pills-week1" type="button" role="tab" aria-selected="false">Week</button>
-                                        </li>
-                                        <li class="nav-item" role="presentation">
-                                            <button class="nav-link" id="pills-month-tab1" data-series="month" data-bs-toggle="pill" data-bs-target="#pills-month1" type="button" role="tab" aria-selected="false">Month</button>
-                                        </li>
-                                        <li class="nav-item" role="presentation">
-                                            <button class="nav-link" id="pills-year-tab1" data-series="year" data-bs-toggle="pill" data-bs-target="#pills-year1" type="button" role="tab" aria-selected="false">Year</button>
-                                        </li>
-                                    </ul>
-                                    <div id="earningChart"></div>
+                                    <h2>{{number_format($money, 0, '.', '.')}} vnđ</h2>
                                 </div>
+                                <hr>
+                                <div class="card-header border-0 pb-0">
+                                    <h4 style="color: cornflowerblue;" class="heading mb-0">Tổng số lần khách hàng thực hiện giao dịch trên website:</h4>
+                                </div>
+                                <div class="card-body px-0 overflow-hidden">
+                                    <div class="total-earning">
+                                        <h2>{{$paid}}</h2>
+                                    </div>
+                                    <div class="card-header border-0 pb-0">
+                                        <h4 style="color: mediumorchid;" class="heading mb-0">Số gói VIP được thanh toán:</h4>
+                                    </div>
+                                    <div class="card-body px-0 overflow-hidden">
+                                        <div class="total-earning">
+                                            <h2>{{$vip}}</h2>
+                                        </div>
+                                        <div class="card-header border-0 pb-0">
+                                            <h4 style="color: orange" class="heading mb-0">Số gói Thường được thanh toán:</h4>
+                                        </div>
+                                        <div class="card-body px-0 overflow-hidden">
+                                            <div class="total-earning">
+                                                <h2>{{$normal}}</h2>
+                                            </div>
+                                    <hr>
+                                    <div class="card-header border-0 pb-0">
+                                        <h4 style="color: #0b4c44" class="heading mb-0">Lần giao dịch gần đây nhất được thực hiện vào ngày:</h4>
+                                    </div>
+                                    <div class="card-body px-0 overflow-hidden">
+                                        <div class="total-earning">
+                                            <h2>{{$pay->payment_time}}</h2>
+                                        </div>
+                                    </div>
+                                        </div>
+                                        <div class="card-header border-0 pb-0">
+                                            <h4 style="color: burlywood" class="heading mb-0">Khách hàng mua nhiều gói nhất:</h4>
+                                        </div>
+                                        <div class="card-body px-0 overflow-hidden">
+                                            <div class="total-earning">
+                                                <h3>{{$userMostBuy->name}}</h3>
+                                            </div>
+                                        </div>
+                                        <div class="card-header border-0 pb-0">
+                                            <h4 style="color: gray" class="heading mb-0">Khách hàng đăng nhiều bài nhất:</h4>
+                                        </div>
+                                        <div class="card-body px-0 overflow-hidden">
+                                            <div class="total-earning">
+                                                <h3>{{$userMostPost->name}}</h3>
+                                            </div>
+                                        </div>
+                                    </div>
+
                             </div>
                         </div>
-                    </div>
-
-                    <div class="col-xl-9 bst-seller">
-                    </div>
                 </div>
 
             </div>

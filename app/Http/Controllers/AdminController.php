@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\Payment_history;
 use App\Models\Rent_room;
+use App\Models\Report;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
@@ -49,7 +50,28 @@ class AdminController extends Controller
                 ->where('isAdmin', '=', 1)
                 ->where('level','=',1)
                 ->get()->count();
-            return view('admin/index', compact('rooms', 'money', 'user','vips','none','normals','rent_room','cancel_room','reports'));
+            $paid = Payment_history::all()->count();
+            $pay = DB::table('payment_histories')
+                ->orderBy('payment_id','DESC')
+                ->first();
+            $vip = DB::table('payment_histories')
+                ->where('payment_info','LIKE','Mua gói Vip')
+                ->count();
+            $mostBuy = Payment_history::select('user_id', DB::raw('count(*) as count'))
+                ->groupBy('user_id')
+                ->orderBy('count','DESC')
+                ->first();
+            $userMostBuy = User::findOrFail($mostBuy->user_id);
+            $mostPost = Rent_room::select('owner_id', DB::raw('count(*) as count'))
+                ->groupBy('owner_id')
+                ->orderBy('count','DESC')
+                ->first();
+            $userMostPost = User::findOrFail($mostPost->owner_id);
+            $normal = DB::table('payment_histories')
+                ->where('payment_info','LIKE','Mua gói thuờng')
+                ->count();
+            return view('admin/index', compact('rooms', 'money', 'userMostBuy', 'userMostPost',
+                'user','vips','none','normals','rent_room','cancel_room','reports','paid','pay','normal','vip'));
         }
     }
 

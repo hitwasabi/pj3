@@ -222,12 +222,12 @@
                                             <script>
                                                 window.onload = function () {
 
-                                                    var chart = new CanvasJS.Chart("chartContainer1", {
+                                                    var chart = new CanvasJS.Chart("chartContainer", {
                                                         animationEnabled: true,
                                                         title:{
                                                             text: "THỐNG KÊ BÀI ĐĂNG PHÒNG TRỌ",
                                                             fontFamily : "Bolder",
-                                                            horizontalAlign: "left"
+                                                            horizontalAlign: "center"
                                                         },
                                                         data: [{
                                                             type: "doughnut",
@@ -244,12 +244,11 @@
                                                         }]
                                                     });
                                                     chart.render();
-
                                                 }
                                             </script>
                                         </head>
                                         <body>
-                                        <div style="display: flex; justify-content: center; height: 370px; width: 100%;" id="chartContainer1"></div>
+                                        <div style="height: 370px; width: 100%;" id="chartContainer"></div>
                                         <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
                                         </body>
                                         </html>
@@ -309,19 +308,56 @@
                             <div class="card-body px-0 overflow-hidden">
                                 <div class="total-earning">
                                     <h2>{{$views}}</h2>
-                                    <h4 style="color: blue;" class="heading mb-0">Bài đăng đang có luợt xem cao nhất :  </h4>
-                                    <br>
-                                        <h5>Bài đăng số : <a href="{{url('/agents/ecom-product-detail/'.$mostView->rr_id)}}">{{$mostView->rr_id}}</a> </h5>
-                                    <hr>
-                                    <h4 style="color: red;" class="heading mb-0">Tổng số lần bài đăng của bạn bị báo cáo :  </h4>
-                                    <br>
-                                    <h2>{{$report->count()}}</h2>
+                                </div>
+                                <div class="card-header border-0 pb-0">
+                                    <h4 style="color: darkgreen;" class="heading mb-0">Bài đăng đang có luợt xem cao nhất:</h4>
+                                </div>
+                                <div class="card-body px-0 overflow-hidden">
+                                    <div class="total-earning">
+                                        <h4>Bài đăng số : <a href="{{url('/agents/ecom-product-detail/'.$mostView->rr_id)}}">{{$mostView->rr_id}}</a> </h4>
+                                    </div>
+                                    <div class="card-header border-0 pb-0">
+                                        <h4 style="color: gray;" class="heading mb-0">3 Bài đăng đang có luợt xem thấp nhất:</h4>
+                                    </div>
+                                    <div class="card-body px-0 overflow-hidden">
+                                        <div class="total-earning">
+                                            @foreach($lowView as $low)
+                                            <h4>Bài đăng số : <a href="{{url('/agents/ecom-product-detail/'.$low->rr_id)}}">{{$low->rr_id}}</a> </h4>
+                                            @endforeach
+                                        </div>
+                                <hr>
+                                        <div class="card-header border-0 pb-0">
+                                            <h4 style="color: red;" class="heading mb-0">Tổng số lần bài đăng của bạn bị báo cáo:</h4>
+                                        </div>
+                                        <div class="card-body px-0 overflow-hidden">
+                                            <div class="total-earning">
+                                                <h3>{{$report->count()}}</h3>
+                                            </div>
+                                            <div class="card-header border-0 pb-0">
+                                                <h4 style="color: indianred;" class="heading mb-0">Bài đăng đang bị báo cáo nhiều nhất:</h4>
+                                            </div>
+                                            <div class="card-body px-0 overflow-hidden">
+                                                <div class="total-earning">
+                                                    @foreach($mostReportRoom as $rPr)
+                                                    <h4>Bài đăng số : <a href="{{url('/agents/ecom-product-detail/'.$rPr->rr_id)}}">{{$rPr->rr_id}}</a> </h4>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                        </div>
 
-                                    <h4 style="color: orangered" class="heading mb-0">Bài đăng đang bị báo cáo nhiều nhất :  </h4>
-                                    <br>
-                                    @foreach($mostReportRoom as $rPr)
-                                        <h5>Bài đăng số : <a href="{{url('/agents/ecom-product-detail/'.$rPr->rr_id)}}">{{$rPr->rr_id}}</a> </h5>
-                                    @endforeach
+{{--                                    <h4 style="color: blue;" class="heading mb-0">Bài đăng đang có luợt xem cao nhất :  </h4>--}}
+{{--                                    <br>--}}
+{{--                                        <h5>Bài đăng số : <a href="{{url('/agents/ecom-product-detail/'.$mostView->rr_id)}}">{{$mostView->rr_id}}</a> </h5>--}}
+{{--                                    <hr>--}}
+{{--                                    <h4 style="color: red;" class="heading mb-0">Tổng số lần bài đăng của bạn bị báo cáo :  </h4>--}}
+{{--                                    <br>--}}
+{{--                                    <h2>{{$report->count()}}</h2>--}}
+
+{{--                                    <h4 style="color: orangered" class="heading mb-0">Bài đăng đang bị báo cáo nhiều nhất :  </h4>--}}
+{{--                                    <br>--}}
+{{--                                    @foreach($mostReportRoom as $rPr)--}}
+{{--                                        <h5>Bài đăng số : <a href="{{url('/agents/ecom-product-detail/'.$rPr->rr_id)}}">{{$rPr->rr_id}}</a> </h5>--}}
+{{--                                    @endforeach--}}
 {{--                                    <ul class="nav nav-pills mb-3 earning-tab earning-chart" id="pills-tab1" role="tablist">--}}
 {{--                                        <li class="nav-item" role="presentation">--}}
 {{--                                            <button class="nav-link active" data-series="day" id="pills-day-tab1" data-bs-toggle="pill" data-bs-target="#pills-day1" type="button" role="tab" aria-selected="true">Day</button>--}}
