@@ -87,7 +87,7 @@ class ClientController extends Controller
                 ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
                 ->join('users','users.id','=','rent_rooms.owner_id')
                 ->select('rent_rooms.*','rent_amounts.*','images.*','room_details.*','categories.*','users.*')
-                ->where('rent_rooms.status','=',0)->orderBy('users.level','DESC');
+                ->where('rent_rooms.status','=',0);
             $query->orderBy('rr_id','DESC');
             $collection = $query->paginate(4);
         }
@@ -255,7 +255,8 @@ class ClientController extends Controller
             ->join('users','users.id','=','rent_rooms.owner_id')
             ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','users.*')
             ->where('cate_name','=','Nhà riêng')
-            ->where('rent_rooms.status','=',0);
+            ->where('rent_rooms.status','=',0)
+            ->orderBy('users.level','DESC')->inRandomOrder();
         $collection = $query->paginate(4);
         if($request-> get('sort')=='price_asc'){
             $query->orderBy('room_details.prices');
