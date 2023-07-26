@@ -39,8 +39,8 @@
                                     <p>Cho thuê nhà bằng tình cảm</p>
                                 </div>
                                 <ul class="info clearfix mr-0">
-                                    <li><i class="fab fa fa-envelope"></i><a href="#">{{$users-> email}}</a></li>
-                                    <li><i class="fab fa fa-phone"></i><a href="#"> {{$users-> phone}}</a></li>
+                                    <li><i class="fab fa fa-envelope"></i><a>{{$users-> email}}</a></li>
+                                    <li><i class="fab fa fa-phone"></i><a> {{$users-> phone}}</a></li>
                                     <li><i class="far fa-comment"></i><a href="{{url('https://zalo.me/'.$users->phone)}}"> Nhắn tin zalo</a></li>
                                 </ul>
                             </div>

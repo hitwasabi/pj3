@@ -34,23 +34,20 @@
                         <div class="author-info clearfix">
                             <div class="author-box pull-left">
                                 <figure class="author-thumb"><img src="{{url('images/agents/'.$rent_room->user_image)}}" alt=""></figure>
-                                <h6>{{$rent_room->name}}</h6>
+                                <h6><a href="{{url('/client/home/agents-details/'.$rent_room->owner_id)}}">{{$rent_room->name}}</a></h6>
+                            </div>
+                            <div class="right-column">
+                                <div class="price-inner clearfix">
+                                    <ul class="category clearfix pull-left">
+                                        <li><a>{{$rent_room->cate_name}}</a></li>
+                                        <li><a>Cho thuê</a></li>
+                                    </ul>
+                                    <div class="price-box">
+                                        <h3>{{number_format($rent_room->prices, 0, '.', '.')}}<sup>đ</sup></h3>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="right-column pull-right clearfix">
-                        <div class="price-inner clearfix">
-                            <ul class="category clearfix pull-left">
-                                <li><a href="#">{{$rent_room->cate_name}}</a></li>
-                                <li><a href="#">Cho thuê</a></li>
-                            </ul>
-                            <div class="price-box pull-right">
-                                <h3>{{number_format($rent_room->prices, 0, '.', '.')}}<sup>đ</sup></h3>
-                            </div>
-                        </div>
-                        <ul class="pull-right ">
-                            <li><a >Liên hệ thuê phòng: {{$rent_room->phone}}</a></li>
-                        </ul>
                     </div>
                 </div>
                 <div class="row clearfix">
@@ -115,7 +112,7 @@
                                     <div class="inner">
                                         <h4>{{$rent_room->name}}</h4>
                                         <ul class="info clearfix">
-                                            <li><i class="fas fa-phone"></i><a href="tel:03030571965">{{$rent_room->phone}}</a></li>
+                                            <li><i class="fas fa-phone"></i><a>{{$rent_room->phone}}</a></li>
                                             <li><i class="far fa-comment"></i><a href="{{url('https://zalo.me/'.$rent_room->phone)}}"> Nhắn tin zalo</a></li>
                                         </ul>
                                         <div class="btn-box"><a href="{{url('/client/home/agents-details/'.$rent_room->owner_id)}}">Xem danh sách phòng </a></div>
