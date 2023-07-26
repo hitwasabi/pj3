@@ -20,8 +20,8 @@
         <div class="content-body">
 			<div class="page-titles">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="javascript:void(0)">Shop</a></li>
-						<li class="breadcrumb-item active"><a href="javascript:void(0)">Chi tiết phòng</a></li>
+						<li class="breadcrumb-item"><a href="javascript:void(0)">Chi tiết phòng trọ</a></li>
+
 					</ol>
                 </div>
             <div class="container-fluid mh-auto">
@@ -81,8 +81,13 @@
 												<div class="d-table mb-2">
 													<p class="price float-start d-block">{{number_format($rent_room->prices, 0, '.', '.')}}<sup>đ</sup></p>
                                                 </div>
-                                                <p>Tình trạng: <span class="item"> Chưa cho thuê<i
-                                                            class="fa fa-shopping-basket"></i></span>
+                                                <p>Tình trạng:
+                                                    <span class="item">
+                                                        @if($rent_room->status == 0)
+                                                        <i class="fa fa-shopping-basket"> Khả dụng</i></span>
+                                                    @else
+                                                        <i class="fa fa-shopping-basket"> Không khả dụng</i></span>
+                                                    @endif
                                                 </p>
                                                 <p>Diện tích: {{$rent_room -> acreage}} mét vuông</p>
                                                 <p>Số lượng người tối đa có thể ở: {{$rent_room->amounts}} người</p>

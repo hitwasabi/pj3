@@ -341,7 +341,7 @@
                             </div>
                             <div class="card-body px-0 overflow-hidden">
                                 <div class="total-earning">
-                                    <h2>{{number_format($money, 0, '.', '.')}} vnđ</h2>
+                                    <h3>{{number_format($money, 0, '.', '.')}} vnđ</h3>
                                 </div>
                                 <hr>
                                 <div class="card-header border-0 pb-0">
@@ -380,7 +380,7 @@
                                         </div>
                                         <div class="card-body px-0 overflow-hidden">
                                             <div class="total-earning">
-                                                <h3>{{$userMostBuy->name}}</h3>
+                                                <h3><a style="color: black" href="{{url('client/home/agents-details/'.$userMostBuy->id)}}">{{$userMostBuy->name}}</a></h3>
                                             </div>
                                         </div>
                                         <div class="card-header border-0 pb-0">
@@ -388,7 +388,7 @@
                                         </div>
                                         <div class="card-body px-0 overflow-hidden">
                                             <div class="total-earning">
-                                                <h3>{{$userMostPost->name}}</h3>
+                                                <h3><a style="color: black" href="{{url('client/home/agents-details/'.$userMostPost->id)}}">{{$userMostPost->name}}</a></h3>
                                             </div>
                                         </div>
                                     </div>
