@@ -13,6 +13,7 @@ use http\Client\Curl\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use mysql_xdevapi\Exception;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class AgentController extends Controller
@@ -76,19 +77,26 @@ class AgentController extends Controller
                 ->where('rent_rooms.status', '=', 0)
                 ->where('rent_rooms.owner_id', '=', Auth::user()->id)
                 ->select('reports.rpRoom_id')->get();
+
             $mostReport = Report::select('rpRoom_id', DB::raw('count(*) as count'))
                 ->join('rent_rooms','reports.rpRoom_id','=','rent_rooms.rr_id')
                 ->groupBy('rpRoom_id')
                 ->where('rent_rooms.owner_id', '=', Auth::user()->id)
                 ->orderBy('count','DESC')
                 ->first();
-            $mostReportRoom = DB::table('rent_rooms')
-                ->where('owner_id','=',Auth::user()->id)
-                ->where('rr_id','=',$mostReport->rpRoom_id)
-                ->get();
             $endDate = Carbon::parse($user->endDate)->toDateString();
-        return view('/agents/index',compact('views','all_room','rent_room', 'lowView',
-            'cancel_room','payment','endDate','reports','packs','charge','latest','report','mostReportRoom','mostView'));
+            if ($mostReport != null) {
+                $mostReportRoom = DB::table('rent_rooms')
+                    ->where('owner_id', '=', Auth::user()->id)
+                    ->where('rr_id', '=', $mostReport->rpRoom_id)
+                    ->get();
+                return view('/agents/index', compact('views', 'all_room', 'rent_room', 'lowView',
+                    'cancel_room', 'payment', 'endDate', 'reports', 'packs', 'charge', 'latest', 'report', 'mostReportRoom', 'mostView'));
+            }else{
+                $mostReportRoom = [];
+                return view('/agents/index', compact('views', 'all_room', 'rent_room', 'lowView',
+                    'cancel_room', 'payment', 'endDate', 'reports', 'packs', 'charge', 'latest', 'report', 'mostReportRoom','mostView'));
+            }
     }
 
     public function viewEcom_product_list(){
