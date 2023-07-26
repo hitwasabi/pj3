@@ -32136,7 +32136,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     display: block;
     color: #888888; }
   .author-profile .info-list li {
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: space-between;
     font-size: 15px;

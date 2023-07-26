@@ -58,9 +58,9 @@
 									</div>
 									<div class="info-list">
 										<ul>
-											<li><a href="#">Họ tên</a><span>{{\Illuminate\Support\Facades\Auth::user()->name}}</span></li>
-											<li><a href="#">Email</a><span>{{\Illuminate\Support\Facades\Auth::user()->email}}</span></li>
-											<li><a href="#">Số điện thoại</a><span>{{\Illuminate\Support\Facades\Auth::user()->phone}}</span></li>
+											<li><a href="#">Họ tên: </a><span>{{\Illuminate\Support\Facades\Auth::user()->name}}</span></li>
+											<li><a href="#">Email: </a><span>{{\Illuminate\Support\Facades\Auth::user()->email}}</span></li>
+											<li><a href="#">Số điện thoại: </a><span>{{\Illuminate\Support\Facades\Auth::user()->phone}}</span></li>
 										</ul>
 									</div>
 								</div>
