@@ -9,10 +9,10 @@
         <section class="page-title centred" style="background-image: url({{asset('images/background/page-title-5.jpg')}});">
             <div class="auto-container">
                 <div class="content-box clearfix">
-                    <h1>Blog Details</h1>
+                    <h1>Chi tiết tin tức</h1>
                     <ul class="bread-crumb clearfix">
                         <li><a href="{{url('/client/home')}}">Trang chủ</a></li>
-                        <li>{{$blog->new_name}}</li>
+                        <li>Chi tiết tin tức</li>
                     </ul>
                 </div>
             </div>
