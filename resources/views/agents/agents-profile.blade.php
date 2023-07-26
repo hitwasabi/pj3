@@ -69,7 +69,6 @@
                         </div>
                     </div>
                     <div class="col-xl-9">
-
                         <div class="card h-auto">
                             <div class="card-header py-3" >
                                 <h4 class="heading mb-0">Lịch sử thanh toán</h4>

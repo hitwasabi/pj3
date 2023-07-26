@@ -276,7 +276,11 @@ class AdminController extends Controller
             ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*',)
             ->where('rent_rooms.owner_id','=',$id)
             ->paginate(3);
-        return view('/admin/admin-profile',compact('user','datas','rent_rooms'));
+        $charges = DB::table('payment_histories')
+            ->where('payment_info','like','Nạp tiền vào tài khoản')
+            ->orderBy('payment_id','DESC')
+            ->get();
+        return view('/admin/admin-profile',compact('user','datas','rent_rooms','charges'));
     }
 
     public function viewCharges($id){

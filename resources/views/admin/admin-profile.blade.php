@@ -58,7 +58,7 @@
                                 </div>
                                 <span class="mt-3 d-block"></span>
                                 <div class="d-flex mt-4 justify-content-end">
-                                    <form action="{{url('/agents/edit-profile/'.\Illuminate\Support\Facades\Auth::user()->id)}}" method="GET">
+                                    <form action="{{url('/admin/edit-profile/'.\Illuminate\Support\Facades\Auth::user()->id)}}" method="GET">
                                         @csrf
                                         <button type="submit" class="modal-btn btn btn-primary btn-sm  ms-2 ">
                                             Sửa thông tin cá nhân
@@ -69,18 +69,11 @@
                         </div>
                     </div>
                     <div class="col-xl-9">
-                        <h4 class="heading">Cấp độ gói đang sở hữu :
-                            @if($user->level == 2)
-                                Thường
-                            @elseif($user->level == 3)
-                                VIP
-                            @else
-                                None
-                            @endif
-                        </h4>
                         <div class="card h-auto">
                             <div class="card-header py-3">
-                                <h4 class="heading mb-0">Lịch sử thanh toán</h4>
+                                <h4 class="heading mb-0">Lịch sử nạp tiền</h4>
+                                <h4 class="heading">
+                                </h4>
                             </div>
                             <div class="card-body p-0">
                                 <div class="table-responsive active-projects style-1">
@@ -95,23 +88,23 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        @if($datas->count() == null)
+                                        @if($charges->count() == null)
                                             <tr>
                                                 <td><span class="badge badge-success light border-0">Bạn chưa thực hiện thanh toán nên không có lịch sử</span></td>
                                             </tr>
                                         @else
-                                            @foreach($datas as $data)
+                                            @foreach($charges as $charge)
                                                 <tr>
-                                                    <td><span>#{{$data->payment_id}}</span></td>
+                                                    <td><span>#{{$charge->payment_id}}</span></td>
                                                     <td>
-                                                        <span>{{$data->payment_info}}</span>
+                                                        <span>{{$charge->payment_info}}</span>
                                                     </td>
                                                     <td><span class="badge badge-success light border-0">Đã hoàn thành</span></td>
                                                     <td>
-                                                        <span>{{$data->price}} đ</span>
+                                                        <span>{{$charge->price}} đ</span>
                                                     </td>
                                                     <td>
-                                                        <span>{{$data->payment_time}}</span>
+                                                        <span>{{$charge->payment_time}}</span>
                                                     </td>
                                                 </tr>
                                             @endforeach
