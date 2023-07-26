@@ -169,7 +169,7 @@
                             </div>
                             <div class="col-xl-12 col-sm-12">
                                 <div class="card chart-grd same-card">
-                                    <div class="card-body d-flex align-items-center  py-2">
+                                    <div class="card-body d-flex ">
 {{--                                        <div id="AllProject"></div>--}}
 {{--                                        <ul class="project-list">--}}
 {{--                                            <li><h6>All Projects</h6></li>--}}
@@ -206,12 +206,12 @@
                                                 <script>
                                                     window.onload = function () {
 
-                                                        var chart = new CanvasJS.Chart("chartContainer", {
+                                                        var chart = new CanvasJS.Chart("chartContainer1", {
                                                             animationEnabled: true,
                                                             title:{
                                                                 text: "THỐNG KÊ NGƯỜI DÙNG (100%)",
                                                                 fontFamily: "Bolder",
-                                                                horizontalAlign: "left"
+                                                                horizontalAlign: "center"
                                                             },
                                                             data: [{
                                                                 type: "doughnut",
@@ -231,7 +231,7 @@
 
 
 
-                                                        var chart1 = new CanvasJS.Chart("chartContainer1", {
+                                                        var chart1 = new CanvasJS.Chart("chartContainer2", {
                                                             animationEnabled: true,
                                                             title:{
                                                                 text: "THỐNG KÊ BÀI ĐĂNG PHÒNG TRỌ",
@@ -264,7 +264,7 @@
                                                 </style>
                                             </head>
                                             <body>
-                                            <div id="chartContainer" style="height: 370px; width: 100%;align-content: center">
+                                            <div id="chartContainer1" style="height: 370px; width: 100%;align-content: center">
                                             </div>
                                             <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
                                             </body>
@@ -282,7 +282,7 @@
                                         <head>
                                         </head>
                                         <body>
-                                        <div id="chartContainer1" style="height: 370px; width: 100%;"></div>
+                                        <div id="chartContainer2" style="height: 370px; width: 100%;"></div>
                                         <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
                                         </body>
                                         </html>

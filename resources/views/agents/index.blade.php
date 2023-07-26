@@ -222,7 +222,7 @@
                                             <script>
                                                 window.onload = function () {
 
-                                                    var chart = new CanvasJS.Chart("chartContainer", {
+                                                    var chart = new CanvasJS.Chart("chartContainer1", {
                                                         animationEnabled: true,
                                                         title:{
                                                             text: "THỐNG KÊ BÀI ĐĂNG PHÒNG TRỌ",
@@ -249,7 +249,7 @@
                                             </script>
                                         </head>
                                         <body>
-                                        <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+                                        <div style="display: flex; justify-content: center; height: 370px; width: 100%;" id="chartContainer1"></div>
                                         <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
                                         </body>
                                         </html>
