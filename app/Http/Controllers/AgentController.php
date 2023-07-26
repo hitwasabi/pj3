@@ -77,7 +77,9 @@ class AgentController extends Controller
                 ->where('rent_rooms.owner_id', '=', Auth::user()->id)
                 ->select('reports.rpRoom_id')->get();
             $mostReport = Report::select('rpRoom_id', DB::raw('count(*) as count'))
+                ->join('rent_rooms','reports.rpRoom_id','=','rent_rooms.rr_id')
                 ->groupBy('rpRoom_id')
+                ->where('rent_rooms.owner_id', '=', Auth::user()->id)
                 ->orderBy('count','DESC')
                 ->first();
             $mostReportRoom = DB::table('rent_rooms')
