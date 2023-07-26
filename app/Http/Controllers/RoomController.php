@@ -121,8 +121,7 @@ class RoomController extends Controller
             'city_id' => $city_id,
             'city_detailId' => $city_detailId,
             'street_id' => $street_id,
-            'info_detail' => $info_detail,
-            'room_date' => Carbon::now(),
+            'info_detail' => $info_detail
         ]);
         DB::table('room_details')->where('rentRoom_id','=',$rr_id)->update([
             'prices' => $prices,

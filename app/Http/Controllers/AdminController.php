@@ -178,6 +178,26 @@ class AdminController extends Controller
         return view('/admin/ecom-product-report', compact('rent_rooms'));
     }
 
+    public function show($rr_id){
+        $rent_room =DB::table('rent_rooms')
+            ->join('categories','categories.id','=','rent_rooms.cate_id')
+            ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
+            ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
+            ->join('cities','rent_rooms.city_id','=','cities.cities_id')
+            ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
+            ->join('streets','rent_rooms.street_id','=','streets.street_id')
+            ->select('rent_rooms.*','room_details.*','cities.*','city_details.*','streets.*','rent_amounts.*')->get()
+            ->where('rr_id',"=",$rr_id)->first();
+        $image = DB::table('images')->where('rentRoom_id',"=",$rr_id)->first();
+        $room_details = DB::table('room_details')->where('rentRoom_id',"=",$rr_id)->first();
+        $rent_rooms =DB::table('categories')
+            ->join('rent_rooms','categories.id','=','rent_rooms.cate_id')
+            ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
+            ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
+            ->where('rent_rooms.rr_id',"!=",$rr_id)
+            ->get();
+        return view('/admin/ecom-product-detail',compact('rent_rooms','image','room_details','rent_room'));
+    }
     public function viewEdit(){
         if (Auth::user()->isAdmin == 1){
             return redirect('agents/index');
@@ -236,11 +256,27 @@ class AdminController extends Controller
         return view('/admin/comfirm-product');
     }
 
-    public function viewAdminProfile(){
+    public function viewAdminProfile($id){
         if (Auth::user()->isAdmin == 1){
             return redirect('agents/index');
         }
-        return view('/admin/admin-profile');
+        $id = Auth::user()->id;
+        $user = \App\Models\User::findOrFail($id);
+        $datas = DB::table('payment_histories')
+            ->where('user_id','=',$id)
+            ->paginate(3);
+        $rent_rooms =DB::table('rent_rooms')
+            ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
+            ->join('images','images.rentRoom_id','=','rent_rooms.rr_id')
+            ->join('categories','categories.id','=','rent_rooms.cate_id')
+            ->join('room_details','room_details.rentRoom_id','=','rent_rooms.rr_id')
+            ->join('cities','rent_rooms.city_id','=','cities.cities_id')
+            ->join('city_details','rent_rooms.city_detailId','=','city_details.city_detailId')
+            ->join('streets','rent_rooms.street_id','=','streets.street_id')
+            ->select('rent_rooms.*','rent_amounts.*','images.url','room_details.*','categories.*','cities.*','city_details.*','streets.*',)
+            ->where('rent_rooms.owner_id','=',$id)
+            ->paginate(3);
+        return view('/admin/admin-profile',compact('user','datas','rent_rooms'));
     }
 
     public function viewCharges($id){
@@ -360,8 +396,7 @@ class AdminController extends Controller
             'city_id' => $city_id,
             'city_detailId' => $city_detailId,
             'street_id' => $street_id,
-            'info_detail' => $info_detail,
-            'room_date' => Carbon::now(),
+            'info_detail' => $info_detail
         ]);
         DB::table('room_details')->where('rentRoom_id','=',$rr_id)->update([
             'prices' => $prices,

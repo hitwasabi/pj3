@@ -61,7 +61,7 @@
                                                             <button class="btn btn-xs btn-outline-success" type="submit">Sửa thông tin</button>
                                                         </form>
                                                         @if($rent_room->status == 0)
-                                                            <form action="{{url('admin/hideRoom/'.$rent_room->rr_id)}}" method="POST">
+                                                            <form action="{{url('agents/hideRoom/'.$rent_room->rr_id)}}" method="POST">
                                                                 @csrf
                                                                 @method('PUT')
                                                                 <button class="btn btn-xs btn-outline-warning show-alert-hide-box" type="submit">Ẩn bài</button>
