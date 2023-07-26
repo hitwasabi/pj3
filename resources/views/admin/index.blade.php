@@ -65,7 +65,7 @@
                                     <div class="card-body depostit-card p-0">
                                         <div class="depostit-card-media d-flex justify-content-between pb-0">
                                             <div>
-                                                <h6>Tổng số bài đang đăng</h6>
+                                                <h6>Tổng số bài khả dụng</h6>
                                                 <h3>{{$rent_room}}</h3>
                                             </div>
                                             <div class="icon-box bg-danger-light">

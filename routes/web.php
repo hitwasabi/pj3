@@ -154,6 +154,7 @@ Route::get('/admin/edit-blog/{new_id}',[\App\Http\Controllers\AdminController::c
 Route::put('/admin/editBlog/{new_id}',[AdminController::class,'editBlog']);
 Route::get('/admin/contacts',[\App\Http\Controllers\AdminController::class,'viewContact']);
 Route::get('/admin/ecom-product-list',[\App\Http\Controllers\AdminController::class,'viewEcom_product_list']);
+Route::get('/admin/ecom-product-detail/{id}',[AdminController::class,'show']);
 Route::get('/admin/ecom-product-report',[\App\Http\Controllers\AdminController::class,'viewEcom_product_report']);
 Route::post('/admin/edit-profile/{id}',[AdminController::class,'edit']);
 
@@ -163,7 +164,7 @@ Route::get('/admin/edit-profile/{id}',[\App\Http\Controllers\AdminController::cl
 Route::get('/admin/payment-history',[AdminController::class,'viewPayment']);
 Route::get('/admin/customer-profile/{id}',[\App\Http\Controllers\AdminController::class,'viewEmployeeDetail']);
 Route::get('/admin/comfirm-product',[\App\Http\Controllers\AdminController::class,'comfirm']);
-Route::get('/admin/admin-profile',[\App\Http\Controllers\AdminController::class,'viewAdminProfile']);
+Route::get('/admin/admin-profile/{id}',[\App\Http\Controllers\AdminController::class,'viewAdminProfile']);
 Route::get('/admin/viewCharges/{id}',[AdminController::class,'viewCharges']);
 
 

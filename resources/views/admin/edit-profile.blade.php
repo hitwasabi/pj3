@@ -11,9 +11,9 @@
 ***********************************-->
     <div id="main-wrapper">
         @include('admin.preloader')
-        @include('agents.header')
+        @include('admin.header')
 
-        @include('agents.sidebar')
+        @include('admin.sidebar')
     <div class="content-body">
         <!-- row -->
         <div class="container-fluid">

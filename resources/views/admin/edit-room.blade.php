@@ -28,7 +28,7 @@
                             <i class="fa-solid fa-xmark"></i>
                         </button>
                     </div>
-                    <form action="{{url('/agents/edit-room/'.$rent_room->rr_id)}}" method="POST" enctype="multipart/form-data">
+                    <form action="{{url('/admin/edit-room/'.$rent_room->rr_id)}}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="offcanvas-body">
