@@ -43,7 +43,7 @@
                                                         <img src="{{url('images/agents/'.$blog->user_image)}}" class="avatar avatar-md" alt="">
                                                     @endif
                                                 </figure>
-                                                <h5><a href="{{url('client/home/agents-details/'.$blog->userPost_id)}}">{{$blog->name}}</a></h5>
+                                                <h5><a>{{$blog->name}}</a></h5>
                                             </li>
                                             <li>{{$blog->post_date}}</li>
                                         </ul>
