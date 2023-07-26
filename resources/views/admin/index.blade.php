@@ -81,7 +81,7 @@
                                     <div class="card-body depostit-card p-0">
                                         <div class="depostit-card-media d-flex justify-content-between pb-0">
                                             <div>
-                                                <h6>Tổng số bài đã hủy</h6>
+                                                <h6>Tổng số bài không khả dụng</h6>
                                                 <h3>{{$cancel_room}}</h3>
                                             </div>
                                             <div class="icon-box bg-danger-light">
@@ -209,7 +209,32 @@
                                                         var chart = new CanvasJS.Chart("chartContainer", {
                                                             animationEnabled: true,
                                                             title:{
-                                                                text: "THỐNG KÊ NGƯỜI DÙNG",
+                                                                text: "THỐNG KÊ NGƯỜI DÙNG (100%)",
+                                                                fontFamily: "Bolder",
+                                                                horizontalAlign: "left"
+                                                            },
+                                                            data: [{
+                                                                type: "doughnut",
+                                                                startAngle: 150,
+                                                                //innerRadius: 60,
+                                                                indexLabelFontSize: 16,
+                                                                indexLabel: "{label} - #percent%",
+                                                                toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+                                                                dataPoints: [
+                                                                    { y: {{(int)($vips)}}, label: "Người dùng VIP" },
+                                                                    { y: {{(int)($normals)}}, label: "Người dùng thường" },
+                                                                    { y: {{(int)($none)}}, label: "Người chưa mua gói" }
+
+                                                                ]
+                                                            }]
+                                                        });
+
+
+
+                                                        var chart1 = new CanvasJS.Chart("chartContainer1", {
+                                                            animationEnabled: true,
+                                                            title:{
+                                                                text: "THỐNG KÊ BÀI ĐĂNG PHÒNG TRỌ",
                                                                 fontFamily: "Bolder",
                                                                 horizontalAlign: "left"
                                                             },
@@ -218,24 +243,28 @@
                                                                 startAngle: 60,
                                                                 //innerRadius: 60,
                                                                 indexLabelFontSize: 17,
-                                                                indexLabel: "{label}",
+                                                                indexLabel: "{label} - #percent%",
                                                                 toolTipContent: "<b>{label}:</b> {y} (#percent%)",
                                                                 dataPoints: [
-                                                                    { y: {{(int)($vips)}}, label: "Người dùng VIP" },
-                                                                    { y: {{(int)($normals)}}, label: "Người dùng thường" },
-                                                                    { y: {{(int)($none)}}, label: "Người chưa mua gói" },
-
+                                                                    { y: {{(int)($rent_room)}}, label: "Số bài đăng khả dụng " },
+                                                                    { y: {{(int)($cancel_room)}}, label: "Số bài đăng không khả dụng" },
+                                                                    { y: {{(int)($reports->count())}}, label: "Số bài đăng bị báo cáo" }
                                                                 ]
                                                             }]
                                                         });
                                                         chart.render();
-
+                                                        chart1.render();
                                                     }
                                                 </script>
+                                                <style>
+                                                    #chartContainer {
+                                                        margin: 0 auto;
+                                                        align: center;
+                                                    }
+                                                </style>
                                             </head>
                                             <body>
-                                            <div id="chartContainer" style="height: 370px; width: 100%;">
-                                                HI
+                                            <div id="chartContainer" style="height: 370px; width: 100%;align-content: center">
                                             </div>
                                             <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
                                             </body>
@@ -248,52 +277,61 @@
                             <div class="col-xl-12 col-sm-12">
                                 <div class="card chart-grd same-card">
                                     <div class="card-body d-flex align-items-center  py-2">
+                                        <!DOCTYPE HTML>
+                                        <html>
+                                        <head>
+                                        </head>
+                                        <body>
+                                        <div id="chartContainer1" style="height: 370px; width: 100%;"></div>
+                                        <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+                                        </body>
+                                        </html>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-xl-12">
-                                <div class="card overflow-hidden">
-                                    <div class="card-header border-0 pb-0 flex-wrap">
-                                        <h4 class="heading mb-0">Projects Overview</h4>
-                                        <ul class="nav nav-pills mix-chart-tab" id="pills-tab" role="tablist">
-                                            <li class="nav-item" role="presentation">
-                                                <button class="nav-link active" data-series="week" id="pills-week-tab" data-bs-toggle="pill" data-bs-target="#pills-week" type="button" role="tab"  aria-selected="true">Week</button>
-                                            </li>
-                                            <li class="nav-item" role="presentation">
-                                                <button class="nav-link" data-series="month" id="pills-month-tab" data-bs-toggle="pill" data-bs-target="#pills-month" type="button" role="tab"  aria-selected="false">Month</button>
-                                            </li>
-                                            <li class="nav-item" role="presentation">
-                                                <button class="nav-link" data-series="year" id="pills-year-tab" data-bs-toggle="pill" data-bs-target="#pills-year" type="button" role="tab"  aria-selected="false">Year</button>
-                                            </li>
-                                            <li class="nav-item" role="presentation">
-                                                <button class="nav-link" data-series="all" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-selected="false">All</button>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="card-body  p-0">
-                                        <div id="overiewChart"></div>
-                                        <div class="ttl-project">
-                                            <div class="pr-data">
-                                                <h5>12,721</h5>
-                                                <span>Tổng số lượt xem</span>
-                                            </div>
-                                            <div class="pr-data">
-                                                <h5 class="text-primary">721</h5>
-                                                <span>Active Projects</span>
-                                            </div>
-                                            <div class="pr-data">
-                                                <h5>$2,50,523</h5>
-                                                <span>Revenue</span>
-                                            </div>
-                                            <div class="pr-data">
-                                                <h5 class="text-success">12,275h</h5>
-                                                <span>Working Hours</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+{{--                            <div class="col-xl-12">--}}
+{{--                                <div class="card overflow-hidden">--}}
+{{--                                    <div class="card-header border-0 pb-0 flex-wrap">--}}
+{{--                                        <h4 class="heading mb-0">Projects Overview</h4>--}}
+{{--                                        <ul class="nav nav-pills mix-chart-tab" id="pills-tab" role="tablist">--}}
+{{--                                            <li class="nav-item" role="presentation">--}}
+{{--                                                <button class="nav-link active" data-series="week" id="pills-week-tab" data-bs-toggle="pill" data-bs-target="#pills-week" type="button" role="tab"  aria-selected="true">Week</button>--}}
+{{--                                            </li>--}}
+{{--                                            <li class="nav-item" role="presentation">--}}
+{{--                                                <button class="nav-link" data-series="month" id="pills-month-tab" data-bs-toggle="pill" data-bs-target="#pills-month" type="button" role="tab"  aria-selected="false">Month</button>--}}
+{{--                                            </li>--}}
+{{--                                            <li class="nav-item" role="presentation">--}}
+{{--                                                <button class="nav-link" data-series="year" id="pills-year-tab" data-bs-toggle="pill" data-bs-target="#pills-year" type="button" role="tab"  aria-selected="false">Year</button>--}}
+{{--                                            </li>--}}
+{{--                                            <li class="nav-item" role="presentation">--}}
+{{--                                                <button class="nav-link" data-series="all" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-selected="false">All</button>--}}
+{{--                                            </li>--}}
+{{--                                        </ul>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="card-body  p-0">--}}
+{{--                                        <div id="overiewChart"></div>--}}
+{{--                                        <div class="ttl-project">--}}
+{{--                                            <div class="pr-data">--}}
+{{--                                                <h5>12,721</h5>--}}
+{{--                                                <span>Tổng số lượt xem</span>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="pr-data">--}}
+{{--                                                <h5 class="text-primary">721</h5>--}}
+{{--                                                <span>Active Projects</span>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="pr-data">--}}
+{{--                                                <h5>$2,50,523</h5>--}}
+{{--                                                <span>Revenue</span>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="pr-data">--}}
+{{--                                                <h5 class="text-success">12,275h</h5>--}}
+{{--                                                <span>Working Hours</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
 
                         </div>

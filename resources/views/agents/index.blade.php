@@ -213,73 +213,129 @@
                             </div>
                             </div>
 
-                            <div class="col-xl-12">
-                                <div class="card overflow-hidden">
-                                    <div class="card-header border-0 pb-0 flex-wrap">
-                                        <h4 class="heading mb-0">Projects Overview</h4>
-                                        <ul class="nav nav-pills mix-chart-tab" id="pills-tab" role="tablist">
-                                            <li class="nav-item" role="presentation">
-                                                <button class="nav-link active" data-series="week" id="pills-week-tab" data-bs-toggle="pill" data-bs-target="#pills-week" type="button" role="tab"  aria-selected="true">Week</button>
-                                            </li>
-                                            <li class="nav-item" role="presentation">
-                                                <button class="nav-link" data-series="month" id="pills-month-tab" data-bs-toggle="pill" data-bs-target="#pills-month" type="button" role="tab"  aria-selected="false">Month</button>
-                                            </li>
-                                            <li class="nav-item" role="presentation">
-                                                <button class="nav-link" data-series="year" id="pills-year-tab" data-bs-toggle="pill" data-bs-target="#pills-year" type="button" role="tab"  aria-selected="false">Year</button>
-                                            </li>
-                                            <li class="nav-item" role="presentation">
-                                                <button class="nav-link" data-series="all" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-selected="false">All</button>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="card-body  p-0">
-                                        <div id="overiewChart"></div>
-                                        <div class="ttl-project">
-                                            <div class="pr-data">
-                                                <h5>12,721</h5>
-                                                <span>Tổng số lượt xem</span>
-                                            </div>
-                                            <div class="pr-data">
-                                                <h5 class="text-primary">721</h5>
-                                                <span>Active Projects</span>
-                                            </div>
-                                            <div class="pr-data">
-                                                <h5>$2,50,523</h5>
-                                                <span>Revenue</span>
-                                            </div>
-                                            <div class="pr-data">
-                                                <h5 class="text-success">12,275h</h5>
-                                                <span>Working Hours</span>
-                                            </div>
-                                        </div>
+                            <div class="col-xl-12 col-sm-12">
+                                <div class="card">
+                                    <div class="card-body depostit-card">
+                                        <!DOCTYPE HTML>
+                                        <html>
+                                        <head>
+                                            <script>
+                                                window.onload = function () {
+
+                                                    var chart = new CanvasJS.Chart("chartContainer", {
+                                                        animationEnabled: true,
+                                                        title:{
+                                                            text: "THỐNG KÊ BÀI ĐĂNG PHÒNG TRỌ",
+                                                            fontFamily : "Bolder",
+                                                            horizontalAlign: "left"
+                                                        },
+                                                        data: [{
+                                                            type: "doughnut",
+                                                            startAngle: 60,
+                                                            //innerRadius: 60,
+                                                            indexLabelFontSize: 17,
+                                                            indexLabel: "{label} - #percent%",
+                                                            toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+                                                            dataPoints: [
+                                                                { y: {{$rent_room}}, label: "Số bài đăng khả dụng" },
+                                                                { y: {{$cancel_room}}, label: "Số bài đăng không khả dụng" },
+                                                                { y: {{$reports->count()}}, label: "Số bài bị báo cáo" }
+                                                            ]
+                                                        }]
+                                                    });
+                                                    chart.render();
+
+                                                }
+                                            </script>
+                                        </head>
+                                        <body>
+                                        <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+                                        <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+                                        </body>
+                                        </html>
                                     </div>
                                 </div>
                             </div>
+
+{{--                            <div class="col-xl-12">--}}
+{{--                                <div class="card overflow-hidden">--}}
+{{--                                    <div class="card-header border-0 pb-0 flex-wrap">--}}
+{{--                                        <h4 class="heading mb-0">Projects Overview</h4>--}}
+{{--                                        <ul class="nav nav-pills mix-chart-tab" id="pills-tab" role="tablist">--}}
+{{--                                            <li class="nav-item" role="presentation">--}}
+{{--                                                <button class="nav-link active" data-series="week" id="pills-week-tab" data-bs-toggle="pill" data-bs-target="#pills-week" type="button" role="tab"  aria-selected="true">Week</button>--}}
+{{--                                            </li>--}}
+{{--                                            <li class="nav-item" role="presentation">--}}
+{{--                                                <button class="nav-link" data-series="month" id="pills-month-tab" data-bs-toggle="pill" data-bs-target="#pills-month" type="button" role="tab"  aria-selected="false">Month</button>--}}
+{{--                                            </li>--}}
+{{--                                            <li class="nav-item" role="presentation">--}}
+{{--                                                <button class="nav-link" data-series="year" id="pills-year-tab" data-bs-toggle="pill" data-bs-target="#pills-year" type="button" role="tab"  aria-selected="false">Year</button>--}}
+{{--                                            </li>--}}
+{{--                                            <li class="nav-item" role="presentation">--}}
+{{--                                                <button class="nav-link" data-series="all" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button" role="tab" aria-selected="false">All</button>--}}
+{{--                                            </li>--}}
+{{--                                        </ul>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="card-body  p-0">--}}
+{{--                                        <div id="overiewChart"></div>--}}
+{{--                                        <div class="ttl-project">--}}
+{{--                                            <div class="pr-data">--}}
+{{--                                                <h5>12,721</h5>--}}
+{{--                                                <span>Tổng số lượt xem</span>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="pr-data">--}}
+{{--                                                <h5 class="text-primary">721</h5>--}}
+{{--                                                <span>Active Projects</span>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="pr-data">--}}
+{{--                                                <h5>$2,50,523</h5>--}}
+{{--                                                <span>Revenue</span>--}}
+{{--                                            </div>--}}
+{{--                                            <div class="pr-data">--}}
+{{--                                                <h5 class="text-success">12,275h</h5>--}}
+{{--                                                <span>Working Hours</span>--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
                         </div>
                     </div>
                     <div class="col-xl-3 t-earn">
                         <div class="card">
                             <div class="card-header border-0 pb-0">
-                                <h4 class="heading mb-0">Total Earning</h4>
+                                <h4 class="heading mb-0" style="color: cornflowerblue">Tổng số lượt xem các bài băng của bạn : </h4>
                             </div>
                             <div class="card-body px-0 overflow-hidden">
                                 <div class="total-earning">
-                                    <h2>$6,743.00</h2>
-                                    <ul class="nav nav-pills mb-3 earning-tab earning-chart" id="pills-tab1" role="tablist">
-                                        <li class="nav-item" role="presentation">
-                                            <button class="nav-link active" data-series="day" id="pills-day-tab1" data-bs-toggle="pill" data-bs-target="#pills-day1" type="button" role="tab" aria-selected="true">Day</button>
-                                        </li>
-                                        <li class="nav-item" role="presentation">
-                                            <button class="nav-link" id="pills-week-tab1" data-series="week" data-bs-toggle="pill" data-bs-target="#pills-week1" type="button" role="tab" aria-selected="false">Week</button>
-                                        </li>
-                                        <li class="nav-item" role="presentation">
-                                            <button class="nav-link" id="pills-month-tab1" data-series="month" data-bs-toggle="pill" data-bs-target="#pills-month1" type="button" role="tab" aria-selected="false">Month</button>
-                                        </li>
-                                        <li class="nav-item" role="presentation">
-                                            <button class="nav-link" id="pills-year-tab1" data-series="year" data-bs-toggle="pill" data-bs-target="#pills-year1" type="button" role="tab" aria-selected="false">Year</button>
-                                        </li>
-                                    </ul>
-                                    <div id="earningChart"></div>
+                                    <h2>{{$views}}</h2>
+                                    <h4 style="color: blue;" class="heading mb-0">Bài đăng đang có luợt xem cao nhất :  </h4>
+                                    <br>
+                                        <h5>Bài đăng số : <a href="{{url('/agents/ecom-product-detail/'.$mostView->rr_id)}}">{{$mostView->rr_id}}</a> </h5>
+                                    <hr>
+                                    <h4 style="color: red;" class="heading mb-0">Tổng số lần bài đăng của bạn bị báo cáo :  </h4>
+                                    <br>
+                                    <h2>{{$report->count()}}</h2>
+                                    
+                                    <h4 style="color: orangered" class="heading mb-0">Bài đăng đang bị báo cáo nhiều nhất  </h4>
+                                    <br>
+                                    @foreach($mostReportRoom as $rPr)
+                                        <h5>Bài đăng số : <a href="{{url('/agents/ecom-product-detail/'.$rPr->rr_id)}}">{{$rPr->rr_id}}</a> </h5>
+                                    @endforeach
+{{--                                    <ul class="nav nav-pills mb-3 earning-tab earning-chart" id="pills-tab1" role="tablist">--}}
+{{--                                        <li class="nav-item" role="presentation">--}}
+{{--                                            <button class="nav-link active" data-series="day" id="pills-day-tab1" data-bs-toggle="pill" data-bs-target="#pills-day1" type="button" role="tab" aria-selected="true">Day</button>--}}
+{{--                                        </li>--}}
+{{--                                        <li class="nav-item" role="presentation">--}}
+{{--                                            <button class="nav-link" id="pills-week-tab1" data-series="week" data-bs-toggle="pill" data-bs-target="#pills-week1" type="button" role="tab" aria-selected="false">Week</button>--}}
+{{--                                        </li>--}}
+{{--                                        <li class="nav-item" role="presentation">--}}
+{{--                                            <button class="nav-link" id="pills-month-tab1" data-series="month" data-bs-toggle="pill" data-bs-target="#pills-month1" type="button" role="tab" aria-selected="false">Month</button>--}}
+{{--                                        </li>--}}
+{{--                                        <li class="nav-item" role="presentation">--}}
+{{--                                            <button class="nav-link" id="pills-year-tab1" data-series="year" data-bs-toggle="pill" data-bs-target="#pills-year1" type="button" role="tab" aria-selected="false">Year</button>--}}
+{{--                                        </li>--}}
+{{--                                    </ul>--}}
                                 </div>
                             </div>
                         </div>

@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\City;
 use App\Models\City_detail;
 use App\Models\Payment_history;
+use App\Models\Report;
 use App\Models\Street;
 use Carbon\Carbon;
 use http\Client\Curl\User;
@@ -25,6 +26,15 @@ class AgentController extends Controller
                 ->select('rent_rooms.rr_id')
                 ->where('rent_rooms.owner_id', '=', Auth::user()->id)
                 ->count();
+            $views = DB::table('users')
+                ->join('rent_rooms', 'users.id', '=', 'rent_rooms.owner_id')
+                ->select('rent_rooms.rr_id')
+                ->where('rent_rooms.owner_id', '=', Auth::user()->id)
+                ->sum('interact');
+            $mostView = DB::table('rent_rooms')
+                ->where('rent_rooms.owner_id', '=', Auth::user()->id)
+                ->orderBy('interact','DESC')
+                ->first();
             $rent_room = DB::table('rent_rooms')
                 ->select('rr_id')
                 ->where('status', '=', 0)
@@ -53,8 +63,22 @@ class AgentController extends Controller
                 ->where('rent_rooms.status', '=', 0)
                 ->where('rent_rooms.owner_id', '=', Auth::user()->id)
                 ->select('reports.rpRoom_id')->distinct()->get();
+            $report = DB::table('rent_rooms')
+                ->join('reports','reports.rpRoom_id','=','rent_rooms.rr_id')
+                ->where('rent_rooms.status', '=', 0)
+                ->where('rent_rooms.owner_id', '=', Auth::user()->id)
+                ->select('reports.rpRoom_id')->get();
+            $mostReport = Report::select('rpRoom_id', DB::raw('count(*) as count'))
+                ->groupBy('rpRoom_id')
+                ->orderBy('count','DESC')
+                ->first();
+            $mostReportRoom = DB::table('rent_rooms')
+                ->where('owner_id','=',Auth::user()->id)
+                ->where('rr_id','=',$mostReport->rpRoom_id)
+                ->get();
             $endDate = Carbon::parse($user->endDate)->toDateString();
-        return view('/agents/index',compact('all_room','rent_room','cancel_room','payment','endDate','reports','packs','charge','latest'));
+        return view('/agents/index',compact('views','all_room','rent_room',
+            'cancel_room','payment','endDate','reports','packs','charge','latest','report','mostReportRoom','mostView'));
     }
 
     public function viewEcom_product_list(){
