@@ -198,78 +198,76 @@
 {{--                                                Not Start--}}
 {{--                                            </li>--}}
 {{--                                        </ul>--}}
-                                        <div>
-                                            <!DOCTYPE HTML>
-                                            <html>
+                                        <!DOCTYPE HTML>
+                                        <html>
 
-                                            <head>
-                                                <script>
-                                                    window.onload = function () {
+                                        <head>
+                                            <script>
+                                                window.onload = function () {
 
-                                                        var chart = new CanvasJS.Chart("chartContainer1", {
-                                                            animationEnabled: true,
-                                                            title:{
-                                                                text: "THỐNG KÊ NGƯỜI DÙNG (100%)",
-                                                                fontFamily: "Bolder",
-                                                                horizontalAlign: "center"
-                                                            },
-                                                            data: [{
-                                                                type: "doughnut",
-                                                                startAngle: 150,
-                                                                //innerRadius: 60,
-                                                                indexLabelFontSize: 16,
-                                                                indexLabel: "{label} - #percent%",
-                                                                toolTipContent: "<b>{label}:</b> {y} (#percent%)",
-                                                                dataPoints: [
-                                                                    { y: {{(int)($vips)}}, label: "Người dùng VIP" },
-                                                                    { y: {{(int)($normals)}}, label: "Người dùng thường" },
-                                                                    { y: {{(int)($none)}}, label: "Người chưa mua gói" }
+                                                    var chart = new CanvasJS.Chart("chartContainer1", {
+                                                        animationEnabled: true,
+                                                        title:{
+                                                            text: "THỐNG KÊ NGƯỜI DÙNG (100%)",
+                                                            fontFamily: "Bolder",
+                                                            horizontalAlign: "center"
+                                                        },
+                                                        data: [{
+                                                            type: "doughnut",
+                                                            startAngle: 150,
+                                                            //innerRadius: 60,
+                                                            indexLabelFontSize: 16,
+                                                            indexLabel: "{label} - #percent%",
+                                                            toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+                                                            dataPoints: [
+                                                                { y: {{(int)($vips)}}, label: "Người dùng VIP" },
+                                                                { y: {{(int)($normals)}}, label: "Người dùng thường" },
+                                                                { y: {{(int)($none)}}, label: "Người chưa mua gói" }
 
-                                                                ]
-                                                            }]
-                                                        });
-
+                                                            ]
+                                                        }]
+                                                    });
 
 
-                                                        var chart1 = new CanvasJS.Chart("chartContainer2", {
-                                                            animationEnabled: true,
-                                                            title:{
-                                                                text: "THỐNG KÊ BÀI ĐĂNG PHÒNG TRỌ",
-                                                                fontFamily: "Bolder",
-                                                                horizontalAlign: "left"
-                                                            },
-                                                            data: [{
-                                                                type: "doughnut",
-                                                                startAngle: 60,
-                                                                //innerRadius: 60,
-                                                                indexLabelFontSize: 17,
-                                                                indexLabel: "{label} - #percent%",
-                                                                toolTipContent: "<b>{label}:</b> {y} (#percent%)",
-                                                                dataPoints: [
-                                                                    { y: {{(int)($rent_room)}}, label: "Số bài đăng khả dụng " },
-                                                                    { y: {{(int)($cancel_room)}}, label: "Số bài đăng không khả dụng" },
-                                                                    { y: {{(int)($reports->count())}}, label: "Số bài đăng bị báo cáo" }
-                                                                ]
-                                                            }]
-                                                        });
-                                                        chart.render();
-                                                        chart1.render();
-                                                    }
-                                                </script>
-                                                <style>
-                                                    #chartContainer {
-                                                        margin: 0 auto;
-                                                        align: center;
-                                                    }
-                                                </style>
-                                            </head>
-                                            <body>
-                                            <div id="chartContainer1" style="height: 370px; width: 100%;align-content: center">
-                                            </div>
-                                            <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
-                                            </body>
-                                            </html>
+
+                                                    var chart1 = new CanvasJS.Chart("chartContainer2", {
+                                                        animationEnabled: true,
+                                                        title:{
+                                                            text: "THỐNG KÊ BÀI ĐĂNG PHÒNG TRỌ",
+                                                            fontFamily: "Bolder",
+                                                            horizontalAlign: "left"
+                                                        },
+                                                        data: [{
+                                                            type: "doughnut",
+                                                            startAngle: 60,
+                                                            //innerRadius: 60,
+                                                            indexLabelFontSize: 17,
+                                                            indexLabel: "{label} - #percent%",
+                                                            toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+                                                            dataPoints: [
+                                                                { y: {{(int)($rent_room)}}, label: "Số bài đăng khả dụng " },
+                                                                { y: {{(int)($cancel_room)}}, label: "Số bài đăng không khả dụng" },
+                                                                { y: {{(int)($reports->count())}}, label: "Số bài đăng bị báo cáo" }
+                                                            ]
+                                                        }]
+                                                    });
+                                                    chart.render();
+                                                    chart1.render();
+                                                }
+                                            </script>
+                                            <style>
+                                                #chartContainer1 {
+                                                    margin: 0 auto;
+                                                    align: center;
+                                                }
+                                            </style>
+                                        </head>
+                                        <body>
+                                        <div id="chartContainer1" style="height: 370px; width: 100%;">
                                         </div>
+                                        <script src="https://cdn.canvasjs.com/canvasjs.min.js"></script>
+                                        </body>
+                                        </html>
                                     </div>
                                 </div>
                             </div>
