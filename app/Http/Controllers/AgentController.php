@@ -35,6 +35,11 @@ class AgentController extends Controller
                 ->where('rent_rooms.owner_id', '=', Auth::user()->id)
                 ->orderBy('interact','DESC')
                 ->first();
+            $lowView = DB::table('rent_rooms')
+                ->where('rent_rooms.owner_id', '=', Auth::user()->id)
+                ->orderBy('interact','ASC')
+                ->select('*')
+                ->take(3)->get();
             $rent_room = DB::table('rent_rooms')
                 ->select('rr_id')
                 ->where('status', '=', 0)
@@ -77,7 +82,7 @@ class AgentController extends Controller
                 ->where('rr_id','=',$mostReport->rpRoom_id)
                 ->get();
             $endDate = Carbon::parse($user->endDate)->toDateString();
-        return view('/agents/index',compact('views','all_room','rent_room',
+        return view('/agents/index',compact('views','all_room','rent_room', 'lowView',
             'cancel_room','payment','endDate','reports','packs','charge','latest','report','mostReportRoom','mostView'));
     }
 

@@ -14,7 +14,7 @@ class RegisterController extends Controller
     }
     public function saveAccount(Request $request){
         $this->validate($request, [
-            'password' => 'required|confirmed|min:3'
+            'password' => 'required|confirmed|min:6'
         ]);
         $name = $request->get('name');
         $email =$request->get('email');
