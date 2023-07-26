@@ -110,8 +110,8 @@
                                             @endforeach
                                         @endif
                                         </tbody>
-
                                     </table>
+                                    {{$charges->appends(Request::all())->links("pagination::bootstrap-4")}}
                                 </div>
                             </div>
                         </div>

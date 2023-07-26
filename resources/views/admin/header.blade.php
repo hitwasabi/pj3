@@ -96,7 +96,7 @@
                     <li class="nav-item ps-3">
                         <div class="header-info2 d-flex align-items-center">
                             <div class="header-info">
-                                <h6>Sdt: 0858862720</h6>
+                                <h6>Sdt: {{\Illuminate\Support\Facades\Auth::user()->phone}}</h6>
                             </div>
 
                         </div>

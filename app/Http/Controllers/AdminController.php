@@ -279,7 +279,7 @@ class AdminController extends Controller
         $charges = DB::table('payment_histories')
             ->where('payment_info','like','Nạp tiền vào tài khoản')
             ->orderBy('payment_id','DESC')
-            ->get();
+            ->paginate(8);
         return view('/admin/admin-profile',compact('user','datas','rent_rooms','charges'));
     }
 
