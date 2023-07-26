@@ -79,7 +79,7 @@
                                 <div class="post-inner">
                                     @forelse($blogs as $blog)
                                     <div class="post">
-                                        <figure class="post-thumb"><a href="{{url('client/home/blog-details')}}"><img src="{{url('images/rooms/'.$blog->new_image)}}" alt=""></a></figure>
+                                        <figure class="post-thumb"><a href="{{url('client/home/blog-details/'.$blog->new_id)}}"><img src="{{url('images/rooms/'.$blog->new_image)}}" alt=""></a></figure>
                                         <h5><a href="{{url('client/home/blog-details/'.$blog->new_id)}}">{{$blog->new_name}}.</a></h5>
                                         <span class="post-date">{{$blog->post_date}}</span>
                                     </div>

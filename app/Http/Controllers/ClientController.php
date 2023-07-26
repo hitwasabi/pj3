@@ -722,6 +722,7 @@ class ClientController extends Controller
         $blogs =DB::table('blogs')
             ->join('users','users.id','=','blogs.userPost_id')
             ->select('users.*','blogs.*')
+            ->orderBy('blogs.post_date','DESC')
             ->paginate(5);
         $data = ['blogs'=>$blogs];
         //dd($data);
@@ -737,6 +738,7 @@ class ClientController extends Controller
             ->join('users','users.id','=','blogs.userPost_id')
             ->select('users.*','blogs.*')
             ->where('blogs.new_id',"!=",$new_id)
+            ->orderBy('blogs.post_date','DESC')
             ->get()->take(3);
         $data = ['blog'=>$blog,
             'blogs'=>$blogs];
