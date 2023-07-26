@@ -62,7 +62,10 @@ class AgentController extends Controller
                 ->where('payment_info','LIKE','Nạp tiền%')
                 ->get();
             $user = \App\Models\User::findOrFail(Auth::user()->id);
-            $latest = Payment_history::orderBy('payment_time','DESC')->first();
+            $latest = DB::table('payment_histories')
+            ->where('user_id','=',Auth::user()->id)
+            ->orderBy('payment_id','DESC')
+            ->first();
             $reports = DB::table('rent_rooms')
                 ->join('reports','reports.rpRoom_id','=','rent_rooms.rr_id')
                 ->where('rent_rooms.status', '=', 0)
@@ -231,6 +234,7 @@ class AgentController extends Controller
     public function viewAdd()
     {
         if (Auth::check() == false){
+            Alert::info('Xin lỗi','Bạn cần phải đăng nhập để thực hiện hành động này');
             return redirect('login');
         }
         $roomNum = DB::table('rent_rooms')

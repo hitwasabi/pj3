@@ -612,6 +612,14 @@ class ClientController extends Controller
         return response()->json($data);
     }
 
+    public function viewBuyPack(){
+        if (Auth::check() == false){
+            Alert::info('Xin lỗi','Bạn cần phải đăng nhập để thực hiện hành động này');
+            return redirect('login');
+        }
+        return view('client/pricing');
+    }
+
     public function buyPack(){
         if (Auth::check() == false){
             Alert::info('Xin lỗi','Bạn cần phải đăng nhập để thực hiện hành động này');

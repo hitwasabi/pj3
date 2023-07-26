@@ -57,9 +57,8 @@ Route::get('client/home/contact', function () {
 });
 
 //gia goi
-Route::get('client/home/pricing', function () {
-    return view('/client/pricing');
-});
+Route::get('client/home/pricing',[ClientController::class,'viewBuyPack']);
+
 
 
 //Xem cac phong o client

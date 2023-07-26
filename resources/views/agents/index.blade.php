@@ -159,7 +159,11 @@
                                         <div class="depostit-card-media d-flex justify-content-between style-1">
                                             <div>
                                                 <h6>Lần thanh toán gần nhất</h6>
+                                                @if($latest == null)
+                                                    <h3>Bạn chưa có lịch sử thanh toán</h3>
+                                                @else
                                                 <h3>{{$latest->payment_time}}</h3>
+                                                @endif
                                             </div>
                                             <div class="icon-box bg-primary-light">
                                                 <div class="fas fa-money-bill"></div>
@@ -314,16 +318,24 @@
                                 </div>
                                 <div class="card-body px-0 overflow-hidden">
                                     <div class="total-earning">
+                                        @if($mostView == null)
+                                            <h4>Chưa có dữ liệu</h4>
+                                        @else
                                         <h4>Bài đăng số : <a href="{{url('/agents/ecom-product-detail/'.$mostView->rr_id)}}">{{$mostView->rr_id}}</a> </h4>
+                                        @endif
                                     </div>
                                     <div class="card-header border-0 pb-0">
                                         <h4 style="color: gray;" class="heading mb-0">3 Bài đăng đang có luợt xem thấp nhất:</h4>
                                     </div>
                                     <div class="card-body px-0 overflow-hidden">
                                         <div class="total-earning">
+                                            @if($lowView == null)
+                                                <h4>Chưa có dữ liệu</h4>
+                                            @else
                                             @foreach($lowView as $low)
                                             <h4>Bài đăng số : <a href="{{url('/agents/ecom-product-detail/'.$low->rr_id)}}">{{$low->rr_id}}</a> </h4>
                                             @endforeach
+                                            @endif
                                         </div>
                                 <hr>
                                         <div class="card-header border-0 pb-0">
@@ -339,7 +351,12 @@
                                             <div class="card-body px-0 overflow-hidden">
                                                 <div class="total-earning">
                                                     @foreach($mostReportRoom as $rPr)
+                                                        @if($rPr->count() == null)
+                                                            <p>{{$rPr->count()}}</p>
+                                                            <h4>Chưa có dữ liệu</h4>
+                                                        @else
                                                     <h4>Bài đăng số : <a href="{{url('/agents/ecom-product-detail/'.$rPr->rr_id)}}">{{$rPr->rr_id}}</a> </h4>
+                                                        @endif
                                                     @endforeach
                                                 </div>
                                             </div>

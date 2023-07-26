@@ -89,7 +89,11 @@
                                             <span>Gói VIP</span>
                                         @endif
                                     </li>
-                                    <li>Ngày hết hạn: {{\Illuminate\Support\Carbon::parse($rent_room->room_date)->addDays(30)->toDateString()}}</li>
+                                    @if($rent_room->level == 2)
+                                    <li>Ngày hết hạn: {{\Illuminate\Support\Carbon::parse($rent_room->room_date)->addDays(5)->toDateString()}}</li>
+                                    @else
+                                        <li>Ngày hết hạn: {{\Illuminate\Support\Carbon::parse($rent_room->room_date)->addDays(10)->toDateString()}}</li>
+                                    @endif
                                     <li>Diện tích: <span>{{$rent_room -> acreage}} mét vuông</span></li>
                                 </ul>
                             </div>
