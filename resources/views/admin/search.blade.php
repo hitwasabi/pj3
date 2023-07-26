@@ -20,8 +20,7 @@
         <div class="content-body">
             <div class="page-titles">
                 <ol class="breadcrumb">
-                    <li class="breadcrumb-item "><a href="javascript:void(0)">Shop</a></li>
-                    <li class="breadcrumb-item active"><a href="javascript:void(0)">Product List</a></li>
+                    <li class="breadcrumb-item "><a href="javascript:void(0)">Kết quả tìm kiếm</a></li>
                 </ol>
             </div>
             <div class="input-group container-fluid mh-auto" >
@@ -33,7 +32,7 @@
             <div class="input-group container-fluid mh-auto" >
                 <h5>Kết quả tìm kiếm: @php
                         echo ($_GET['keyword_submit']);
-                    @endphp </h5>
+                    @endphp có {{ $search_product->total() }} kết quả</h5>
             </div>
             <div class="container-fluid mh-auto">
                 <div class="row">

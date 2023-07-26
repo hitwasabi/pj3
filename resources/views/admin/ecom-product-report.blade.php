@@ -24,8 +24,8 @@
                 </ol>
             </div>
             <div class="input-group container-fluid mh-auto" >
-                <form action="{{url('agents/search')}}" method="get" class="search-form">
-                    <form action="{{url('agents/search')}}" method="get" class="search-form">
+                <form action="{{url('admin/search')}}" method="get" class="search-form">
+                    <form action="{{url('admin/search')}}" method="get" class="search-form">
                         <i class="fas fa-search"></i>
                         <input type="search" name="keyword_submit" placeholder="Tìm kiếm...">
                     </form>
