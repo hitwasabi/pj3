@@ -57,6 +57,7 @@
                                 @endforeach
                                 </tbody>
                             </table>
+                            {{$payments->appends(Request::all())->links("pagination::bootstrap-4")}}
                         </div>
                     </div>
                 </div>

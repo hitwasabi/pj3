@@ -200,7 +200,8 @@ class AdminController extends Controller
         $payments = DB::table('payment_histories')
             ->join('users','users.id','=','payment_histories.user_id')
             ->select('payment_histories.*','users.*')
-            ->get();
+            ->orderBy('payment_id','DESC')
+            ->paginate(10);
         return view('/admin/payment-history',compact('payments'));
     }
 
