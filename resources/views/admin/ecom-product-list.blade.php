@@ -52,29 +52,25 @@
                                                  <p>ID phòng: <span class="item">{{$room->rr_id}}</span> </p>
                                                  </div>
                                                  <div class="row">
-                                                 <div class="col-sm">
+                                                     <div style="display: flex; justify-content: left; gap: 10px;">
                                                  <form action="{{url('/agents/edit-room/'.$room->rr_id)}}" method="GET">
                                                      @csrf
                                                      <button class="btn btn-xs btn-outline-success" type="submit">Sửa thông tin</button>
                                                  </form>
-                                                 </div>
                                                  @if($room->status == 0)
-                                                     <div class="col-sm">
-                                                     <form action="{{url('agents/hideRoom/'.$room->rr_id)}}" method="POST">
+                                                     <form action="{{url('admin/hideRoom/'.$room->rr_id)}}" method="POST">
                                                          @csrf
                                                          @method('PUT')
                                                          <button class="btn btn-xs btn-outline-warning show-alert-hide-box" type="submit">Ẩn bài</button>
                                                      </form>
-                                                     </div>
                                                  @else
-                                                     <div class="col-sm">
                                                      <form action="{{url('admin/adminShowRoom/'.$room->rr_id)}}" method="POST">
                                                          @csrf
                                                          @method('PUT')
                                                          <button class="btn btn-xs btn-outline-secondary show-alert-show-box" type="submit">Hiện lại bài</button>
                                                      </form>
-                                                     </div>
                                                  @endif
+                                                     </div>
                                                  </div>
                                              </div>
                                          </div>

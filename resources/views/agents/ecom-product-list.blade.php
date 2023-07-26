@@ -54,18 +54,20 @@
                                             <p class="price">{{number_format($rent_room->prices, 0, '.', '.')}}<sup>đ</sup></p>
                                             <p>Tình trạng: <span class="item">  <i class="fa fa-check-circle text-success"></i></span></p>
                                             <p>ID phòng: <span class="item">{{$rent_room->rr_id}}</span> </p>
-                                            <form action="{{url('/agents/edit-room/'.$rent_room->rr_id)}}" method="GET">
-                                                @csrf
-                                                <button type="submit">Sửa thông tin</button>
-                                            </form>
-                                            @if($rent_room->status == 0)
-                                            <form action="{{url('agents/hideRoom/'.$rent_room->rr_id)}}" method="POST">
-                                                @csrf
-                                                @method('PUT')
-                                                <button type="submit">Ẩn bài</button>
-                                            </form>
-                                            @else
-                                            @endif
+
+                                            <div style="display: flex; justify-content: left; gap: 10px;">
+                                                <form action="{{url('/agents/edit-room/'.$rent_room->rr_id)}}" method="GET">
+                                                    @csrf
+                                                    <button class="btn btn-xs btn-outline-success" type="submit">Sửa thông tin</button>
+                                                </form>
+                                                @if($rent_room->status == 0)
+                                                    <form action="{{url('agents/hideRoom/'.$rent_room->rr_id)}}" method="POST">
+                                                        @csrf
+                                                        @method('PUT')
+                                                        <button class="btn btn-xs btn-outline-warning show-alert-hide-box" type="submit">Ẩn bài</button>
+                                                    </form>
+                                                @endif
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -85,8 +87,30 @@
             Content body end
         ***********************************-->
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
         @include('admin.footer')
-
+        <script type="text/javascript">
+            $('.show-alert-hide-box').click(function(event){
+                var form =  $(this).closest("form");
+                var name = $(this).data("name");
+                event.preventDefault();
+                swal({
+                    title: "Bạn có chắc chắn muốn ẩn bài đăng này ? ",
+                    text: "",
+                    icon: "warning",
+                    type: "warning",
+                    buttons: ["Hủy","Chắc chắn"],
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#20d706',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((willDelete) => {
+                    if (willDelete) {
+                        form.submit();
+                    }
+                });
+            });
+        </script>
     </div>
 @endsection
 
