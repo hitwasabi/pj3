@@ -276,7 +276,7 @@ class AdminController extends Controller
             'info' => $info,
             'new_image' => $image,
             'new_name' => $new_name,
-            'post_date' => Carbon::today()
+            'post_date' => Carbon::now()
         ]);
         Alert::success('Đăng thành công', 'Bài viết của bạn đã được đăng lên');
         return redirect('admin/index');

@@ -351,7 +351,7 @@
                                             <div class="card-body px-0 overflow-hidden">
                                                 <div class="total-earning">
                                                     @foreach($mostReportRoom as $rPr)
-                                                        @if($rPr->count() == null)
+                                                        @if($rPr == null)
                                                             <p>{{$rPr->count()}}</p>
                                                             <h4>Chưa có dữ liệu</h4>
                                                         @else
