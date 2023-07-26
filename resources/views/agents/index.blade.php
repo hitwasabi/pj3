@@ -66,7 +66,7 @@
                                     <div class="card-body depostit-card p-0">
                                         <div class="depostit-card-media d-flex justify-content-between pb-0">
                                             <div>
-                                                <h6>Tổng số bài đang đăng</h6>
+                                                <h6>Tổng số bài đăng khả dụng</h6>
                                                 <h3>{{$rent_room}}</h3>
                                             </div>
                                             <div class="icon-box bg-danger-light">
@@ -82,7 +82,7 @@
                                     <div class="card-body depostit-card p-0">
                                         <div class="depostit-card-media d-flex justify-content-between pb-0">
                                             <div>
-                                                <h6>Tổng số bài đã hủy</h6>
+                                                <h6>Tổng số bài không khả dụng</h6>
                                                 <h3>{{$cancel_room}}</h3>
                                             </div>
                                             <div class="icon-box bg-danger-light">
@@ -351,12 +351,7 @@
                                             <div class="card-body px-0 overflow-hidden">
                                                 <div class="total-earning">
                                                     @foreach($mostReportRoom as $rPr)
-                                                        @if($rPr == null)
-                                                            <p>{{$rPr->count()}}</p>
-                                                            <h4>Chưa có dữ liệu</h4>
-                                                        @else
                                                     <h4>Bài đăng số : <a href="{{url('/agents/ecom-product-detail/'.$rPr->rr_id)}}">{{$rPr->rr_id}}</a> </h4>
-                                                        @endif
                                                     @endforeach
                                                 </div>
                                             </div>
