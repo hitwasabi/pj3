@@ -482,12 +482,12 @@ class ClientController extends Controller
             ->select('rent_rooms.*','users.level')->get();
         foreach ($rooms as $room){
             if($room->level == 2){
-                if(Carbon::today()->diffInDays($room->room_date) == 500){
+                if(Carbon::today()->diffInDays($room->room_date) >= 5){
                     $room->update(['status' => 1]);
                 }
             }
             if ($room->level == 3){
-                if(Carbon::today()->diffInDays($room->room_date) == 700){
+                if(Carbon::today()->diffInDays($room->room_date) >= 10){
                     $room->update(['status' => 1]);
                 }
             }
