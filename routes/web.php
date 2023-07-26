@@ -138,6 +138,9 @@ Route::get('/agents/agents-profile',[\App\Http\Controllers\AgentController::clas
 Route::put('/agents/edit-room/{rr_id}',[\App\Http\Controllers\RoomController::class,'editRoom']);
 Route::put('/agents/edit-profile/{id}',[AgentController::class,'editProfile']);
 
+Route::get('/admin/edit-room/{rr_id}',[\App\Http\Controllers\AdminController::class,'viewEditRoom']);
+Route::put('/admin/edit-room/{rr_id}',[\App\Http\Controllers\AdminController::class,'editRoom']);
+
 Route::post('/client/report/{rr_id}',[ClientController::class,'report']);
 
 

@@ -46,14 +46,14 @@
                                          <div class="row" >
                                              <div class="new-arrival-content position-relative">
                                                  <div>
-                                                 <h4><a href="{{'/agents/ecom-product-detail/'.$room->rr_id}}">{{$room->room_name}}</a></h4>
+                                                 <h4><a href="{{'/admin/ecom-product-detail/'.$room->rr_id}}">{{$room->room_name}}</a></h4>
                                                  <p class="price">{{number_format($room->prices, 0, '.', '.')}}<sup>đ</sup></p>
                                                  <p>Tình trạng: <span class="item">  <i class="fa fa-check-circle text-success"></i></span></p>
                                                  <p>ID phòng: <span class="item">{{$room->rr_id}}</span> </p>
                                                  </div>
                                                  <div class="row">
                                                      <div style="display: flex; justify-content: left; gap: 10px;">
-                                                 <form action="{{url('/agents/edit-room/'.$room->rr_id)}}" method="GET">
+                                                 <form action="{{url('/admin/edit-room/'.$room->rr_id)}}" method="GET">
                                                      @csrf
                                                      <button class="btn btn-xs btn-outline-success" type="submit">Sửa thông tin</button>
                                                  </form>

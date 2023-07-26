@@ -54,10 +54,21 @@
                                                 <p class="price">{{number_format($rent_room->prices, 0, '.', '.')}}<sup>đ</sup></p>
                                                 <p>Tình trạng: <span class="item">  <i class="fa fa-check-circle text-success"></i></span></p>
                                                 <p>ID phòng: <span class="item">{{$rent_room->rr_id}}</span> </p>
-                                                <form action="{{url('/agents/edit-room/'.$rent_room->rr_id)}}" method="GET">
-                                                    @csrf
-                                                    <button type="submit">Sửa thông tin</button>
-                                                </form>
+                                                <div class="row">
+                                                    <div style="display: flex; justify-content: left; gap: 10px;">
+                                                        <form action="{{url('/agents/edit-room/'.$rent_room->rr_id)}}" method="GET">
+                                                            @csrf
+                                                            <button class="btn btn-xs btn-outline-success" type="submit">Sửa thông tin</button>
+                                                        </form>
+                                                        @if($rent_room->status == 0)
+                                                            <form action="{{url('admin/hideRoom/'.$rent_room->rr_id)}}" method="POST">
+                                                                @csrf
+                                                                @method('PUT')
+                                                                <button class="btn btn-xs btn-outline-warning show-alert-hide-box" type="submit">Ẩn bài</button>
+                                                            </form>
+                                                        @endif
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
