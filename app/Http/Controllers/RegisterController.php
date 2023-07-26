@@ -29,7 +29,7 @@ class RegisterController extends Controller
             'isAdmin'=> 1,
             'level'=> 1
         ]);
-        dd($result);
+        //dd($result);
         if ($result != null) {
             Alert::success('Đăng ký thành công', 'Giờ bạn có thể đăng nhập và sử dụng trang web một cách tiện lợi');
             return redirect('login');

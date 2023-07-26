@@ -58,7 +58,7 @@
                                                 <input id="password" type="password" name="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                                                 @error('password')
                                                 <span class="invalid-feedback" role="alert">
-                                                    <i><strong>{{ "Mật khẩu chưa khớp" }}</strong></i></span>
+                                                    <i><strong>{{ "Mật khẩu chưa khớp hoặc bạn chưa điền đủ 6 ký tự" }}</strong></i></span>
                                                 @enderror
                                             </div>
                                             <div class="form-group">
