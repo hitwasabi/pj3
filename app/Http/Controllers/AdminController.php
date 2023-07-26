@@ -183,6 +183,7 @@ class AdminController extends Controller
             'phone' => $phone
         ]);
         Alert::info('Thành công','Thông tin của bạn đã được cập nhật');
+        return redirect('admin/index');
     }
 
     public function viewEmployeeDetail(){

@@ -17,9 +17,8 @@
     <div class="content-body">
         <!-- row -->
         <div class="container-fluid">
-            <form class="profile-form" action="{{url('/agents/edit-profile/'.\Illuminate\Support\Facades\Auth::id())}}" method="POST" enctype="multipart/form-data">
+            <form class="profile-form" action="{{url('/admin/edit-profile/'.\Illuminate\Support\Facades\Auth::id())}}" method="POST" enctype="multipart/form-data">
                 @csrf
-                @method('PUT')
                 <!-- row -->
                 <div class="row">
                     <div class="col-xl-3 col-lg-4">

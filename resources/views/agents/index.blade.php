@@ -316,8 +316,8 @@
                                     <h4 style="color: red;" class="heading mb-0">Tổng số lần bài đăng của bạn bị báo cáo :  </h4>
                                     <br>
                                     <h2>{{$report->count()}}</h2>
-                                    
-                                    <h4 style="color: orangered" class="heading mb-0">Bài đăng đang bị báo cáo nhiều nhất  </h4>
+
+                                    <h4 style="color: orangered" class="heading mb-0">Bài đăng đang bị báo cáo nhiều nhất :  </h4>
                                     <br>
                                     @foreach($mostReportRoom as $rPr)
                                         <h5>Bài đăng số : <a href="{{url('/agents/ecom-product-detail/'.$rPr->rr_id)}}">{{$rPr->rr_id}}</a> </h5>
