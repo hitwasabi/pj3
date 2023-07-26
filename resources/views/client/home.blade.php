@@ -53,7 +53,7 @@
                                                     </div>
                                                     <div class="col-lg-4 col-md-6 col-sm-12 column">
                                                         <div class="form-group">
-                                                            <label for="city_details">Quận , huyện</label>
+                                                            <label for="city_details">Quận, huyện</label>
                                                             <div class="select-box">
                                                                 <i class="far fa-compass"></i>
                                                                 <select class="wide" name="cities_details" id="state_dropdown" onchange="selectStreet()" >
@@ -64,7 +64,7 @@
                                                     </div>
                                                     <div class="col-lg-4 col-md-6 col-sm-12 column">
                                                         <div class="form-group">
-                                                            <label for="streets">Đường,phố</label>
+                                                            <label for="streets">Đường, phố</label>
                                                             <div class="select-box" >
                                                                 <i class="far fa-compass"></i>
                                                                 <select class="wide" name ="streets" id="city-dropdown">
