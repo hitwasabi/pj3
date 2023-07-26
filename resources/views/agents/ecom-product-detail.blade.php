@@ -82,11 +82,11 @@
 													<p class="price float-start d-block">{{number_format($rent_room->prices, 0, '.', '.')}}<sup>đ</sup></p>
                                                 </div>
                                                 <p>Tình trạng:
-                                                    <span class="item">
+                                                    <span>
                                                         @if($rent_room->status == 0)
-                                                        <i class="fa fa-shopping-basket"> Khả dụng</i></span>
+                                                            <a style="color: #00ff00;"> Khả dụng</a></span>
                                                     @else
-                                                        <i class="fa fa-shopping-basket"> Không khả dụng</i></span>
+                                                        <a style="color: #ff0000;">Không khả dụng</a></span>
                                                     @endif
                                                 </p>
                                                 <p>Diện tích: {{$rent_room -> acreage}} mét vuông</p>
