@@ -48,7 +48,7 @@
                                     <td><span>{{$payment->email}}</span></td>
                                     <td><span>{{$payment->phone}}</span></td>
                                     <td><span>{{$payment->payment_info}}</span></td>
-                                    <td><span>{{$payment->price}}</span></td>
+                                    <td><span>{{number_format($payment->price, 0, '.', '.')}} đ</span></td>
                                     <td><span class="badge badge-success light border-0">Thành công</span></td>
                                     <td>
                                         <span>{{$payment->payment_time}}</span>

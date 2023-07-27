@@ -91,7 +91,7 @@
                                                     </td>
                                                 @endif
 												<td>
-													<span>{{$agent->money}}</span>
+													<span>{{number_format($agent->money, 0, '.', '.')}} đ</span>
 												</td>
                                                 <td>
                                                     <form action="{{url('admin/viewCharges/'.$agent->id)}}" method="GET">

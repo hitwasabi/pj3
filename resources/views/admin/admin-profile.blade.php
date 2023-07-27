@@ -101,7 +101,7 @@
                                                     </td>
                                                     <td><span class="badge badge-success light border-0">Đã hoàn thành</span></td>
                                                     <td>
-                                                        <span>{{$charge->price}} đ</span>
+                                                        <span>{{number_format($charge->price, 0, '.', '.')}} đ</span>
                                                     </td>
                                                     <td>
                                                         <span>{{$charge->payment_time}}</span>

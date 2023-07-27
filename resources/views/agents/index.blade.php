@@ -179,7 +179,7 @@
                                     <div class="depostit-card-media d-flex justify-content-between style-1">
                                         <div>
                                             <h6>Số dư tài khoản</h6>
-                                            <h3>{{\Illuminate\Support\Facades\Auth::user()->money}} đ</h3>
+                                            <h3>{{number_format(\Illuminate\Support\Facades\Auth::user()->money, 0, '.', '.')}} đ</h3>
                                         </div>
                                         <div>
                                             <h6>Cấp độ tài khoản của bạn</h6>

@@ -49,7 +49,7 @@
                                     </td>
                                     <td><span class="badge badge-success light border-0">Đã hoàn thành</span></td>
                                     <td>
-                                        <span>{{$data->price}} đ</span>
+                                        <span>{{number_format($data->price, 0, '.', '.')}} đ</span>
                                     </td>
                                     <td>
                                         <span>{{$data->payment_time}}</span>
