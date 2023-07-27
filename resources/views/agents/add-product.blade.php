@@ -126,7 +126,7 @@
                                     </div>
                                     <div class="col-xl-6 mb-3">
                                         <label class="form-label">Diện tích phòng trọ<span class="text-danger">(mét vuông)</span></label>
-                                        <input type="text" class="form-control" id="room_name" name="acreage" placeholder="Nhập diện tích phòng trọ..." required>
+                                        <input type="text" class="form-control" id="room_name" min="10" name="acreage" placeholder="Nhập diện tích phòng trọ..." required>
                                     </div>
                                     <div class="col-xl-12 mb-3">
                                         <label class="form-label">Địa chỉ chi tiết<span class="text-danger"></span></label>
