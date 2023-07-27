@@ -222,6 +222,7 @@ class AgentController extends Controller
         $user = \App\Models\User::findOrFail($id);
         $datas = DB::table('payment_histories')
             ->where('user_id','=',$id)
+            ->orderBy('payment_id','DESC')
             ->paginate(3);
         $rent_rooms =DB::table('rent_rooms')
             ->join('rent_amounts','rent_amounts.ram_id','=','rent_rooms.rent_amountId')
