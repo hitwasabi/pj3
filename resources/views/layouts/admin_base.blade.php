@@ -19,7 +19,7 @@
     <!-- PAGE TITLE HERE -->
     <title>@yield("title","Untiled")</title>
     <!-- FAVICONS ICON -->
-    <link rel="shortcut icon" type="image/png" href="{{asset('admin/images/favicon.png')}}">
+    <link rel="shortcut icon" type="image/png" href="{{asset('images/Layer 3.png')}}">
 
     <link href="{{asset('admin/vendor/bootstrap-select/dist/css/bootstrap-select.min.css')}}" rel="stylesheet">
     <link href="{{asset('admin/vendor/swiper/css/swiper-bundle.min.css')}}" rel="stylesheet">

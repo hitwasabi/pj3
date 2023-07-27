@@ -12,7 +12,7 @@
             </div>
             <div class="right-column pull-right">
                 <ul class="social-links clearfix">
-                    <li><a href="https://www.facebook.com/Nhoctuthuoc/"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="https://www.facebook.com/ChipHomeeee/"><i class="fab fa-facebook-f"></i></a></li>
                     <li><a href="https://www.instagram.com/hitwasabi/"><i class="fab fa-instagram"></i></a></li>
                 </ul>
                 @if(\Illuminate\Support\Facades\Auth::check() == false)
